@@ -5,126 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat and Chill</title>
     <style>
-        /* Reset */
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #fdfcff, #d3eaff);
-            overflow: hidden;
-        }
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('Asset/Background.png');
+    background-size: cover; /* Pastikan gambar latar belakang menutupi seluruh layar */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Keep the background fixed while scrolling */
+    overflow: hidden;
+    flex-direction: column; /* Make the layout vertical for small screens */
+}
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            position: relative;
-        }
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
 
-        h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2b2b2b;
-            margin: 0 0 10px;
-        }
+h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #434982;
+    margin: 0 0 20px 10px;
+    transform: rotate(-3.5deg); /* Rotate slightly upwards */
 
-        h2 {
-            font-size: 1rem;
-            font-weight: normal;
-            color: #f2a65a;
-            margin: 0 0 20px;
-        }
+}
 
-        p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
+h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #f2a65a;
+    margin: 0 0 20px;
+    transform: rotate(2.5deg);
+}
 
-        .start-btn {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.3s ease;
-        }
+p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
 
-        .start-btn:hover {
-            background: #0056b3;
-            transform: translateY(-3px);
-        }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+.start-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    margin-top: 40px; /* Add margin-top to create space below the icons */
+}
 
-        .icon {
-            width: 50px;
-            height: 50px;
-        }
+.start-btn:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+}
 
-        /* Dekorasi Gambar */
-        .dekor-pinggiran {
-            position: absolute;
-            width: 40%;
-        }
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    position: relative;
+}
 
-        .dekorasi {
-            position: absolute;
-            width: 30%;
-        }
+.icon-calender, .icon-magnifier, .icon-clock, .icon-airplane {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
 
-        /* Posisi Dekorasi */
-        .dekor-pinggiran-top-right {
-            top: 0;
-            right: 0;
-        }
+.icon-calender {
+    top: -100px; /* Position above the button */
+    left: 30px; /* Adjust the left margin to 15px */
+}
 
-        .dekor-pinggiran-bottom-left {
-            bottom: 0;
-            left: 0;
-            transform: rotate(180deg); /* Membalikkan gambar */
-        }
+.icon-magnifier {
+    top: -100px; /* Position above the button */
+    right: 10%;
+}
 
-        .dekorasi-top-left {
-            top: 0;
-            left: 0;
-        }
+.icon-airplane {
+    top: -160px; /* Position above "Talking about" */
+    left: 50%;
+    transform: translateX(240%) rotate(-35deg); /* Add rotation of 50 degrees */
+}
 
-        .dekorasi-bottom-right {
-            bottom: 0;
-            right: 0;
-            transform: rotate(180deg); /* Membalikkan gambar */
-        }
 
-        /* Responsive */
-        @media (max-width: 500px) {
-            h1 {
-                font-size: 1.5rem;
-            }
+.icon-clock {
+    top: 10%;
+    right: 5%;
+}
 
-            h2 {
-                font-size: 1rem;
-            }
+.icon-jangka {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-            p {
-                font-size: 0.8rem;
-            }
-        }
+/* Dekorasi Gambar */
+.dekor-pinggiran {
+    position: absolute;
+    width: 40%;
+}
+
+.dekorasi {
+    position: absolute;
+    width: 30%;
+}
+
+/* Posisi Dekorasi */
+.dekor-pinggiran-top-right {
+    top: 0;
+    right: 0;
+}
+
+.dekor-pinggiran-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg); /* Membalikkan gambar */
+}
+
+.dekorasi-top-left {
+    top: 0;
+    left: 0;
+}
+
+.dekorasi-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg); /* Membalikkan gambar */
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -133,10 +169,14 @@
         <h2>Information Communication at School</h2>
         <p>Talking about class schedules and school subjects</p>
 
+        <!-- Start Learning Button -->
+        <a href="#" class="start-btn">Start Learning</a>
+
         <div class="icon-container">
-            <img class="icon" src="calendar-icon.png" alt="Calendar Icon">
-            <img class="icon" src="magnifier-icon.png" alt="Magnifier Icon">
-            <img class="icon" src="clock-icon.png" alt="Clock Icon">
+            <img class="icon-calender" src="Asset/Kalender.png" alt="Calendar Icon">
+            <img class="icon-magnifier" src="Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+            <img class="icon-clock" src="Asset/Jam.png" alt="Clock Icon">
+            <img class="icon-airplane" src="Asset/pesawat.png" alt="Airplane Icon">
         </div>
     </div>
 
