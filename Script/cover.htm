@@ -6,160 +6,158 @@
     <title>Chat and Chill</title>
     <style>
         body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('Asset/Background.png');
-    background-size: cover; /* Pastikan gambar latar belakang menutupi seluruh layar */
-    background-position: center; /* Center the background image */
-    background-attachment: fixed; /* Optional: Keep the background fixed while scrolling */
-    overflow: hidden;
-    flex-direction: column; /* Make the layout vertical for small screens */
-}
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('Asset/Background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+            flex-direction: column;
+        }
 
-.container {
-    text-align: center;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-}
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
 
-h1 {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #434982;
-    margin: 0 0 20px 10px;
-    transform: rotate(-3.5deg); /* Rotate slightly upwards */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #434982;
+            margin: 0 0 20px 10px;
+            transform: rotate(-3.5deg);
+        }
 
-}
+        h2 {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #f2a65a;
+            margin: 0 0 20px;
+            transform: rotate(2.5deg);
+        }
 
-h2 {
-    font-size: 1rem;
-    font-weight: normal;
-    color: #f2a65a;
-    margin: 0 0 20px;
-    transform: rotate(2.5deg);
-}
+        p {
+            font-size: 0.9rem;
+            color: #3b2a50;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            text-align: center; /* Ensures the text is aligned in the center */
+        }
 
-p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 20px;
-}
+        .start-btn {
+            display: inline-block;
+            background: linear-gradient(15deg, #5db1e6, #414886);
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+            margin-top: 40px;
+        }
 
+        .start-btn:active {
+            background-color: ;
+        }
 
-.start-btn {
-    display: inline-block;
-    background: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
-    margin-top: 40px; /* Add margin-top to create space below the icons */
-}
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            position: relative;
+        }
 
-.start-btn:hover {
-    background: #0056b3;
-    transform: translateY(-3px);
-}
+        .icon-calender, .icon-magnifier, .icon-clock, .icon-airplane {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
 
-.icon-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-    position: relative;
-}
+        .icon-calender {
+            top: -100px;
+            left: 30px;
+        }
 
-.icon-calender, .icon-magnifier, .icon-clock, .icon-airplane {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-}
+        .icon-magnifier {
+            top: -100px;
+            right: 10%;
+        }
 
-.icon-calender {
-    top: -100px; /* Position above the button */
-    left: 30px; /* Adjust the left margin to 15px */
-}
+        .icon-airplane {
+            top: -160px;
+            left: 50%;
+            transform: translateX(240%) rotate(-35deg);
+        }
 
-.icon-magnifier {
-    top: -100px; /* Position above the button */
-    right: 10%;
-}
+        .icon-clock {
+            top: 10%;
+            right: 5%;
+        }
 
-.icon-airplane {
-    top: -160px; /* Position above "Talking about" */
-    left: 50%;
-    transform: translateX(240%) rotate(-35deg); /* Add rotation of 50 degrees */
-}
+        .icon-jangka {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
+        .dekor-pinggiran {
+            position: absolute;
+            width: 40%;
+        }
 
-.icon-clock {
-    top: 10%;
-    right: 5%;
-}
+        .dekorasi {
+            position: absolute;
+            width: 30%;
+        }
 
-.icon-jangka {
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-}
+        .dekor-pinggiran-top-right {
+            top: 0;
+            right: 0;
+        }
 
-/* Dekorasi Gambar */
-.dekor-pinggiran {
-    position: absolute;
-    width: 40%;
-}
+        .dekor-pinggiran-bottom-left {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
 
-.dekorasi {
-    position: absolute;
-    width: 30%;
-}
+        .dekorasi-top-left {
+            top: 0;
+            left: 0;
+        }
 
-/* Posisi Dekorasi */
-.dekor-pinggiran-top-right {
-    top: 0;
-    right: 0;
-}
+        .dekorasi-bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
 
-.dekor-pinggiran-bottom-left {
-    bottom: 0;
-    left: 0;
-    transform: rotate(180deg); /* Membalikkan gambar */
-}
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.5rem;
+            }
 
-.dekorasi-top-left {
-    top: 0;
-    left: 0;
-}
+            h2 {
+                font-size: 1rem;
+            }
 
-.dekorasi-bottom-right {
-    bottom: 0;
-    right: 0;
-    transform: rotate(180deg); /* Membalikkan gambar */
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1rem;
-    }
-
-    p {
-        font-size: 0.8rem;
-    }
-}
+            p {
+                font-size: 0.8rem;
+                width: 60%;
+            }
+        }
 
     </style>
 </head>
