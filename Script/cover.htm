@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,9 @@
             background-image: url('Asset/Background.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             overflow: hidden;
             flex-direction: column;
+            position: relative; /* Tambahkan properti ini */
         }
 
         .container {
@@ -49,9 +50,12 @@
             color: #3b2a50;
             margin-bottom: 20px;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            text-align: center; /* Ensures the text is aligned in the center */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            text-align: center;
+            /* Ensures the text is aligned in the center */
         }
 
         .start-btn {
@@ -79,7 +83,10 @@
             position: relative;
         }
 
-        .icon-calender, .icon-magnifier, .icon-clock, .icon-airplane {
+        .icon-calender,
+        .icon-magnifier,
+        .icon-clock,
+        .icon-airplane {
             width: 50px;
             height: 50px;
             position: absolute;
@@ -119,7 +126,7 @@
 
         .dekorasi {
             position: absolute;
-            width: 30%;
+            width: 50%;
         }
 
         .dekor-pinggiran-top-right {
@@ -136,12 +143,16 @@
         .dekorasi-top-left {
             top: 0;
             left: 0;
+            transform: none;
+            /* Hilangkan rotasi */
         }
+
 
         .dekorasi-bottom-right {
             bottom: 0;
             right: 0;
-            transform: rotate(180deg);
+            transform: none;
+            transform: rotate(180deg); 
         }
 
         @media (max-width: 500px) {
@@ -157,10 +168,23 @@
                 font-size: 0.8rem;
                 width: 60%;
             }
+
+            .dekorasi-top-left {
+            top: 0;
+            left: 0;
         }
 
+
+        .dekorasi-bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: none;
+            transform: rotate(180deg); 
+        }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Let's Chat and Chill</h1>
@@ -184,4 +208,5 @@
     <img src="Asset/dekorasi.png" alt="Dekorasi" class="dekorasi dekorasi-top-left">
     <img src="Asset/dekorasi.png" alt="Dekorasi" class="dekorasi dekorasi-bottom-right">
 </body>
+
 </html>
