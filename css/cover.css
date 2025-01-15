@@ -8,7 +8,7 @@ body {
     background-image: url('Asset/Background.png');
     background-size: cover;
     background-position: center;
-     background-attachment: fixed;
+    background-attachment: fixed;
     overflow: hidden;
 
 }
@@ -28,6 +28,7 @@ h1 {
     color: #434982;
     margin: 0 0 20px 10px;
     transform: rotate(-3.5deg);
+    animation: fadeIn 1s ease-out forwards;
 }
 
 h2 {
@@ -36,6 +37,7 @@ h2 {
     color: #f2a65a;
     margin: 0 0 20px;
     transform: rotate(2.5deg);
+    animation: fadeUp 1.2s ease-out forwards;
 }
 
 p {
@@ -47,6 +49,7 @@ p {
     justify-content: center;
     align-items: center;
     text-align: center;
+    animation: fadeOn 1.4s ease-out forwards;
 }
 
 .start-btn {
@@ -121,6 +124,8 @@ p {
 .icon-magnifier {
     top: -120px;
     right: 10%;
+/* Copy code to element you want to animate */
+animation: icon-magnifier 10s ease 1s infinite normal none;
 }
 
 .icon-airplane {
@@ -171,8 +176,102 @@ p {
     transform: rotate(180deg);
 }
 
-/* Animasi Global */
+@keyframes icon-magnifier {
+    0%,
+    100% {
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+    }
+  
+    10% {
+      transform: rotate(8deg);
+    }
+  
+    20%,
+    40%,
+    60% {
+      transform: rotate(-10deg);
+    }
+  
+    30%,
+    50%,
+    70% {
+      transform: rotate(10deg);
+    }
+  
+    80% {
+      transform: rotate(-8deg);
+    }
+  
+    90% {
+      transform: rotate(8deg);
+    }
+  }
+      0%,
+    100% {
+      transform: rotate(0deg);
+      transform-origin: 100% 50%;
+    }
+  
+    10% {
+      transform: rotate(2deg);
+    }
+  
+    20%,
+    40%,
+    60% {
+      transform: rotate(-4deg);
+    }
+  
+    30%,
+    50%,
+    70% {
+      transform: rotate(4deg);
+    }
+  
+    80% {
+      transform: rotate(-2deg);
+    }
+  
+    90% {
+      transform: rotate(2deg);
+    }
+  
 @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-3.5deg);
+
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(2.5deg);
+    }
+}
+
+@keyframes fadeOn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -216,18 +315,7 @@ p {
     }
 }
 
-/* Tambahkan animasi untuk elemen */
-h1 {
-    animation: fadeIn 1s ease-out forwards;
-}
 
-h2 {
-    animation: fadeIn 1.2s ease-out forwards;
-}
-
-p {
-    animation: fadeIn 1.4s ease-out forwards;
-}
 
 .start-btn {
     animation: popIn 1.6s ease-out forwards;
@@ -238,7 +326,7 @@ p {
 }
 
 .dekorasi-top-right-1, .dekorasi-top-left-2 {
-    animation: fadeIn 1.5s ease-out forwards;
+    animation: fade 1.5s ease-out forwards;
 }
 
 .dekorasi-bottom-left-1 {
