@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,16 +18,17 @@
             /* background-attachment: fixed; */
             background-attachment: scroll;
             overflow: hidden;
-            flex-direction: column;
+
         }
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             width: 90%;
-            max-width: 400px;
+            max-width: 860px;
             position: relative;
         }
+        
 
         h1 {
             font-size: 2.8rem;
@@ -39,48 +39,41 @@
         }
 
         h2 {
-            font-size: 1rem;
-            font-weight: normal;
+            font-size: 1.3rem;
+            font-weight:bold ;
             color: #f2a65a;
             margin: 0 0 20px;
             transform: rotate(2.5deg);
         }
 
         p {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: bold;
             color: #3b2a50;
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
-            /* Center horizontally */
             align-items: center;
-            /* Center vertically */
             text-align: center;
-            /* Ensures the text is aligned in the center */
         }
 
         .start-btn {
             display: inline-block;
             background: linear-gradient(15deg, #5db1e6, #414886);
             color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 10px 40px;
+            font-size: 1.3rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 12px;
             text-decoration: none;
             cursor: pointer;
-            transition: transform 0.2s ease, background 0.3s ease;
-            margin-top: 40px;
-        }
-
-        .start-btn:active {
-            background-color: ;
+            margin-top: 30px;
         }
 
         .icon-container {
             display: flex;
             justify-content: space-around;
-            margin: 20px 0;
+            margin: 5px 5px;
             position: relative;
         }
 
@@ -88,10 +81,12 @@
         .icon-magnifier,
         .icon-clock,
         .icon-airplane {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             position: absolute;
         }
+
+        /* Icon */
 
         .icon-calender {
             top: -100px;
@@ -99,87 +94,89 @@
         }
 
         .icon-magnifier {
-            top: -100px;
+            top: -110px;
             right: 10%;
         }
 
         .icon-airplane {
-            top: -160px;
-            left: 50%;
+            top: -180px;
+            left: 60%;
             transform: translateX(240%) rotate(-35deg);
         }
-
+        
         .icon-clock {
-            top: 10%;
-            right: 5%;
+            top: 25px;
+            right: 30%;
         }
 
-        .icon-jangka {
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        /* Dekorasi 1  */
 
-        .dekor-pinggiran {
+        .dekorasi_1 {
             position: absolute;
             width: 20%;
         }
 
-        .dekorasi {
+        .dekorasi-top-right-1 {
+            top: 0;
+            right: 0;
+        }
+
+        .dekorasi-bottom-left-1 {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Dekorasi 2 */
+
+        .dekorasi_2 {
             position: absolute;
             width: 15%;
         }
 
-        .dekor-pinggiran-top-right {
-            top: 0;
-            right: 0;
-        }
-
-        .dekor-pinggiran-bottom-left {
-            bottom: 0;
-            left: 0;
-            transform: rotate(180deg);
-        }
-
-        .dekorasi-top-left {
+        .dekorasi-top-left-2 {
             top: 0;
             left: 0;
         }
 
-        .dekorasi-bottom-right {
+        .dekorasi-bottom-right-2 {
             bottom: 0;
             right: 0;
             transform: rotate(180deg);
         }
 
+        
         @media (max-width: 860px){
 
             .icon-calender,
             .icon-magnifier,
             .icon-clock,
             .icon-airplane {
-                width: 40px;
-                height: 40px;
+                width: 55px;
+                height: 55px;
 
             }
-            .dekor-pinggiran {
+            .dekorasi_1 {
                 width: 40%;
             }
-            .dekorasi{
+            .dekorasi_2{
                 width: 30%;
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 2.6rem;
+                font-weight: bold;
             }
 
             h2 {
-                font-size: 1rem;
+                font-size: 1.5rem;
+                font-weight: bold;
             }
 
             p {
-                font-size: 0.8rem;
-                width: 60%;
+                font-size: 1.1rem;
+                font-weight: bold;
+                width: 100%;
             }
         }
     </style>
@@ -202,11 +199,12 @@
         </div>
     </div>
 
+    <img src="Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2">
     <!-- Dekorasi -->
-    <img src="Asset/dekor_pinggiran.png" alt="Dekor Pinggiran" class="dekor-pinggiran dekor-pinggiran-top-right">
-    <img src="Asset/dekor_pinggiran.png" alt="Dekor Pinggiran" class="dekor-pinggiran dekor-pinggiran-bottom-left">
-    <img src="Asset/dekorasi.png" alt="Dekorasi" class="dekorasi dekorasi-top-left">
-    <img src="Asset/dekorasi.png" alt="Dekorasi" class="dekorasi dekorasi-bottom-right">
+  
 </body>
 
 </html>
