@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Balsamiq Sans', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('Asset/Background.png');
+    background-image: url('Background.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
