@@ -20,7 +20,9 @@
             background-attachment: fixed;
             overflow: hidden;
             flex-direction: column;
-            position: relative; /* Tambahkan properti ini */
+            position: relative;
+            /* Tambahkan properti ini */
+            height: 100vh;
         }
 
         .container {
@@ -64,7 +66,7 @@
             display: inline-block;
             background: linear-gradient(15deg, #5db1e6, #414886);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 27px;
             font-size: 1rem;
             border: none;
             border-radius: 5px;
@@ -107,7 +109,7 @@
         .icon-airplane {
             top: -160px;
             left: 50%;
-            transform: translateX(240%) rotate(-35deg);
+            transform: translateX(260%) rotate(-35deg);
         }
 
         .icon-clock {
@@ -154,10 +156,10 @@
             bottom: 0;
             right: 0;
             transform: none;
-            transform: rotate(180deg); 
+            transform: rotate(180deg);
         }
 
-        @media (max-width: 860px){
+        @media (max-width: 860px) {
 
             .icon-calender,
             .icon-magnifier,
@@ -167,10 +169,13 @@
                 height: 40px;
 
             }
+
+
             .dekor-pinggiran {
                 width: 40%;
             }
-            .dekorasi{
+
+            .dekorasi {
                 width: 30%;
             }
 
@@ -185,9 +190,13 @@
             p {
                 font-size: 0.8rem;
                 width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                /* Membuat elemen berada di tengah secara horizontal */
+                text-align: center;
+                /* Menyelaraskan teks di dalam paragraf ke tengah */
             }
         }
-
     </style>
 </head>
 
