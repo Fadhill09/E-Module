@@ -1,16 +1,16 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Balsamiq Sans', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  background-image: url('Background.png');
+    background-image: url('Background.png');
     background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
-    background-attachment: scroll;
+    background-attachment: fixed;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .container {
@@ -51,16 +51,49 @@ p {
 
 .start-btn {
     display: inline-block;
-    background: linear-gradient(15deg, #5db1e6, #414886);
+    position: relative;
+    background: linear-gradient(135deg, #0a78d2, #040fd3);
     color: white;
-    padding: 10px 40px;
+    padding: 12px 50px;
     font-size: 1.3rem;
+    font-weight: bold;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
     margin-top: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+    transition: left 0.4s ease;
+}
+
+.start-btn:hover::before {
+    left: 0;
+}
+
+.start-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.start-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #414886, #5db1e6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 
 .icon-container {
     display: flex;
@@ -81,19 +114,19 @@ p {
 /* Icon */
 
 .icon-calender {
-    top: -100px;
+    top: -120px;
     left: 30px;
 }
 
 .icon-magnifier {
-    top: -110px;
+    top: -120px;
     right: 10%;
 }
 
 .icon-airplane {
     top: -180px;
     left: 60%;
-    transform: translateX(240%) rotate(-35deg);
+    transform: translateX(200%) rotate(-35deg);
 }
 
 .icon-clock {
@@ -129,6 +162,7 @@ p {
 .dekorasi-top-left-2 {
     top: 0;
     left: 0;
+
 }
 
 .dekorasi-bottom-right-2 {
@@ -136,6 +170,85 @@ p {
     right: 0;
     transform: rotate(180deg);
 }
+
+/* Animasi Global */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(180deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+h1 {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+h2 {
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+p {
+    animation: fadeIn 1.4s ease-out forwards;
+}
+
+.start-btn {
+    animation: popIn 1.6s ease-out forwards;
+}
+
+.icon-container {
+    animation: slideIn 1.8s ease-out forwards;
+}
+
+.dekorasi-top-right-1, .dekorasi-top-left-2 {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.dekorasi-bottom-left-1 {
+    animation: fadeInn 1.5s ease-out forwards;
+}
+
+.dekorasi-bottom-right-2 {
+    animation: fadeInn 1.7s ease-out forwards;
+}
+
 
 
 @media (max-width: 860px){
