@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('Asset/Background.png');
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-attachment: scroll;
+    overflow: hidden;
+
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    width: 90%;
+    max-width: 860px;
+    position: relative;
+}
+
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #434982;
+    margin: 0 0 20px 10px;
+    transform: rotate(-3.5deg);
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight:bold ;
+    color: #f2a65a;
+    margin: 0 0 20px;
+    transform: rotate(2.5deg);
+}
+
+p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #3b2a50;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.start-btn {
+    display: inline-block;
+    background: linear-gradient(15deg, #5db1e6, #414886);
+    color: white;
+    padding: 10px 40px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 5px;
+    position: relative;
+}
+
+.icon-calender,
+.icon-magnifier,
+.icon-clock,
+.icon-airplane {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}
+
+/* Icon */
+
+.icon-calender {
+    top: -100px;
+    left: 30px;
+}
+
+.icon-magnifier {
+    top: -110px;
+    right: 10%;
+}
+
+.icon-airplane {
+    top: -180px;
+    left: 60%;
+    transform: translateX(240%) rotate(-35deg);
+}
+
+.icon-clock {
+    top: 25px;
+    right: 30%;
+}
+
+/* Dekorasi 1  */
+
+.dekorasi_1 {
+    position: absolute;
+    width: 20%;
+}
+
+.dekorasi-top-right-1 {
+    top: 0;
+    right: 0;
+}
+
+.dekorasi-bottom-left-1 {
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);
+}
+
+/* Dekorasi 2 */
+
+.dekorasi_2 {
+    position: absolute;
+    width: 15%;
+}
+
+.dekorasi-top-left-2 {
+    top: 0;
+    left: 0;
+}
+
+.dekorasi-bottom-right-2 {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+
+@media (max-width: 860px){
+
+    .icon-calender,
+    .icon-magnifier,
+    .icon-clock,
+    .icon-airplane {
+        width: 55px;
+        height: 55px;
+
+    }
+    .dekorasi_1 {
+        width: 40%;
+    }
+    .dekorasi_2{
+        width: 30%;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.1rem;
+        font-weight: bold;
+        width: 100%;
+    }
+}
