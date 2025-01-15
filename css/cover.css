@@ -4,12 +4,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('Asset/Background.png');
     background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
-    background-attachment: scroll;
+     background-attachment: fixed;
     overflow: hidden;
 
 }
@@ -94,7 +93,7 @@ p {
 .icon-airplane {
     top: -180px;
     left: 60%;
-    transform: translateX(240%) rotate(-35deg);
+    transform: translateX(200%) rotate(-35deg);
 }
 
 .icon-clock {
