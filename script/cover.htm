@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cover.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Let's Chat and Chill</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Chat and Chill</h1>
+        <h2>Information Communication at School</h2>
+        <p>Talking about class schedules and school subjects</p>
+
+        <!-- Start Learning Button -->
+        <a href="/home/halaman_navigasi/halaman_navigasi.html" id="start-btn" class="start-btn">Start Learning</a>
+
+        <p class="design">Design By :<a href="https://www.instagram.com/tefatieinnovate/">TEFATIE</a></p>
+
+        <div class="icon-container">
+            <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
+            <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+            <img class="icon-clock" src="/Asset/Jam.png" alt="Clock Icon">
+            <img class="icon-airplane" src="/Asset/pesawat.png" alt="Airplane Icon">
+            <img class="icon-jangka" src="/Asset/Jangka.png" alt="Jangka Icon">
+        </div>
+    </div>
+ 
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2">
+
+
+</body>
+<script>
+    document.getElementById("start-btn").addEventListener("click", function(event) {
+        event.preventDefault(); 
+        const container = document.querySelector(".container"); 
+
+        container.classList.add("slide-out");
+  
+        setTimeout(() => {
+            window.location.href = this.getAttribute("href");
+        }, 800);
+    });
+  </script>
+  
+
+
+</html>

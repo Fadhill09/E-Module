@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Balsamiq Sans", cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("/css/Background.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            transform: translatey(-60px);
+            padding: 20px;
+            width: 90%;
+            max-width: 860px;
+        }
+
+        .title {
+            position: relative;
+            font-weight: bold;
+            transform: rotate(-5deg);
+            color: #4a4a8e;
+            font-size: 2.8em;
+        }
+
+        .content {
+            margin-top: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .highlight {
+            color: #4a4a8e;
+            font-weight: bold;
+        }
+
+        /* .character {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(-20px, -20px);
+        }
+
+        .character img {
+            width: 250px;
+            height: 250px;
+        } */
+
+        /* Dekorasi 1 */
+
+        .dekorasi_1 {
+            position: absolute;
+            width: 20%;
+        }
+
+        .dekorasi-top-right-1 {
+            top: 0;
+            right: 0;
+        }
+
+        .dekorasi-bottom-left-1 {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Dekorasi 2 */
+
+        .dekorasi_2 {
+            position: absolute;
+            width: 15%;
+        }
+
+        .dekorasi-top-left-2 {
+            top: 0;
+            left: 0;
+        }
+
+        .dekorasi-bottom-right-2 {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 860px) {
+            .container {
+                transform: translatey(0);
+                padding: 10px;
+            }
+
+            .character {
+                transform: translate(5px, 65px);
+            }
+
+            /* .character img {
+                width: 200px;
+                height: 200px;
+            } */
+
+            .dekorasi_1 {
+                width: 40%;
+            }
+
+            .dekorasi_2 {
+                width: 30%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Introduction</h1>
+        <div class="content">
+            Hello!!<br>
+            Welcome to our <span class="highlight">English e-module</span>. Here, you’ll learn fun and easy everyday
+            school conversation like chatting with friends or asking teachers.<br>
+            Let’s make learning English exciting and super easy. Ready to shine? Let’s go!!!
+        </div>
+        <div class="cloud">Enjoy every step you make!!</div>
+    </div>
+    <!-- <div class="character">
+        <img src="/Asset/Karakter1.png" alt="Character">
+    </div> -->
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+</body>
+
+</html>
