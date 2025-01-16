@@ -27,8 +27,7 @@
         <a href="#contact" class="unit_3">
             <div class="unit_3-content">
                 Unit 3
-                <span class="sub-unit-3">Making plans with friends
-                    during break</span>
+                <span class="sub-unit-3">Making plans with friends during break</span>
             </div>
         </a>
         <a href="#contact" class="unit_4">
@@ -40,8 +39,53 @@
             </div>
         </a>
     </div>
-    <img src="/Asset/dekorasi_1.png" alt="" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/Setting.png" alt="" class="setting setting-top-right">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi" class="dekorasi_1 dekorasi-bottom-left-1">
+
+    <!-- Tombol Setting -->
+    <div class="setting-container">
+        <div class="setting" id="setting">
+            <img src="/Asset/Setting.png" alt="Setting Icon" class="img-setting">
+        </div>
+        <div class="settingOn" id="settingOn" style="display: none;">
+            <img src="/Asset/Setting_On.png" alt="Setting Active Icon" class="img-settingOn">
+        </div>
+        <div class="sound" id="sound" style="display: none;">
+            <img src="/Asset/Sound.png" alt="Sound Icon" class="img-sound">
+        </div>
+    </div>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const setting = document.getElementById("setting");
+        const settingOn = document.getElementById("settingOn");
+        const sound = document.getElementById("sound");
+
+        let isSettingOn = false; // Status awal setting (off)
+
+        setting.addEventListener("click", function () {
+            if (isSettingOn) {
+                // Jika setting aktif, matikan
+                settingOn.style.display = "none";
+                sound.style.display = "none";
+                setting.style.display = "block";
+            } else {
+                // Jika setting tidak aktif, aktifkan
+                settingOn.style.display = "block";
+                sound.style.display = "block";
+                setting.style.display = "none";
+            }
+            isSettingOn = !isSettingOn; // Toggle status
+        });
+
+        settingOn.addEventListener("click", function () {
+            // Kembalikan ke kondisi awal (setting off)
+            settingOn.style.display = "none";
+            sound.style.display = "none";
+            setting.style.display = "block";
+            isSettingOn = false;
+        });
+    });
+</script>
 
 </html>

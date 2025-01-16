@@ -7,6 +7,8 @@
     min-height: 100vh;
     background-color: #f4f4f4;
     position: relative; /* Penting untuk elemen absolute dalam body */
+    overflow: hidden;
+    background-image: url("/Asset/Background.png");    
 }
 
 .nav-container {
@@ -156,16 +158,74 @@
 }
 
 .setting {
-    width: 25%; /* Sesuaikan ukuran elemen */
-    position: absolute; /* Pastikan elemen dapat diatur posisi */
-    top: 10px; /* Jarak dari atas */
-    right: 10px; /* Jarak dari kanan */
-    z-index: 10; /* Pastikan elemen berada di atas elemen lainnya */
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background-image: url('/Asset/setting-icon.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.settingOn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 70px; /* Letakkan sedikit lebih bawah dari setting */
+    right: 10px;
+    z-index: 20;
+    display: none; /* Sembunyikan secara default */
+    background-image: url('/Asset/settingOn-icon.png'); /* Pastikan jalur gambar benar */
+    background-size: cover;
+    background-position: center;
+}
+
+.sound {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 130px; /* Letakkan sedikit lebih bawah dari settingOn */
+    right: 10px;
+    z-index: 25;
+    display: none; /* Sembunyikan secara default */
+    background-image: url('/Asset/sound-icon.png'); /* Pastikan jalur gambar benar */
+    background-size: cover;
+    background-position: center;
+}
+
+.img-settingOn {
+    height: 50px;
 }
 
 /* Atur posisi untuk layar kecil (ponsel) */
 @media (max-width: 768px) {
     .setting {
-        display: block; /* Tampilkan elemen pada layar kecil */
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 5px;
+    }
+
+    .settingOn {
+        width: 40px;
+        height: 40px;
+        top: 60px;
+        right: 5px;
+    }
+
+    .sound {
+        width: 40px;
+        height: 40px;
+        top: 110px;
+        right: 5px;
+    }
+    .img-settingOn {
+        height: 40px;
+    }
+
+    body {
+        overflow: hidden;
     }
 }
