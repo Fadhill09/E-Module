@@ -1,231 +1,170 @@
-       body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    position: relative; /* Penting untuk elemen absolute dalam body */
-    overflow: hidden;
-    background-image: url("/Asset/Background.png");    
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  position: relative; /* Penting untuk elemen absolute dalam body */
 }
 
 .nav-container {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .nav-container a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    width: 220px;
-    height: 60px;
-    line-height: 45px;
-    margin: 50px auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 8px;
-    position: relative;
-    transition: background-color 0.3s, transform 0.2s;
-    overflow: hidden;
-    text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+  width: 220px;
+  height: 60px;
+  line-height: 45px;
+  margin: 50px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  position: relative;
+  transition: background-color 0.3s, transform 0.2s;
+  overflow: hidden;
+  text-align: center;
 }
 
 .nav-container a:active {
-    background-color: #2a365d;
-    transform: translateY(3px);
+  background-color: #2a365d;
+  transform: translateY(3px);
 }
 
+.introduction {
+  background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+  display: flex;
+  /* Gunakan flexbox khusus untuk Introduction */
+  justify-content: center;
+  align-items: center;
+  /* height: 60px; Pastikan tinggi cukup untuk menampung teks di tengah */
+  line-height: normal;
+  /* Nonaktifkan line-height */
+}
 
-        .introduction {
-            background: linear-gradient(90deg, #8c52ff, #5ce1e6);
-            display: flex;
-            /* Gunakan flexbox khusus untuk Introduction */
-            justify-content: center;
-            align-items: center;
-            /* height: 60px; Pastikan tinggi cukup untuk menampung teks di tengah */
-            line-height: normal;
-            /* Nonaktifkan line-height */
-        }
+.unit_1 {
+  background: linear-gradient(90deg, #5de0e6, #004aad);
+}
 
-        .unit_1 {
-            background: linear-gradient(90deg, #5de0e6, #004aad);
-        }
+.unit_1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_1-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_1-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_1-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_2-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_2-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_2-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_2-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_3-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_3-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_3-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_3-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_4-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+  margin: auto;
+}
 
-        .unit_4-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-            margin: auto;
-        }
+.unit_4-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_4-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_2 {
+  background: linear-gradient(90deg, #8c52ff, #ff914d);
+}
 
-        .unit_2 {
-            background: linear-gradient(90deg, #8c52ff, #ff914d);
-        }
+.unit_3 {
+  background: linear-gradient(90deg, #5de0e6, #004aad);
+}
 
-        .unit_3 {
-            background: linear-gradient(90deg, #5de0e6, #004aad);
-        }
+.unit_4 {
+  background: linear-gradient(90deg, #8c52ff, #ff914d);
+}
 
-        .unit_4 {
-            background: linear-gradient(90deg, #8c52ff, #ff914d);
-        }
+.sub-unit-1 {
+  width: 200px;
+}
 
-        .sub-unit-1 {
-            width: 200px;
-        }
+.sub-unit-2 {
+  width: 200px;
+}
 
-        .sub-unit-2 {
-            width: 200px;
-        }
+.sub-unit-4 {
+  padding-top: 3px;
+}
 
-        .sub-unit-4 {
-            padding-top: 3px;
-        }
-
-        .dekorasi_1 {
-            position: absolute;
-            width: 30%;
-        }
-        .dekorasi-bottom-left-1 {
-    bottom: 0;
-    left: 0;
-    transform: rotate(180deg);
+.dekorasi_1 {
+  position: absolute;
+  width: 30%;
+}
+.dekorasi-bottom-left-1 {
+  bottom: 0;
+  left: 0;
+  transform: rotate(180deg);
 }
 
 .setting {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    background-image: url('/Asset/setting-icon.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.settingOn {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 70px; /* Letakkan sedikit lebih bawah dari setting */
-    right: 10px;
-    z-index: 20;
-    display: none; /* Sembunyikan secara default */
-    background-image: url('/Asset/settingOn-icon.png'); /* Pastikan jalur gambar benar */
-    background-size: cover;
-    background-position: center;
-}
-
-.sound {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 130px; /* Letakkan sedikit lebih bawah dari settingOn */
-    right: 10px;
-    z-index: 25;
-    display: none; /* Sembunyikan secara default */
-    background-image: url('/Asset/sound-icon.png'); /* Pastikan jalur gambar benar */
-    background-size: cover;
-    background-position: center;
-}
-
-.img-settingOn {
-    height: 50px;
+  width: 25%; /* Sesuaikan ukuran elemen */
+  position: absolute; /* Pastikan elemen dapat diatur posisi */
+  top: 10px; /* Jarak dari atas */
+  right: 10px; /* Jarak dari kanan */
+  z-index: 10; /* Pastikan elemen berada di atas elemen lainnya */
 }
 
 /* Atur posisi untuk layar kecil (ponsel) */
 @media (max-width: 768px) {
-    .setting {
-        width: 40px;
-        height: 40px;
-        top: 10px;
-        right: 5px;
-    }
-
-    .settingOn {
-        width: 40px;
-        height: 40px;
-        top: 60px;
-        right: 5px;
-    }
-
-    .sound {
-        width: 40px;
-        height: 40px;
-        top: 110px;
-        right: 5px;
-    }
-    .img-settingOn {
-        height: 40px;
-    }
-
-    body {
-        overflow: hidden;
-    }
+  .setting {
+    display: block; /* Tampilkan elemen pada layar kecil */
+  }
 }

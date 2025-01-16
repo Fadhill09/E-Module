@@ -12,12 +12,18 @@ body {
   overflow: hidden;
 }
 
+.slide-out {
+  transform: translateY(-100%);
+  opacity: 0;
+}
 .container {
   text-align: center;
   padding: 30px;
   width: 90%;
   max-width: 860px;
   position: relative;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  opacity: 1;
 }
 
 h1 {
@@ -101,7 +107,7 @@ p {
 .start-btn {
   display: inline-block;
   position: relative;
-  background: linear-gradient(135deg, #4aa2d8, #1220a3);
+  background: linear-gradient(90deg, #5de0e6, #004aad);
   color: white;
   padding: 12px 50px;
   font-size: 1.3rem;
@@ -139,7 +145,7 @@ p {
 .start-btn:active {
   transform: scale(0.95);
   box-shadow: 0 4px 10px  rgba(7, 133, 183, 0.457);
-  background: linear-gradient(135deg, #414886, #5db1e6);
+  background: linear-gradient(90deg, #5de0e6, #004aad);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
