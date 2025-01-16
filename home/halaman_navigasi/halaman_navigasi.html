@@ -1,107 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Navigasi</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .nav-container {
-            text-align: center;
-        }
-
-        .nav-container a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            width: 220px;
-            height: 60px;
-            line-height: 45px; /* Default vertical centering */
-            margin: 50px auto;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            position: relative;
-            transition: background-color 0.3s, transform 0.2s;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .nav-container a:hover {
-            background-color: #414886;
-            transform: translateY(-3px);
-        }
-
-        .nav-container a:active {
-            background-color: #2a365d;
-            transform: translateY(0);
-        }
-
-        .introduction {
-            background: linear-gradient(90deg, #8c52ff, #5ce1e6);
-            display: flex; /* Gunakan flexbox khusus untuk Introduction */
-            justify-content: center;
-            align-items: center;
-            height: 60px; /* Pastikan tinggi cukup untuk menampung teks di tengah */
-            line-height: normal; /* Nonaktifkan line-height */
-        }
-
-        .unit_1 {
-            background: linear-gradient(90deg, #5de0e6, #004aad);
-        }
-
-        .unit_1-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%; /* Pastikan konten memenuhi tombol */
-            line-height: normal; /* Atur line-height normal */
-        }
-
-        .unit_1-content span {
-            margin-top: 0; /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-            font-weight: normal;
-        }
-
-        span {
-            width: 120px;
-        }
-
-        .unit_2 {
-            background: linear-gradient(90deg, #ff7a59, #e63946);
-        }
-
-        .unit_3 {
-            background: linear-gradient(90deg, #00c851, #007e33);
-        }
-        .unit_4 {
-            background: linear-gradient(90deg, #00c851, #007e33);
-        }
-    </style>
+    <link rel="stylesheet" href="/css/halaman_navigasi.css">
 </head>
+
 <body>
     <div class="nav-container">
         <a href="#introduction" class="introduction">Introduction</a>
         <a href="#unit1" class="unit_1">
             <div class="unit_1-content">
                 Unit 1
-                <span>Talking about your class schedule</span>
+                <span class="sub-unit-1">Talking about your class schedule</span>
             </div>
         </a>
-        <a href="#services" class="unit_2">Services</a>
-        <a href="#contact" class="unit_3">Contact</a>
-        <a href="#contact" class="unit_4">Contact</a>
+        <a href="#services" class="unit_2">
+            <div class="unit_2-content">
+                Unit 2
+                <span class="sub-unit-2">Talking about your favorite school subjects</span>
+            </div>
+        </a>
+        <a href="#contact" class="unit_3">
+            <div class="unit_3-content">
+                Unit 3
+                <span class="sub-unit-3">Making plans with friends
+                    during break</span>
+            </div>
+        </a>
+        <a href="#contact" class="unit_4">
+            <div class="unit_4-content">
+                Unit 4
+                <span class="sub-unit-4">
+                    Review & Practice
+                </span>
+            </div>
+        </a>
     </div>
+    <img src="/Asset/dekorasi_1.png" alt="" class="dekorasi_1 dekorasi-bottom-left-1">
 </body>
+
 </html>
