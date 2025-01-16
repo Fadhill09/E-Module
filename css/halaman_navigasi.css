@@ -1,159 +1,159 @@
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
 
-        .nav-container {
-            text-align: center;
-        }
+.nav-container {
+  text-align: center;
+}
 
-        .nav-container a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            width: 220px;
-            height: 60px;
-            line-height: 45px;
-            /* Default vertical centering */
-            margin: 50px auto;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            position: relative;
-            transition: background-color 0.3s, transform 0.2s;
-            overflow: hidden;
-            text-align: center;
-        }
+.nav-container a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  width: 220px;
+  height: 60px;
+  line-height: 45px;
+  /* Default vertical centering */
+  margin: 50px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  position: relative;
+  transition: background-color 0.3s, transform 0.2s;
+  overflow: hidden;
+  text-align: center;
+}
 
-        .nav-container a:hover {
-            background-color: #414886;
-            transform: translateY(-3px);
-        }
+.nav-container a:hover {
+  background-color: #414886;
+  transform: translateY(-3px);
+}
 
-        .nav-container a:active {
-            background-color: #2a365d;
-            transform: translateY(0);
-        }
+.nav-container a:active {
+  background-color: #2a365d;
+  transform: translateY(0);
+}
 
-        .introduction {
-            background: linear-gradient(90deg, #8c52ff, #5ce1e6);
-            display: flex;
-            /* Gunakan flexbox khusus untuk Introduction */
-            justify-content: center;
-            align-items: center;
-            /* height: 60px; Pastikan tinggi cukup untuk menampung teks di tengah */
-            line-height: normal;
-            /* Nonaktifkan line-height */
-        }
+.introduction {
+  background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+  display: flex;
+  /* Gunakan flexbox khusus untuk Introduction */
+  justify-content: center;
+  align-items: center;
+  /* height: 60px; Pastikan tinggi cukup untuk menampung teks di tengah */
+  line-height: normal;
+  /* Nonaktifkan line-height */
+}
 
-        .unit_1 {
-            background: linear-gradient(90deg, #5de0e6, #004aad);
-        }
+.unit_1 {
+  background: linear-gradient(90deg, #5de0e6, #004aad);
+}
 
-        .unit_1-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_1-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_1-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_2-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_2-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_2-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_2-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_3-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-        }
+.unit_3-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+}
 
-        .unit_3-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_3-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_4-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
-            height: 100%;
-            /* Pastikan konten memenuhi tombol */
-            line-height: normal;
-            /* Atur line-height normal */
-            margin: auto;
-        }
+.unit_4-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  /* Pastikan konten memenuhi tombol */
+  line-height: normal;
+  /* Atur line-height normal */
+  margin: auto;
+}
 
-        .unit_4-content span {
-            margin-top: 0;
-            /* Hilangkan margin antar teks */
-            font-size: 0.9rem;
-        }
+.unit_4-content span {
+  margin-top: 0;
+  /* Hilangkan margin antar teks */
+  font-size: 0.9rem;
+}
 
-        .unit_2 {
-            background: linear-gradient(90deg, #8c52ff, #ff914d);
-        }
+.unit_2 {
+  background: linear-gradient(90deg, #8c52ff, #ff914d);
+}
 
-        .unit_3 {
-            background: linear-gradient(90deg, #5de0e6, #004aad);
-        }
+.unit_3 {
+  background: linear-gradient(90deg, #5de0e6, #004aad);
+}
 
-        .unit_4 {
-            background: linear-gradient(90deg, #8c52ff, #ff914d);
-        }
+.unit_4 {
+  background: linear-gradient(90deg, #8c52ff, #ff914d);
+}
 
-        .sub-unit-1 {
-            width: 200px;
-        }
+.sub-unit-1 {
+  width: 200px;
+}
 
-        .sub-unit-2 {
-            width: 200px;
-        }
+.sub-unit-2 {
+  width: 200px;
+}
 
-        .sub-unit-4 {
-            padding-top: 3px;
-        }
+.sub-unit-4 {
+  padding-top: 3px;
+}
 
-        .dekorasi_1 {
-            position: absolute;
-            width: 30%;
-        }
-        .dekorasi-bottom-left-1 {
-    bottom: 0;
-    left: 0;
-    transform: rotate(180deg);
+.dekorasi_1 {
+  position: absolute;
+  width: 30%;
+}
+.dekorasi-bottom-left-1 {
+  bottom: 0;
+  left: 0;
+  transform: rotate(180deg);
 }
