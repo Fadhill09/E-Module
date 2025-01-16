@@ -25,9 +25,25 @@ h1 {
   font-weight: bold;
   color: #434982;
   margin: 0 0 20px 10px;
-  transform: rotate(-3.5deg);
+  /* transition: rotate(-3.5deg) ; */
   animation: fadeIn 1s ease-out forwards;
+animation:  h1 4s ease-in .3s infinite alternate both;
 }
+
+@keyframes  h1 {
+  0% {
+	transform: scale(1) rotate(-3.5deg);
+  }
+
+  50% {
+	transform: scale(1.1) rotate(-3.5deg);
+  }
+
+  100% {
+	transform: scale(1) rotate(-3.5deg);
+  }
+}
+
 
 h2 {
   font-size: 1.3rem;
@@ -36,6 +52,20 @@ h2 {
   margin: 0 0 20px;
   transform: rotate(2.5deg);
   animation: fadeUp 1.2s ease-out forwards;
+  animation:  h2 5s ease-in .3s infinite alternate both;
+}
+@keyframes  h2 {
+  0% {
+	transform: scale(1) rotate(2.5deg);
+  }
+
+  50% {
+	transform: scale(1.1) rotate(2.5deg);
+  }
+
+  100% {
+	transform: scale(1) rotate(2.5deg);
+  }
 }
 
 p {
@@ -51,21 +81,21 @@ p {
 }
 
 .design {
-color: #3b2a50;
+  color: #3b2a50;
   position: absolute;
   left: 42%;
   bottom: -25%;
 }
 
 .design a {
-    color: #3b2a50;
-    text-decoration: none;
+  color: #3b2a50;
+  text-decoration: none;
 }
 
 .design a:hover {
-    transition: transform .5s ease-in-out, color 0.2s ease-in-out;
-    color: #1657e2;
-    text-decoration: none;
+  transition: transform 0.5s ease-in-out, color 0.2s ease-in-out;
+  color: #1657e2;
+  text-decoration: none;
 }
 
 .start-btn {
@@ -102,13 +132,13 @@ color: #3b2a50;
 }
 
 .start-btn:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 133, 183, 0.457);
 }
 
 .start-btn:active {
   transform: scale(0.95);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px  rgba(7, 133, 183, 0.457);
   background: linear-gradient(135deg, #414886, #5db1e6);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -134,11 +164,91 @@ color: #3b2a50;
 .icon-jangka {
   bottom: -10;
   left: 9%;
+  animation: icon-jangka 5s ease-in 0.3s infinite alternate both;
+}
+
+@keyframes icon-jangka {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(8deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-8deg);
+  }
+
+  90% {
+    transform: rotate(8deg);
+  }
 }
 
 .icon-calender {
-  bottom: 150px;
+  bottom: 153px;
   left: 10%;
+  animation: icon-calender 4s ease 0.3s infinite alternate both;
+}
+
+@keyframes icon-calender {
+  0% {
+    transform: translate(0);
+  }
+
+  10% {
+    transform: translate(-2px, -2px);
+  }
+
+  20% {
+    transform: translate(2px, -2px);
+  }
+
+  30% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(2px, 2px);
+  }
+
+  50% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, -2px);
+  }
+
+  70% {
+    transform: translate(-2px, 2px);
+  }
+
+  80% {
+    transform: translate(-2px, -2px);
+  }
+
+  90% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 .icon-magnifier {
@@ -147,15 +257,90 @@ color: #3b2a50;
   animation: icon-magnifier 10s ease 1s infinite normal none;
 }
 
+@keyframes icon-magnifier {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(8deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-8deg);
+  }
+
+  90% {
+    transform: rotate(8deg);
+  }
+}
+
 .icon-airplane {
   bottom: 230px;
   left: 50%;
-  transform: translateX(200%) rotate(-35deg);
+  animation: icon-airplane 3s ease 0.3s infinite alternate backwards;
+}
+
+@keyframes icon-airplane {
+  0% {
+    transform: translateX(30px) rotate(-40deg);
+  }
+
+  100% {
+    transform: translateX(100px) rotate(-30deg);
+  }
 }
 
 .icon-clock {
   top: 65px;
   right: 30%;
+  animation: icon-clock 2s ease 1s infinite alternate both;
+}
+
+@keyframes icon-clock {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 0;
+  }
+
+  10% {
+    transform: rotate(2deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  90% {
+    transform: rotate(2deg);
+  }
 }
 
 /* Dekorasi 1  */
@@ -194,37 +379,6 @@ color: #3b2a50;
   transform: rotate(180deg);
 }
 
-@keyframes icon-magnifier {
-  0%,
-  100% {
-    transform: rotate(0deg);
-    transform-origin: 50% 50%;
-  }
-
-  10% {
-    transform: rotate(8deg);
-  }
-
-  20%,
-  40%,
-  60% {
-    transform: rotate(-10deg);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: rotate(10deg);
-  }
-
-  80% {
-    transform: rotate(-8deg);
-  }
-
-  90% {
-    transform: rotate(8deg);
-  }
-}
 0%,
 100% {
   transform: rotate(0deg);
