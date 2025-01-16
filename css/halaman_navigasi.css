@@ -1,170 +1,218 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f4f4f4;
-  position: relative; /* Penting untuk elemen absolute dalam body */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    position: relative; /* Penting untuk elemen absolute dalam body */
 }
 
 .nav-container {
-  text-align: center;
-  width: 100%;
+    text-align: center;
+    width: 100%;
 }
 
 .nav-container a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  width: 220px;
-  height: 60px;
-  line-height: 45px;
-  margin: 50px auto;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 8px;
-  position: relative;
-  transition: background-color 0.3s, transform 0.2s;
-  overflow: hidden;
-  text-align: center;
+    display: block;
+    text-decoration: none;
+    color: white;
+    width: 220px;
+    height: 60px;
+    line-height: 45px;
+    margin: 50px auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.3s, transform 0.2s;
+    overflow: hidden;
+    text-align: center;
 }
 
 .nav-container a:active {
-  background-color: #2a365d;
-  transform: translateY(3px);
+    background-color: #2a365d;
+    transform: translateY(3px);
 }
 
 .introduction {
-  background: linear-gradient(90deg, #8c52ff, #5ce1e6);
-  display: flex;
-  /* Gunakan flexbox khusus untuk Introduction */
-  justify-content: center;
-  align-items: center;
-  /* height: 60px; Pastikan tinggi cukup untuk menampung teks di tengah */
-  line-height: normal;
-  /* Nonaktifkan line-height */
+    background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: normal;
 }
 
 .unit_1 {
-  background: linear-gradient(90deg, #5de0e6, #004aad);
-}
-
-.unit_1-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  /* Pastikan konten memenuhi tombol */
-  line-height: normal;
-  /* Atur line-height normal */
-}
-
-.unit_1-content span {
-  margin-top: 0;
-  /* Hilangkan margin antar teks */
-  font-size: 0.9rem;
-}
-
-.unit_2-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  /* Pastikan konten memenuhi tombol */
-  line-height: normal;
-  /* Atur line-height normal */
-}
-
-.unit_2-content span {
-  margin-top: 0;
-  /* Hilangkan margin antar teks */
-  font-size: 0.9rem;
-}
-
-.unit_3-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  /* Pastikan konten memenuhi tombol */
-  line-height: normal;
-  /* Atur line-height normal */
-}
-
-.unit_3-content span {
-  margin-top: 0;
-  /* Hilangkan margin antar teks */
-  font-size: 0.9rem;
-}
-
-.unit_4-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  height: 100%;
-  /* Pastikan konten memenuhi tombol */
-  line-height: normal;
-  /* Atur line-height normal */
-  margin: auto;
-}
-
-.unit_4-content span {
-  margin-top: 0;
-  /* Hilangkan margin antar teks */
-  font-size: 0.9rem;
+    background: linear-gradient(90deg, #5de0e6, #004aad);
 }
 
 .unit_2 {
-  background: linear-gradient(90deg, #8c52ff, #ff914d);
+    background: linear-gradient(90deg, #8c52ff, #ff914d);
 }
 
 .unit_3 {
-  background: linear-gradient(90deg, #5de0e6, #004aad);
+    background: linear-gradient(90deg, #5de0e6, #004aad);
 }
 
 .unit_4 {
-  background: linear-gradient(90deg, #8c52ff, #ff914d);
+    background: linear-gradient(90deg, #8c52ff, #ff914d);
 }
 
-.sub-unit-1 {
-  width: 200px;
+.unit_1-content,
+.unit_2-content,
+.unit_3-content,
+.unit_4-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    line-height: normal;
 }
 
-.sub-unit-2 {
-  width: 200px;
+.unit_1-content span,
+.unit_2-content span,
+.unit_3-content span,
+.unit_4-content span {
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+
+.sub-unit-1,
+.sub-unit-2,
+.sub-unit-4 {
+    width: 200px;
 }
 
 .sub-unit-4 {
-  padding-top: 3px;
+    padding-top: 3px;
 }
 
 .dekorasi_1 {
-  position: absolute;
-  width: 30%;
+    position: absolute;
+    width: 30%;
 }
+
 .dekorasi-bottom-left-1 {
-  bottom: 0;
-  left: 0;
-  transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);
 }
 
-.setting {
-  width: 25%; /* Sesuaikan ukuran elemen */
-  position: absolute; /* Pastikan elemen dapat diatur posisi */
-  top: 10px; /* Jarak dari atas */
-  right: 10px; /* Jarak dari kanan */
-  z-index: 10; /* Pastikan elemen berada di atas elemen lainnya */
+/* Setting Buttons */
+.setting-container {
+    position: fixed;
+    top: 20px; /* Jarak yang lebih baik di layar besar */
+    right: 20px; /* Posisi kanan sedikit lebih jauh */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Menjaga jarak antar tombol agar tidak terlalu rapat */
+    z-index: 10;
+    padding: 5px;
 }
 
-/* Atur posisi untuk layar kecil (ponsel) */
+.setting-wrapper,
+.setting-on-wrapper,
+.sound-wrapper,.mute-wrapper,.home-wrapper button {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px; /* Ukuran tombol yang lebih baik untuk laptop */
+    height: 60px; /* Menjaga konsistensi ukuran tombol */
+}
+
+.img-setting,
+.img-settingOn,
+.img-sound,.img-mute,.img-home {
+    width: 100%; /* Ikon menyesuaikan dengan lebar tombol */
+    height: 100%; /* Ikon menyesuaikan dengan tinggi tombol */
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    border-radius: 50%; /* Membuat ikon menjadi lingkaran */
+}
+
+/* Efek hover */
+.img-setting:hover,
+.img-settingOn:hover,
+.img-sound:hover,
+.img-mute:hover,
+.img-home:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+#setting, #settingOn, #sound,#mute {
+    background: none;
+    border: none;
+}
+
+/* Media Query untuk perangkat lebih besar (Laptop dan Desktop) */
+@media (min-width: 768px) {
+    .setting-container {
+        top: 20px; /* Menjaga jarak lebih besar di layar besar */
+        right: 20px; /* Posisi kanan lebih pas untuk perangkat besar */
+        gap: 5px; /* Menjaga jarak antar tombol tetap baik */
+    }
+
+    .img-setting,
+    .img-settingOn,
+    .img-sound,.img-mute,.img-home  {
+        width: 200px; /* Ukuran ikon untuk perangkat besar */
+        height: 240px; /* Menjaga proporsional ukuran */
+        border-radius: 50%; /* Membuat ikon menjadi lingkaran */
+    }
+
+    .setting-wrapper,
+    .setting-on-wrapper,
+    .sound-wrapper,
+    .mute-wrapper {
+        margin-bottom: 5px; /* Menambah sedikit margin bawah untuk tombol-tombol */
+    }
+}
+
+/* Media Query untuk perangkat kecil (Mobile) */
 @media (max-width: 768px) {
-  .setting {
-    display: block; /* Tampilkan elemen pada layar kecil */
-  }
+    .setting-container {
+        top: 10px; /* Posisi lebih tinggi agar tidak terlalu mendekati tepi layar */
+        right: 10px; /* Posisi kanan tetap */
+        gap: 5px; /* Mengurangi jarak antar tombol lebih rapat */
+    }
+
+    /* Ukuran lebih kecil untuk ikon pada perangkat kecil */
+    .img-setting,
+    .img-settingOn,
+    .img-sound,
+    .img-mute {
+        width: 200px; /* Ukuran ikon yang lebih pas untuk perangkat kecil */
+        height: 210px; /* Menjaga proporsional */
+        border-radius: 50%; /* Membuat ikon menjadi lingkaran */    
+    }
+
+    /* Menambahkan padding dan margin untuk tombol agar lebih mudah diakses */
+    .setting-wrapper,
+    .setting-on-wrapper,
+    .sound-wrapper,
+    .mute-wrapper {
+        margin-bottom: 5px; /* Mengurangi jarak antar tombol */
+    }
+}
+
+/* Media Query untuk perangkat lebih kecil (misalnya, mobile dengan layar kecil) */
+@media (max-width: 480px) {
+    .setting-container {
+        top: 8px;  /* Sedikit lebih tinggi untuk perangkat sangat kecil */
+        right: 8px; /* Menyesuaikan posisi agar tidak terlalu ke ka */
+    }
+
+    .img-setting,
+    .img-settingOn,
+    .img-sound,
+    .img-mute {
+        width: 100px;  /* Ukuran lebih kecil untuk perangkat kecil */
+        height: 130px; /* Menjaga rasio tetap */
+        border-radius: 50%; /* Membuat ikon menjadi lingkaran */    
+    }
 }

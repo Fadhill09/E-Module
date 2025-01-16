@@ -36,23 +36,44 @@
                 <span class="sub-unit-4">Review & Practice</span>
             </div>
         </a>
-
-    
     </div>
 
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi" class="dekorasi_1 dekorasi-bottom-left-1">
 
     <!-- Tombol Setting -->
     <div class="setting-container">
-        <button id="setting" aria-label="Activate Settings">
-            <img src="/Asset/Setting.png" alt="Setting Icon" class="img-setting">
-        </button>
-        <button id="settingOn" aria-label="Deactivate Settings" style="display: none;">
-            <img src="/Asset/Setting_On.png" alt="Setting Active Icon" class="img-settingOn">
-        </button>
-        <button id="sound" aria-label="Sound Settings" style="display: none;">
-            <img src="/Asset/Sound.png" alt="Sound Icon" class="img-sound">
-        </button>
+        <!-- Setting Button -->
+        <div class="setting-wrapper">
+            <button id="setting" aria-label="Activate Settings">
+                <img src="/Asset/Setting.png" alt="Setting Icon" class="img-setting">
+            </button>
+        </div>
+
+        <!-- Setting On Button -->
+        <div class="setting-on-wrapper" style="display: none;">
+            <button id="settingOn" aria-label="Deactivate Settings">
+                <img src="/Asset/Setting On.png" alt="Setting Active Icon" class="img-settingOn">
+            </button>
+        </div>
+
+        <!-- Sound Button -->
+        <div class="sound-wrapper" style="display: none;">
+            <button id="sound" aria-label="Sound Settings">
+                <img src="/Asset/Sound.png" alt="Sound Icon" class="img-sound">
+            </button>
+        </div>
+
+        <!-- Mute Button -->
+        <div class="mute-wrapper" style="display: none;">
+            <button id="mute" aria-label="Mute Settings">
+                <img src="/Asset/Mute.png" alt="Mute Icon" class="img-mute">
+            </button>
+        </div>
+        
+        <!-- home Button -->
+         <div class="home-wrapper">
+            <a href=""><img src="/Asset/home.png" alt="" class="img-home"></a>
+         </div>
     </div>
 
     <script>
@@ -60,22 +81,45 @@
             const setting = document.getElementById("setting");
             const settingOn = document.getElementById("settingOn");
             const sound = document.getElementById("sound");
+            const mute = document.getElementById("mute");
 
-            if (setting && settingOn && sound) {
+            const settingWrapper = document.querySelector('.setting-wrapper');
+            const settingOnWrapper = document.querySelector('.setting-on-wrapper');
+            const soundWrapper = document.querySelector('.sound-wrapper');
+            const muteWrapper = document.querySelector('.mute-wrapper');
+
+            // Pastikan elemen-elemen ada sebelum melanjutkan
+            if (setting && settingOn && sound && mute) {
+                // Event ketika tombol setting diklik
                 setting.addEventListener("click", function () {
-                    setting.style.display = "none";
-                    settingOn.style.display = "block";
-                    sound.style.display = "block";
+                    settingWrapper.style.display = "none";
+                    settingOnWrapper.style.display = "flex";
+                    soundWrapper.style.display = "flex";
                 });
 
+                // Event ketika tombol settingOn diklik
                 settingOn.addEventListener("click", function () {
-                    setting.style.display = "block";
-                    settingOn.style.display = "none";
-                    sound.style.display = "none";
+                    settingWrapper.style.display = "flex";
+                    settingOnWrapper.style.display = "none";
+                    soundWrapper.style.display = "none";
+                    muteWrapper.style.display = "none";
+                });
+
+                // Event ketika tombol sound diklik
+                sound.addEventListener("click", function () {
+                    soundWrapper.style.display = "none";
+                    muteWrapper.style.display = "flex";
+                });
+
+                // Event ketika tombol mute diklik
+                mute.addEventListener("click", function () {
+                    muteWrapper.style.display = "none";
+                    soundWrapper.style.display = "flex";
                 });
             }
         });
     </script>
+
 </body>
 
 </html>
