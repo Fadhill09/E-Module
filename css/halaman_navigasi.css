@@ -36,6 +36,30 @@ body {
     transform: translateY(3px);
 }
 
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 5px;
+    position: relative;
+  }
+
+.icon-pencil,
+.icon-magnifier,
+.icon-kalender{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}
+
+.icon-pencil{
+    bottom: 350px;
+    left: 30%;
+}
+
+.icon-magnifier{
+
+}
+
 .introduction {
     background: linear-gradient(90deg, #8c52ff, #5ce1e6);
     display: flex;
@@ -49,6 +73,7 @@ body {
 }
 
 .unit_2 {
+    position: absolute;
     background: linear-gradient(90deg, #8c52ff, #ff914d);
 }
 
@@ -64,6 +89,7 @@ body {
 .unit_2-content,
 .unit_3-content,
 .unit_4-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,13 +176,24 @@ body {
 }
 
 /* Media Query untuk perangkat lebih besar (Laptop dan Desktop) */
-@media (min-width: 768px) {
+@media (min-width: 860px) {
     .setting-container {
         top: 20px; /* Menjaga jarak lebih besar di layar besar */
         right: 20px; /* Posisi kanan lebih pas untuk perangkat besar */
         gap: 5px; /* Menjaga jarak antar tombol tetap baik */
     }
+    .icon-pencil,
+.icon-magnifier,
+.icon-kalender{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}
 
+ .icon-pencil{
+    bottom: 350px;
+    left: 10%;
+}
     .img-setting,
     .img-settingOn,
     .img-sound,.img-mute,.img-home  {
@@ -181,6 +218,19 @@ body {
         gap: 5px; /* Mengurangi jarak antar tombol lebih rapat */
     }
 
+    .icon-pencil{
+        bottom: 350px;
+        left: 10%;
+    } 
+
+    .icon-pencil,
+    .icon-magnifier,
+    .icon-kalender{
+        width: 55px;
+        height: 55px;
+        position: absolute;
+    }
+    
     /* Ukuran lebih kecil untuk ikon pada perangkat kecil */
     .img-setting,
     .img-settingOn,
@@ -206,6 +256,19 @@ body {
         top: 8px;  /* Sedikit lebih tinggi untuk perangkat sangat kecil */
         right: 8px; /* Menyesuaikan posisi agar tidak terlalu ke ka */
     }
+
+    .icon-pencil,
+.icon-magnifier,
+.icon-kalender{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}
+
+.icon-pencil{
+    bottom: 350px;
+    left: 5%;
+}
 
     .img-setting,
     .img-settingOn,
