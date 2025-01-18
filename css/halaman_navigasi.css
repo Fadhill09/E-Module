@@ -294,7 +294,7 @@ body {
     .home-wrapper {
         position: fixed;
         top: 8px;
-        left: 1050px;  /* Menyesuaikan posisi home agar lebih dekat */
+        left: 1050px; 
         z-index: 10;
     }
 }
