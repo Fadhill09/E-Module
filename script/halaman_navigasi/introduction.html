@@ -39,27 +39,35 @@
 
         .content {
             margin-top: 5px;
-            font-size: 1.2em;
+            font-size: 1.4em;
             font-weight: bold;
             color: #555;
         }
 
+        /* .cloud{
+            background-color: rgb(0, 119, 255);
+            align-content: center;
+            border-radius: 50px;
+            margin-top: 20px;
+        } */
+
+     
         .highlight {
             color: #4a4a8e;
             font-weight: bold;
         }
 
-        /* .character {
+        .character {
             position: absolute;
             bottom: 0;
             right: 0;
-            transform: translate(-20px, -20px);
+            transform: translate(-20px, 250px);
         }
 
         .character img {
             width: 250px;
-            height: 250px;
-        } */
+            height: 280px;
+        }
 
         /* Dekorasi 1 */
 
@@ -102,25 +110,32 @@
                 transform: translatey(0);
                 padding: 10px;
             }
-
             .character {
-                transform: translate(5px, 65px);
+                width: 300px;
+                height: 330px;
+                transform: translate(5px, 410px);
             }
-
-            /* .character img {
-                width: 200px;
-                height: 200px;
-            } */
-
             .dekorasi_1 {
-                width: 40%;
+                width: 30%;
             }
 
             .dekorasi_2 {
-                width: 30%;
+                width: 20%;
             }
+            .content {
+            font-size: 1.2em;
+        }
         }
 
+        @media (max-width: 500px) {
+
+           .character{
+                width: 250px;
+                height: 250px;
+                transform: translate(5px, 350px);
+            }
+
+        }
     </style>
 </head>
 
@@ -133,11 +148,12 @@
             school conversation like chatting with friends or asking teachers.<br>
             Let’s make learning English exciting and super easy. Ready to shine? Let’s go!!!
         </div>
-        <div class="cloud">Enjoy every step you make!!</div>
+        <div class="cloud"><p>Enjoy every step you make!!</p></div>
+        <div class="character">
+            <img src="/Asset/Karakter1.png" alt="Character">
+        </div>
     </div>
-    <!-- <div class="character">
-        <img src="/Asset/Karakter1.png" alt="Character">
-    </div> -->
+
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">

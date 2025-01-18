@@ -172,7 +172,7 @@ body {
     .setting-container {
         top: 10px; /* Menjaga jarak lebih besar di layar besar */
         right: 10px; /* Posisi kanan lebih pas untuk perangkat besar */
-        gap: 5px; /* Menjaga jarak antar tombol tetap baik */
+    
     }
     .icon-pencil,
 .icon-magnifier,
@@ -184,35 +184,35 @@ body {
 
  .icon-pencil{
     bottom: 320px;
-    left: 10%;
+    left: 30%;
 }
     .img-setting,
     .img-settingOn,
     .img-sound,.img-mute,.img-home  {
-        width: 150px; /* Ukuran ikon untuk perangkat besar */
-        height: 200px; /* Menjaga proporsional ukuran */
+        width: 90px; /* Ukuran ikon untuk perangkat besar */
+        height: 115px; /* Menjaga proporsional ukuran */
         border-radius: 50%; /* Membuat ikon menjadi lingkaran */
     }
 
-    .setting-wrapper,
+    /* .setting-wrapper,
     .setting-on-wrapper,
     .sound-wrapper,
     .mute-wrapper {
-        margin-bottom: 5px; /* Menambah sedikit margin bawah untuk tombol-tombol */
-    }
+        margin-bottom: 5px; Menambah sedikit margin bawah untuk tombol-tombol 
+    } */
 }
 
 /* Media Query untuk perangkat kecil (Mobile) */
 @media (max-width: 799px) {
     .setting-container {
-        top: 5px; /* Posisi lebih tinggi agar tidak terlalu mendekati tepi layar */
-        right: -20px; /* Posisi kanan tetap */
-        gap: 5px; /* Mengurangi jarak antar tombol lebih rapat */
+        top:20px; /* Posisi lebih tinggi agar tidak terlalu mendekati tepi layar */
+        right: 10px; /* Posisi kanan tetap */
+      
     }
 
     .icon-pencil{
         bottom: 320px;
-        left: 10%;
+        left: 15%;
     } 
 
     .icon-pencil,
@@ -227,27 +227,36 @@ body {
     .img-setting,
     .img-settingOn,
     .img-sound,
-    .img-mute,.img-home {
-        width: 80px; /* Ukuran ikon yang lebih pas untuk perangkat kecil */
-        height: 130px; /* Menjaga proporsional */
+    .img-mute,
+    .img-home {
+        width: 60px; /* Ukuran ikon yang lebih pas untuk perangkat kecil */
+        height: 65px; /* Menjaga proporsional */
         border-radius: 50%; /* Membuat ikon menjadi lingkaran */    
+    }
+    
+    .img-home{
+        margin-top: -60px;
+        
     }
 
     /* Menambahkan padding dan margin untuk tombol agar lebih mudah diakses */
     .setting-wrapper,
     .setting-on-wrapper,
     .sound-wrapper,.mute-wrapper,.home-wrapper button {
-        width: 100px; /* Ukuran tombol yang lebih baik untuk laptop */
-        height: 100px; /* Menjaga konsistensi ukuran tombol */
+        width: 50px; /* Ukuran tombol yang lebih baik untuk laptop */
+        height: 50px; /* Menjaga konsistensi ukuran tombol */
+        margin-top: 15px;
     }
+
+
 }
 
 
-/* Media Query untuk perangkat lebih kecil (misalnya, mobile dengan layar kecil) 
+/* /* Media Query untuk perangkat lebih kecil (misalnya, mobile dengan layar kecil)  */
 @media (max-width: 480px) {
     .setting-container {
-        top: 8px;  
-        right: 8px; 
+        top: 30px;  
+        right: 5px; 
     }
 
     .icon-pencil,
@@ -263,13 +272,23 @@ body {
     left: 10%;
 }
 
+.setting-wrapper,
+.setting-on-wrapper,
+.sound-wrapper,.mute-wrapper,.home-wrapper button {
+    width: 50px; /* Ukuran tombol yang lebih baik untuk laptop */
+    height: 50px; /* Menjaga konsistensi ukuran tombol */
+    margin-top: 15px;
+}
     .img-setting,
     .img-settingOn,
     .img-sound,
     .img-mute,
     .img-home {
-        width: 100px; 
-        height: 150px; 
-        border-radius: 50%; Membuat ikon menjadi lingkaran    
+        width: 50px; 
+        height: 55px; 
+        border-radius: 50%; 
     }
- } */
+    .img-home{
+        margin-top: 10px;
+    }
+ } 
