@@ -42,6 +42,8 @@ body {
     margin: 5px;
 }
 
+
+
 .icon-pencil,
 .icon-magnifier,
 .icon-kalender {
@@ -164,6 +166,19 @@ body {
         top: 6px;
         right: 4px;
         gap: 2px; /* Mengurangi gap lebih kecil */
+    }
+
+    .icon-pencil {
+        position: absolute;
+        top: -490px;
+        left: 40px;
+        transform: rotate(270deg);
+    }
+    
+    .icon-kalender {
+        position:absolute;
+        top: -395px;
+        z-index: -1
     }
 
     .nav-container a {
