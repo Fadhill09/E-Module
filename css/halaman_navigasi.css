@@ -273,7 +273,7 @@ body {
         width: 280px; /* Lebar tombol sedikit lebih besar */
         height: 60px;
         line-height: 60px;
-        margin: 40px auto; /* Menyesuaikan margin untuk tablet */
+        margin: 40px auto; 
         font-size: 1.1rem; /* Ukuran font sedikit lebih besar */
     }
 
