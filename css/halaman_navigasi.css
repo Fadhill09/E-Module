@@ -180,6 +180,11 @@ body {
         top: -395px;
         z-index: -1
     }
+    
+    .img-home{
+        margin-top: -60px;
+        
+    }
 
 
 
@@ -192,6 +197,13 @@ body {
         font-size: 1rem;
     }
 
+.setting-wrapper,
+.setting-on-wrapper,
+.sound-wrapper,.mute-wrapper,.home-wrapper button {
+    width: 50px; /* Ukuran tombol yang lebih baik untuk laptop */
+    height: 50px; /* Menjaga konsistensi ukuran tombol */
+    margin-top: 15px;
+}
     .img-setting,
     .img-settingOn,
     .img-sound,
@@ -270,7 +282,7 @@ body {
     .img-sound,
     .img-mute,
     .img-home {
-        width: 60px;  /* Ukuran ikon sedikit lebih besar */
+        width: 60px;  
         height: 80px;
     }
 
@@ -285,7 +297,7 @@ body {
     .home-wrapper {
         position: fixed;
         top: 8px;
-        left: 1050px;  /* Menyesuaikan posisi home agar lebih dekat */
+        left: 1050px; 
         z-index: 10;
     }
 }
