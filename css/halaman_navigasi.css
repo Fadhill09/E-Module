@@ -210,20 +210,20 @@ body {
     .img-mute,
     .img-home {
         width: 50px;
-        height: 70px;
+        height: 50px;
     }
 
     .setting-wrapper,
     .setting-on-wrapper,
     .sound-wrapper,
-    .mute-wrapper {
+    .mute-wrapper,.home-wrapper {
         width: 50px;
         height: 60px;
     }
 
     .home-wrapper {
         position: fixed;
-        top: 5px;
+        top: 67px;
         left: 278px; /* Mengurangi jarak lebih dekat dengan setting */
         z-index: 10;
     }
@@ -243,7 +243,7 @@ body {
     .img-mute,
     .img-home {
         width: 80px;
-        height: 100px;
+        height: 90px;
     }
 
     .setting-wrapper,
@@ -296,8 +296,8 @@ body {
 
     .home-wrapper {
         position: fixed;
-        top: 8px;
-        left: 1050px; 
+        top: 13px;
+        left: 710px; 
         z-index: 10;
     }
 }
