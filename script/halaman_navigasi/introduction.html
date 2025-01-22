@@ -24,9 +24,10 @@
             text-align: center;
             position: relative;
             padding: 20px;
+            margin-bottom: 20px;
             width: 90%;
             max-width: 860px;
-            z-index: 2; /* Ensure container is above character */
+            z-index: 2;
         }
 
         .title {
@@ -48,11 +49,114 @@
             font-weight: bold;
         }
 
+        .icon-container {
+            margin: 5px 5px;
+            z-index: 1;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+
+        .icon-magnifier {
+            width: 65px;
+            height: 65px;
+            bottom: 150px;
+            left: 10%;
+            transform: translateY(20px);
+            position: absolute;
+            animation: icon-magnifier 10s ease 1s infinite normal none;
+            
+        }
+
+        @keyframes icon-magnifier {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 50%;
+            }
+
+            10% {
+                transform: rotate(8deg);
+            }
+
+            20%,
+            40%,
+            60% {
+                transform: rotate(-10deg);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: rotate(10deg);
+            }
+
+            80% {
+                transform: rotate(-8deg);
+            }
+
+            90% {
+                transform: rotate(8deg);
+            }
+        }
+
+        .icon-book {
+            width: 90px;
+            height: 40px;
+            top: -100px;
+            right: -9%;
+            position: absolute;
+        }
+
+        .icon-jangka {
+            height: 80px;
+            height: 75px;
+            bottom: -10;
+            left: 9%;
+            position: absolute;
+            animation: icon-jangka 5s ease-in 0.3s infinite alternate both;
+        }
+
+        @keyframes icon-jangka {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(8deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-8deg);
+  }
+
+  90% {
+    transform: rotate(8deg);
+  }
+}
+
         .character {
             position: fixed;
-            bottom: 20px;
-            right: 20px; /* Positioned character on the bottom-right */
-            z-index: 1; /* Ensure character is below container */
+            bottom: 0;
+            /* Menempatkan karakter lebih dekat ke bawah */
+            right: 20px;
+            z-index: 1;
         }
 
         .character img {
@@ -63,10 +167,11 @@
 
         .speech-bubble {
             position: fixed;
-            bottom: 120px; /* Positioned above the character */
-            right: 40px; /* Positioned near the character without overlapping */
+            bottom: 160px;
+            /* Menempatkan balon ucapan lebih tinggi dari karakter */
+            right: 250px;
+            /* Menempatkan balon ucapan di sebelah karakter */
             background: #fff;
-            border: 2px solid #555;
             border-radius: 20px;
             padding: 10px 20px;
             font-size: 1.2em;
@@ -74,22 +179,23 @@
             font-weight: bold;
             max-width: 300px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Ensure bubble is above character */
+            z-index: 2;
         }
 
         .speech-bubble:after {
             content: "";
             position: absolute;
+            margin-bottom: .5px;
             bottom: -20px;
-            left: 40px;
+            right: 20px;
             width: 0;
             height: 0;
             border: 10px solid transparent;
-            border-top-color: #fff;
+            border-top-color: #ffffff;
         }
 
-        /* Dekorasi 1 */
 
+        /* Dekorasi 1 */
         .dekorasi_1 {
             position: absolute;
             width: 20%;
@@ -107,7 +213,6 @@
         }
 
         /* Dekorasi 2 */
-
         .dekorasi_2 {
             position: absolute;
             width: 15%;
@@ -120,27 +225,78 @@
 
         @media (max-width: 860px) {
             .character img {
-                width: 25vw; /* Slightly larger on medium screens */
+                width: 25vw;
                 max-width: 250px;
             }
+
             .speech-bubble {
                 font-size: 1em;
                 max-width: 250px;
-                bottom: 100px;
-                right: 30px;
+                bottom: 120px;
+                right: 170px;
+            }
+
+
+            .icon-magnifier {
+                width: 50px;
+                height: 50px;
+                bottom: 180px;
+                left: 10%;
+                position: absolute;
+            }
+
+            .icon-book {
+                width: 70px;
+                height: 30px;
+                top: -100px;
+                right: 2%;
+                position: absolute;
+            }
+
+            .icon-jangka {
+                height: 75px;
+                height: 70px;
+                bottom: -10;
+                left: 9%;
+                position: absolute;
             }
         }
 
         @media (max-width: 500px) {
             .character img {
-                width: 30vw; /* Larger on small screens */
+                width: 30vw;
                 max-width: 200px;
             }
+
             .speech-bubble {
                 font-size: 0.9em;
                 max-width: 200px;
-                bottom: 80px;
-                right: 20px;
+                bottom: 90px;
+                right: 120px;
+            }
+
+            .icon-magnifier {
+                width: 50px;
+                height: 50px;
+                bottom: 250px;
+                left: 10%;
+                position: absolute;
+            }
+
+            .icon-book {
+                width: 70px;
+                height: 30px;
+                top: -135px;
+                right: -5%;
+                position: absolute;
+            }
+
+            .icon-jangka {
+                height: 75px;
+                height: 70px;
+                bottom: -10;
+                left: 9%;
+                position: absolute;
             }
         }
     </style>
@@ -155,6 +311,13 @@
             school conversation like chatting with friends or asking teachers.<br>
             Let’s make learning English exciting and super easy. Ready to shine? Let’s go!!!
         </div>
+
+        <div class="icon-container">
+            <img class="icon-book" src="/Asset/Buku 1.png" alt="Book Icon">
+            <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+            <img class="icon-jangka" src="/Asset/Jangka.png" alt="Jangka Icon">
+        </div>
+
     </div>
 
     <div class="character">
@@ -164,6 +327,7 @@
     <div class="speech-bubble">
         Enjoy every step you make!!
     </div>
+
 
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
