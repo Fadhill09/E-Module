@@ -1,131 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/halaman_navigasi.css">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Halaman Navigasi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .nav-container {
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav-container a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 6px;
+      transition: background-color 0.3s, transform 0.2s;
+      max-width: 350px;
+      height: 70px;
+      margin: 10px auto;
+    }
+
+    .nav-container .unit_1 {
+      background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+    }
+
+    .nav-container .unit_2 {
+      background: linear-gradient(90deg, #8c52ff, #ff914d);
+    }
+
+    .nav-container .unit_3 {
+      background: linear-gradient(90deg, #5de0e6, #004aad);
+    }
+
+    .nav-container .unit_4 {
+      background: linear-gradient(90deg, #8c52ff, #ff914d);
+    }
+
+    /* Posisi gambar */
+    .image-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .image-container img {
+      display: block;
+      margin-bottom: 10px;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+
+    /* Gambar home di sebelah kanan setting */
+    .image-home {
+      position: absolute;
+      top: 10px;
+      right: 55px;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Posisi gambar setting dan setting on */
+    .image-setting {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .image-setting-on {
+      position: absolute;
+      top: 10px; 
+      right: 10px;
+      width: 40px; 
+      height: 40px; 
+    }
+
+    /* Div container untuk sound dan mute */
+    .audio-controls {
+      position: absolute;
+      top: 55px; 
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .audio-controls img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container text-center py-5">
+    <!-- Navigation Container -->
     <div class="nav-container">
-        <a href="introduction.html" class="introduction">Introduction</a>
-        <a href="#unit1" class="unit_1">
-            <div class="unit_1-content">
-                Unit 1
-                <span class="sub-unit-1">Talking about your class schedule</span>
-            </div>
-        </a>
-        <a href="#unit2" class="unit_2">
-            <div class="unit_2-content">
-                Unit 2
-                <span class="sub-unit-2">Talking about your favorite school subjects</span>
-            </div>
-        </a>
-        <a href="#unit3" class="unit_3">
-            <div class="unit_3-content">
-                Unit 3
-                <span class="sub-unit-3">Making plans with friends during break</span>
-            </div>
-        </a>
-        <a href="#unit4" class="unit_4">
-            <div class="unit_4-content">
-                Unit 4
-                <span class="sub-unit-4">Review & Practice</span>
-            </div>
-        </a>
-
-        <div class="icon-container">
-            <img class="icon-pencil" src="/Asset/Pencil.png" alt="Pencil Icon">
-            <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
-            <img class="icon-kalender" src="/Asset/Kalender.png" alt="Kalender Icon">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <a href="#" class="unit_1">Unit 1</a>
         </div>
+        <div class="col-12">
+          <a href="#" class="unit_2">Unit 2</a>
+        </div>
+        <div class="col-12">
+          <a href="#" class="unit_3">Unit 3</a>
+        </div>
+        <div class="col-12">
+          <a href="#" class="unit_4">Unit 4</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <img src="/Asset/dekorasi_1.png" alt="Dekorasi" class="dekorasi_1 dekorasi-bottom-left-1">
+  <!-- Gambar di ujung kanan atas -->
+  <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton">
 
-    <!-- Tombol Setting -->
-    <div class="setting-container">
-        <!-- Setting Button -->
-        <div class="setting-wrapper">
-            <button id="setting" aria-label="Activate Settings">
-                <img src="/Asset/Setting.png" alt="Setting Icon" class="img-setting">
-            </button>
-        </div>
+  <!-- Gambar home di sebelah kanan setting -->
+  <img src="/Asset/home.png" alt="Home" class="image-home">
 
-        <!-- Setting On Button -->
-        <div class="setting-on-wrapper" style="display: none;">
-            <button id="settingOn" aria-label="Deactivate Settings">
-                <img src="/Asset/Setting On.png" alt="Setting Active Icon" class="img-settingOn">
-            </button>
-        </div>
+  <!-- Kontainer audio controls (sound dan mute) -->
+  <div class="audio-controls">
+    <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton"> <!-- Mute pertama kali -->
+    <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;"> <!-- Sound disembunyikan pertama kali -->
+  </div>
 
-        <!-- Sound Button -->
-        <div class="sound-wrapper" style="display: none;">
-            <button id="sound" aria-label="Sound Settings">
-                <img src="/Asset/Sound.png" alt="Sound Icon" class="img-sound">
-            </button>
-        </div>
+  <audio id="audio" preload="auto">
+    <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
-        <!-- Mute Button -->
-        <div class="mute-wrapper" style="display: none;">
-            <button id="mute" aria-label="Mute Settings">
-                <img src="/Asset/Mute.png" alt="Mute Icon" class="img-mute">
-            </button>
-        </div>
-        
-        <!-- home Button -->
-         <div class="home-wrapper">
-            <a href="/script/cover.html"><img src="/Asset/home.png" alt="" class="img-home"></a>
-         </div>
-    </div>
+  <script>
+    // Mendapatkan elemen-elemen gambar
+    const settingButton = document.getElementById('settingButton');
+    const settingOnButton = document.getElementById('settingOnButton');
+    const soundButton = document.getElementById('soundButton');
+    const muteButton = document.getElementById('muteButton');
+    const audio = document.getElementById('audio');
+    const audioSource = document.getElementById('audioSource');
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const setting = document.getElementById("setting");
-            const settingOn = document.getElementById("settingOn");
-            const sound = document.getElementById("sound");
-            const mute = document.getElementById("mute");
+    // Array lagu-lagu yang akan diputar
+    const songs = [
+      "/Asset/audio/contoh.mp3", // Ganti dengan path lagu pertama
+      "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
+      "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
+    ];
+    
+    let currentSongIndex = 0; // Indeks lagu yang sedang diputar
 
-            const settingWrapper = document.querySelector('.setting-wrapper');
-            const settingOnWrapper = document.querySelector('.setting-on-wrapper');
-            const soundWrapper = document.querySelector('.sound-wrapper');
-            const muteWrapper = document.querySelector('.mute-wrapper');
+    // Fungsi untuk mengganti lagu
+    function changeSong() {
+      currentSongIndex = (currentSongIndex + 1) % songs.length; // Menentukan lagu berikutnya
+      audioSource.src = songs[currentSongIndex]; // Ganti sumber audio
+      audio.load(); // Memuat ulang audio
+      audio.play(); // Memutar lagu baru
+    }
 
-            // Pastikan elemen-elemen ada sebelum melanjutkan
-            if (setting && settingOn && sound && mute) {
-                // Event ketika tombol setting diklik
-                setting.addEventListener("click", function () {
-                    settingWrapper.style.display = "none";
-                    settingOnWrapper.style.display = "flex";
-                    soundWrapper.style.display = "flex";
-                });
+    // Event listener untuk tombol setting
+    settingButton.addEventListener('click', function() {
+      settingButton.style.display = 'none'; // Menyembunyikan gambar setting
+      settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
+      soundButton.style.display = 'block'; // Menampilkan gambar sound
+    });
 
-                // Event ketika tombol settingOn diklik
-                settingOn.addEventListener("click", function () {
-                    settingWrapper.style.display = "flex";
-                    settingOnWrapper.style.display = "none";
-                    soundWrapper.style.display = "none";
-                    muteWrapper.style.display = "none";
-                });
+    // Event listener untuk tombol mute
+    muteButton.addEventListener('click', function() {
+      audio.play(); // Memulai pemutaran audio
+      muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+      soundButton.style.display = 'block'; // Menampilkan gambar sound
+    });
 
-                // Event ketika tombol sound diklik
-                sound.addEventListener("click", function () {
-                    soundWrapper.style.display = "none";
-                    muteWrapper.style.display = "flex";
-                });
+    // Event listener untuk tombol sound
+    soundButton.addEventListener('click', function() {
+      audio.pause(); // Menjeda audio
+      audio.currentTime = 0; // Mengatur waktu audio ke awal
+      soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+      muteButton.style.display = 'block'; // Menampilkan gambar mute
+    });
 
-                // Event ketika tombol mute diklik
-                mute.addEventListener("click", function () {
-                    muteWrapper.style.display = "none";
-                    soundWrapper.style.display = "flex";
-                });
-            }
-        });
-    </script>
-
+    // Event listener untuk tombol setting-on
+    settingOnButton.addEventListener('click', function() {
+      settingOnButton.style.display = 'none'; // Menyembunyikan gambar setting-on
+      settingButton.style.display = 'block'; // Menampilkan gambar setting
+      muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+      soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
