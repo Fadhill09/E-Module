@@ -26,6 +26,7 @@
             padding: 20px;
             width: 90%;
             max-width: 860px;
+            z-index: 2; /* Ensure container is above character */
         }
 
         .title {
@@ -49,20 +50,21 @@
 
         .character {
             position: fixed;
-            bottom: -20px; /* Move character further down */
-            right: 0;
+            bottom: 20px;
+            right: 20px; /* Positioned character on the bottom-right */
+            z-index: 1; /* Ensure character is below container */
         }
 
         .character img {
-            width: 20vw; /* 1/4 of the screen width */
-            max-width: 400px; /* Maximum size for larger screens */
+            width: 20vw;
+            max-width: 300px;
             height: auto;
         }
 
         .speech-bubble {
             position: fixed;
-            bottom: 150px; /* Adjust position above character  */
-            right: 250px; /* Position next to character  */
+            bottom: 120px; /* Positioned above the character */
+            right: 40px; /* Positioned near the character without overlapping */
             background: #fff;
             border: 2px solid #555;
             border-radius: 20px;
@@ -72,13 +74,14 @@
             font-weight: bold;
             max-width: 300px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 2; /* Ensure bubble is above character */
         }
 
         .speech-bubble:after {
             content: "";
             position: absolute;
-            bottom: -125x;
-            left: 20px;
+            bottom: -20px;
+            left: 40px;
             width: 0;
             height: 0;
             border: 10px solid transparent;
@@ -117,25 +120,27 @@
 
         @media (max-width: 860px) {
             .character img {
-                width: 35vw; /* Slightly larger on medium screens */
-                max-width: 350px;
+                width: 25vw; /* Slightly larger on medium screens */
+                max-width: 250px;
             }
             .speech-bubble {
                 font-size: 1em;
                 max-width: 250px;
-                bottom: 150px; /* Adjust position above character  */
-                right: 280px; 
+                bottom: 100px;
+                right: 30px;
             }
         }
 
-        @media (max-width:430px) {
+        @media (max-width: 500px) {
             .character img {
-                width: 35vw; /* Larger on small screens */
-                max-width: 300px;
+                width: 30vw; /* Larger on small screens */
+                max-width: 200px;
             }
             .speech-bubble {
                 font-size: 0.9em;
                 max-width: 200px;
+                bottom: 80px;
+                right: 20px;
             }
         }
     </style>
