@@ -27,7 +27,6 @@
             margin-bottom: 20px;
             width: 90%;
             max-width: 860px;
-            z-index: 2;
         }
 
         .title {
@@ -40,6 +39,7 @@
         .content {
             margin-top: 5px;
             font-size: 1.4em;
+            z-index: 1;
             font-weight: bold;
             color: #555;
         }
@@ -51,7 +51,7 @@
 
         .icon-container {
             margin: 5px 5px;
-            z-index: 1;
+            z-index: 0;
             display: flex;
             justify-content: space-around;
             position: relative;
@@ -66,7 +66,7 @@
             transform: translateY(20px);
             position: absolute;
             animation: icon-magnifier 10s ease 1s infinite normal none;
-            
+
         }
 
         @keyframes icon-magnifier {
@@ -106,9 +106,57 @@
             width: 90px;
             height: 40px;
             top: -100px;
-            right: -9%;
+            right: -5%;
             position: absolute;
+            animation: icon-book 4s ease .5s infinite alternate-reverse none;
         }
+
+        @keyframes icon-book {
+            0% {
+                transform: translate(0);
+            }
+
+            10% {
+                transform: translate(-2px, -2px);
+            }
+
+            20% {
+                transform: translate(2px, -2px);
+            }
+
+            30% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(2px, 2px);
+            }
+
+            50% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, -2px);
+            }
+
+            70% {
+                transform: translate(-2px, 2px);
+            }
+
+            80% {
+                transform: translate(-2px, -2px);
+            }
+
+            90% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
 
         .icon-jangka {
             height: 80px;
@@ -120,43 +168,44 @@
         }
 
         @keyframes icon-jangka {
-  0%,
-  100% {
-    transform: rotate(0deg);
-    transform-origin: 50% 50%;
-  }
 
-  10% {
-    transform: rotate(8deg);
-  }
+            0%,
+            100% {
+                transform: rotate(0deg);
+                transform-origin: 50% 50%;
+            }
 
-  20%,
-  40%,
-  60% {
-    transform: rotate(-10deg);
-  }
+            10% {
+                transform: rotate(8deg);
+            }
 
-  30%,
-  50%,
-  70% {
-    transform: rotate(10deg);
-  }
+            20%,
+            40%,
+            60% {
+                transform: rotate(-10deg);
+            }
 
-  80% {
-    transform: rotate(-8deg);
-  }
+            30%,
+            50%,
+            70% {
+                transform: rotate(10deg);
+            }
 
-  90% {
-    transform: rotate(8deg);
-  }
-}
+            80% {
+                transform: rotate(-8deg);
+            }
+
+            90% {
+                transform: rotate(8deg);
+            }
+        }
 
         .character {
             position: fixed;
             bottom: 0;
             /* Menempatkan karakter lebih dekat ke bawah */
             right: 20px;
-            z-index: 1;
+            z-index: 2;
         }
 
         .character img {
