@@ -4,146 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/introduction.css">
     <title>Introduction</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Balsamiq Sans", cursive;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url("/css/Background.png");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            padding: 20px;
-            width: 90%;
-            max-width: 860px;
-            z-index: 2; /* Ensure container is above character */
-        }
-
-        .title {
-            font-weight: bold;
-            color: #4a4a8e;
-            font-size: 2.8em;
-            transform: rotate(-5deg);
-        }
-
-        .content {
-            margin-top: 5px;
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .highlight {
-            color: #4a4a8e;
-            font-weight: bold;
-        }
-
-        .character {
-            position: fixed;
-            bottom: 20px;
-            right: 20px; /* Positioned character on the bottom-right */
-            z-index: 1; /* Ensure character is below container */
-        }
-
-        .character img {
-            width: 20vw;
-            max-width: 300px;
-            height: auto;
-        }
-
-        .speech-bubble {
-            position: fixed;
-            bottom: 120px; /* Positioned above the character */
-            right: 40px; /* Positioned near the character without overlapping */
-            background: #fff;
-            border: 2px solid #555;
-            border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: #333;
-            font-weight: bold;
-            max-width: 300px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Ensure bubble is above character */
-        }
-
-        .speech-bubble:after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 40px;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-            border-top-color: #fff;
-        }
-
-        /* Dekorasi 1 */
-
-        .dekorasi_1 {
-            position: absolute;
-            width: 20%;
-        }
-
-        .dekorasi-top-right-1 {
-            top: 0;
-            right: 0;
-        }
-
-        .dekorasi-bottom-left-1 {
-            bottom: 0;
-            left: 0;
-            transform: rotate(180deg);
-        }
-
-        /* Dekorasi 2 */
-
-        .dekorasi_2 {
-            position: absolute;
-            width: 15%;
-        }
-
-        .dekorasi-top-left-2 {
-            top: 0;
-            left: 0;
-        }
-
-        @media (max-width: 860px) {
-            .character img {
-                width: 25vw; /* Slightly larger on medium screens */
-                max-width: 250px;
-            }
-            .speech-bubble {
-                font-size: 1em;
-                max-width: 250px;
-                bottom: 100px;
-                right: 30px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .character img {
-                width: 30vw; /* Larger on small screens */
-                max-width: 200px;
-            }
-            .speech-bubble {
-                font-size: 0.9em;
-                max-width: 200px;
-                bottom: 80px;
-                right: 20px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -155,6 +17,13 @@
             school conversation like chatting with friends or asking teachers.<br>
             Let’s make learning English exciting and super easy. Ready to shine? Let’s go!!!
         </div>
+
+        <div class="icon-container">
+            <img class="icon-book" src="/Asset/Buku 1.png" alt="Book Icon">
+            <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+            <img class="icon-jangka" src="/Asset/Jangka.png" alt="Jangka Icon">
+        </div>
+
     </div>
 
     <div class="character">
@@ -165,9 +34,84 @@
         Enjoy every step you make!!
     </div>
 
-    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <!-- <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1"> -->
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+
+    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton">
+  
+    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+      <img src="/Asset/home.png" alt="Home" class="image-home">
+    </a>
+  
+    <!-- Kontainer audio controls (sound dan mute) -->
+    <div class="audio-controls">
+      <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton"> <!-- Mute pertama kali -->
+      <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;"> <!-- Sound disembunyikan pertama kali -->
+    </div>
+  
+    <audio id="audio" preload="auto">
+      <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+    </audio>
+  
+    <script>
+
+      // Mendapatkan elemen-elemen gambar
+      const settingButton = document.getElementById('settingButton');
+      const settingOnButton = document.getElementById('settingOnButton');
+      const soundButton = document.getElementById('soundButton');
+      const muteButton = document.getElementById('muteButton');
+      const audio = document.getElementById('audio');
+      const audioSource = document.getElementById('audioSource');
+  
+      // Array lagu-lagu yang akan diputar
+      const songs = [
+        "/Asset/audio/contoh.mp3", // Ganti dengan path lagu pertama
+        "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
+        "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
+      ];
+      
+      let currentSongIndex = 0; // Indeks lagu yang sedang diputar
+  
+      // Fungsi untuk mengganti lagu
+      function changeSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Menentukan lagu berikutnya
+        audioSource.src = songs[currentSongIndex]; // Ganti sumber audio
+        audio.load(); // Memuat ulang audio
+        audio.play(); // Memutar lagu baru
+      }
+  
+      // Event listener untuk tombol setting
+      settingButton.addEventListener('click', function() {
+        settingButton.style.display = 'none'; // Menyembunyikan gambar setting
+        settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
+        soundButton.style.display = 'block'; // Menampilkan gambar sound
+      });
+  
+      // Event listener untuk tombol mute
+      muteButton.addEventListener('click', function() {
+        audio.play(); // Memulai pemutaran audio
+        muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+        soundButton.style.display = 'block'; // Menampilkan gambar sound
+      });
+  
+      // Event listener untuk tombol sound
+      soundButton.addEventListener('click', function() {
+        audio.pause(); // Menjeda audio
+        audio.currentTime = 0; // Mengatur waktu audio ke awal
+        soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+        muteButton.style.display = 'block'; // Menampilkan gambar mute
+      });
+  
+      // Event listener untuk tombol setting-on
+      settingOnButton.addEventListener('click', function() {
+        settingOnButton.style.display = 'none'; // Menyembunyikan gambar setting-on
+        settingButton.style.display = 'block'; // Menampilkan gambar setting
+        muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+        soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+      });
+    </script>
 </body>
 
 </html>
