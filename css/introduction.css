@@ -20,6 +20,7 @@ body {
     margin-bottom: 20px;
     width: 90%;
     max-width: 860px;
+    margin-top: -130px;
 }
 
 .title {
@@ -30,7 +31,7 @@ body {
 }
 
 .content {
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 1.4em;
     z-index: 1;
     font-weight: bold;
@@ -43,7 +44,7 @@ body {
 }
 
 .icon-container {
-    margin: 5px 5px;
+    margin: -10px -10px;
     z-index: 0;
     display: flex;
     justify-content: space-around;
@@ -274,7 +275,7 @@ body {
     .speech-bubble {
         font-size: 1em;
         max-width: 250px;
-        bottom: 120px;
+        bottom: 200px;
         right: 170px;
     }
 
@@ -305,16 +306,26 @@ body {
 }
 
 @media (max-width: 500px) {
+
+    .button {
+        top: auto; /* Atur otomatis agar mengikuti posisi relatif */
+        bottom: 20px; /* Atur jarak tombol dari bawah layar */
+        /* left: 10px; Atur jarak tombol dari kanan layar */
+        right: 50px; /* Atur jarak tombol dari kanan layar */
+        font-size: 0.9em; /* Sesuaikan ukuran teks */
+        position: relative; /* Atur posisi tombol */
+    }
+
     .character img {
-        width: 30vw;
+        width: 40vw;
         max-width: 200px;
     }
 
     .speech-bubble {
         font-size: 0.9em;
-        max-width: 200px;
-        bottom: 90px;
-        right: 120px;
+        max-width: 250px;
+        bottom: 140px;
+        right: 130px;
     }
 
     .icon-magnifier {
@@ -395,4 +406,27 @@ align-items: center;
 width: 40px;
 height: 40px;
 cursor: pointer;
+}
+
+.button {
+    display: inline-block;
+    line-height: 35px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin: 10px 0;
+    background-color: #4a4a8e;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    top: 520px;
+    left: 300px;
+    position: absolute;
+    z-index: 99;
 }
