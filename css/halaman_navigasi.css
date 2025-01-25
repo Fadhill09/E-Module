@@ -1,16 +1,77 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6); /* Gradient dinamis dengan tiga warna */
+  background-size: 400% 400%; /* Ukuran latar belakang besar untuk animasi */
+  animation: gradientBackground 15s ease infinite; /* Animasi latar belakang yang berputar */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100vh;
+  z-index: -1; /* Pastikan background berada di bawah konten */
+}
 
+/* Animasi gradient bergerak */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 799px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6); /* Gradient dinamis dengan tiga warna */
+    background-size: 200% 200%; /* Ukuran latar belakang besar untuk animasi */
+    animation: gradientBackground 15s ease infinite; /* Animasi latar belakang yang berputar */
+    z-index: -1; /* Menjaga background tetap di bawah konten */
+  }
+
+  .dekorasi-bottom-left-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  .nav-container a {
+    width: 280px;
+  }
+
+  .nav-container span {
+    line-height: 1.3;
+  }
+
+  .icon-calender {
+    top: -200px;
+    right: 135px;
+    z-index: -2;
+  }
+
+  .icon-pencil {
+    top: -280px;
+    right: 110px;
+    z-index: -2;
+  }
+
+  .icon-airplane {
+    left: 120px;
+  }
+}
+
+
+
 
   .nav-container {
     width: 100%;
@@ -191,29 +252,11 @@ transform: rotate(-35deg);
 /* transform: rotateZ(30deg); */
 }
 
-@media (max-width: 799px) {
-body {
-  height: 100vh;
-  overflow: hidden;
-  position: fixed;
-}
-.nav-container a {
-  width: 280px;
-}
 
-.nav-container span {
-  line-height: 1.3;
-}
 
-.icon-calender {
-top: -200px;
-right: 135px;
-z-index: -2;
-}
 
-.icon-pencil {
-top: -280px;
-right: 110px;
-z-index: -2;
-}
-}
+
+
+
+
+

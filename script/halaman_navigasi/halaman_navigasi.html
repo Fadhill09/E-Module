@@ -104,7 +104,7 @@ function changeSong() {
 settingButton.addEventListener('click', function() {
   settingButton.style.display = 'none'; // Menyembunyikan gambar setting
   settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
-  muteButton.style.display = 'block'; // Menampilkan gambar mute
+  soundButton.style.display = 'block'; // Menampilkan gambar mute
 });
 
 // Event listener untuk tombol mute
@@ -129,6 +129,15 @@ settingOnButton.addEventListener('click', function() {
   muteButton.style.display = 'none'; // Menyembunyikan gambar mute
   soundButton.style.display = 'none'; // Menyembunyikan gambar sound
 });
+
+window.onload = function() {
+  // Menyembunyikan tombol mute dan menampilkan tombol sound saat halaman dimuat
+  audio.play().catch(function(error) {
+    // Menangani error jika browser mencegah pemutaran otomatis
+    console.log("Error memutar audio: ", error);
+  });
+};
+
 
   </script>
   <script src="/bootstrap/js/bootstrap.js"></script>
