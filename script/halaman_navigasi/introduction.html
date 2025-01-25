@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container ">
         <h1 class="title">Introduction</h1>
         <div class="content">
             Hello!!<br>
@@ -34,12 +34,16 @@
         Enjoy every step you make!!
     </div>
 
+    <div class="button-container">
+      <a href=""class="button">Back</a>
+    </div>
+
     <!-- <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1"> -->
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
 
     <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
   
     <a href="/script/halaman_navigasi/halaman_navigasi.html">
       <img src="/Asset/home.png" alt="Home" class="image-home">
@@ -47,7 +51,7 @@
   
 
     <div class="audio-controls">
-      <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton"> <!-- Mute pertama kali -->
+      <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;"> <!-- Mute pertama kali -->
       <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;"> <!-- Sound disembunyikan pertama kali -->
     </div>
   
@@ -86,7 +90,7 @@
       settingButton.addEventListener('click', function() {
         settingButton.style.display = 'none'; // Menyembunyikan gambar setting
         settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
-        soundButton.style.display = 'block'; // Menampilkan gambar sound
+        muteButton.style.display = 'block'; // Menampilkan gambar mute
       });
   
       // Event listener untuk tombol mute

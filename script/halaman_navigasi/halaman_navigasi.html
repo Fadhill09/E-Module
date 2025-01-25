@@ -16,7 +16,7 @@
           </a>
         </div>
         <div class="col-12">
-          <a href="#" class="unit_1">Unit 1
+          <a href="unit1.html" class="unit_1">Unit 1
             <span>Talking about your class 
               schedule</span>
           </a>
@@ -64,7 +64,7 @@
 </div>
 
   <audio id="audio" preload="auto">
-    <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
@@ -80,7 +80,7 @@ const audioSource = document.getElementById('audioSource');
 
 // Array lagu-lagu yang akan diputar
 const songs = [
-  "/Asset/audio/contoh.mp3", // Ganti dengan path lagu pertama
+  "/Asset/audio/sound.mp3", // Ganti dengan path lagu pertama
   "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
   "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
 ];
@@ -99,7 +99,7 @@ function changeSong() {
 settingButton.addEventListener('click', function() {
   settingButton.style.display = 'none'; // Menyembunyikan gambar setting
   settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
-  muteButton.style.display = 'block'; // Menampilkan gambar mute
+  soundButton.style.display = 'block'; // Menampilkan gambar mute
 });
 
 // Event listener untuk tombol mute
@@ -124,6 +124,15 @@ settingOnButton.addEventListener('click', function() {
   muteButton.style.display = 'none'; // Menyembunyikan gambar mute
   soundButton.style.display = 'none'; // Menyembunyikan gambar sound
 });
+
+window.onload = function() {
+  // Menyembunyikan tombol mute dan menampilkan tombol sound saat halaman dimuat
+  audio.play().catch(function(error) {
+    // Menangani error jika browser mencegah pemutaran otomatis
+    console.log("Error memutar audio: ", error);
+  });
+};
+
 
   </script>
   <script src="/bootstrap/js/bootstrap.js"></script>

@@ -1,0 +1,436 @@
+body {
+    margin: 0;
+    font-family: "Balsamiq Sans", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Mengatur konten agak ke bawah */
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px; /* Tambahkan jarak atas untuk semua layar */
+    background-image: url("/css/Background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.container {
+    align-self: start;
+    text-align: center;
+    justify-content: start;
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 860px;
+    overflow: hidden;
+    overflow: visible;
+}
+
+.title {
+    font-weight: bold;
+    color: #4a4a8e;
+    font-size: 2.8em;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.button-container {
+    margin-top: 20px; /* Tambahkan jarak antara tombol dan container */
+    align-self: center;/
+    margin-top: 20px; /* Tambahkan jarak dari kontainer */
+    position: relative; /* Pastikan tombol tidak terpengaruh elemen absolut */
+}
+
+.button-container .button {
+    background: linear-gradient(90deg, #5db1e6, #104fdd);
+    padding: 8px 45px;
+    font-size: 16px;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    left: 500px;
+    position: relative;
+    text-decoration: none;
+
+}
+.button-container .button:hover {
+    background: linear-gradient(90deg, #104fdd, #5db1e6);
+}
+.content {
+    margin-top: 5px;
+    font-size: 1.4em;
+    z-index: 1;
+    color: #434982;
+}
+
+.highlight {
+    color: #4a4a8e;
+    font-weight: bold;
+}
+
+.icon-container {
+    margin: 5px 5px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    overflow: visible;
+}
+
+
+.icon-magnifier {
+    width: 65px;
+    height: 65px;
+    bottom: -100px;
+    left: 10%;
+    transform: translateY(20px);
+    position: absolute;
+    animation: icon-magnifier 10s ease 1s infinite normal none;
+
+}
+
+@keyframes icon-magnifier {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+
+    10% {
+        transform: rotate(8deg);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-8deg);
+    }
+
+    90% {
+        transform: rotate(8deg);
+    }
+}
+
+.character {
+    position: fixed;
+    bottom: 0;
+    /* Menempatkan karakter lebih dekat ke bawah */
+    right: 20px;
+    z-index: 2;
+}
+
+.character img {
+    width: 20vw;
+    max-width: 300px;
+    height: auto;
+}
+
+.speech-bubble {
+    position: fixed;
+    bottom: 160px;
+    /* Menempatkan balon ucapan lebih tinggi dari karakter */
+    right: 250px;
+    /* Menempatkan balon ucapan di sebelah karakter */
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    max-width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.speech-bubble:after {
+    content: "";
+    position: absolute;
+    margin-bottom: .5px;
+    bottom: -20px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #ffffff;
+}
+
+
+/* Dekorasi 1 */
+.dekorasi_1 {
+    position: absolute;
+    width: 20%;
+}
+
+.dekorasi-top-right-1 {
+    top: 0;
+    right: 0;
+}
+
+.dekorasi-bottom-left-1 {
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);
+}
+
+/* Dekorasi 2 */
+.dekorasi_2 {
+    position: absolute;
+    width: 15%;
+}
+
+.dekorasi-top-left-2 {
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 860px) {
+    body {
+        overflow: hidden;
+    }
+    .character img {
+        width: 25vw;
+        max-width: 250px;
+    }
+
+    .speech-bubble {
+        font-size: 1em;
+        max-width: 250px;
+        bottom: 120px;
+        right: 170px;
+    }
+
+    .button-container .button {
+       left: 100px;
+    }
+
+
+    .icon-magnifier {
+        width: 50px;
+        height: 50px;
+        bottom: 10px;
+        left: 10%;
+        position: absolute;
+    }
+
+    .icon-book {
+        width: 70px;
+        height: 30px;
+        top: -100px;
+        right: 2%;
+        position: absolute;
+    }
+
+    .icon-jangka {
+        height: 75px;
+        height: 70px;
+        bottom: -10;
+        left: 9%;
+        position: absolute;
+    }
+    .dekorasi-bottom-left-1 {
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+    }
+
+    .image-home {
+        position: absolute;
+        top: 10px;
+        right: 55px;
+        width: 40px;
+        height: 40px;
+        }
+        
+        /* Posisi gambar setting dan setting on */
+        .image-setting {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        }
+        
+        .image-setting-on {
+        position: absolute;
+        top: 10px; 
+        right: 10px;
+        width: 40px; 
+        height: 40px; 
+        }
+}
+
+@media (max-width: 500px) {
+    body {
+        overflow: hidden;
+    }
+    .character img {
+        width: 30vw;
+        max-width: 200px;
+    }
+
+    .speech-bubble {
+        font-size: 0.9em;
+        max-width: 200px;
+        bottom: 90px;
+        right: 120px;
+    }
+
+    .icon-magnifier {
+        width: 50px;
+        height: 50px;
+        bottom: -8px;
+        left: 6%;
+        position: absolute;
+    }
+
+    .icon-book {
+        width: 70px;
+        height: 30px;
+        top: -135px;
+        right: -5%;
+        position: absolute;
+    }
+
+    .icon-jangka {
+        height: 75px;
+        height: 70px;
+        bottom: -10;
+        left: 9%;
+        position: absolute;
+    }
+    .dekorasi-bottom-left-1 {
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+    }
+
+    
+}
+.image-container {
+position: absolute;
+top: 10px;
+right: 10px;
+}
+
+.image-container img {
+display: block;
+margin-bottom: 10px;
+width: 40px;
+height: 40px;
+object-fit: cover;
+}
+
+/* Gambar home di sebelah kanan setting */
+.image-home {
+position: absolute;
+top: 10px;
+right: 55px;
+width: 40px;
+height: 40px;
+}
+
+/* Posisi gambar setting dan setting on */
+.image-setting {
+position: absolute;
+top: 10px;
+right: 10px;
+width: 40px;
+height: 40px;
+}
+
+.image-setting-on {
+position: absolute;
+top: 10px; 
+right: 10px;
+width: 40px; 
+height: 40px; 
+}
+
+/* Div container untuk sound dan mute */
+.audio-controls {
+position: absolute;
+top: 55px; 
+right: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.audio-controls img {
+width: 40px;
+height: 40px;
+cursor: pointer;
+}
+
+.typing-animation {
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 3vw; /* Gunakan vw untuk font-size yang responsif */
+    font-weight: bold;
+    color: #4a4a8e;
+    border-right: 2px solid #4a4a8e; /* Efek kursor */
+    white-space: nowrap;
+    overflow: hidden; /* Tetap sembunyikan teks yang belum muncul */
+    width: 0; /* Mulai dengan lebar 0 */
+    animation: typing 6s steps(40, end) 1s forwards, blink-caret 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: #4a4a8e; /* Warna kursor aktif */
+    }
+    50% {
+        border-color: transparent; /* Kursor menghilang di tengah */
+    }
+}
+
+/* Hapus border setelah animasi selesai */
+.typing-animation.active {
+    border-right: none;
+}
+
+/* Media Queries untuk perangkat mobile */
+@media (max-width: 860px) {
+    .typing-animation {
+        font-size: 5vw; /* Menurunkan ukuran font di layar lebih kecil */
+        width: 80%; /* Lebar teks lebih kecil agar tetap rapi */
+    }
+}
+
+@media (max-width: 600px) {
+    .typing-animation {
+        font-size: 5vw; /* Ukuran font lebih kecil di layar lebih kecil lagi */
+        width: 85%; /* Lebar teks sedikit lebih besar untuk layar kecil */
+    }
+}
+
+@media (max-width: 500px) {
+    .typing-animation {
+        font-size: 5vw; /* Ukuran font lebih kecil di layar sangat kecil */
+        width: 90%; /* Lebar teks hampir memenuhi layar */
+    }
+}
+
