@@ -99,7 +99,7 @@ body {
 .icon-book {
     width: 90px;
     height: 40px;
-    top: -100px;
+    top: -90px;
     right: -5%;
     position: absolute;
     animation: icon-book 4s ease .5s infinite alternate-reverse none;
@@ -266,96 +266,10 @@ body {
     left: 0;
 }
 
-@media (max-width: 860px) {
-    .character img {
-        width: 25vw;
-        max-width: 250px;
-    }
-
-    .speech-bubble {
-        font-size: 1em;
-        max-width: 250px;
-        bottom: 200px;
-        right: 170px;
-    }
-
-
-    .icon-magnifier {
-        width: 50px;
-        height: 50px;
-        bottom: 180px;
-        left: 10%;
-        position: absolute;
-    }
-
-    .icon-book {
-        width: 70px;
-        height: 30px;
-        top: -100px;
-        right: 2%;
-        position: absolute;
-    }
-
-    .icon-jangka {
-        height: 75px;
-        height: 70px;
-        bottom: -10;
-        left: 9%;
-        position: absolute;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .button {
-        top: auto; /* Atur otomatis agar mengikuti posisi relatif */
-        bottom: 20px; /* Atur jarak tombol dari bawah layar */
-        /* left: 10px; Atur jarak tombol dari kanan layar */
-        right: 50px; /* Atur jarak tombol dari kanan layar */
-        font-size: 0.9em; /* Sesuaikan ukuran teks */
-        position: relative; /* Atur posisi tombol */
-    }
-
-    .character img {
-        width: 40vw;
-        max-width: 200px;
-    }
-
-    .speech-bubble {
-        font-size: 0.9em;
-        max-width: 250px;
-        bottom: 140px;
-        right: 130px;
-    }
-
-    .icon-magnifier {
-        width: 50px;
-        height: 50px;
-        bottom: 250px;
-        left: 10%;
-        position: absolute;
-    }
-
-    .icon-book {
-        width: 70px;
-        height: 30px;
-        top: -135px;
-        right: -5%;
-        position: absolute;
-    }
-
-    .icon-jangka {
-        height: 75px;
-        height: 70px;
-        bottom: -10;
-        left: 9%;
-        position: absolute;
-    }
-}
 .image-container {
-position: absolute;
-top: 10px;
-right: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .image-container img {
@@ -394,7 +308,7 @@ height: 40px;
 
 /* Div container untuk sound dan mute */
 .audio-controls {
-position: absolute;
+    position: absolute;
 top: 55px; 
 right: 10px;
 display: flex;
@@ -408,7 +322,7 @@ height: 40px;
 cursor: pointer;
 }
 
-.button {
+/* .button {
     display: inline-block;
     line-height: 35px;
     width: 100px;
@@ -429,4 +343,90 @@ cursor: pointer;
     left: 300px;
     position: absolute;
     z-index: 99;
-}
+} */
+    @media (max-width: 860px) {
+        .character img {
+            width: 25vw;
+            max-width: 250px;
+        }
+    
+        .speech-bubble {
+            font-size: 1em;
+            max-width: 250px;
+            bottom: 200px;
+            right: 170px;
+        }
+    
+    
+        .icon-magnifier {
+            width: 50px;
+            height: 50px;
+            bottom: 180px;
+            left: 10%;
+            position: absolute;
+        }
+    
+        .icon-book {
+            width: 70px;
+            height: 30px;
+            top: -90px;
+            right: 2%;
+            position: absolute;
+        }
+    
+        .icon-jangka {
+            height: 75px;
+            height: 70px;
+            bottom: -10;
+            left: 9%;
+            position: absolute;
+        }
+    }
+    
+    @media (max-width: 500px) {
+    
+        /* .button {
+            top: auto; 
+            bottom: 20px; 
+            /* left: 10px; 
+            right: 50px;
+            font-size: 0.9em; 
+            position: relative; 
+        } */
+    
+        .character img {
+            width: 40vw;
+            max-width: 200px;
+        }
+    
+        .speech-bubble {
+            font-size: 0.9em;
+            max-width: 250px;
+            bottom: 140px;
+            right: 130px;
+        }
+    
+        .icon-magnifier {
+            width: 50px;
+            height: 50px;
+            bottom: 250px;
+            left: 10%;
+            position: absolute;
+        }
+    
+        .icon-book {
+            width: 70px;
+            height: 30px;
+            top: -135px;
+            right: -5%;
+            position: absolute;
+        }
+    
+        .icon-jangka {
+            height: 75px;
+            height: 70px;
+            bottom: -10;
+            left: 9%;
+            position: absolute;
+        }
+    }
