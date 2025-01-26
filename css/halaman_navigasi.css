@@ -37,7 +37,6 @@ body {
   z-index: 10;
 }
 
-
 .nav-container a {
   text-decoration: none;
   color: white;
@@ -109,44 +108,76 @@ body {
   object-fit: cover;
 }
 
-/* Gambar home di sebelah kanan setting */
-.image-home {
-  position: absolute;
-  top: 10px;
-  right: 55px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-/* Efek saat tombol ditekan */
 .image-setting:active,
 .image-home:active,
 .image-setting-on:active,
 .audio-controls img:active {
-  transform: translateY(1px);
+  transform: translateY(10px);
 }
 
-/* Posisi gambar setting dan setting on */
+.image-home {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 55px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
 .image-setting {
   position: absolute;
+  cursor: pointer;
   top: 10px;
   right: 10px;
   width: 40px;
   height: 40px;
-  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
 }
 
 .image-setting-on {
   position: absolute;
+  cursor: pointer;
   top: 10px;
   right: 10px;
   width: 40px;
   height: 40px;
-  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
 }
 
-/* Div container untuk sound dan mute */
+
+.image-home:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-setting:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-setting-on:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-mute:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-sound:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .audio-controls {
   position: absolute;
   top: 55px;
@@ -168,9 +199,15 @@ span {
   display: block;
   padding: auto;
 }
+
 .dekorasi_1 {
   position: absolute;
   width: 20%;
+}
+
+.dekorasi-top-right-1 {
+  top: 0;
+  right: 0;
 }
 
 .dekorasi-bottom-left-1 {
@@ -271,7 +308,7 @@ span {
   animation: icon-pencil 5s ease-in 0.3s infinite alternate both;
 }
 
-@keyframes icon-pencil{
+@keyframes icon-pencil {
   0%,
   100% {
     transform: rotate(8deg);
@@ -321,7 +358,7 @@ span {
   }
 }
 
-eyframes fadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -397,14 +434,6 @@ eyframes fadeIn {
   }
 }
 
-.image-setting{
-  animation: slideIn 1.5s ease-out forwards;
-}
-
-.image-home{
-  animation: slideIn 2.5s ease-out forwards;
-}
-
 .nav-container {
   animation: popIn 1.6s ease-out forwards;
 }
@@ -426,8 +455,7 @@ eyframes fadeIn {
   animation: fadeInn 1.7s ease-out forwards;
 }
 
-@media (max-width:860px){
-
+@media (max-width: 860px) {
   body {
     height: 100vh;
     overflow: hidden;
@@ -452,12 +480,12 @@ eyframes fadeIn {
   }
 
   .icon-calender,
-.icon-airplane,
-.icon-pencil {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-}
+  .icon-airplane,
+  .icon-pencil {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+  }
 
   .icon-calender {
     top: -180px;
@@ -468,23 +496,21 @@ eyframes fadeIn {
     top: -420px;
     right: 115px;
   }
-  
-.icon-airplane {
-  top: -260px;
-  left: 40px;
+
+  .icon-airplane {
+    top: -260px;
+    left: 40px;
+  }
+
+  .dekorasi_1 {
+    width: 30%;
+  }
+  .dekorasi_2 {
+    width: 20%;
+  }
 }
 
-.dekorasi_1 {
-  width: 30%;
-}
-.dekorasi_2 {
-  width: 20%;
-}
-
-}
-
-@media (max-width:500px){
-
+@media (max-width: 500px) {
   .icon-calender,
   .icon-airplane,
   .icon-pencil {
@@ -500,6 +526,4 @@ eyframes fadeIn {
     top: -260px;
     left: 30px;
   }
-  
-
 }

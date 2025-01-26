@@ -119,8 +119,8 @@ p {
   cursor: pointer;
   margin-top: 30px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
+  transition: all 0.3s ease !important;
 }
 
 .start-btn::before {
@@ -140,7 +140,7 @@ p {
 }
 
 .start-btn:hover {
-  transform: translateY(-2px);
+  transform: scale(1.1) !important;
   box-shadow: 0 8px 20px rgba(7, 133, 183, 0.457);
 }
 
