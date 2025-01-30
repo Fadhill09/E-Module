@@ -11,7 +11,7 @@
 
   <style>
     .slide-out {
-      animation: slideOut 0.8s forwards;
+      animation: slideOut 1s forwards;
     }
 
     @keyframes slideOut {
@@ -29,7 +29,6 @@
 </head>
 
 <body>
-  <!-- Container navigasi -->
   <div class="container text-center py-5">
     <div class="nav-container">
       <div class="row justify-content-center">
@@ -70,40 +69,32 @@
   <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
     style="display: none;">
 
-  <!-- Dekorasi -->
   <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
   <img src="/Asset/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
   <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
   <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
 
-  <!-- Gambar home -->
   <a href="/script/cover.html">
     <img src="/Asset/home.png" alt="Home" class="image-home">
   </a>
 
-
-  <!-- Kontrol audio -->
   <div class="audio-controls">
     <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
     <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
   </div>
 
-  <!-- Audio player -->
   <audio id="audio" preload="auto" muted>
     <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Audio Settings
       const audio = document.getElementById("audio");
       const audioSource = document.getElementById("audioSource");
       const muteButton = document.getElementById("muteButton");
       const soundButton = document.getElementById("soundButton");
 
-      // Array Lagu
       const songs = [
         "/Asset/audio/sound.mp3",
         "/Asset/audio/audio2.mp3",
@@ -111,7 +102,6 @@
       ];
       let currentSongIndex = 0;
 
-      // Ganti lagu
       function changeSong() {
         currentSongIndex = (currentSongIndex + 1) % songs.length;
         audioSource.src = songs[currentSongIndex];
@@ -119,7 +109,6 @@
         audio.play();
       }
 
-      // Event listener untuk audio
       muteButton.addEventListener("click", () => {
         audio.muted = false;
         audio.play();
@@ -133,7 +122,6 @@
         muteButton.style.display = "block";
       });
 
-      // Tombol Setting
       const settingButton = document.getElementById("settingButton");
       const settingOnButton = document.getElementById("settingOnButton");
 
@@ -166,7 +154,7 @@
             }
             setTimeout(() => {
               window.location.href = this.getAttribute("href");
-            }, 800);
+            }, 1000);
           });
         }
       });

@@ -1,24 +1,23 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Balsamiq Sans", cursive;
   background: linear-gradient(
     45deg,
     #ff914d,
     #8c52ff,
     #5ce1e6
-  ); /* Gradient dinamis dengan tiga warna */
-  background-size: 400% 400%; /* Ukuran latar belakang besar untuk animasi */
-  animation: gradientBackground 15s ease infinite; /* Animasi latar belakang yang berputar */
+  ); 
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite; 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  z-index: -1; /* Pastikan background berada di bawah konten */
+  z-index: -1;
 }
 
-/* Animasi gradient bergerak */
 @keyframes gradientBackground {
   0% {
     background-position: 0% 50%;
@@ -54,22 +53,22 @@ body {
 }
 
 .nav-container a:hover {
-  background-color: #ff914d; /* Warna background berubah saat hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-  transform: scale(1.05); /* Memperbesar ukuran saat hover */
+  background-color: #ff914d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transform: scale(1.05); 
 }
 
 .nav-container a:active {
-  transform: translateY(1px); /* Efek tekan tombol */
+  transform: translateY(1px);
 }
 
 .nav-container a span {
   display: block;
-  font-size: 0.875rem; /* Ukuran font lebih kecil */
-  font-weight: normal; /* Font lebih ringan dibandingkan elemen utama */
-  color: #f0f0f0; /* Warna lebih lembut dibandingkan elemen utama */
-  margin-top: 1px; /* Spasi antara teks utama dan teks deskripsi */
-  line-height: 1.2; /* Tinggi baris untuk kejelasan */
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: #f0f0f0;
+  margin-top: 1px; 
+  line-height: 1.2; 
 }
 
 .nav-container .introduction {
@@ -94,7 +93,6 @@ body {
   background: linear-gradient(90deg, #8c52ff, #ff914d);
 }
 
-/* Posisi gambar */
 .image-container {
   position: absolute;
   top: 10px;
@@ -350,15 +348,7 @@ span {
   animation: icon-airplane 3s ease 0.3s infinite alternate backwards;
 }
 
-@keyframes icon-airplane {
-  0% {
-    transform: translateX(30px) rotate(-40deg);
-  }
 
-  100% {
-    transform: translateX(100px) rotate(-35deg);
-  }
-}
 
 @keyframes fadeIn {
   from {
