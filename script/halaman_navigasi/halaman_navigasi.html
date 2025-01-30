@@ -1,145 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/halaman_navigasi.css">
   <title>Responsive Layout</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <link rel="stylesheet" href="/css/halaman_navigasi.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
+    .slide-out {
+      animation: slideOut 0.8s forwards;
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <!-- Container navigasi -->
   <div class="container text-center py-5">
-    <!-- Navigation Container -->
     <div class="nav-container">
       <div class="row justify-content-center">
         <div class="col-12">
-          <a href="introduction.html" class="unit_1 fon">Introduction
+          <a href="introduction.html" class="introduction" id="introduction">Introduction</a>
+        </div>
+        <div class="col-12">
+          <a href="unit1.html" class="unit_1" id="unit_1">Unit 1
+            <span>Talking about your class schedule</span>
           </a>
         </div>
         <div class="col-12">
-          <a href="unit1.html" class="unit_1">Unit 1
-            <span>Talking about your class 
-              schedule</span>
-          </a>
-        </div>
-        <div class="col-12">
-          <a href="#" class="unit_2">Unit 2
+          <a href="#" class="unit_2" id="unit_2">Unit 2
             <span>Talking about your favorite school subjects</span>
           </a>
         </div>
         <div class="col-12">
-          <a href="#" class="unit_3">Unit 3
-            <span>Making plans with friends 
-              during break</span>
+          <a href="#" class="unit_3" id="unit_3">Unit 3
+            <span>Making plans with friends during break</span>
           </a>
         </div>
         <div class="col-12">
-          <a href="#" class="unit_4">Unit 4
+          <a href="#" class="unit_4" id="unit_4">Unit 4
             <span>Review & Practice</span>
           </a>
         </div>
       </div>
+      <div class="icon-container">
+        <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
+        <img class="icon-pencil" src="/Asset/Pencil.png" alt="Pencil Icon">
+        <img class="icon-airplane" src="/Asset/pesawat.png" alt="Airplane Icon">
+      </div>
     </div>
   </div>
 
-  <!-- Gambar di ujung kanan atas -->
-  <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-  <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
-  <img src="/Asset/dekorasi_1.png" alt="" class="dekorasi_1 dekorasi-bottom-left-1">
 
-  <!-- Gambar home di sebelah kanan setting -->
+  <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+    style="display: none;">
+
+  <!-- Dekorasi -->
+  <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+  <img src="/Asset/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+  <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+  <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+
+  <!-- Gambar home -->
   <a href="/script/cover.html">
     <img src="/Asset/home.png" alt="Home" class="image-home">
   </a>
 
-  <!-- Kontainer audio controls (sound dan mute) -->
+
+  <!-- Kontrol audio -->
   <div class="audio-controls">
-    <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;"> <!-- Mute pertama kali -->
-    <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;"> <!-- Sound disembunyikan pertama kali -->
+    <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+    <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
   </div>
 
-  <div class="icon-container">
-    <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
-    <img class="icon-airplane" src="/Asset/pesawat.png" alt="Airplane Icon">
-    <img class="icon-pencil" src="/Asset/Pencil.png" alt="pencil icon">
-</div>
-
-  <audio id="audio" preload="auto">
+  <!-- Audio player -->
+  <audio id="audio" preload="auto" muted>
     <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Script -->
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Audio Settings
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
 
-    // Mendapatkan elemen-elemen gambar
-const settingButton = document.getElementById('settingButton');
-const settingOnButton = document.getElementById('settingOnButton');
-const soundButton = document.getElementById('soundButton');
-const muteButton = document.getElementById('muteButton');
-const audio = document.getElementById('audio');
-const audioSource = document.getElementById('audioSource');
+      // Array Lagu
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/audio2.mp3",
+        "/Asset/audio/audio3.mp3"
+      ];
+      let currentSongIndex = 0;
 
-// Array lagu-lagu yang akan diputar
-const songs = [
-  "/Asset/audio/sound.mp3", // Ganti dengan path lagu pertama
-  "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
-  "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
-];
+      // Ganti lagu
+      function changeSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        audio.play();
+      }
 
-let currentSongIndex = 0; // Indeks lagu yang sedang diputar
+      // Event listener untuk audio
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        audio.play();
+        muteButton.style.display = "none";
+        soundButton.style.display = "block";
+      });
 
-// Fungsi untuk mengganti lagu
-function changeSong() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length; // Menentukan lagu berikutnya
-  audioSource.src = songs[currentSongIndex]; // Ganti sumber audio
-  audio.load(); // Memuat ulang audio
-  audio.play(); // Memutar lagu baru
-}
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        soundButton.style.display = "none";
+        muteButton.style.display = "block";
+      });
 
-// Event listener untuk tombol setting
-settingButton.addEventListener('click', function() {
-  settingButton.style.display = 'none'; // Menyembunyikan gambar setting
-  settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
-  soundButton.style.display = 'block'; // Menampilkan gambar mute
-});
+      // Tombol Setting
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
 
-// Event listener untuk tombol mute
-muteButton.addEventListener('click', function() {
-  audio.muted = false; // Mengaktifkan audio
-  audio.play(); // Melanjutkan pemutaran audio
-  muteButton.style.display = 'none'; // Menyembunyikan gambar mute
-  soundButton.style.display = 'block'; // Menampilkan gambar sound
-});
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+        soundButton.style.display = "block";
+      });
 
-// Event listener untuk tombol sound
-soundButton.addEventListener('click', function() {
-  audio.muted = true; // Mematikan audio
-  soundButton.style.display = 'none'; // Menyembunyikan gambar sound
-  muteButton.style.display = 'block'; // Menampilkan gambar mute
-});
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
 
-// Event listener untuk tombol setting-on
-settingOnButton.addEventListener('click', function() {
-  settingOnButton.style.display = 'none'; // Menyembunyikan gambar setting-on
-  settingButton.style.display = 'block'; // Menampilkan gambar setting
-  muteButton.style.display = 'none'; // Menyembunyikan gambar mute
-  soundButton.style.display = 'none'; // Menyembunyikan gambar sound
-});
+      const startButtonIntro = document.getElementById("introduction");
+      const startButton1 = document.getElementById("unit_1");
+      const startButton2 = document.getElementById("unit_2");
+      const startButton3 = document.getElementById("unit_3");
+      const startButton4 = document.getElementById("unit_4");
 
-window.onload = function() {
-  // Menyembunyikan tombol mute dan menampilkan tombol sound saat halaman dimuat
-  audio.play().catch(function(error) {
-    // Menangani error jika browser mencegah pemutaran otomatis
-    console.log("Error memutar audio: ", error);
-  });
-};
-
-
+      [startButtonIntro, startButton1, startButton2, startButton3, startButton4].forEach(function (startButton) {
+        if (startButton) {
+          startButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            const container = document.querySelector(".nav-container");
+            if (container) {
+              container.classList.add("slide-out");
+            }
+            setTimeout(() => {
+              window.location.href = this.getAttribute("href");
+            }, 800);
+          });
+        }
+      });
+    });
   </script>
-  <script src="/bootstrap/js/bootstrap.js"></script>
 </body>
+
 </html>

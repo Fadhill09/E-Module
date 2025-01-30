@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   background-image: url("/Asset/bg.png");
   background-size: cover;
-  background-position: ;
+  /* background-position: ; */
   background-attachment: fixed;
   overflow: hidden;
   height: 100vh;
@@ -119,7 +119,8 @@ p {
   cursor: pointer;
   margin-top: 30px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+  transition: all 0.3s ease !important;
 }
 
 .start-btn::before {
@@ -139,7 +140,7 @@ p {
 }
 
 .start-btn:hover {
-  transform: translateY(-2px);
+  transform: scale(1.1) !important;
   box-shadow: 0 8px 20px rgba(7, 133, 183, 0.457);
 }
 
@@ -165,6 +166,7 @@ p {
   width: 65px;
   height: 65px;
   position: absolute;
+  z-index: -2;
 }
 
 /* Icon */
@@ -372,7 +374,7 @@ p {
 
 .dekorasi_2 {
   position: absolute;
-  width: 15%;
+  width: 10%;
 }
 
 .dekorasi-top-left-2 {
@@ -386,35 +388,6 @@ p {
   transform: rotate(180deg);
 }
 
-0%,
-100% {
-  transform: rotate(0deg);
-  transform-origin: 100% 50%;
-}
-
-10% {
-  transform: rotate(2deg);
-}
-
-20%,
-40%,
-60% {
-  transform: rotate(-4deg);
-}
-
-30%,
-50%,
-70% {
-  transform: rotate(4deg);
-}
-
-80% {
-  transform: rotate(-2deg);
-}
-
-90% {
-  transform: rotate(2deg);
-}
 
 @keyframes fadeIn {
   from {
@@ -534,7 +507,7 @@ p {
   }
 
   .icon-calender {
-    bottom: 60px;
+    bottom: 50px;
     left: 15%;
   }
 
@@ -588,7 +561,7 @@ p {
   }
 
   .icon-calender {
-    bottom: 60px;
+    bottom: 65px;
     left: 15%;
   }
   .icon-jangka {
@@ -597,6 +570,6 @@ p {
   }
   .icon-magnifier {
     top: -90px;
-    right: -8%;
+    right: -5%;
   }
 }
