@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/unit1.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <title>Introduction</title>
+</head>
+
+<body>
+    <div class="container pt-3 mt-n5">
+        <h1 class="title text-center">Unit 1</h1>
+        <h2 class="text-center typing-animation" id="typingText" style="color: #434982;">Talking about your class
+            schedule</h2>
+        <div class="content text-center">
+            This unit lead how to talk about class schedules in a relaxed and informal way, as students do at school
+            listen to the following conversation, try to understand its meaning and, practice it with chairmate
+        </div>
+
+        <div class="icon-container overflow-visible">
+            <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+        </div>
+    </div>
+
+    <div class="button-container text-center mt-3">
+        <a href="#" class="button">Next</a>
+    </div>
+
+
+    <!-- <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1"> -->
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2">
+
+    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+        style="display: none;">
+
+    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+        <img src="/Asset/home.png" alt="Home" class="image-home">
+    </a>
+
+    <!-- Kontainer audio controls (sound dan mute) -->
+    <div class="audio-controls">
+        <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+        <!-- Mute pertama kali -->
+        <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+        <!-- Sound disembunyikan pertama kali -->
+    </div>
+
+    <audio id="audio" preload="auto">
+        <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Tambahkan kelas 'active' untuk memulai animasi
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stop mengamati elemen setelah animasi dimulai
+                }
+            });
+        }, { threshold: 0.5 }); // Elemen akan dianggap terlihat saat 50% dari elemen muncul di layar
+
+        // Pilih elemen yang ingin diamati
+        const element = document.getElementById('typingText');
+        observer.observe(element); // Mulai mengamati elemen
+
+        // Mendapatkan elemen-elemen gambar
+        const settingButton = document.getElementById('settingButton');
+        const settingOnButton = document.getElementById('settingOnButton');
+        const soundButton = document.getElementById('soundButton');
+        const muteButton = document.getElementById('muteButton');
+        const audio = document.getElementById('audio');
+        const audioSource = document.getElementById('audioSource');
+
+        // Array lagu-lagu yang akan diputar
+        const songs = [
+            "/Asset/audio/contoh.mp3", // Ganti dengan path lagu pertama
+            "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
+            "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
+        ];
+
+        let currentSongIndex = 0; // Indeks lagu yang sedang diputar
+
+        // Fungsi untuk mengganti lagu
+        function changeSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length; // Menentukan lagu berikutnya
+            audioSource.src = songs[currentSongIndex]; // Ganti sumber audio
+            audio.load(); // Memuat ulang audio
+            audio.play(); // Memutar lagu baru
+        }
+
+        // Event listener untuk tombol setting
+        settingButton.addEventListener('click', function () {
+            settingButton.style.display = 'none'; // Menyembunyikan gambar setting
+            settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
+            muteButton.style.display = 'block'; // Menampilkan gambar mute
+        });
+
+        // Event listener untuk tombol mute
+        muteButton.addEventListener('click', function () {
+            audio.play(); // Memulai pemutaran audio
+            muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+            soundButton.style.display = 'block'; // Menampilkan gambar sound
+        });
+
+        // Event listener untuk tombol sound
+        soundButton.addEventListener('click', function () {
+            audio.pause(); // Menjeda audio
+            audio.currentTime = 0; // Mengatur waktu audio ke awal
+            soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+            muteButton.style.display = 'block'; // Menampilkan gambar mute
+        });
+
+        // Event listener untuk tombol setting-on
+        settingOnButton.addEventListener('click', function () {
+            settingOnButton.style.display = 'none'; // Menyembunyikan gambar setting-on
+            settingButton.style.display = 'block'; // Menampilkan gambar setting
+            muteButton.style.display = 'none'; // Menyembunyikan gambar mute
+            soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+        });
+    </script>
+</body>
+
+</html>

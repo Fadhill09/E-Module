@@ -160,13 +160,15 @@ h2 {
   transform: rotate(180deg);
 }
 
+/* Dekorasi 2 */
 .dekorasi_2 {
-  position: absolute;
-  width: 10%;
+    position: absolute;
+    width: 15%;
 }
+
 .dekorasi-top-left-2 {
-  top: 0;
-  left: 0;
+    top: 0;
+    left: 0;
 }
 
 .dekorasi-bottom-right-2 {
@@ -394,39 +396,10 @@ h2 {
 }
 
 @media (max-width: 860px) {
-  .typing-animation {
-    margin-top: 5px;
-    font-size: 4vw;
-    width: 80%;
-  }
-
-  .content {
-    font-size: 1.3em;
-    margin-top: 25px;
-  }
-
-  .button-container .button {
-    left: 230px;
-  }
-
-  .icon-airplane {
-    width: 60px;
-    height: 60px;
-    bottom: 190px;
-    left: 75%;
-  }
-
-  .icon-magnifier {
-    width: 60px;
-    height: 60px;
-  }
-
-  .dekorasi_1 {
-    width: 30%;
-  }
-  .dekorasi_2 {
-    width: 20%;
-  }
+    .typing-animation {
+        font-size: 5vw; /* Menurunkan ukuran font di layar lebih kecil */
+        width: 80%; /* Lebar teks lebih kecil agar tetap rapi */
+    }
 }
 
 @media (max-width: 700px) {

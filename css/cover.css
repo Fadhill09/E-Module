@@ -367,17 +367,29 @@ p {
 }
 
 
-.dekorasi_2 {
+.exit {
   position: absolute;
-  width: 10%;
+  width: 5%;
 }
 
-.dekorasi-top-left-2 {
-  top: 0;
-  left: 0;
+.exit-top-left {
+  top: 7px;
+  left: 7px;
+  cursor: pointer;
+}
+
+.exit-top-left:hover {
+  transform: scale(1.2);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.exit-top-left:active {
+  transform: translateY(4px);
 }
 
 .dekorasi-bottom-right-2 {
+  position: absolute;
   bottom: 0;
   right: 0;
   transform: rotate(180deg);
@@ -538,6 +550,10 @@ p {
     font-weight: bold;
     width: 100%;
   }
+
+  .exit {
+    width: 10.5%;
+  }
 }
 
 @media (max-width:430px){
@@ -548,6 +564,10 @@ p {
   .icon-airplane {
     width: 50px;
     height: 50px;
+  }
+
+  .exit {
+    width: 10.5%;
   }
 
   .icon-airplane {

@@ -28,22 +28,42 @@
  
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/exit.png" alt="Dekorasi_2" class="exit exit-top-left" id="exit-icon">
     <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2">
 
 
 </body>
-<script>
-    document.getElementById("start-btn").addEventListener("click", function(event) {
-        event.preventDefault(); 
-        const container = document.querySelector(".container"); 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        container.classList.add("slide-out");
-  
-        setTimeout(() => {
-            window.location.href = this.getAttribute("href");
-        }, 800);
+<script>
+    document.getElementById("exit-icon").addEventListener("click", function(){
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Do you really want to exit the application?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, exit!",
+        cancelButtonText: "Cancel"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.close();
+        }
     });
+});
+
+document.getElementById("start-btn").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    const container = document.querySelector(".container"); 
+
+    container.classList.add("slide-out");
+
+    setTimeout(() => {
+        window.location.href = this.getAttribute("href");
+    }, 800);
+});
+
   </script>
   
 
