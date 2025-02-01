@@ -50,9 +50,7 @@
 
   <div class="audio-controls">
     <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-    <!-- Mute pertama kali -->
     <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
-    <!-- Sound disembunyikan pertama kali -->
   </div>
 
   <audio id="audio" preload="auto">
@@ -67,51 +65,47 @@
     const audio = document.getElementById('audio');
     const audioSource = document.getElementById('audioSource');
 
-    // Array lagu-lagu yang akan diputar
+
     const songs = [
-      "/Asset/audio/contoh.mp3", // Ganti dengan path lagu pertama
-      "/Asset/audio/audio2.mp3", // Ganti dengan path lagu kedua
-      "/Asset/audio/audio3.mp3"  // Ganti dengan path lagu ketiga
+      "/Asset/audio/contoh.mp3", 
+      "/Asset/audio/audio2.mp3", 
+      "/Asset/audio/audio3.mp3" 
     ];
 
-    let currentSongIndex = 0; // Indeks lagu yang sedang diputar
+    let currentSongIndex = 0; 
 
-    // Fungsi untuk mengganti lagu
     function changeSong() {
-      currentSongIndex = (currentSongIndex + 1) % songs.length; // Menentukan lagu berikutnya
-      audioSource.src = songs[currentSongIndex]; // Ganti sumber audio
-      audio.load(); // Memuat ulang audio
-      audio.play(); // Memutar lagu baru
+      currentSongIndex = (currentSongIndex + 1) % songs.length; 
+      audioSource.src = songs[currentSongIndex];
+      audio.load();  
+      audio.play(); 
     }
 
-    // Event listener untuk tombol setting
     settingButton.addEventListener('click', function () {
-      settingButton.style.display = 'none'; // Menyembunyikan gambar setting
-      settingOnButton.style.display = 'block'; // Menampilkan gambar setting-on
-      muteButton.style.display = 'block'; // Menampilkan gambar mute
+      settingButton.style.display = 'none'; 
+      settingOnButton.style.display = 'block'; 
+      muteButton.style.display = 'block'; 
     });
 
-    // Event listener untuk tombol mute
     muteButton.addEventListener('click', function () {
-      audio.play(); // Memulai pemutaran audio
-      muteButton.style.display = 'none'; // Menyembunyikan gambar mute
-      soundButton.style.display = 'block'; // Menampilkan gambar sound
+      audio.play();
+      muteButton.style.display = 'none'; 
+      soundButton.style.display = 'block';
     });
 
-    // Event listener untuk tombol sound
     soundButton.addEventListener('click', function () {
-      audio.pause(); // Menjeda audio
-      audio.currentTime = 0; // Mengatur waktu audio ke awal
-      soundButton.style.display = 'none'; // Menyembunyikan gambar sound
-      muteButton.style.display = 'block'; // Menampilkan gambar mute
+      audio.pause(); 
+      audio.currentTime = 0; 
+      soundButton.style.display = 'none';
+      muteButton.style.display = 'block';
     });
 
-    // Event listener untuk tombol setting-on
+
     settingOnButton.addEventListener('click', function () {
-      settingOnButton.style.display = 'none'; // Menyembunyikan gambar setting-on
-      settingButton.style.display = 'block'; // Menampilkan gambar setting
-      muteButton.style.display = 'none'; // Menyembunyikan gambar mute
-      soundButton.style.display = 'none'; // Menyembunyikan gambar sound
+      settingOnButton.style.display = 'none';
+      settingButton.style.display = 'block';
+      muteButton.style.display = 'none';
+      soundButton.style.display = 'none';
     });
   </script>
 </body>
