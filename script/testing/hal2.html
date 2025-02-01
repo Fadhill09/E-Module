@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/introduction.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Second Page</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Second Page</h1>
+    <div class="content">
+      You have reached the second page of the e-module.<br>
+      Let's continue our learning journey together!
+    </div>
+
+    <div class="icon-container">
+      <img class="icon-book" src="/Asset/Buku 1.png" alt="Book Icon">
+      <img class="icon-magnifier" src="/Asset/Kaca_pembesar.png" alt="Magnifier Icon">
+      <img class="icon-jangka" src="/Asset/Jangka.png" alt="Jangka Icon">
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="/Asset/Karakter1.png" alt="Character">
+  </div>
+
+  <div class="audio-controls">
+    <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton">
+    <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+  </div>
+
+  <audio id="audio" preload="auto" loop>
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+
+      // Memeriksa status audio yang disimpan di localStorage
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      const lastTime = parseFloat(localStorage.getItem("audioTime") || "0");
+
+      // Menetapkan status audio saat halaman dimuat
+      audio.muted = isMuted;
+      audio.currentTime = lastTime;
+
+      // Memulai audio jika tidak dimute
+      if (!isMuted) {
+        audio.play();
+      }
+
+      // Fungsi untuk memainkan audio
+      const playAudio = () => {
+        audio.play().catch(err => {
+          console.error("Audio play failed:", err);
+        });
+      };
+
+      // Menangani klik pada tombol mute dan sound
+      muteButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        muteButton.style.display = "none";
+        soundButton.style.display = "block";
+      });
+
+      soundButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        soundButton.style.display = "none";
+        muteButton.style.display = "block";
+        playAudio();
+      });
+
+      // Menyimpan waktu pemutaran audio saat berpindah halaman
+      audio.addEventListener("timeupdate", () => {
+        localStorage.setItem("audioTime", audio.currentTime);
+      });
+
+      // Mainkan audio saat halaman dimuat, jika sudah ada status dari halaman sebelumnya
+      if (audio.currentTime > 0) {
+        playAudio();
+      }
+    });
+  </script>
+</body>
+
+</html>

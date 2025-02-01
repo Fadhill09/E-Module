@@ -1,76 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Unit1/conversation1.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Conversation UI</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
-
-        body {
-            margin: 0;
-            font-family: "Balsamiq Sans", cursive;
-            background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6); 
-            background-size: 400% 400%;
-            animation: gradientBackground 15s ease infinite; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        @keyframes gradientBackground {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* .conversation-container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-        } */
-
-        .conversation {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #3c3c6e;
-            margin-bottom: 15px;
-        }
-
-        .audio-icon {
-            width: 20px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-
-        .characters {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            margin-top: 20px;
-        }
-
-        .character img {
-            width: 120px;
-        }
-    </style>
 </head>
+
 <body>
     <div class="conversation-container text-center">
         <div class="conversation">
-            Andrew: Hey, what time do we have English class tomorrow? 
+            Andrew: Hey, what time do we have English class tomorrow?
             <img class="audio-icon" src="/Asset/Sound.png" alt="Audio">
         </div>
         <div class="conversation">
-            Farza: Hey, what time do we have Math class tomorrow? 
+            Farza: Hey, what time do we have Math class tomorrow?
             <img class="audio-icon" src="/Asset/Sound.png" alt="Audio">
         </div>
         <div class="conversation">
@@ -81,15 +28,99 @@
             Farza: Hey, what time do we have Math class tomorrow?
             <img class="audio-icon" src="/Asset/Sound.png" alt="Audio">
         </div>
-    </div>
-        <div class="characters_girl">
-            <div class="character">
-                <img src="/Asset/Perempuan.png" alt="Character Girl">
-            </div>
-            <div class="character_boy">
-                <img src="/Asset/Laki_Laki.png" alt="Character Boy">
-            </div>
+        <div class="conversation">
+            Andrew: Hey, what time do we have English class?
+            <img class="audio-icon" src="/Asset/Sound.png" alt="Audio">
         </div>
- 
+        <div class="conversation">
+            Farza: Hey, what time do we have Math class tomorrow?
+            <img class="audio-icon" src="/Asset/Sound.png" alt="Audio">
+        </div>
+
+    </div>
+
+    <div class="characters">
+        <div class="character_girl">
+            <img src="/Asset/Perempuan.png" alt="Character Girl">
+        </div>
+        <div class="character_boy">
+            <img src="/Asset/Laki_Laki.png" alt="Character Boy">
+        </div>
+    </div>
+
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+
+    
+    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+        style="display: none;">
+
+    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+        <img src="/Asset/home.png" alt="Home" class="image-home">
+    </a>
+
+    <div class="audio-controls">
+        <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+        <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+    </div> 
+
+    <audio id="audio" preload="auto" loop>
+        <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+      </audio>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/audio2.mp3",
+        "/Asset/audio/audio3.mp3"
+      ];
+      let currentSongIndex = 0;
+
+      function changeSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        audio.play();
+      }
+
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        audio.play();
+        muteButton.style.display = "none";
+        soundButton.style.display = "block";
+      });
+
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        soundButton.style.display = "none";
+        muteButton.style.display = "block";
+      });
+
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+        muteButton.style.display = "block";
+      });
+
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+    });
+    </script>
 </body>
 </html>
