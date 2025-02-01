@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <iframe src="/script/sound.html" style="display: none;"></iframe> -->
   <link rel="stylesheet" href="/css/introduction.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <title>Introduction</title>
 </head>
 
 <body>
-  <div class="container ">
+  <div class="container">
     <h1 class="title">Introduction</h1>
     <div class="content">
       Hello!!<br>
@@ -53,61 +56,61 @@
     <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
   </div>
 
-  <audio id="audio" preload="auto">
-    <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+  <audio id="audio" preload="auto" loop>
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
   </audio>
 
-  <script>
-    const settingButton = document.getElementById('settingButton');
-    const settingOnButton = document.getElementById('settingOnButton');
-    const soundButton = document.getElementById('soundButton');
-    const muteButton = document.getElementById('muteButton');
-    const audio = document.getElementById('audio');
-    const audioSource = document.getElementById('audioSource');
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("audio");
+  const audioSource = document.getElementById("audioSource");
+  const muteButton = document.getElementById("muteButton");
+  const soundButton = document.getElementById("soundButton");
 
+  const songs = [
+    "/Asset/audio/sound.mp3",
+    "/Asset/audio/audio2.mp3",
+    "/Asset/audio/audio3.mp3"
+  ];
+  let currentSongIndex = 0;
 
-    const songs = [
-      "/Asset/audio/contoh.mp3", 
-      "/Asset/audio/audio2.mp3", 
-      "/Asset/audio/audio3.mp3" 
-    ];
+  function changeSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    audioSource.src = songs[currentSongIndex];
+    audio.load();
+    audio.play();
+  }
 
-    let currentSongIndex = 0; 
+  muteButton.addEventListener("click", () => {
+    audio.muted = false;
+    audio.play();
+    muteButton.style.display = "none";
+    soundButton.style.display = "block";
+  });
 
-    function changeSong() {
-      currentSongIndex = (currentSongIndex + 1) % songs.length; 
-      audioSource.src = songs[currentSongIndex];
-      audio.load();  
-      audio.play(); 
-    }
+  soundButton.addEventListener("click", () => {
+    audio.muted = true;
+    soundButton.style.display = "none";
+    muteButton.style.display = "block";
+  });
 
-    settingButton.addEventListener('click', function () {
-      settingButton.style.display = 'none'; 
-      settingOnButton.style.display = 'block'; 
-      muteButton.style.display = 'block'; 
-    });
+  const settingButton = document.getElementById("settingButton");
+  const settingOnButton = document.getElementById("settingOnButton");
 
-    muteButton.addEventListener('click', function () {
-      audio.play();
-      muteButton.style.display = 'none'; 
-      soundButton.style.display = 'block';
-    });
+  settingButton.addEventListener("click", () => {
+    settingButton.style.display = "none";
+    settingOnButton.style.display = "block";
+    muteButton.style.display = "block";
+  });
 
-    soundButton.addEventListener('click', function () {
-      audio.pause(); 
-      audio.currentTime = 0; 
-      soundButton.style.display = 'none';
-      muteButton.style.display = 'block';
-    });
-
-
-    settingOnButton.addEventListener('click', function () {
-      settingOnButton.style.display = 'none';
-      settingButton.style.display = 'block';
-      muteButton.style.display = 'none';
-      soundButton.style.display = 'none';
-    });
-  </script>
+  settingOnButton.addEventListener("click", () => {
+    settingOnButton.style.display = "none";
+    settingButton.style.display = "block";
+    muteButton.style.display = "none";
+    soundButton.style.display = "none";
+  });
+});
+</script>
 </body>
 
 </html>
