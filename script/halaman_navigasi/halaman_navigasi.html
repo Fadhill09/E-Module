@@ -97,80 +97,100 @@
   <!-- Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Audio Settings
-      const audio = document.getElementById("audio");
-      const audioSource = document.getElementById("audioSource");
-      const muteButton = document.getElementById("muteButton");
-      const soundButton = document.getElementById("soundButton");
+  // Audio Settings
+  const audio = document.getElementById("audio");
+  const audioSource = document.getElementById("audioSource");
+  const muteButton = document.getElementById("muteButton");
+  const soundButton = document.getElementById("soundButton");
+  
+  // Array Lagu
+  const songs = [
+    "/Asset/audio/sound.mp3",
+    "/Asset/audio/audio2.mp3",
+    "/Asset/audio/audio3.mp3"
+  ];
+  let currentSongIndex = 0;
 
-      // Array Lagu
-      const songs = [
-        "/Asset/audio/sound.mp3",
-        "/Asset/audio/audio2.mp3",
-        "/Asset/audio/audio3.mp3"
-      ];
-      let currentSongIndex = 0;
+  // Ganti lagu
+  function changeSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    audioSource.src = songs[currentSongIndex];
+    audio.load();
+    audio.play();
+  }
 
-      // Ganti lagu
-      function changeSong() {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        audioSource.src = songs[currentSongIndex];
-        audio.load();
-        audio.play();
-      }
+  // Mulai audio otomatis saat halaman dimuat tanpa menampilkan tombol sound
+  audio.muted = false;
+  audio.volume = 1.0;
+  audio.play().then(() => {
+    console.log("Audio diputar otomatis");
+  }).catch(() => {
+    console.log("Autoplay diblokir oleh browser");
+  });
 
-      // Event listener untuk audio
-      muteButton.addEventListener("click", () => {
-        audio.muted = false;
-        audio.play();
-        muteButton.style.display = "none";
-        soundButton.style.display = "block";
-      });
+  // Sembunyikan tombol sound saat halaman pertama kali dimuat
+  muteButton.style.display = "none";
+  soundButton.style.display = "none";
 
-      soundButton.addEventListener("click", () => {
-        audio.muted = true;
-        soundButton.style.display = "none";
-        muteButton.style.display = "block";
-      });
+  // Event listener untuk audio
+  muteButton.addEventListener("click", () => {
+    audio.muted = false;
+    audio.play();
+    updateSoundButtons();
+  });
 
-      // Tombol Setting
-      const settingButton = document.getElementById("settingButton");
-      const settingOnButton = document.getElementById("settingOnButton");
+  soundButton.addEventListener("click", () => {
+    audio.muted = true;
+    updateSoundButtons();
+  });
 
-      settingButton.addEventListener("click", () => {
-        settingButton.style.display = "none";
-        settingOnButton.style.display = "block";
-        muteButton.style.display = "block";
-      });
+  // Fungsi untuk memperbarui tombol sound
+  function updateSoundButtons() {
+    if (audio.muted) {
+      muteButton.style.display = "block";
+      soundButton.style.display = "none";
+    } else {
+      muteButton.style.display = "none";
+      soundButton.style.display = "block";
+    }
+  }
 
-      settingOnButton.addEventListener("click", () => {
-        settingOnButton.style.display = "none";
-        settingButton.style.display = "block";
-        muteButton.style.display = "none";
-        soundButton.style.display = "none";
-      });
+  // Tombol Setting
+  const settingButton = document.getElementById("settingButton");
+  const settingOnButton = document.getElementById("settingOnButton");
 
-      const startButtonIntro = document.getElementById("introduction");
-      const startButton1 = document.getElementById("unit_1");
-      const startButton2 = document.getElementById("unit_2");
-      const startButton3 = document.getElementById("unit_3");
-      const startButton4 = document.getElementById("unit_4");
+  settingButton.addEventListener("click", () => {
+    settingButton.style.display = "none";
+    settingOnButton.style.display = "block";
+    updateSoundButtons(); // Menampilkan tombol sound hanya setelah setting ditekan
+  });
 
-      [startButtonIntro, startButton1, startButton2, startButton3, startButton4].forEach(function (startButton) {
-        if (startButton) {
-          startButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            const container = document.querySelector(".nav-container");
-            if (container) {
-              container.classList.add("slide-out");
-            }
-            setTimeout(() => {
-              window.location.href = this.getAttribute("href");
-            }, 800);
-          });
+  settingOnButton.addEventListener("click", () => {
+    settingOnButton.style.display = "none";
+    settingButton.style.display = "block";
+    muteButton.style.display = "none";
+    soundButton.style.display = "none";
+  });
+
+  // Animasi Navigasi
+  const startButtons = document.querySelectorAll("#introduction, #unit_1, #unit_2, #unit_3, #unit_4");
+
+  startButtons.forEach(function (startButton) {
+    if (startButton) {
+      startButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const container = document.querySelector(".nav-container");
+        if (container) {
+          container.classList.add("slide-out");
         }
+        setTimeout(() => {
+          window.location.href = this.getAttribute("href");
+        }, 800);
       });
-    });
+    }
+  });
+});
+
   </script>
 </body>
 

@@ -187,15 +187,12 @@ h2 {
     transform: rotate(180deg);
 }
 
-/* Dekorasi 2 */
-.dekorasi_2 {
+.dekorasi-bottom-right-2 {
     position: absolute;
-    width: 15%;
-}
-
-.dekorasi-top-left-2 {
-    top: 0;
-    left: 0;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
 }
 
 @media (max-width: 860px) {
@@ -417,6 +414,10 @@ cursor: pointer;
     .typing-animation {
         font-size: 5vw; /* Menurunkan ukuran font di layar lebih kecil */
         width: 80%; /* Lebar teks lebih kecil agar tetap rapi */
+    }
+
+    .dekorasi-bottom-right-2 {
+        width: 20%;
     }
 }
 
