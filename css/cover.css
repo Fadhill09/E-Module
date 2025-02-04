@@ -6,6 +6,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-image: url("/Asset/bg.png");
+  /* background-image: url("/css/Background.png"); */
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
@@ -154,13 +155,13 @@ p {
   justify-content: space-around;
   margin: 5px 5px;
   position: relative;
+  z-index: -1;
 }
 
 .icon-calender,
 .icon-magnifier,
 .icon-clock,
-.icon-airplane,
-.icon-jangka {
+.icon-airplane {
   width: 65px;
   height: 65px;
   position: absolute;
@@ -169,6 +170,9 @@ p {
 
 /* Icon */
 .icon-jangka {
+  height: 75px;
+  position: absolute;
+  z-index: -2;
   bottom: -10;
   left: 9%;
   animation: icon-jangka 5s ease-in 0.3s infinite alternate both;
@@ -382,10 +386,6 @@ p {
   transform: scale(1.2);
   border-radius: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.exit-top-left:active {
-  transform: translateY(4px);
 }
 
 .dekorasi-bottom-right-2 {

@@ -1,10 +1,22 @@
 body {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/css/Background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* body {
+  margin: 0;
   background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6);
   background-size: 400% 400%;
   animation: gradientBackground 15s ease infinite;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +36,7 @@ body {
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 .nav-container {
   width: 100%;
@@ -44,7 +56,7 @@ body {
   border-radius: 10px;
   transition: background-color 0.3s, transform 0.2s;
   max-width: 350px;
-  height: 70px;
+  height: 80px;
   margin: 10px auto;
   z-index: 1;
 }
@@ -61,7 +73,7 @@ body {
 
 .nav-container a span {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: normal;
   color: #f0f0f0;
   margin-top: 1px;
@@ -438,7 +450,7 @@ span {
 }
 
 @media (max-width: 1000px) {
-  body {
+  /* body {
     height: 100vh;
     overflow: hidden;
     min-height: 100vh;
@@ -446,7 +458,7 @@ span {
     background-size: 200% 200%;
     animation: gradientBackground 15s ease infinite;
     z-index: -1;
-  }
+  } */
 
   .nav-container a {
     width: 280px;
@@ -466,17 +478,17 @@ span {
 
   .icon-calender {
     top: -210px;
-    left: 80px;
+    left: 70px;
   }
 
   .icon-pencil {
     top: -420px;
-    left: 90px;
+    left: 80px;
   }
 
   .icon-airplane {
-    top: -260px;
-    right: 200px;
+    top: -330px;
+    right: 190px;
   }
 
   .dekorasi_1 {
@@ -488,7 +500,7 @@ span {
 }
 
 @media (max-width: 500px) {
-  body {
+  /* body {
     height: 100vh;
     overflow: hidden;
     min-height: 100vh;
@@ -496,7 +508,7 @@ span {
     background-size: 200% 200%;
     animation: gradientBackground 15s ease infinite;
     z-index: -1;
-  }
+  } */
 
   .icon-calender,
   .icon-airplane,
@@ -506,16 +518,16 @@ span {
   }
 
   .icon-pencil {
-    top: -400px;
-    left: 40px;
+    top: -420px;
+    left: 20px;
   }
   .icon-calender {
     top: -200px;
-    left: 30px;
+    left: 15px;
   }
 
   .icon-airplane {
-    top: -290px;
-    right: 115px;
+    top: -320px;
+    right: 110px;
   }
 }

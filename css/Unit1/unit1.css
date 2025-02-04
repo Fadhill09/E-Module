@@ -54,7 +54,7 @@ h2 {
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  left: 550px;
+  left: 500px;
   position: relative;
   text-decoration: none;
 }
@@ -81,6 +81,7 @@ h2 {
   justify-content: space-around;
   position: relative;
   overflow: visible;
+  z-index: -1;
 }
 
 .icon-magnifier {
@@ -162,13 +163,14 @@ h2 {
 
 /* Dekorasi 2 */
 .dekorasi_2 {
-    position: absolute;
-    width: 15%;
+  position: absolute;
+  width: 15%;
+  z-index: -1;
 }
 
 .dekorasi-top-left-2 {
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
 }
 
 .dekorasi-bottom-right-2 {
@@ -275,6 +277,7 @@ h2 {
   }
   to {
     width: 100%;
+    border: none;
   }
 }
 
@@ -368,7 +371,7 @@ h2 {
   }
 }
 
-.page-body{
+.page-body {
   animation: popIn 2s ease-out forwards;
 }
 
@@ -391,15 +394,30 @@ h2 {
 
 @media (max-width: 1220px) {
   .button-container .button {
-    left: 370px;
+    left: 360px;
   }
 }
 
 @media (max-width: 860px) {
-    .typing-animation {
-        font-size: 5vw; /* Menurunkan ukuran font di layar lebih kecil */
-        width: 80%; /* Lebar teks lebih kecil agar tetap rapi */
-    }
+  .typing-animation {
+    font-size: 5vw; /* Menurunkan ukuran font di layar lebih kecil */
+    width: 80%; /* Lebar teks lebih kecil agar tetap rapi */
+  }
+  .button-container .button {
+    left: 270px;
+  }
+
+  .icon-airplane {
+    bottom: 275px;
+    left: 60%;
+  }
+
+  .dekorasi_1 {
+    width: 30%;
+  }
+  .dekorasi_2 {
+    width: 20%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -416,7 +434,7 @@ h2 {
   }
 
   .icon-airplane {
-    bottom: 190px;
+    bottom: 150px;
     left: 60%;
   }
 }
@@ -433,14 +451,14 @@ h2 {
   }
 
   .button-container .button {
-    left: 100px;
+    left: 90px;
   }
 
   .icon-airplane {
     width: 50px;
     height: 50px;
     bottom: 180px;
-    left: 50%;
+    left: 40%;
   }
 
   .icon-magnifier {
