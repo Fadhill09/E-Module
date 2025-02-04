@@ -341,12 +341,12 @@ body {
 
   
   .icon-topi {
-    right: 350px;
+    right: 300px;
     bottom: 250px;
   }
   
   .icon-jangka {
-    left: 350px;
+    left: 300px;
     bottom: 250px;
   }
   
@@ -378,4 +378,18 @@ body {
   .character_boy img {
     width: 19.5vw;
   } */
+}
+
+
+@media (max-width: 390px) {
+  .icon-topi {
+    right: 230px;
+    bottom: 350px;
+  }
+  
+  .icon-jangka {
+    left: 250px;
+    bottom: 350px;
+  }
+  
 }
