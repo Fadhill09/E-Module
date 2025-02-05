@@ -21,7 +21,6 @@ body {
   animation: popIn 1.6s ease-out forwards;
 }
 
-
 .content {
   margin-top: 10px;
   font-size: 1.4em;
@@ -34,50 +33,15 @@ body {
   font-weight: bold;
 }
 
-.icon-container {
-  margin: -10px -10px;
-  z-index: 0;
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  animation: slideIn 1.8s ease-out forwards;
-}
-
-.icon-magnifier,
-.icon-watch,
-.icon-calender,
-.icon-book,
-.icon-jangka {
+.dekorasi_1 {
   position: absolute;
-  width: 65px;
-  height: 65px;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
+  width: 20%;
+  z-index: -1;
 }
-
-.icon-watch {
-  bottom: 390px;
-  right: 270px;
-}
-
-.icon-calender {
-  bottom: 420px;
-  left: 1%;
-  transform: translateY(20px);
-  animation: icon-calender 10s ease 1s infinite normal none;
-}
-
-.icon-book {
-  top: 30px;
-  transform: rotate(-20deg);
-  animation: icon-book 4s ease 0.5s infinite alternate-reverse none;
-}
-
-.dekorasi_1,
 .dekorasi_2 {
   position: absolute;
-  width: 5%;
+  width: 15%;
+  z-index: -1;
 }
 
 .dekorasi-top-right-1 {
@@ -89,11 +53,6 @@ body {
   bottom: 0;
   left: 0;
   transform: rotate(180deg);
-}
-
-.dekorasi_2 {
-  position: absolute;
-  width: 5%;
 }
 
 .dekorasi-top-left-2 {
@@ -209,7 +168,7 @@ body {
   grid-template-columns: repeat(2, 150px);
   gap: 5px;
   padding: 10px;
-  margin-top: 60px;
+  margin-top: 50px;
   column-gap: 100px;
   justify-content: center;
 }
@@ -261,11 +220,8 @@ body {
   font-weight: bold;
 }
 
-span:hover {
-  text-decoration: underline;
-}
-
 .grid-item span:hover {
+  text-decoration: underline;
   color: #578fca;
   font-weight: bold;
   cursor: pointer;
@@ -302,10 +258,35 @@ span:hover {
 }
 
 .title-box {
-  color: white; /* Mengubah warna teks */
+  color: white; 
+}
+
+.icon-container {
+  margin: -10px -10px;
+  z-index: 0;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  animation: slideIn 1.8s ease-out forwards;
+}
+
+.icon-calender,
+.icon-watch{
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+
+.icon-book {
+  width: 90px;
+  height: 50px;
+  position: absolute;
 }
 
 .icon-calender {
+  left: 100px;
+  bottom: 390px;
+  transform: translateY(20px);
   animation: icon-calender 4s ease 0.3s infinite alternate both;
 }
 
@@ -356,6 +337,8 @@ span:hover {
 }
 
 .icon-watch {
+  bottom: 400px;
+  left: 700px;
   animation: icon-watch 4s ease 0.3s infinite alternate both;
 }
 
@@ -406,9 +389,11 @@ span:hover {
 }
 
 .icon-book {
-  /* Copy code to element you want to animate */
+  top: 30px;
+  transform: rotate(-20deg);
   animation: icon-book 5s ease-in-out 0s infinite alternate-reverse both;
 }
+
 @keyframes icon-book {
   0% {
     transform: scale(0.5);
@@ -421,140 +406,146 @@ span:hover {
   }
 }
 
-.dekorasi_1,
+.dekorasi_1 {
+  position: absolute;
+  width: 20%;
+}
 .dekorasi_2 {
-  width: 25%;
+  position: absolute;
+  width: 15%;
   z-index: -1;
 }
 
-.icon-calender,
-.icon-watch,
-.icon-book {
-  width: 90px;
-  height: 90px;
-}
+@media (max-width: 880px) {
 
-/* Responsiveness */
-@media (max-width: 860px) {
+  body{
+    overflow: hidden;
+    min-height: 100vh;
+  }
   .grid-container {
     display: grid;
     grid-template-columns: repeat(
       2,
       45%
-    ); /* Menyusun 2 kolom dengan lebar 45% */
-    gap: 6vw; /* Memberikan jarak antar elemen */
+    ); 
+    gap: 2vw;
     margin: 0;
     padding: 0;
-    justify-content: center; /* Menjaga container tetap di tengah */
+    justify-content: center;
   }
 
   .blue-box {
     background-color: #2599d5;
-    width: 90%; /* Memastikan blue-box tidak memenuhi seluruh lebar, memberi jarak di kiri dan kanan */
+    width: 90%; 
     padding: 2vw;
     border-radius: 5px;
-    margin-top: 3vw; /* Memberikan jarak atas */
+    margin-top: 3vw; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: auto; /* Mengatur margin kiri otomatis */
-    margin-right: auto; /* Mengatur margin kanan otomatis */
-    text-align: center; /* Menyusun teks agar rata tengah */
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center; 
   }
 
   .grid-item {
-    width: 35vw; /* Menyusun item agar lebar 45% dari layar */
-    height: 10vw; /* Menyusun tinggi sesuai proporsi lebar */
-    margin-bottom: 2vw; /* Memberikan jarak antar grid item */
+    width: 35vw; 
+    height: 10vw;
+    margin-bottom: 2vw;
   }
 
   .grid-time,
   .grid-day,
   .grid-clock,
   .grid-schedule {
-    font-size: 4vw; /* Ukuran font yang proporsional */
-  }
-
-  .grid-time,
-  .grid-day,
-  .grid-clock {
-    color: white; /* Mengubah warna teks */
+    font-size: 4vw;
   }
 
   .grid-math {
-    font-size: 3vw; /* Ukuran font untuk elemen lainnya */
+    font-size: 3vw;
   }
 
   .icon-watch {
-    left: 600px;
-    bottom: 810px;
+    width: 60px;
+    height: 60px;
+    bottom: 540px;
+    left: 75%;
   }
 
-  .icon-calender {
-    left: 70px;
-    bottom: 840px;
+  .icon-calender{
+    width: 50px;
+    height: 50px;
+    bottom: 520px;
+    left: 20%;
   }
 
-  /* Copy this code after the above code */
+  .icon-book {
+      width: 60px;
+      height: 30px;
+    top: 30px;
+  }
+
+  
+  .dekorasi_1 {
+    width: 30%;
+  }
+  .dekorasi_2 {
+    width: 20%;
+  }
 }
 
 @media (max-width: 500px) {
+  
+  body{
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
   .grid-container {
     grid-template-columns: repeat(2, 45vw);
     gap: 5vw;
-    margin-top: 10vw; /* Menurunkan posisi grid-container */
-  }
-
-  .title-box {
-    color: white; /* Mengubah warna teks */
+    margin-top: 5vw;
   }
 
   .blue-box {
-    display: block; /* Pastikan box ini adalah block-level element */
+    display: block;
     background-color: #2599d5;
     width: 90%;
-    padding: 2.5vw; /* Mengurangi padding */
+    padding: 2.5vw; 
     border-radius: 5px;
-    margin-top: 4vw; /* Mengurangi margin top */
+    margin-top: 4vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: auto; /* Mengatur margin kiri otomatis */
-    margin-right: auto; /* Mengatur margin kanan otomatis */
-    height: auto; /* Membuat tinggi box otomatis mengikuti isi */
-    text-align: center; /* Menyusun teks di dalam box agar rata tengah */
+    margin-left: auto; 
+    margin-right: auto; 
+    height: auto;
+    text-align: center; 
   }
 
   .grid-item {
     width: 40vw;
-    height: 10vw; /* Mengurangi tinggi grid item */
+    height: 10vw; 
   }
 
   .grid-math {
     font-size: 3.5vw;
   }
 
-  /* Menyesuaikan ukuran title dalam blue-box */
+
   .title-box {
     font-size: 6vw;
   }
 
   .icon-watch {
-    left: 300px;
-    bottom: 430px;
+    width: 50px;
+    height: 50px;
+    bottom: 450px;
   }
 
   .icon-calender {
-    left: 30px;
-    bottom: 440px;
+    bottom: 430px;
   }
 
-  .dekorasi_1,
-  .dekorasi_2 {
-    width: 25%;
-    z-index: -1;
-  }
-
-  .icon-calender,
-  .icon-watch,
   .icon-book {
     width: 60px;
-    height: 60px;
+    height: 30px;
+    top: 20px;
   }
 }

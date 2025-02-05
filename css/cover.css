@@ -359,6 +359,12 @@ p {
   width: 20%;
 }
 
+.dekorasi_2 {
+  position: absolute;
+  width: 15%;
+  z-index: -1;
+}
+
 .dekorasi-top-right-1 {
   top: 0;
   right: 0;
@@ -494,6 +500,12 @@ p {
 }
 
 @media (max-width: 860px) {
+
+  body{
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
   .design {
     position: absolute;
     left: 0;
@@ -557,6 +569,11 @@ p {
 }
 
 @media (max-width:430px){
+
+  body{
+    overflow: hidden;
+    min-height: 100vh;
+  }
 
   .icon-calender,
   .icon-magnifier,

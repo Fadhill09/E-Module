@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Unit1/jadwal.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Conversation 2</title>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="blue-box">
+            <h1 class="title-box">Class schedule</h1>
+
+            <div class="grid-container">
+                <a>
+                    <div class="grid-item grid-time">Time</div>
+                </a>
+                <a >
+                    <div class="grid-item grid-day">Monday</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-clock">07:30-08:30</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-schedule">Sosiology</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-clock">08:30-09:30</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-schedule">Social Since</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-clock">09:30-10:30</div>
+                </a>
+                <a href="#">
+                    <div class="grid-item grid-math">Math
+                        <br>
+                        <span>Click Here</span>
+                    </div>
+                </a>
+                <a>
+                    <div class="grid-item grid-clock">10:30-11:30</div>
+                </a>
+                <a>
+                    <div class="grid-item grid-schedule">Geography</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="icon-container">
+            <img class="icon-book" src="/Asset/Buku 1.png" alt="Book Icon">
+            <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
+            <img  class="icon-watch" src="/Asset/watch.png" alt="watch">
+        </div>
+
+    </div>
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-left-2">
+
+    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+        style="display: none;">
+
+    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+        <img src="/Asset/home.png" alt="Home" class="image-home">
+    </a>
+
+
+    <div class="audio-controls">
+        <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+        <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+    </div>
+
+    <audio id="audio" preload="auto">
+        <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const settingButton = document.getElementById('settingButton');
+        const settingOnButton = document.getElementById('settingOnButton');
+        const soundButton = document.getElementById('soundButton');
+        const muteButton = document.getElementById('muteButton');
+        const audio = document.getElementById('audio');
+        const audioSource = document.getElementById('audioSource');
+
+
+        const songs = [
+            "/Asset/audio/contoh.mp3",
+            "/Asset/audio/audio2.mp3",
+            "/Asset/audio/audio3.mp3"
+        ];
+
+        let currentSongIndex = 0;
+
+        function changeSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            audioSource.src = songs[currentSongIndex];
+            audio.load();
+            audio.play();
+        }
+
+        settingButton.addEventListener('click', function () {
+            settingButton.style.display = 'none';
+            settingOnButton.style.display = 'block';
+            muteButton.style.display = 'block';
+        });
+
+        muteButton.addEventListener('click', function () {
+            audio.play();
+            muteButton.style.display = 'none';
+            soundButton.style.display = 'block';
+        });
+
+        soundButton.addEventListener('click', function () {
+            audio.pause();
+            audio.currentTime = 0;
+            soundButton.style.display = 'none';
+            muteButton.style.display = 'block';
+        });
+
+
+        settingOnButton.addEventListener('click', function () {
+            settingOnButton.style.display = 'none';
+            settingButton.style.display = 'block';
+            muteButton.style.display = 'none';
+            soundButton.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

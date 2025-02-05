@@ -149,6 +149,11 @@ h2 {
   position: absolute;
   width: 20%;
 }
+.dekorasi_2 {
+  position: absolute;
+  width: 15%;
+  z-index: -1;
+}
 
 .dekorasi-top-right-1 {
   top: 0;
@@ -159,13 +164,6 @@ h2 {
   bottom: 0;
   left: 0;
   transform: rotate(180deg);
-}
-
-/* Dekorasi 2 */
-.dekorasi_2 {
-  position: absolute;
-  width: 15%;
-  z-index: -1;
 }
 
 .dekorasi-top-left-2 {
