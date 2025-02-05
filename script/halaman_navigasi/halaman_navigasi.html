@@ -1,189 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/halaman_navigasi.css">
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <title>Responsive Layout</title>
-  <style>
-    .slide-out {
-      animation: slideOut 1s forwards;
-    }
-
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/css/halaman_navigasi.css">
+      <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Responsive Layout</title>
+    <style>
+      .slide-out {
+        animation: slideOut 1s forwards;
       }
 
-      to {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-    }
-  </style>
-</head>
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
 
-<body>
-  <div class="container text-center py-5">
-    <div class="nav-container">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <a href="introduction.html" class="introduction" id="introduction">Introduction</a>
+        to {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container text-center py-5">
+      <div class="nav-container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <a href="introduction.html" class="introduction" id="introduction">Introduction</a>
+          </div>
+          <div class="col-12">
+            <a href="unit_1/unit1.html" class="unit_1" id="unit_1">Unit 1
+              <span>Talking about your class schedule</span>
+            </a>
+          </div>
+          <div class="col-12">
+            <a href="#" class="unit_2" id="unit_2">Unit 2
+              <span>Talking about your favorite school subjects</span>
+            </a>
+          </div>
+          <div class="col-12">
+            <a href="#" class="unit_3" id="unit_3">Unit 3
+              <span>Making plans with friends during break</span>
+            </a>
+          </div>
+          <div class="col-12">
+            <a href="#" class="unit_4" id="unit_4">Unit 4
+              <span>Review & Practice</span>
+            </a>
+          </div>
         </div>
-        <div class="col-12">
-          <a href="unit_1/unit1.html" class="unit_1" id="unit_1">Unit 1
-            <span>Talking about your class schedule</span>
-          </a>
+        <div class="icon-container">
+          <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
+          <img class="icon-pencil" src="/Asset/Pencil.png" alt="Pencil Icon">
+          <img class="icon-airplane" src="/Asset/pesawat.png" alt="Airplane Icon">
         </div>
-        <div class="col-12">
-          <a href="#" class="unit_2" id="unit_2">Unit 2
-            <span>Talking about your favorite school subjects</span>
-          </a>
-        </div>
-        <div class="col-12">
-          <a href="#" class="unit_3" id="unit_3">Unit 3
-            <span>Making plans with friends during break</span>
-          </a>
-        </div>
-        <div class="col-12">
-          <a href="#" class="unit_4" id="unit_4">Unit 4
-            <span>Review & Practice</span>
-          </a>
-        </div>
-      </div>
-      <div class="icon-container">
-        <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
-        <img class="icon-pencil" src="/Asset/Pencil.png" alt="Pencil Icon">
-        <img class="icon-airplane" src="/Asset/pesawat.png" alt="Airplane Icon">
       </div>
     </div>
-  </div>
 
 
-  <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-  <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-    style="display: none;">
+    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+      style="display: none;">
 
-  <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-  <img src="/Asset/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-  <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-  <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+    <img src="/Asset/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
 
-  <a href="/script/cover.html">
-    <img src="/Asset/home.png" alt="Home" class="image-home">
-  </a>
+    <a href="/script/cover.html">
+      <img src="/Asset/home.png" alt="Home" class="image-home">
+    </a>
 
-  <div class="audio-controls">
-    <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-    <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
-  </div>
+    <div class="audio-controls">
+      <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+      <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+    </div>
 
-  <audio id="audio" preload="auto"  oop>
-    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+    <audio id="audio" preload="auto"  oop>
+      <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
 
-  </audio>
+    </audio>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  // Audio Settings
-  const audio = document.getElementById("audio");
-  const audioSource = document.getElementById("audioSource");
-  const muteButton = document.getElementById("muteButton");
-  const soundButton = document.getElementById("soundButton");
-  
-  // Array Lagu
-  const songs = [
-    "/Asset/audio/sound.mp3",
-    "/Asset/audio/audio2.mp3",
-    "/Asset/audio/audio3.mp3"
-  ];
-  let currentSongIndex = 0;
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("audio");
+    const audioSource = document.getElementById("audioSource");
+    const muteButton = document.getElementById("muteButton");
+    const soundButton = document.getElementById("soundButton");
+    const settingButton = document.getElementById("settingButton");
+    const settingOnButton = document.getElementById("settingOnButton");
 
-  // Ganti lagu
-  function changeSong() {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
-    audioSource.src = songs[currentSongIndex];
-    audio.load();
-    audio.play();
-  }
+    // Array Lagu
+    const songs = [
+      "/Asset/audio/sound.mp3",
+      "/Asset/audio/audio2.mp3",
+      "/Asset/audio/audio3.mp3"
+    ];
+    let currentSongIndex = 0;
 
-  // Mulai audio otomatis saat halaman dimuat tanpa menampilkan tombol sound
-  audio.muted = false;
-  audio.volume = 1.0;
-  audio.play().then(() => {
-    console.log("Audio diputar otomatis");
-  }).catch(() => {
-    console.log("Autoplay diblokir oleh browser");
-  });
+    // **Cek apakah sesi masih aktif**
+    if (sessionStorage.getItem("sessionActive")) {
+      // Jika masih aktif, lanjutkan lagu dari posisi sebelumnya
+      const savedTime = localStorage.getItem("audioTime");
+      const savedIndex = localStorage.getItem("audioIndex");
 
-  // Sembunyikan tombol sound saat halaman pertama kali dimuat
-  muteButton.style.display = "none";
-  soundButton.style.display = "none";
-
-  // Event listener untuk audio
-  muteButton.addEventListener("click", () => {
-    audio.muted = false;
-    audio.play();
-    updateSoundButtons();
-  });
-
-  soundButton.addEventListener("click", () => {
-    audio.muted = true;
-    updateSoundButtons();
-  });
-
-  // Fungsi untuk memperbarui tombol sound
-  function updateSoundButtons() {
-    if (audio.muted) {
-      muteButton.style.display = "block";
-      soundButton.style.display = "none";
+      if (savedIndex !== null) {
+        currentSongIndex = parseInt(savedIndex);
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+      }
+      if (savedTime !== null) {
+        audio.currentTime = parseFloat(savedTime);
+      }
     } else {
-      muteButton.style.display = "none";
-      soundButton.style.display = "block";
+      // Jika tab ditutup, mulai lagu dari awal
+      localStorage.removeItem("audioTime");
+      localStorage.removeItem("audioIndex");
+      currentSongIndex = 0;
+      audioSource.src = songs[currentSongIndex];
+      audio.load();
     }
-  }
 
-  // Tombol Setting
-  const settingButton = document.getElementById("settingButton");
-  const settingOnButton = document.getElementById("settingOnButton");
+    // Set sesi aktif
+    sessionStorage.setItem("sessionActive", "true");
 
-  settingButton.addEventListener("click", () => {
-    settingButton.style.display = "none";
-    settingOnButton.style.display = "block";
-    updateSoundButtons(); // Menampilkan tombol sound hanya setelah setting ditekan
-  });
+    // **Ambil status mute dari localStorage**
+    const isMuted = localStorage.getItem("audioMuted") === "true";
+    audio.muted = isMuted;
 
-  settingOnButton.addEventListener("click", () => {
-    settingOnButton.style.display = "none";
-    settingButton.style.display = "block";
+    function playAudio() {
+      audio.play().catch(() => {
+        console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+      });
+    }
+
+    playAudio();
+
+    // **Simpan waktu & indeks lagu hanya jika sesi masih aktif**
+    audio.addEventListener("timeupdate", function () {
+      if (sessionStorage.getItem("sessionActive")) {
+        localStorage.setItem("audioTime", audio.currentTime);
+        localStorage.setItem("audioIndex", currentSongIndex);
+      }
+    });
+
+    // **Fungsi update tombol sound/mute**
+    function updateSoundButtons() {
+      if (audio.muted) {
+        muteButton.style.display = "block";
+        soundButton.style.display = "none";
+      } else {
+        muteButton.style.display = "none";
+        soundButton.style.display = "block";
+      }
+    }
+
+    // **Event mute/unmute**
+    muteButton.addEventListener("click", () => {
+      audio.muted = false;
+      localStorage.setItem("audioMuted", "false");
+      updateSoundButtons();
+    });
+
+    soundButton.addEventListener("click", () => {
+      audio.muted = true;
+      localStorage.setItem("audioMuted", "true");
+      updateSoundButtons();
+    });
+
+    // **Tombol Setting**
+    settingButton.addEventListener("click", () => {
+      settingButton.style.display = "none";
+      settingOnButton.style.display = "block";
+
+      // **Hanya tampilkan tombol saat setting ditekan**
+      if (audio.muted) {
+        muteButton.style.display = "block";
+        soundButton.style.display = "none";
+      } else {
+        muteButton.style.display = "none";
+        soundButton.style.display = "block";
+      }
+    });
+
+    settingOnButton.addEventListener("click", () => {
+      settingOnButton.style.display = "none";
+      settingButton.style.display = "block";
+
+      // **Sembunyikan tombol saat setting ditutup**
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+    });
+
+    // **Pastikan tombol sound/mute tidak muncul sebelum setting ditekan**
     muteButton.style.display = "none";
     soundButton.style.display = "none";
   });
 
-  // Animasi Navigasi
-  const startButtons = document.querySelectorAll("#introduction, #unit_1, #unit_2, #unit_3, #unit_4");
+  document.addEventListener("DOMContentLoaded", function () {
+  const navContainer = document.querySelector(".nav-container");
+  const navButtons = document.querySelectorAll(".nav-container a");
 
-  startButtons.forEach(function (startButton) {
-    if (startButton) {
-      startButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        const container = document.querySelector(".nav-container");
-        if (container) {
-          container.classList.add("slide-out");
-        }
-        setTimeout(() => {
-          window.location.href = this.getAttribute("href");
-        }, 800);
-      });
-    }
+  navButtons.forEach(button => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // Mencegah navigasi langsung
+      const targetUrl = this.getAttribute("href");
+      
+      // Tambahkan animasi slide-out
+      navContainer.classList.add("slide-out");
+      
+      // Tunggu animasi selesai sebelum berpindah halaman
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1000); // Sesuaikan dengan durasi animasi CSS
+    });
   });
 });
 
-  </script>
-</body>
+    </script>
+  </body>
 
-</html>
+  </html>
