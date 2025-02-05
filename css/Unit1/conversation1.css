@@ -246,13 +246,13 @@ body {
 
   .conversation-1 {
     padding: 2x;
-    border-radius: 20px 20px 20px 2px;
+    border-radius: 15px 15px 15px 2px;
     margin-bottom: 5px;
   }
 
   .conversation-2 {
     padding: 2px;
-    border-radius: 20px 20px 2px 20px;
+    border-radius: 15px 15px 2px 15px;
     margin-bottom: 5px;
   }
 

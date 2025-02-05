@@ -76,77 +76,122 @@
       </audio>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("audio");
-    const audioSource = document.getElementById("audioSource");
-    const muteButton = document.getElementById("muteButton");
-    const soundButton = document.getElementById("soundButton");
+document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("audio");
+  const audioSource = document.getElementById("audioSource");
+  const muteButton = document.getElementById("muteButton");
+  const soundButton = document.getElementById("soundButton");
+  const settingButton = document.getElementById("settingButton");
+  const settingOnButton = document.getElementById("settingOnButton");
 
-    const songs = [
-      "/Asset/audio/sound.mp3",
-      "/Asset/audio/audio2.mp3",
-      "/Asset/audio/audio3.mp3"
-    ];
-    let currentSongIndex = 0;
+  // Array Lagu
+  const songs = [
+    "/Asset/audio/sound.mp3",
+    "/Asset/audio/audio2.mp3",
+    "/Asset/audio/audio3.mp3"
+  ];
+  let currentSongIndex = 0;
 
-    function changeSong() {
-      currentSongIndex = (currentSongIndex + 1) % songs.length;
+  // **Cek apakah sesi masih aktif**
+  if (sessionStorage.getItem("sessionActive")) {
+    // Jika masih aktif, lanjutkan lagu dari posisi sebelumnya
+    const savedTime = localStorage.getItem("audioTime");
+    const savedIndex = localStorage.getItem("audioIndex");
+
+    if (savedIndex !== null) {
+      currentSongIndex = parseInt(savedIndex);
       audioSource.src = songs[currentSongIndex];
       audio.load();
-      audio.play();
     }
+    if (savedTime !== null) {
+      audio.currentTime = parseFloat(savedTime);
+    }
+  } else {
+    // Jika tab ditutup, mulai lagu dari awal
+    localStorage.removeItem("audioTime");
+    localStorage.removeItem("audioIndex");
+    currentSongIndex = 0;
+    audioSource.src = songs[currentSongIndex];
+    audio.load();
+  }
 
-    muteButton.addEventListener("click", () => {
-      audio.muted = false;
-      audio.play();
-      muteButton.style.display = "none";
-      soundButton.style.display = "block";
+  // Set sesi aktif
+  sessionStorage.setItem("sessionActive", "true");
+
+  // **Ambil status mute dari localStorage**
+  const isMuted = localStorage.getItem("audioMuted") === "true";
+  audio.muted = isMuted;
+
+  function playAudio() {
+    audio.play().catch(() => {
+      console.log("Autoplay diblokir, menunggu interaksi pengguna.");
     });
+  }
 
-    soundButton.addEventListener("click", () => {
-      audio.muted = true;
-      soundButton.style.display = "none";
-      muteButton.style.display = "block";
-    });
+  playAudio();
 
-    const settingButton = document.getElementById("settingButton");
-    const settingOnButton = document.getElementById("settingOnButton");
-
-    settingButton.addEventListener("click", () => {
-      settingButton.style.display = "none";
-      settingOnButton.style.display = "block";
-      muteButton.style.display = "block";
-    });
-
-    settingOnButton.addEventListener("click", () => {
-      settingOnButton.style.display = "none";
-      settingButton.style.display = "block";
-      muteButton.style.display = "none";
-      soundButton.style.display = "none";
-    });
+  // **Simpan waktu & indeks lagu hanya jika sesi masih aktif**
+  audio.addEventListener("timeupdate", function () {
+    if (sessionStorage.getItem("sessionActive")) {
+      localStorage.setItem("audioTime", audio.currentTime);
+      localStorage.setItem("audioIndex", currentSongIndex);
+    }
   });
 
-  const buttonNext = document.getElementById("button-next");
+  // **Fungsi update tombol sound/mute**
+  function updateSoundButtons() {
+    if (audio.muted) {
+      muteButton.style.display = "block";
+      soundButton.style.display = "none";
+    } else {
+      muteButton.style.display = "none";
+      soundButton.style.display = "block";
+    }
+  }
 
-if (buttonNext) {
-    buttonNext.addEventListener("click", function (event) {
-        event.preventDefault();
-        console.log("Tombol Next diklik!");
+  // **Event mute/unmute**
+  muteButton.addEventListener("click", () => {
+    audio.muted = false;
+    localStorage.setItem("audioMuted", "false");
+    updateSoundButtons();
+  });
 
-        const container = document.querySelector(".page-body"); 
-        console.log(container);
+  soundButton.addEventListener("click", () => {
+    audio.muted = true;
+    localStorage.setItem("audioMuted", "true");
+    updateSoundButtons();
+  });
 
-        if (container) {
-            container.classList.add("slide-out");
-        }
+  // **Tombol Setting**
+  settingButton.addEventListener("click", () => {
+    settingButton.style.display = "none";
+    settingOnButton.style.display = "block";
 
-        const href = buttonNext.getAttribute("href");
+    // **Hanya tampilkan tombol saat setting ditekan**
+    if (audio.muted) {
+      muteButton.style.display = "block";
+      soundButton.style.display = "none";
+    } else {
+      muteButton.style.display = "none";
+      soundButton.style.display = "block";
+    }
+  });
 
-        setTimeout(() => {
-            window.location.href = href;
-        }, 1000);
-    });
-}
+  settingOnButton.addEventListener("click", () => {
+    settingOnButton.style.display = "none";
+    settingButton.style.display = "block";
+
+    // **Sembunyikan tombol saat setting ditutup**
+    muteButton.style.display = "none";
+    soundButton.style.display = "none";
+  });
+
+  // **Pastikan tombol sound/mute tidak muncul sebelum setting ditekan**
+  muteButton.style.display = "none";
+  soundButton.style.display = "none";
+});
+
+
   </script>
 </body>
 
