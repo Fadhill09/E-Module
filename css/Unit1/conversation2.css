@@ -200,6 +200,11 @@ body {
     position: absolute;
     width: 20%;
   }
+
+  .dekorasi_2 {
+    position: absolute;
+    width: 10%;
+  }
   
   .dekorasi-top-right-1 {
     top: 0;
@@ -210,11 +215,6 @@ body {
     bottom: 0;
     left: 0;
     transform: rotate(180deg);
-  }
-  
-  .dekorasi_2 {
-    position: absolute;
-    width: 10%;
   }
   
   .dekorasi-top-left-2 {
@@ -294,19 +294,22 @@ body {
     .conversation-container {
       margin-bottom: 200px;
     }
-  
+    
     .icon-topi {
-      right: 480px;
-      bottom: 250px;
+      height: 55px;
+      bottom: 220px;
+      right: 550px;
     }
     
     .icon-jangka {
-      left: 480px;
-      bottom: 250px;
+      height: 55px;
+      bottom: 210px;
+      left: 550px;
     }
     
     .icon-book {
-      left: 80%;
+      width: 70px;
+      right: 100px;
       top: 80px;
     }
   
@@ -337,7 +340,7 @@ body {
     
     .icon-book {
       left: 80%;
-      top: 80px;
+      top: 100px;
     }
   }
   
@@ -357,7 +360,6 @@ body {
       left: 300px;
       bottom: 250px;
     }
-    
   
     .conversation-1 {
       font-size: 0.8rem;

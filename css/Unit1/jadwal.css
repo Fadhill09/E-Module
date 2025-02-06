@@ -36,11 +36,10 @@ body {
 .dekorasi_1 {
   position: absolute;
   width: 20%;
-  z-index: -1;
 }
 .dekorasi_2 {
   position: absolute;
-  width: 15%;
+  width: 10%;
   z-index: -1;
 }
 
@@ -391,76 +390,61 @@ body {
 .icon-book {
   top: 30px;
   transform: rotate(-20deg);
+  position: absolute;
   animation: icon-book 5s ease-in-out 0s infinite alternate-reverse both;
 }
 
 @keyframes icon-book {
   0% {
-    transform: scale(0.5);
+    transform: rotate(-20deg);
     transform-origin: 50% 40%;
   }
 
   100% {
-    transform: scale(1);
+    transform: scale(0.5);
     transform-origin: 50% 40%;
   }
 }
 
-.dekorasi_1 {
-  position: absolute;
-  width: 20%;
-}
-.dekorasi_2 {
-  position: absolute;
-  width: 15%;
-  z-index: -1;
-}
-
-@media (max-width: 880px) {
+@media (max-width: 860px) {
 
   body{
     overflow: hidden;
     min-height: 100vh;
   }
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(
-      2,
-      45%
-    ); 
-    gap: 2vw;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
+    grid-template-columns: repeat( 2,30vw); 
+    gap: 4vw;
+    margin-top: 5vw;
   }
 
   .blue-box {
     background-color: #2599d5;
-    width: 90%; 
-    padding: 2vw;
+    width: 100%; 
+    padding: 3.5vw; 
     border-radius: 5px;
-    margin-top: 3vw; 
+    margin-top: 4vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-left: auto; 
-    margin-right: auto; 
+    height: auto;
     text-align: center; 
+    display: block;
   }
 
   .grid-item {
-    width: 35vw; 
+    width: 30vw; 
     height: 10vw;
-    margin-bottom: 2vw;
   }
 
   .grid-time,
   .grid-day,
   .grid-clock,
   .grid-schedule {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .grid-math {
-    font-size: 3vw;
+    font-size:3.5vw;
   }
 
   .icon-watch {
@@ -483,7 +467,6 @@ body {
     top: 30px;
   }
 
-  
   .dekorasi_1 {
     width: 30%;
   }
@@ -500,15 +483,14 @@ body {
   }
 
   .grid-container {
-    grid-template-columns: repeat(2, 45vw);
+    grid-template-columns: repeat(2,45vw);
     gap: 5vw;
     margin-top: 5vw;
   }
 
   .blue-box {
-    display: block;
     background-color: #2599d5;
-    width: 90%;
+    width: 100%;
     padding: 2.5vw; 
     border-radius: 5px;
     margin-top: 4vw;
@@ -517,6 +499,7 @@ body {
     margin-right: auto; 
     height: auto;
     text-align: center; 
+    display: block;
   }
 
   .grid-item {
@@ -528,19 +511,20 @@ body {
     font-size: 3.5vw;
   }
 
-
   .title-box {
     font-size: 6vw;
   }
 
   .icon-watch {
-    width: 50px;
-    height: 50px;
-    bottom: 450px;
+    width: 45px;;
+    height: 45px;
+    bottom: 410px;
   }
 
   .icon-calender {
-    bottom: 430px;
+    width: 45px;;
+    height: 45px;
+    bottom: 380px;
   }
 
   .icon-book {

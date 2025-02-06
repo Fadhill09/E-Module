@@ -6,7 +6,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-image: url("/Asset/bg.png");
-  /* background-image: url("/css/Background.png"); */
+   /* background-image: url("/css/Background.png"); */
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
@@ -361,7 +361,7 @@ p {
 
 .dekorasi_2 {
   position: absolute;
-  width: 15%;
+  width: 10%;
   z-index: -1;
 }
 

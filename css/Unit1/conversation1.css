@@ -14,6 +14,21 @@ body {
 .title {
   font-weight: bold;
   color: #3c3c6e;
+  animation: title 5s ease-in 0.3s infinite alternate both;
+}
+
+@keyframes title {
+  0% {
+    transform: scale(1) rotate(-2deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
 }
 
 .conversation-container {
@@ -28,7 +43,6 @@ body {
   text-align: start;
   font-weight: bold;
   color: white;
-  /* color: #3c3c6e; */
   width: fit-content;
   padding: 10px 15px;
   border-radius: 20px 20px 20px 4px;
@@ -59,17 +73,79 @@ body {
 
 .icon-topi {
   height: 75px;
-  bottom: 200px;
+  bottom: 170px;
   right: 790px;
   transform: rotate(-30deg);
   position: absolute;
+  animation: icon-topi 3.5s linear 0.5s infinite normal forwards;
+}
+
+@keyframes icon-topi {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-30deg);
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    transform: translateY(-10px) rotate(-30deg);
+  }
+
+  30% {
+    transform: translateY(10px) rotate(-30deg);
+  }
+
+  45% {
+    transform: translateY(-10 px) rotate(-30deg);
+  }
+
+  60% {
+    transform: translateY(9px) rotate(-30deg);
+  }
+
+  75% {
+    transform: translateY(-6px) rotate(-30deg);
+  }
 }
 
 .icon-jangka {
   height: 75px;
+  bottom: 160px;
   left: 850px;
-  bottom: 200px;
   position: absolute;
+  animation: icon-jangka 5s ease-in 0.3s infinite alternate both;
+}
+
+@keyframes icon-jangka {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(8deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-20deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-8deg);
+  }
+
+  90% {
+    transform: rotate(8deg);
+  }
 }
 
 .icon-book {
@@ -78,6 +154,45 @@ body {
   top: 80px;
   transform: rotate(-20deg);
   position: absolute;
+  animation: icon-book 5s ease-in-out 0s infinite alternate-reverse both;
+}
+
+@keyframes icon-book {
+  0% {
+    transform: rotate(-20deg);
+    transform: scale(0.5);
+    transform-origin: 50% 40%;
+  }
+
+  100% {
+    transform: rotate(-20deg);
+    transform-origin: 50% 40%;
+  }
+}
+
+.button-container {
+  margin-top: 20px;
+  align-self: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.button-container .button {
+  font-family: "Balsamiq Sans", cursive;
+  background: linear-gradient(90deg, #5db1e6, #104fdd);
+  padding: 8px 45px;
+  font-size: 16px;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+.button-container .button:hover {
+  background: linear-gradient(90deg, #104fdd, #5db1e6);
 }
 
 .audio-icon {
@@ -104,10 +219,40 @@ body {
 
 .character_girl img {
   width: 105px;
+  animation: character_girl 5s ease-in 0.3s infinite alternate both;
+}
+
+@keyframes character_girl {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .character_boy img {
   width: 122px;
+  animation: character_boy 5s ease-in 0.3s infinite alternate both;
+}
+
+@keyframes character_boy {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .image-setting:active,
@@ -224,19 +369,113 @@ body {
   transform: rotate(180deg);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-3.5deg);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(2.5deg);
+  }
+}
+
+@keyframes fadeOn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(180deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.conversation-container {
+  animation: popIn 2s ease-out forwards;
+}
+
+.icon-container {
+  animation: slideIn 1.8s ease-out forwards;
+}
+/* 
+.dekorasi-top-right-1,
+.dekorasi-top-left-2 {
+  animation: fade 1.5s ease-out forwards;
+}
+
+.dekorasi-bottom-left-1 {
+  animation: fadeInn 1.5s ease-out forwards;
+}
+
+.dekorasi-bottom-right-2 {
+  animation: fadeInn 1.7s ease-out forwards;
+} */
+
 @media (max-width: 1200px) {
   .icon-topi {
-    bottom: 250px;
+    bottom: 210px;
     right: 600px;
   }
-  
+
   .icon-jangka {
     left: 550px;
-    bottom: 250px;
+    bottom: 200px;
   }
-  
-
-
 }
 @media (max-width: 930px) {
   .conversation-container {
@@ -256,24 +495,23 @@ body {
     margin-bottom: 5px;
   }
 
-  
-.icon-topi {
-  height: 55px;
-  bottom: 250px;
-  right: 550px;
-}
+  .icon-topi {
+    height: 55px;
+    bottom: 220px;
+    right: 550px;
+  }
 
-.icon-jangka {
-  height: 55px;
-  left: 550px;
-  bottom: 250px;
-}
+  .icon-jangka {
+    height: 55px;
+    bottom: 210px;
+    left: 550px;
+  }
 
-.icon-book {
-  width: 70px;
-  right: 100px;
-  top: 80px;
-}
+  .icon-book {
+    width: 70px;
+    right: 100px;
+    top: 80px;
+  }
 
   .characters {
     gap: 100px;
@@ -293,14 +531,14 @@ body {
 
   .icon-topi {
     right: 480px;
-    bottom: 250px;
+    bottom: 220px;
   }
-  
+
   .icon-jangka {
     left: 480px;
-    bottom: 250px;
+    bottom: 210px;
   }
-  
+
   .icon-book {
     right: 20px;
     top: 80px;
@@ -313,20 +551,23 @@ body {
   .character_boy img {
     width: 105px;
   }
+
+  .button-container .button {
+    padding: 5px 30px;
+  }
 }
 
-@media (max-width: 600px){
-  
+@media (max-width: 600px) {
   .icon-topi {
     right: 400px;
-    bottom: 300px;
+    bottom: 250px;
   }
-  
+
   .icon-jangka {
     left: 400px;
-    bottom: 300px;
+    bottom: 240px;
   }
-  
+
   .icon-book {
     right: 20px;
     top: 80px;
@@ -339,17 +580,15 @@ body {
     width: 90%;
   }
 
-  
   .icon-topi {
     right: 300px;
-    bottom: 250px;
+    bottom: 230px;
   }
-  
+
   .icon-jangka {
     left: 300px;
-    bottom: 250px;
+    bottom: 220px;
   }
-  
 
   .conversation-1 {
     font-size: 0.8rem;
@@ -380,16 +619,14 @@ body {
   } */
 }
 
-
 @media (max-width: 390px) {
   .icon-topi {
     right: 230px;
-    bottom: 350px;
+    bottom: 250px;
   }
-  
+
   .icon-jangka {
     left: 250px;
-    bottom: 350px;
+    bottom: 240px;
   }
-  
 }
