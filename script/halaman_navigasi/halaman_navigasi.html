@@ -120,12 +120,18 @@
       }
     } else {
       // Jika tab ditutup, mulai lagu dari awal
-      localStorage.removeItem("audioTime");
-      localStorage.removeItem("audioIndex");
+      sessionStorage.removeItem("audioTime");
+      sessionStorage.removeItem("audioIndex");
       currentSongIndex = 0;
       audioSource.src = songs[currentSongIndex];
       audio.load();
     }
+
+    window.onbeforeunload = function () {
+    sessionStorage.removeItem("audioTime");
+    sessionStorage.removeItem("audioIndex");
+};
+
 
     // Set sesi aktif
     sessionStorage.setItem("sessionActive", "true");
