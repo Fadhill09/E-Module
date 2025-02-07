@@ -184,6 +184,10 @@ body {
   margin: 0 auto;
 }
 
+.grid-item:hover {
+  cursor: pointer;
+}
+
 .grid-container a {
   text-decoration-line: none;
 }
@@ -227,9 +231,9 @@ body {
 }
 
 .grid-item:active {
-  transform: scale(0.98);
+  transform: scale(0.5);
   background-color: #578fca;
-  transition: transform 0.1s ease, background-color 0.1s ease;
+  transition: transform 1s ease, background-color 0.4s ease;
 }
 
 .grid-math:active {
