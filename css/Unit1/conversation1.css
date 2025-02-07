@@ -31,6 +31,11 @@ body {
   }
 }
 
+.page-body{
+  width: 100%;
+  justify-items: center;
+}
+
 .conversation-container {
   font-family: "Balsamiq Sans", cursive;
   width: 50%;
@@ -38,9 +43,6 @@ body {
   z-index: 10;
 }
 
-.page-body{
-  width: 100%;
-}
 
 .conversation-1 {
   background-color: #09bdfe;

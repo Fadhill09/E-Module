@@ -40,7 +40,7 @@
             </a>
           </div>
           <div class="col-12">
-            <a href="#" class="unit_2" id="unit_2">Unit 2
+            <a href="unit2/unit2.html" class="unit_2" id="unit_2">Unit 2
               <span>Talking about your favorite school subjects</span>
             </a>
           </div>
@@ -96,7 +96,6 @@
     const settingButton = document.getElementById("settingButton");
     const settingOnButton = document.getElementById("settingOnButton");
 
-    // Array Lagu
     const songs = [
       "/Asset/audio/sound.mp3",
       "/Asset/audio/audio2.mp3",
@@ -106,9 +105,7 @@
 
     audio.loop = true;
 
-    // **Cek apakah sesi masih aktif**
     if (sessionStorage.getItem("sessionActive")) {
-      // Jika masih aktif, lanjutkan lagu dari posisi sebelumnya
       const savedTime = localStorage.getItem("audioTime");
       const savedIndex = localStorage.getItem("audioIndex");
 
@@ -121,7 +118,7 @@
         audio.currentTime = parseFloat(savedTime);
       }
     } else {
-      // Jika tab ditutup, mulai lagu dari awal
+
       sessionStorage.removeItem("audioTime");
       sessionStorage.removeItem("audioIndex");
       currentSongIndex = 0;
@@ -135,10 +132,9 @@
 };
 
 
-    // Set sesi aktif
+
     sessionStorage.setItem("sessionActive", "true");
 
-    // **Ambil status mute dari localStorage**
     const isMuted = localStorage.getItem("audioMuted") === "true";
     audio.muted = isMuted;
 
@@ -150,7 +146,6 @@
 
     playAudio();
 
-    // **Simpan waktu & indeks lagu hanya jika sesi masih aktif**
     audio.addEventListener("timeupdate", function () {
       if (sessionStorage.getItem("sessionActive")) {
         localStorage.setItem("audioTime", audio.currentTime);
@@ -158,7 +153,6 @@
       }
     });
 
-    // **Fungsi update tombol sound/mute**
     function updateSoundButtons() {
       if (audio.muted) {
         muteButton.style.display = "block";
@@ -169,7 +163,6 @@
       }
     }
 
-    // **Event mute/unmute**
     muteButton.addEventListener("click", () => {
       audio.muted = false;
       localStorage.setItem("audioMuted", "false");
@@ -182,12 +175,10 @@
       updateSoundButtons();
     });
 
-    // **Tombol Setting**
     settingButton.addEventListener("click", () => {
       settingButton.style.display = "none";
       settingOnButton.style.display = "block";
 
-      // **Hanya tampilkan tombol saat setting ditekan**
       if (audio.muted) {
         muteButton.style.display = "block";
         soundButton.style.display = "none";
@@ -201,12 +192,10 @@
       settingOnButton.style.display = "none";
       settingButton.style.display = "block";
 
-      // **Sembunyikan tombol saat setting ditutup**
       muteButton.style.display = "none";
       soundButton.style.display = "none";
     });
 
-    // **Pastikan tombol sound/mute tidak muncul sebelum setting ditekan**
     muteButton.style.display = "none";
     soundButton.style.display = "none";
   });
@@ -217,16 +206,14 @@
 
   navButtons.forEach(button => {
     button.addEventListener("click", function (event) {
-      event.preventDefault(); // Mencegah navigasi langsung
+      event.preventDefault(); 
       const targetUrl = this.getAttribute("href");
-      
-      // Tambahkan animasi slide-out
+
       navContainer.classList.add("slide-out");
-      
-      // Tunggu animasi selesai sebelum berpindah halaman
+
       setTimeout(() => {
         window.location.href = targetUrl;
-      }, 1000); // Sesuaikan dengan durasi animasi CSS
+      }, 1000); 
     });
   });
 });
