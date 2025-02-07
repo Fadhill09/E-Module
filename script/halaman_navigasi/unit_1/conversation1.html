@@ -128,18 +128,34 @@
 
       document.getElementById("audio-1").addEventListener("click", function () {
         playAudio("audio1");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       document.getElementById("audio-2").addEventListener("click", function () {
         playAudio("audio2");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       document.getElementById("audio-3").addEventListener("click", function () {
         playAudio("audio3");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 4000);
       });
 
       document.getElementById("audio-4").addEventListener("click", function () {
         playAudio("audio4");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       const songs = [
