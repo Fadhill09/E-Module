@@ -11,7 +11,26 @@
   <title>Conversation UI</title>
 </head>
 
+<style>
+  .slide-out {
+    animation: slideOut 1s forwards;
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+</style>
+
 <body>
+
   <div class="conversation-container text-center">
     <h1 class="title text-center">Conversation 1</h1>
     <div class="conversation-1">
@@ -52,9 +71,9 @@
     <div class="button-container text-center mt-3">
       <a href="/script/halaman_navigasi/unit_1/jadwal.html" class="button" id="button-next">Next</a>
   </div>
-
+    
   </div>
-
+  
   <div class="characters">
     <div class="character_girl">
       <img src="/Asset/icon/Perempuan.png" alt="Character Girl">
@@ -63,6 +82,7 @@
       <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
     </div>
   </div>
+
 
   <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
   <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
@@ -201,6 +221,17 @@
 
       muteButton.style.display = "none";
       soundButton.style.display = "none";
+    
+      document.getElementById("button-next").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    const container = document.querySelector(".conversation-container"); 
+
+    container.classList.add("slide-out");
+
+    setTimeout(() => {
+        window.location.href = this.getAttribute("href");
+    }, 1000);
+});
     });
   </script>
 
