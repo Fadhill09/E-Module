@@ -215,6 +215,7 @@ span {
   position: absolute;
   width: 10%;
 }
+
 .dekorasi-top-left-2 {
   top: 0;
   left: 0;
@@ -352,60 +353,6 @@ span {
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(-3.5deg);
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(2.5deg);
-  }
-}
-
-@keyframes fadeOn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(180deg);
-  }
-}
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -436,18 +383,10 @@ span {
   animation: slideIn 1.8s ease-out forwards;
 }
 
-/* .dekorasi-top-right-1, */
 .dekorasi-top-left-2 {
   animation: fade 1.5s ease-out forwards;
 }
 
-/* .dekorasi-bottom-left-1 {
-  animation: fadeInn 1.5s ease-out forwards;
-}
-
-.dekorasi-bottom-right-2 {
-  animation: fadeInn 1.7s ease-out forwards;
-} */
 
 @media (max-width: 1000px) {
   /* body {
