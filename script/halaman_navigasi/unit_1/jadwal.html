@@ -53,29 +53,29 @@
         </div>
 
         <div class="icon-container">
-            <img class="icon-book" src="/Asset/Buku 1.png" alt="Book Icon">
-            <img class="icon-calender" src="/Asset/Kalender.png" alt="Calendar Icon">
-            <img  class="icon-watch" src="/Asset/watch.png" alt="watch">
+            <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Book Icon">
+            <img class="icon-calender" src="/Asset/icon/Kalender.png" alt="Calendar Icon">
+            <img  class="icon-watch" src="/Asset/icon/watch.png" alt="watch">
         </div>
 
     </div>
-    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
-    <img src="/Asset/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-left-2">
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-left-2">
 
-    <img src="/Asset/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
         style="display: none;">
 
     <a href="/script/halaman_navigasi/halaman_navigasi.html">
-        <img src="/Asset/home.png" alt="Home" class="image-home">
+        <img src="/Asset/icon/home.png" alt="Home" class="image-home">
     </a>
 
 
     <div class="audio-controls">
-        <img src="/Asset/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-        <img src="/Asset/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
     </div>
 
     <audio id="audio" preload="auto">
@@ -83,56 +83,109 @@
     </audio>
 
     <script>
-        const settingButton = document.getElementById('settingButton');
-        const settingOnButton = document.getElementById('settingOnButton');
-        const soundButton = document.getElementById('soundButton');
-        const muteButton = document.getElementById('muteButton');
-        const audio = document.getElementById('audio');
-        const audioSource = document.getElementById('audioSource');
-
-
+        document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("audio");
+        const audioSource = document.getElementById("audioSource");
+        const muteButton = document.getElementById("muteButton");
+        const soundButton = document.getElementById("soundButton");
+        const settingButton = document.getElementById("settingButton");
+        const settingOnButton = document.getElementById("settingOnButton");
+      
         const songs = [
-            "/Asset/audio/contoh.mp3",
-            "/Asset/audio/audio2.mp3",
-            "/Asset/audio/audio3.mp3"
+          "/Asset/audio/sound.mp3",
+          "/Asset/audio/audio2.mp3",
+          "/Asset/audio/audio3.mp3"
         ];
-
         let currentSongIndex = 0;
-
-        function changeSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
+      
+        if (sessionStorage.getItem("sessionActive")) {
+          const savedTime = localStorage.getItem("audioTime");
+          const savedIndex = localStorage.getItem("audioIndex");
+      
+          if (savedIndex !== null) {
+            currentSongIndex = parseInt(savedIndex);
             audioSource.src = songs[currentSongIndex];
             audio.load();
-            audio.play();
+          }
+          if (savedTime !== null) {
+            audio.currentTime = parseFloat(savedTime);
+          }
+        } else {
+          localStorage.removeItem("audioTime");
+          localStorage.removeItem("audioIndex");
+          currentSongIndex = 0;
+          audioSource.src = songs[currentSongIndex];
+          audio.load();
         }
-
-        settingButton.addEventListener('click', function () {
-            settingButton.style.display = 'none';
-            settingOnButton.style.display = 'block';
-            muteButton.style.display = 'block';
+      
+        sessionStorage.setItem("sessionActive", "true");
+      
+        const isMuted = localStorage.getItem("audioMuted") === "true";
+        audio.muted = isMuted;
+      
+        function playAudio() {
+          audio.play().catch(() => {
+            console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+          });
+        }
+      
+        playAudio();
+      
+        audio.addEventListener("timeupdate", function () {
+          if (sessionStorage.getItem("sessionActive")) {
+            localStorage.setItem("audioTime", audio.currentTime);
+            localStorage.setItem("audioIndex", currentSongIndex);
+          }
         });
-
-        muteButton.addEventListener('click', function () {
-            audio.play();
-            muteButton.style.display = 'none';
-            soundButton.style.display = 'block';
+      
+        function updateSoundButtons() {
+          if (audio.muted) {
+            muteButton.style.display = "block";
+            soundButton.style.display = "none";
+          } else {
+            muteButton.style.display = "none";
+            soundButton.style.display = "block";
+          }
+        }
+      
+        muteButton.addEventListener("click", () => {
+          audio.muted = false;
+          localStorage.setItem("audioMuted", "false");
+          updateSoundButtons();
         });
-
-        soundButton.addEventListener('click', function () {
-            audio.pause();
-            audio.currentTime = 0;
-            soundButton.style.display = 'none';
-            muteButton.style.display = 'block';
+      
+        soundButton.addEventListener("click", () => {
+          audio.muted = true;
+          localStorage.setItem("audioMuted", "true");
+          updateSoundButtons();
         });
-
-
-        settingOnButton.addEventListener('click', function () {
-            settingOnButton.style.display = 'none';
-            settingButton.style.display = 'block';
-            muteButton.style.display = 'none';
-            soundButton.style.display = 'none';
+      
+        settingButton.addEventListener("click", () => {
+          settingButton.style.display = "none";
+          settingOnButton.style.display = "block";
+      
+          if (audio.muted) {
+            muteButton.style.display = "block";
+            soundButton.style.display = "none";
+          } else {
+            muteButton.style.display = "none";
+            soundButton.style.display = "block";
+          }
         });
-    </script>
+      
+        settingOnButton.addEventListener("click", () => {
+          settingOnButton.style.display = "none";
+          settingButton.style.display = "block";
+      
+          muteButton.style.display = "none";
+          soundButton.style.display = "none";
+        });
+      
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+      
+      </script>
 </body>
 
 </html>
