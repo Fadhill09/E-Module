@@ -82,7 +82,7 @@
       <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
     </div>
 
-    <audio id="audio" preload="auto"  oop>
+    <audio id="audio" preload="auto"  loop>
       <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
 
     </audio>
@@ -103,6 +103,8 @@
       "/Asset/audio/audio3.mp3"
     ];
     let currentSongIndex = 0;
+
+    audio.loop = true;
 
     // **Cek apakah sesi masih aktif**
     if (sessionStorage.getItem("sessionActive")) {

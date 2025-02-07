@@ -165,6 +165,8 @@
       ];
       let currentSongIndex = 0;
 
+      audio.loop = true;
+
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
         const savedIndex = localStorage.getItem("audioIndex");
