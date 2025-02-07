@@ -78,7 +78,7 @@
         <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
     </div>
 
-    <audio id="audio" preload="auto">
+    <audio id="audio" preload="auto" loop>
         <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
     </audio>
 
@@ -97,6 +97,8 @@
           "/Asset/audio/audio3.mp3"
         ];
         let currentSongIndex = 0;
+
+        audio.loop = true;
       
         if (sessionStorage.getItem("sessionActive")) {
           const savedTime = localStorage.getItem("audioTime");
