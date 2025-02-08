@@ -26,12 +26,13 @@
         .title {
             font-weight: bold;
             color: #3c3c6e;
-            animation: title 5s ease-in 0.3s infinite alternate both;
+            animation: title 5s ease-in 0.3s alternate both;
         }
 
         @keyframes title {
             0% {
-                transform: scale(1);
+                opacity: 0;
+                transform: scale(0.5);
             }
 
             50% {
@@ -39,6 +40,7 @@
             }
 
             100% {
+                opacity: 1;
                 transform: scale(1);
             }
         }
@@ -73,6 +75,28 @@
             /* #d6e9ff */
         }
 
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .reset-btn {
+            display: none;
+            /* Awalnya disembunyikan */
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .reset-btn:hover {
+            background: #0056b3;
+
+        }
+        
         .button-container {
             align-self: center;
             position: relative;
@@ -189,6 +213,15 @@
             right: 0;
             transform: rotate(180deg);
         }
+
+        @media (max-width: 930px) {
+            .dekorasi-top-left-2,
+            .dekorasi-bottom-left-1,
+            .dekorasi-bottom-right-2,
+            .dekorasi-top-right-1 {
+                width: 30%;
+            }
+        }
     </style>
 </head>
 
@@ -202,10 +235,11 @@
         <br>
 
         <div class="button-container text-center mt-3">
-            <a href="/script/halaman_navigasi/unit_1/soal1.html" class="button" id="button-next"
+            <a href="/script/halaman_navigasi/halaman_navigasi.html" class="button" id="button-next"
                 onclick="nextQuestion()">Next</a>
         </div>
-        <p id="feedback" class="mt-3 fw-bold"></p>
+        <p id="feedback"></p>
+        <button class="reset-btn" onclick="resetQuestion()">Coba Lagi</button>
 
         <!-- <button class="btn btn-primary mt-3" onclick="nextQuestion()">Next</button> -->
     </div>
@@ -232,7 +266,17 @@
         <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
     </audio>
 
+    <audio id="correctSound">
+        <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
+    </audio>
+
+    <audio id="wrongSound">
+        <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
+    </audio>
+
     <script>
+
+        // mengambil element menggunakan ID
         document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById("audio");
             const audioSource = document.getElementById("audioSource");
@@ -334,23 +378,132 @@
             soundButton.style.display = "none";
         });
 
-        // Fungsi untuk mengecek jawaban kuis
+        // Fungsi untuk memeriksa jawaban
+
+        let originalStyles = [];
+
         function checkAnswer(button, status) {
             const feedback = document.getElementById("feedback");
-            if (status === "correct") {
-                feedback.textContent = "Correct Answer!";
-                feedback.style.color = "green";
-            } else {
-                feedback.textContent = "Wrong Answer!";
-                feedback.style.color = "red";
+            const correctSound = document.getElementById("correctSound");
+            const wrongSound = document.getElementById("wrongSound");
+            const buttons = document.querySelectorAll(".option");
+            const resetBtn = document.querySelector(".reset-btn");
+
+            // Simpan style asli hanya sekali
+            if (originalStyles.length === 0) {
+                buttons.forEach(btn => {
+                    originalStyles.push({
+                        element: btn,
+                        background: btn.style.background,
+                        color: btn.style.color,
+                        border: btn.style.border
+                    });
+                });
             }
+
+            // Kunci semua tombol setelah menjawab
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (status === "correct") {
+                feedback.textContent = "Jawaban Benar!";
+                feedback.style.color = "green";
+                button.style.background = "green";
+                button.style.color = "white";
+                correctSound.play();
+            } else {
+                feedback.textContent = "Jawaban Salah!";
+                feedback.style.color = "red";
+                button.style.background = "red";
+                button.style.color = "white";
+                wrongSound.play();
+            }
+
+            // Munculkan tombol reset
+            resetBtn.style.display = "block";
         }
 
-        // Fungsi untuk melanjutkan ke pertanyaan berikutnya
-        function nextQuestion() {
-            alert("Next question is not available yet!");
+        function resetQuestion() {
+            const feedback = document.getElementById("feedback");
+            const buttons = document.querySelectorAll(".option");
+            const resetBtn = document.querySelector(".reset-btn");
+
+            // Kembalikan semua tombol ke style awal
+            originalStyles.forEach(style => {
+                style.element.style.background = style.background;
+                style.element.style.color = style.color;
+                style.element.style.border = style.border;
+                style.element.disabled = false;
+            });
+
+            // Hapus feedback
+            feedback.textContent = "";
+            resetBtn.style.display = "none";
         }
+
+            // Fungsi untuk pindah ke halaman berikutnya
+        document.getElementById("button-next").addEventListener("click", function (event) {
+            event.preventDefault(); // Mencegah navigasi langsung
+
+            // Cek apakah ada tombol jawaban yang sudah ditekan
+            let answered = document.querySelector(".option.selected");
+
+            if (!answered) {
+                // Jika belum ada jawaban yang dipilih, tampilkan peringatan
+                Swal.fire({
+                    icon: "warning",
+                    title: "Jawab Soal Terlebih Dahulu!",
+                    text: "Silakan pilih jawaban sebelum melanjutkan.",
+                    confirmButtonText: "OK",
+                    confirmButtonColor: "#ff9800",
+                    backdrop: false, // Agar halaman tidak terkena overlay gelap
+                    position: "center",
+                    willOpen: () => {
+                        document.body.style.overflow = "hidden"; // Cegah halaman bergeser
+                    },
+                    willClose: () => {
+                        document.body.style.overflow = "auto"; // Kembalikan scroll normal
+                    }
+                });
+                return;
+            }
+
+            // Jika sudah menjawab, tampilkan konfirmasi untuk lanjut
+            Swal.fire({
+                icon: "question",
+                title: "Lanjut ke Pertanyaan Berikutnya?",
+                text: "Apakah kamu yakin ingin melanjutkan?",
+                showCancelButton: true,
+                confirmButtonText: "Lanjut",
+                cancelButtonText: "Batal",
+                confirmButtonColor: "#28a745",
+                cancelButtonColor: "#dc3545",
+                backdrop: false, // Hindari overlay yang mengganggu tata letak
+                position: "center"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna menekan "Lanjut", pindah ke halaman baru
+                    window.location.href = "/script/halaman_navigasi/halaman_navigasi.html";
+                }
+            });
+        });
+
+        // Tambahkan event listener ke setiap tombol jawaban
+        document.querySelectorAll(".option").forEach(button => {
+            button.addEventListener("click", function () {
+                // Hapus class "selected" dari semua tombol jawaban
+                document.querySelectorAll(".option").forEach(btn => btn.classList.remove("selected"));
+                // Tambahkan class "selected" ke tombol yang diklik
+                this.classList.add("selected");
+            });
+        });
+
+
+
+
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>
