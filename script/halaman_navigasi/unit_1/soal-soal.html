@@ -39,11 +39,12 @@
 
         /* Card */
        .card {
+           text-align: center;
+           background-color: #fcfcfc;
+           margin: 20px ;
             padding: 20px;
             border-radius: 15px;
-            text-align: center;
             width: 400px;
-            background-color: #fcfcfc;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -380,36 +381,34 @@
         #game-over {
             display: none;
             position: fixed;
-            top: 160px;
-            left: 65px;
-            width: 100%;
-            height: 280px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-            font-size: 2em;
             font-weight: bold;
-            padding-top: 20%;
+            text-align: center;
+            color: white;
+            top: 200px;
+            left: 5%;
+            width: 400px;
+            height: 280px;
+            font-size: 2em;
+            padding: 20%;
         }
 
         #game-over {
-            width: 320px;
-            border: 4px solid #000;
-            background-color: #fff;
-            padding: 1.5rem;
-            box-shadow: 10px 10px 0 #000;
-            font-family: "Arial", sans-serif;
             text-align: center;
+            background-color: #cdcccc;
+            box-shadow: 3px 3px 0 #000;
+            width: 320px;
+            border-radius: 15px;
+            padding: 1.5rem;
             margin-right: 20px;
         }
 
         #game-over p {
-            font-weight: 900;
-            color: #000;
-            font-size: 1.5rem;
             text-transform: uppercase;
-            margin-bottom: 1rem;
             border-bottom: 2px solid #000;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             padding-bottom: 1rem;
         }
 
@@ -420,19 +419,20 @@
         }
 
         #game-over button {
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 3px 3px 0 #000;
+            border: 1px solid #000;
+            color: #000;
             width: 100%;
             padding: 0.75rem;
-            text-align: center;
             font-size: 1rem;
             font-weight: 700;
-            text-transform: uppercase;
-            border: 3px solid #000;
-            background-color: #fff;
-            color: #000;
-            position: relative;
             transition: all 0.2s ease;
-            box-shadow: 5px 5px 0 #000;
-            cursor: pointer;
         }
 
         #game-over button::before {
@@ -442,7 +442,6 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: all 0.6s;
         }
 
