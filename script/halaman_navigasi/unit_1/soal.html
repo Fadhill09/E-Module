@@ -60,6 +60,14 @@
       <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
       <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
     </audio>
+
+    <audio id="correctSound">
+      <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
+  </audio>
+
+  <audio id="wrongSound">
+      <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
+  </audio>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -157,6 +165,9 @@
           optionsContainer.appendChild(optionElement);
         });
       }
+
+      const correctSound = document.getElementById("correctSound");
+      const wrongSound = document.getElementById("wrongSound");
       
       function checkAnswer(selectedAnswer) {
         resultDisplay.innerText = '';
@@ -171,6 +182,7 @@
         if (selectedAnswer === questions[currentQuestion].answer) {
           resultDisplay.innerText = "Correct!";
           resultDisplay.style.color = "green";
+          correctSound.play();
           correctAnswerElement.classList.add('correct');
           score += 20;
           scoreDisplay.innerText = `Score: ${score}`;
@@ -184,6 +196,7 @@
             }, 1000);
           }, 500);
         } else {
+          wrongSound.play();
           lives--;
           livesDisplay.innerText = `Lives: ${lives}`;
           resultDisplay.innerText = "Wrong answer!";
