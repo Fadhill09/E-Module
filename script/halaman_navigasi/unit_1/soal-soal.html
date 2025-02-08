@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        #quiz {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+      font-size: 2.5rem;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, white, wheat, black);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      }
+    }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 75px;
+        }
+
+
+
+        .header {
+            padding: 35px;
+            background: linear-gradient(135deg, #6c63ff, #8a6eff);
+            height: 120px;
+            animation: gradient 5s infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background: linear-gradient(135deg, #6c63ff, #8a6eff);
+            }
+            50% {
+                background: linear-gradient(135deg, #8a6eff, #6c63ff);
+            }
+            100% {
+                background: linear-gradient(135deg, #6c63ff, #8a6eff);
+            }
+        }
+
+        .question {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0 ;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: left;
+            
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .option {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background: #e0f7fa;
+        }
+
+        .option {
+            /* ... */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .option.correct {
+            background-color: #4CAF50 !important;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .option.wrong {
+            background-color: #f44336 !important;
+            /* Merah untuk salah */
+            color: white;
+        }
+
+        .lives {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+
+        }
+
+        .lives i {
+            margin-right: 5px;
+            /* Memberi jarak antar icon hati */
+            color: red;
+            /* Warna hati */
+            font-size: 1.2em;
+        }
+
+        .result {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            animation-delay: 1s;
+            background-color: #f5f5f5;
+            /* Light gray background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .correct {
+            background-color: #a0f0a0 !important;
+            /* Green for correct answer */
+            border: 2px solid #87e887;
+            /* Green border for highlight */
+        }
+
+  
+
+        #game-over {
+            display: none;
+            /* Sembunyikan awalnya */
+            position: fixed;
+            /* Posisi tetap di layar */
+            top: 160px;
+            left: 65px;
+            width: 100%;
+            height: 280px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Latar belakang semi-transparan */
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            padding-top: 20%;
+            /* Posisikan teks di tengah vertikal */
+        }
+
+        #game-over {
+    width: 320px;
+    border: 4px solid #000;
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 10px 10px 0 #000;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#game-over p {
+    font-weight: 900;
+    color: #000;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1rem;
+}
+
+#game-over .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#game-over button {
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 3px solid #000;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    transition: all 0.2s ease;
+    box-shadow: 5px 5px 0 #000;
+    cursor: pointer;
+}
+
+#game-over button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s;
+}
+
+#game-over button:hover::before {
+    left: 100%;
+}
+
+#game-over button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #000;
+}
+
+#restart-button button {
+    background-color: #000;
+    color: #fff;
+    
+}
+
+#restart-button button:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    color: #fff;
+    box-shadow: 7px 7px 0 #800000;
+}
+
+#next-button button:hover {
+    background-color: #296fbb;
+    border-color: #296fbb;
+    color: #fff;
+    box-shadow: 7px 7px 0 #004280;
+}
+
+#game-over button:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+
+        .card-container {
+            display: flex;
+            /* Menggunakan flexbox untuk tata letak horizontal */
+            justify-content: space-around;
+            /* Memberi jarak di antara elemen */
+            margin-bottom: 20px;
+            /* Memberi jarak dengan pertanyaan di bawahnya */
+            padding: 10px;
+            background-color: #f0f0f0;
+            /* Warna latar belakang card */
+            border-radius: 8px;
+            /* Sudut membulat */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            /* Efek bayangan */
+        }
+
+        .card-container div {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            /* Warna latar belakang card */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-container div {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: black;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        #question-text {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        .options div {
+            left: 10px;
+            display: block;
+            width: 300px;
+            padding: 0.90rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            overflow: hidden;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }           
+        .options div:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+        .options div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.6s;
+        }
+        .options div:hover::before {
+            left: 100%;
+        }
+
+        .options div:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+
+        .options div:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+       
+        .correct {
+            background-color: #a0f0a0 !important;
+        }
+
+        .wrong {
+            background-color: #f0a0a0 !important;
+        }
+
+        #score {
+    margin-left: 240px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: -20px;
+    color: black; /* Warna teks skor */
+        }
+
+.lives {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Menjaga ikon hati di sisi kiri */
+    margin-top: 10px;
+}
+
+.lives i {
+    margin-right: 5px;
+    color: red;
+    font-size: 1.8em;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Animasi hati */
+.lives i:hover {
+    transform: scale(1.2); /* Membesarkan ikon hati saat hover */
+    color: #ff4d4d; /* Warna merah muda lebih cerah saat hover */
+}
+
+/* Efek animasi untuk hati yang berdenyut */
+@keyframes heartPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Menambahkan animasi pada ikon hati */
+.lives i {
+    animation: heartPulse 1.5s infinite; /* Animasi berdenyut */
+}
+
+
+        #question-number {
+            /* Style untuk nomor soal */
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+            text-align: left;
+            /* Nomor soal di kiri */
+        }
+        #rules-card { /* Style untuk card rules */
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto; /* Margin atas bawah dan auto untuk tengah horizontal */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 385px; /* Lebar card */
+            text-align: left;
+            margin-left: -27px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #rules-card h2{
+            text-align: center;
+        }
+
+        #rules-card ol {
+            padding-left: 20px; /* Memberi indent pada list */
+        }
+        .tombol-kembali {
+            display: inline-block;
+            padding: 10px 10px;
+
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding-right: 5px;
+            padding-left: 13px;
+
+            /* Posisi di pojok kiri atas */
+            position: fixed; /* Penting untuk memposisikan relatif terhadap viewport */
+            top: 10px;    /* Jarak dari atas */
+            left: 10px;   /* Jarak dari kiri */
+        }
+
+       
+        .tombol-home {
+            display: inline-block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding-right: 5px;
+
+            /* Posisi di pojok kanan atas */
+            position: fixed;
+            top: 10px;
+            right: 10px; /* Perubahan di sini */
+        }
+
+        
+        .subject-icon {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            color: white;
+            margin-right: 10px;
+        }
+        .brutalist-card {
+            width: 350px;
+            border: 4px solid #000;
+            background-color: #fff;
+            padding: 1.5rem;
+            box-shadow: 10px 10px 0 #000;
+            font-family: "Arial", sans-serif;
+            animation: scaleCard 3s infinite; /* Apply the animation here */
+        }
+
+        .brutalist-card__header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 1rem;
+        }
+
+        .brutalist-card__alert {
+            font-weight: 800;
+            color: #000;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .brutalist-card__actions {
+            margin-top: 1rem;
+        }
+
+        .brutalist-card__button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            overflow: hidden;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .brutalist-card__button--read {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .brutalist-card__button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.6s;
+        }
+
+        .brutalist-card__button:hover::before {
+            left: 100%;
+        }
+
+        .brutalist-card__button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+
+        .brutalist-card__button--mark:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+
+        .brutalist-card__button--read:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+            box-shadow: 7px 7px 0 #800000;
+        }
+
+        .brutalist-card__button:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+        .options :hover{
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+        .options-card_button{
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            overflow: hidden;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        } 
+        .options-card_button--read{
+            background-color: #000;
+            color: #fff;
+        }
+        .options-card_button::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.6s;
+        }
+        .options-card__button:hover::before {
+            left: 100%;
+        }
+        .optiona-card__button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+        .options-card__button--mark:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+        .options-card__button--read:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+            box-shadow: 7px 7px 0 #800000;
+        }
+        .options-card__button:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" loop>
+        <source src="mp3/backsound.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="click-sound">
+        <source src="mp3/click.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="correct-sound">
+        <source src="mp3/benar.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="wrong-sound">
+        <source src="mp3/wrong.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <a href="game.html" class="tombol-home">  
+        <div class="subject-icon"><i class="fas fa-home"></i></div>
+    </a>
+
+    <a href="javascript:history.back()" class="tombol-kembali"><div class="subject-icon"><i class="fas fa-arrow-circle-left"></i></div></a>
+
+    <div class="brutalist-card">
+        <div class="lives" id="lives">
+            <i class="fas fa-heart heart" id="heart1"></i> <!-- Hati pertama -->
+            <i class="fas fa-heart heart" id="heart2"></i> <!-- Hati kedua -->
+            <i class="fas fa-heart heart" id="heart3"></i> <!-- Hati ketiga --></div>
+        <div id="score">Score: 0</div>
+        <div class="brutalist-card__header">
+            <div class="brutalist-card__alert"> <p id="question-text"></p></div>
+            
+        </div><div id="question-number">1/5</div>
+        <div class="options-card__actions">
+            <div class="options" id="options-container">
+                <!-- Opsi akan ditambahkan melalui JavaScript -->
+            </div>
+        </div>
+     
+
+    <div class="result" id="result"></div>
+
+    <div id="game-over" style="display: none;">
+        <p id="game-over-message">Game Over!</p>
+    
+        <div class="button-container">
+            <!-- Restart Button -->
+            <a href="home.html" id="restart-button">
+                <button onclick="restartGame()">read again</button>
+            </a>
+            <a href="home.html" id="restart-button">
+                <button onclick="restartGame()">restart</button>
+            </a>
+    
+            <!-- Next Button -->
+            <a href="menu.html" id="next-button">
+                <button>Next</button>
+            </a>
+        </div>
+    </div>
+    
+    
+    <audio id="hover-sound">
+        <source src="mp3/click.mp3" type="audio/mpeg">
+    </audio>
+    
+    
+    <script>
+         function showGameOver() {
+        document.getElementById("game-over").style.display = "block";
+        document.getElementById("restart-button").style.display = "inline-block";
+        document.getElementById("next-button").style.display = "inline-block"; // Show Next Button
+    }
+
+    function restartGame() {
+        // Add any logic needed to reset the game state here
+        console.log("Game Restarted!");
+    }
+        
+        function playHoverSound() {
+    let sound = document.getElementById("hover-sound");
+    sound.currentTime = 0; // Reset agar suara bisa diputar berulang
+    sound.play();
+}
+document.getElementById("options-container").addEventListener("mouseenter", event => {
+    if (event.target.tagName === "DIV") {
+        playHoverSound();
+    }
+}, true);
+
+       const questions = [
+    {
+        text: "What days do Andrew, Evelyn, and Farza have math class?",
+        options: ["Tuesday, Thursday, and Saturday", "Monday, Wednesday, and Friday", "Monday, Wednesday, and Saturday", "Tuesday, Thursday, and Friday"],
+        answer: "Monday, Wednesday, and Friday"
+    },
+    {
+        text: "How does Farza feel about math class on Monday?",
+        options: ["Excited", "Confused", "She wishes it wasn’t the first thing on Monday", "Happy"],
+        answer: "She wishes it wasn’t the first thing on Monday"
+    },
+    {
+        text: "What is something Andrew is looking forward to in math class?",
+        options: ["Math games","Group activities" , "Break time", "Lunch"],
+        answer: "Math games"
+    },
+    {
+        text: "What does Evelyn think about group activities?",
+        options: ["She doesn't like them", "She thinks they should be fun", "She prefers individual work", "She is unsure"],
+        answer: "She thinks they should be fun"
+    },
+    {
+        text: "What does Farza suggest they do to make math class better?",
+        options: ["Take notes","Watch videos" , "Skip class", "Help each other out"],
+        answer: "Help each other out"
+    }
+];
+
+
+        let currentQuestion = 0;
+        let lives = 3;
+        let score = 0; // Inisialisasi skor
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const livesDisplay = document.getElementById('lives');
+        const resultDisplay = document.getElementById('result');
+        const scoreDisplay = document.getElementById('score'); // Elemen untuk menampilkan skor
+
+        const gameOverScreen = document.getElementById('game-over');
+        const gameOverMessage = document.getElementById('game-over-message');
+        livesDisplay.innerText = `Lives: ${lives}`; // Inisialisasi tampilan awal
+        const questionNumberDisplay = document.getElementById('question-number');
+        const totalQuestions = questions.length;
+
+        
+        function loadQuestion() {
+            if (lives < 1) {
+    gameOverMessage.innerText = "Game Over!";
+    gameOverScreen.style.display = 'block';
+
+    document.getElementById("restart-button").style.display = "inline-block"; // Tampilkan tombol Restart
+    document.getElementById("next-button").style.display = "none"; // Sembunyikan tombol Next
+
+    return;
+}
+
+if (currentQuestion >= questions.length) {
+    gameOverMessage.innerText = `Congratulations! You finished the quiz. Your final score is: ${score}`;
+    gameOverScreen.style.display = 'block';
+
+    if (score === questions.length) {
+        document.getElementById("restart-button").style.display = "inline-block"; // Tampilkan tombol Next jika skor sempurna
+        document.getElementById("next-button").style.display = "none"; // Sembunyikan tombol Restart jika semua benar
+    } else {
+        document.getElementById("next-button").style.display = "inline-block"; // Tampilkan tombol Restart jika ada jawaban salah
+        document.getElementById("restart-button").style.display = "none"; // Sembunyikan tombol Next
+    }
+
+    return;
+}
+
+
+
+    questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`; // Update nomor soal
+    questionText.innerText = questions[currentQuestion].text;
+    optionsContainer.innerHTML = ''; // Clear previous options
+    questions[currentQuestion].options.forEach(option => {
+        const optionElement = document.createElement('div');
+        optionElement.classList.add('option');
+        optionElement.innerText = option;
+        optionElement.addEventListener('click', () => checkAnswer(option));
+        optionsContainer.appendChild(optionElement);
+    });
+    
+}
+
+        
+        function checkAnswer(selectedAnswer) {
+            resultDisplay.innerText = ''; // Clear previous text
+            const options = optionsContainer.children;
+            let correctAnswerElement;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].innerText === questions[currentQuestion].answer) {
+                    correctAnswerElement = options[i];
+                    break;
+                }
+            }
+            if (selectedAnswer === questions[currentQuestion].answer) {
+                resultDisplay.innerText = "Correct!"; // Set text here!
+                resultDisplay.style.color = "green";
+                correctAnswerElement.classList.add('correct');
+                score += 20;
+                scoreDisplay.innerText = `Score: ${score}`;
+                resultDisplay.style.opacity = 1; // tampilkan result
+                resultDisplay.style.animation = 'none';
+                setTimeout(() => {
+                    resultDisplay.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+                    correctAnswerElement.classList.remove('correct');
+                    currentQuestion++;
+                    loadQuestion();
+                    setTimeout(() => {
+                        resultDisplay.style.opacity = 0; // sembunyikan result
+                    }, 1000);
+                }, 500);
+            } else {
+                lives--;
+                livesDisplay.innerText = `Lives: ${lives}`;
+                resultDisplay.innerText = "Wrong answer!"; // Set text here!
+                resultDisplay.style.color = "red";
+                let wrongAnswerElement;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].innerText === selectedAnswer) {
+                        wrongAnswerElement = options[i];
+                        break;
+                    }
+                }
+                wrongAnswerElement.classList.add('wrong');
+                resultDisplay.style.opacity = 1; // tampilkan result
+                resultDisplay.style.animation = 'none';
+                wrongAnswerElement.classList.add('wrong');
+                resultDisplay.style.opacity = 1; // tampilkan result
+                resultDisplay.style.animation = 'none';
+                if (score >= 20) {
+                    score -= 20; // Kurangi score jika jawaban salah
+                    scoreDisplay.innerText = `Score: ${score}`; // Update tampilan score
+                } else {
+                    score = 0;
+                    scoreDisplay.innerText = `Score: ${score}`;
+                }
+                setTimeout(() => {
+                    resultDisplay.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+                    wrongAnswerElement.classList.remove('wrong');
+                    setTimeout(() => {
+                        resultDisplay.style.opacity = 0; // sembunyikan result
+                    }, 1000);
+                }, 500)
+                if (lives === 0) {
+                    gameOverMessage.innerText = "Game Over!";
+                    gameOverScreen.style.display = 'block';
+                }
+            }
+            if (selectedAnswer === questions[currentQuestion].answer) {
+                playCorrectSound(); // Putar suara benar
+                // ... (kode untuk jawaban benar sebelumnya)
+            } else {
+                playWrongSound(); // Putar suara salah
+                // ... (kode untuk jawaban salah sebelumnya)
+            }
+        }
+        const backgroundMusic = document.getElementById('background-music');
+        const clickSound = document.getElementById('click-sound');
+        const correctSound = document.getElementById('correct-sound');
+        const wrongSound = document.getElementById('wrong-sound');
+        function playBackgroundMusic() {
+            backgroundMusic.play().catch(error => {
+                console.error("Autoplay dicegah:", error);
+                alert("Klik di halaman untuk mengaktifkan suara."); // Minta interaksi pengguna
+                document.addEventListener('click', function playOnce() {
+                    backgroundMusic.play();
+                    document.removeEventListener('click', playOnce);
+                });
+
+            });
+        }
+        
+
+        function playClickSound() {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }
+
+        function playCorrectSound() {
+            correctSound.currentTime = 0;
+            correctSound.play();
+        }
+
+        function playWrongSound() {
+            wrongSound.currentTime = 0;
+            wrongSound.play();
+        }
+
+
+        // Tambahkan event listener untuk memastikan musik diputar saat halaman dimuat
+        window.addEventListener('load', playBackgroundMusic);
+
+        // Modifikasi fungsi endGame untuk menghentikan musik
+        function endGame(message) {
+            stopBackgroundMusic(); // Hentikan musik saat game berakhir
+            alert(message);
+            location.reload();
+        }
+        
+        
+
+        loadQuestion();
+
+    </script>
+
+</body>
+
+</html>

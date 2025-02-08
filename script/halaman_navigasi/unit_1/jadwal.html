@@ -2,192 +2,229 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/Unit1/jadwal.css">
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Conversation 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Unit1/jadwal.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <title>Conversation 2</title>
 </head>
 
+<style>
+  .slide-out {
+    animation: slideOut 1s forwards;
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+</style>
+
 <body>
-    <div class="container ">
-        <div class="blue-box">
-            <h1 class="title-box">Class schedule</h1>
+  <div class="container">
+    <div class="blue-box">
+      <h1 class="title-box">Class schedule</h1>
 
-            <div class="grid-container">
-                <a>
-                    <div class="grid-item grid-time">Time</div>
-                </a>
-                <a >
-                    <div class="grid-item grid-day">Monday</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-clock">07:30-08:30</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-schedule">Sosiology</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-clock">08:30-09:30</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-schedule">Social Since</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-clock">09:30-10:30</div>
-                </a>
-                <a href="/script/halaman_navigasi/unit_1/conversation2.html">
-                    <div class="grid-item grid-math">Math
-                        <br>
-                        <span>Click Here</span>
-                    </div>
-                </a>
-                <a>
-                    <div class="grid-item grid-clock">10:30-11:30</div>
-                </a>
-                <a>
-                    <div class="grid-item grid-schedule">Geography</div>
-                </a>
-            </div>
-        </div>
-
-        <div class="icon-container">
-            <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Book Icon">
-            <img class="icon-calender" src="/Asset/icon/Kalender.png" alt="Calendar Icon">
-            <img  class="icon-watch" src="/Asset/icon/watch.png" alt="watch">
-        </div>
-
-    </div>
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-left-2">
-
-    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-        style="display: none;">
-
-    <a href="/script/halaman_navigasi/halaman_navigasi.html">
-        <img src="/Asset/icon/home.png" alt="Home" class="image-home">
-    </a>
-
-
-    <div class="audio-controls">
-        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+      <div class="grid-container">
+        <a>
+          <div class="grid-item grid-time">Time</div>
+        </a>
+        <a>
+          <div class="grid-item grid-day">Monday</div>
+        </a>
+        <a>
+          <div class="grid-item grid-clock">07:30-08:30</div>
+        </a>
+        <a>
+          <div class="grid-item grid-schedule">Sosiology</div>
+        </a>
+        <a>
+          <div class="grid-item grid-clock">08:30-09:30</div>
+        </a>
+        <a>
+          <div class="grid-item grid-schedule">Social Since</div>
+        </a>
+        <a>
+          <div class="grid-item grid-clock">09:30-10:30</div>
+        </a>
+        <a href="/script/halaman_navigasi/unit_1/conversation2.html" id="button-next">
+          <div class="grid-item grid-math">Math
+            <br>
+            <span>Click Here</span>
+          </div>
+        </a>
+        <a>
+          <div class="grid-item grid-clock">10:30-11:30</div>
+        </a>
+        <a>
+          <div class="grid-item grid-schedule">Geography</div>
+        </a>
+      </div>
     </div>
 
-    <audio id="audio" preload="auto" loop>
-        <source id="audioSource" src="/Asset/audio/contoh.mp3" type="audio/mp3">
-    </audio>
+    <div class="icon-container">
+      <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Book Icon">
+      <img class="icon-calender" src="/Asset/icon/Kalender.png" alt="Calendar Icon">
+      <img class="icon-watch" src="/Asset/icon/watch.png" alt="watch">
+    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        const audio = document.getElementById("audio");
-        const audioSource = document.getElementById("audioSource");
-        const muteButton = document.getElementById("muteButton");
-        const soundButton = document.getElementById("soundButton");
-        const settingButton = document.getElementById("settingButton");
-        const settingOnButton = document.getElementById("settingOnButton");
-      
-        const songs = [
-          "/Asset/audio/sound.mp3",
-          "/Asset/audio/audio2.mp3",
-          "/Asset/audio/audio3.mp3"
-        ];
-        let currentSongIndex = 0;
+  </div>
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-left-2">
 
-        audio.loop = true;
-      
-        if (sessionStorage.getItem("sessionActive")) {
-          const savedTime = localStorage.getItem("audioTime");
-          const savedIndex = localStorage.getItem("audioIndex");
-      
-          if (savedIndex !== null) {
-            currentSongIndex = parseInt(savedIndex);
-            audioSource.src = songs[currentSongIndex];
-            audio.load();
-          }
-          if (savedTime !== null) {
-            audio.currentTime = parseFloat(savedTime);
-          }
-        } else {
-          localStorage.removeItem("audioTime");
-          localStorage.removeItem("audioIndex");
-          currentSongIndex = 0;
+  <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+    style="display: none;">
+
+  <a href="/script/halaman_navigasi/halaman_navigasi.html">
+    <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+  </a>
+
+
+  <div class="audio-controls">
+    <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+    <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+  </div>
+
+  <audio id="audio">
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+    <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3"
+      ];
+      let currentSongIndex = 0;
+
+
+      if (sessionStorage.getItem("sessionActive")) {
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
+
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
           audioSource.src = songs[currentSongIndex];
           audio.load();
         }
-      
-        sessionStorage.setItem("sessionActive", "true");
-      
-        const isMuted = localStorage.getItem("audioMuted") === "true";
-        audio.muted = isMuted;
-      
-        function playAudio() {
-          audio.play().catch(() => {
-            console.log("Autoplay diblokir, menunggu interaksi pengguna.");
-          });
+        if (savedTime !== null) {
+          audio.currentTime = parseFloat(savedTime);
         }
-      
-        playAudio();
-      
-        audio.addEventListener("timeupdate", function () {
-          if (sessionStorage.getItem("sessionActive")) {
-            localStorage.setItem("audioTime", audio.currentTime);
-            localStorage.setItem("audioIndex", currentSongIndex);
-          }
+      } else {
+        localStorage.removeItem("audioTime");
+        localStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+      }
+
+      sessionStorage.setItem("sessionActive", "true");
+
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      audio.muted = isMuted;
+
+      function playAudio() {
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
         });
-      
-        function updateSoundButtons() {
-          if (audio.muted) {
-            muteButton.style.display = "block";
-            soundButton.style.display = "none";
-          } else {
-            muteButton.style.display = "none";
-            soundButton.style.display = "block";
-          }
+      }
+
+      playAudio();
+
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio(); // Putar lagu baru
+      });
+
+
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
         }
-      
-        muteButton.addEventListener("click", () => {
-          audio.muted = false;
-          localStorage.setItem("audioMuted", "false");
-          updateSoundButtons();
-        });
-      
-        soundButton.addEventListener("click", () => {
-          audio.muted = true;
-          localStorage.setItem("audioMuted", "true");
-          updateSoundButtons();
-        });
-      
-        settingButton.addEventListener("click", () => {
-          settingButton.style.display = "none";
-          settingOnButton.style.display = "block";
-      
-          if (audio.muted) {
-            muteButton.style.display = "block";
-            soundButton.style.display = "none";
-          } else {
-            muteButton.style.display = "none";
-            soundButton.style.display = "block";
-          }
-        });
-      
-        settingOnButton.addEventListener("click", () => {
-          settingOnButton.style.display = "none";
-          settingButton.style.display = "block";
-      
-          muteButton.style.display = "none";
+      });
+
+      function updateSoundButtons() {
+        if (audio.muted) {
+          muteButton.style.display = "block";
           soundButton.style.display = "none";
-        });
-      
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      }
+
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      });
+
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+
         muteButton.style.display = "none";
         soundButton.style.display = "none";
       });
-      
-      </script>
+
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+    });
+
+    document.getElementById("button-next").addEventListener("click", function (event) {
+      event.preventDefault();
+      const container = document.querySelector(".container");
+
+      container.classList.add("slide-out");
+
+      setTimeout(() => {
+        window.location.href = this.getAttribute("href");
+      }, 1000);
+    });
+
+  </script>
 </body>
 
 </html>

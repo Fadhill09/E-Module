@@ -2,204 +2,294 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/Unit1/conversation2.css">
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Conversation UI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Unit1/conversation2.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Conversation UI</title>
 </head>
+<style>
+  .slide-out {
+    animation: slideOut 1s forwards;
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+</style>
 
 <body>
+  <div class="page-body">
     <div class="conversation-container text-center">
       <h1 class="title text-center">Conversation 2</h1>
-        <div class="conversation-1">
-            Andrew: Did you see our new math schedule?
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-1">
-            <audio id="audio1">
-              <source src="/Asset/audio/unit1/conversation2/andrew.mp3" type="audio/mp3">
-            </audio>
-        </div>
-        <div class="conversation-2">
-            Evelyn: Yeah, Math on Monday, Wednesday, and Friday.
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2">
-        </div>
-        <div class="conversation-1">
-            Farza: I wish it wasn't first thing on Monday.
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-3">
-        </div>
-        <div class="conversation-2">
-            Andrew: At least we have math games to look forward to!
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-4">
-        </div>
-        <div class="conversation-1">
-            Evelyn: True. And group activities should be fun.
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-5">
-        </div>
-        <div class="conversation-2">
-            Farza: Let's help each other out and make the best of it.
-            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-6">
-        </div>
+      <div class="conversation-1">
+        Andrew: Did you see our new math schedule?
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-1">
+        <audio id="audio1">
+          <source src="/Asset/audio/unit1/conversation2/andrew.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="conversation-2">
+        Evelyn: Yeah, Math on Monday, Wednesday, and Friday.
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2">
+        <audio id="audio2">
+          <source src="/Asset/audio/unit1/conversation2/evelyn.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="conversation-1">
+        Farza: I wish it wasn't first thing on Monday.
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-3">
+        <audio id="audio3">
+          <source src="/Asset/audio/unit1/conversation2/farza.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="conversation-2">
+        Andrew: At least we have math games to look forward to!
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-4">
+        <audio id="audio4">
+          <source src="/Asset/audio/unit1/conversation2/andrew1.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="conversation-1">
+        Evelyn: True. And group activities should be fun.
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-5">
+        <audio id="audio5">
+          <source src="/Asset/audio/unit1/conversation2/evelyn1.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="conversation-2">
+        Farza: Let's help each other out and make the best of it.
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-6">
+        <audio id="audio6">
+          <source src="/Asset/audio/unit1/conversation2/farza1.mp3" type="audio/mp3">
+        </audio>
+      </div>
 
-        <div class="icon-container">
-          <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon">
-          <img class="icon-jangka" src="/Asset/icon/Jangka.png" alt="Jangka Icon">
-          <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Buku Icon">
-        </div>
+      <div class="button-container text-center mt-3">
+        <a href="/script/halaman_navigasi/unit_1/soal1.html" class="button" id="button-next">Next To Question</a>
+      </div>
+
+      <div class="icon-container">
+        <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon">
+        <img class="icon-pencil" src="/Asset/icon/Pencil.png" alt="Pensil Icon">
+        <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Buku Icon">
+      </div>
     </div>
 
     <div class="characters">
-        <div class="character_boy">
-            <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
-        </div>
-        <div class="character_girl">
-            <img src="/Asset/icon/Perempuan.png" alt="Character Girl">
-        </div>
-        <div class="character_boy2">
-            <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
-        </div>
+      <div class="character_boy">
+        <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
+      </div>
+      <div class="character_girl">
+        <img src="/Asset/icon/Perempuan.png" alt="Character Girl">
+      </div>
+      <div class="character_boy2">
+        <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
+      </div>
     </div>
+  </div>
 
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+  <!-- Dekorasi -->
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
 
-    
-    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-        style="display: none;">
+  <!-- Setting & Home -->
+  <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
+  <a href="/script/halaman_navigasi/unit_1/unit1.html">
+    <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+  </a>
 
-    <a href="/script/halaman_navigasi/halaman_navigasi.html">
-        <img src="/Asset/icon/home.png" alt="Home" class="image-home">
-    </a>
+  <!-- Audio Controls -->
+  <div class="audio-controls">
+    <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+    <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+  </div>
 
-    <div class="audio-controls">
-        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
-    </div> 
+  <!-- Musik Latar -->
+  <audio id="audio">
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+    <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
+  </audio>
 
-    <audio id="audio" preload="auto" loop>
-        <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
-      </audio>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backgroundAudio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const audio = document.getElementById("audio");
-          const audioSource = document.getElementById("audioSource");
-          const muteButton = document.getElementById("muteButton");
-          const soundButton = document.getElementById("soundButton");
-          const settingButton = document.getElementById("settingButton");
-          const settingOnButton = document.getElementById("settingOnButton");
-    
-          function playAudio(audioId) {
-            const audioElement = document.getElementById(audioId);
-            if (audioElement) {
-              audioElement.muted = false;
-              audioElement.pause();
-              audioElement.currentTime = 0;
-              audioElement.play().catch(error => console.log("Autoplay diblokir:", error));
-            }
+      // Variabel global untuk menyimpan audio percakapan yang sedang berjalan
+      let currentConversationAudio = null;
+      // Flag untuk menandai bahwa musik latar dijeda karena audio percakapan dimainkan
+      let backgroundAudioPausedForConversation = false;
+
+      // Fungsi untuk memainkan audio percakapan dan menghentikan audio yang sedang berjalan sebelumnya
+      function handleConversationPlay(convAudioId) {
+        // Jika ada audio percakapan yang sedang berjalan, hentikan dulu
+        if (currentConversationAudio && !currentConversationAudio.paused) {
+          currentConversationAudio.pause();
+          currentConversationAudio.currentTime = 0;
+        }
+        const convAudio = document.getElementById(convAudioId);
+        currentConversationAudio = convAudio; // Set audio percakapan saat ini
+
+        if (convAudio) {
+          convAudio.currentTime = 0;
+          convAudio.play().catch(error => console.log("Autoplay diblokir:", error));
+          // Jeda musik latar jika sedang berjalan
+          if (!backgroundAudio.paused) {
+            backgroundAudio.pause();
+            backgroundAudioPausedForConversation = true;
           }
-    
-          document.getElementById("audio-1").addEventListener("click", function () {
-            playAudio("audio1");
+          // Setelah audio percakapan selesai, kembalikan musik latar (jika sebelumnya dijeda)
+          convAudio.addEventListener("ended", function resumeBackground() {
+            if (backgroundAudioPausedForConversation) {
+              backgroundAudio.play().catch(error => console.log("Error resuming background audio:", error));
+              backgroundAudioPausedForConversation = false;
+            }
+            convAudio.removeEventListener("ended", resumeBackground);
           });
-    
-          document.getElementById("audio-2").addEventListener("click", function () {
-            playAudio("audio2");
-          });
-    
-          document.getElementById("audio-3").addEventListener("click", function () {
-            playAudio("audio3");
-          });
-    
-          document.getElementById("audio-4").addEventListener("click", function () {
-            playAudio("audio4");
-          });
-    
-          const songs = [
-            "/Asset/audio/sound.mp3",
-            "/Asset/audio/audio2.mp3",
-            "/Asset/audio/audio3.mp3"
-          ];
-          let currentSongIndex = 0;
+        }
+      }
 
-          audio.loop = true;
-    
-          if (sessionStorage.getItem("sessionActive")) {
-            const savedTime = localStorage.getItem("audioTime");
-            const savedIndex = localStorage.getItem("audioIndex");
-    
-            if (savedIndex !== null) {
-              currentSongIndex = parseInt(savedIndex);
-              audioSource.src = songs[currentSongIndex];
-              audio.load();
-            }
-            if (savedTime !== null) {
-              audio.currentTime = parseFloat(savedTime);
-            }
-          } else {
-            localStorage.removeItem("audioTime");
-            localStorage.removeItem("audioIndex");
-            currentSongIndex = 0;
-            audioSource.src = songs[currentSongIndex];
-            audio.load();
-          }
-    
-          sessionStorage.setItem("sessionActive", "true");
-    
-          const isMuted = localStorage.getItem("audioMuted") === "true";
-          audio.muted = isMuted;
-    
-          function playMainAudio() {
-            audio.play().catch(() => {
-              console.log("Autoplay diblokir, menunggu interaksi pengguna.");
-            });
-          }
-    
-          playMainAudio();
-    
-          audio.addEventListener("timeupdate", function () {
-            if (sessionStorage.getItem("sessionActive")) {
-              localStorage.setItem("audioTime", audio.currentTime);
-              localStorage.setItem("audioIndex", currentSongIndex);
-            }
-          });
-    
-          function updateSoundButtons() {
-            muteButton.style.display = audio.muted ? "block" : "none";
-            soundButton.style.display = audio.muted ? "none" : "block";
-          }
-    
-          muteButton.addEventListener("click", () => {
-            audio.muted = false;
-            localStorage.setItem("audioMuted", "false");
-            updateSoundButtons();
-          });
-    
-          soundButton.addEventListener("click", () => {
-            audio.muted = true;
-            localStorage.setItem("audioMuted", "true");
-            updateSoundButtons();
-          });
-    
-          settingButton.addEventListener("click", () => {
-            settingButton.style.display = "none";
-            settingOnButton.style.display = "block";
-            updateSoundButtons();
-          });
-    
-          settingOnButton.addEventListener("click", () => {
-            settingOnButton.style.display = "none";
-            settingButton.style.display = "block";
-            muteButton.style.display = "none";
-            soundButton.style.display = "none";
-          });
-    
-          muteButton.style.display = "none";
-          soundButton.style.display = "none";
+      // Tambahkan event listener untuk setiap ikon audio percakapan
+      document.getElementById("audio-1").addEventListener("click", function () {
+        handleConversationPlay("audio1");
+      });
+      document.getElementById("audio-2").addEventListener("click", function () {
+        handleConversationPlay("audio2");
+      });
+      document.getElementById("audio-3").addEventListener("click", function () {
+        handleConversationPlay("audio3");
+      });
+      document.getElementById("audio-4").addEventListener("click", function () {
+        handleConversationPlay("audio4");
+      });
+      document.getElementById("audio-5").addEventListener("click", function () {
+        handleConversationPlay("audio5");
+      });
+      document.getElementById("audio-6").addEventListener("click", function () {
+        handleConversationPlay("audio6");
+      });
+
+      // Jika musik latar diklik, maka musik latar akan dijeda
+      backgroundAudio.addEventListener("click", function () {
+        if (!backgroundAudio.paused) {
+          backgroundAudio.pause();
+        }
+      });
+
+      // Playlist musik latar
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3",
+        "/Asset/audio/audio3.mp3"
+      ];
+      let currentSongIndex = 0;
+      backgroundAudio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        backgroundAudio.load();
+        backgroundAudio.play().catch(error => console.log("Error playing next background audio:", error));
+      });
+
+      // Atur progress musik latar menggunakan sessionStorage/localStorage
+      if (sessionStorage.getItem("sessionActive")) {
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
+
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
+          audioSource.src = songs[currentSongIndex];
+          backgroundAudio.load();
+        }
+        if (savedTime !== null) {
+          backgroundAudio.currentTime = parseFloat(savedTime);
+        }
+      } else {
+        localStorage.removeItem("audioTime");
+        localStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        backgroundAudio.load();
+      }
+      sessionStorage.setItem("sessionActive", "true");
+
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      backgroundAudio.muted = isMuted;
+
+      function playMainAudio() {
+        backgroundAudio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
         });
-      </script>
+      }
+      playMainAudio();
+
+      backgroundAudio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", backgroundAudio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+
+      // Update tampilan tombol mute/sound
+      function updateSoundButtons() {
+        muteButton.style.display = backgroundAudio.muted ? "block" : "none";
+        soundButton.style.display = backgroundAudio.muted ? "none" : "block";
+      }
+
+      muteButton.addEventListener("click", () => {
+        backgroundAudio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+
+      soundButton.addEventListener("click", () => {
+        backgroundAudio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+        updateSoundButtons();
+      });
+
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+
+      // Animasi slide-out untuk tombol Next
+      document.getElementById("button-next").addEventListener("click", function (event) {
+        event.preventDefault();
+        const container = document.querySelector(".page-body");
+        container.classList.add("slide-out");
+        setTimeout(() => {
+          window.location.href = this.getAttribute("href");
+        }, 1000);
+      });
+    });
+  </script>
 </body>
+
 </html>

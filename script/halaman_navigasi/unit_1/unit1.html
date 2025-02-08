@@ -62,17 +62,18 @@
     <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
         style="display: none;">
 
-    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+    <!-- <a href="/script/halaman_navigasi/halaman_navigasi.html">
         <img src="/Asset/icon/home.png" alt="Home" class="image-home">
-    </a>
+    </a> -->
 
     <div class="audio-controls">
         <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
         <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
     </div>
 
-    <audio id="audio" preload="auto" loop>
+    <audio id="audio">
         <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+        <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
       </audio>
 
 <script>
@@ -86,12 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const songs = [
     "/Asset/audio/sound.mp3",
-    "/Asset/audio/audio2.mp3",
+    "/Asset/audio/sound1.mp3",
     "/Asset/audio/audio3.mp3"
   ];
   let currentSongIndex = 0;
 
-  audio.loop = true;
+  audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio(); // Putar lagu baru
+      });
 
   if (sessionStorage.getItem("sessionActive")) {
     const savedTime = localStorage.getItem("audioTime");

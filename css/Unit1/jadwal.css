@@ -129,28 +129,6 @@ body {
   cursor: pointer;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(-3.5deg);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 @keyframes popIn {
   from {
     transform: scale(0.8);
@@ -219,6 +197,7 @@ body {
 }
 
 .grid-item span {
+  font-size: .8em;
   color: #0a63d8;
   font-weight: bold;
 }

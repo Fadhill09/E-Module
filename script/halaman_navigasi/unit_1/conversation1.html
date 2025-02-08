@@ -1,225 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/Unit1/conversation1.css">
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/Unit1/conversation1.css" />
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <title>Conversation UI</title>
+  <style>
+    .slide-out {
+      animation: slideOut 1s forwards;
+    }
+    @keyframes slideOut {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
-
-<style>
-  .slide-out {
-    animation: slideOut 1s forwards;
-  }
-
-  @keyframes slideOut {
-    from {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    to {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-  }
-</style>
-
 <body>
+  <div class="page-body">
+    <div class="conversation-container text-center">
+      <h1 class="title text-center">Conversation 1</h1>
 
-  <div class="conversation-container text-center">
-    <h1 class="title text-center">Conversation 1</h1>
-    <div class="conversation-1">
-      Andrew: Hey, what time do we have English class tomorrow?
-      <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-1">
-      <audio id="audio1">
-        <source src="/Asset/audio/unit1/conversation1/brian.mp3" type="audio/mp3">
-      </audio>
-    </div>
-    <div class="conversation-2">
-      Farza: We have it at 10:00 AM. What about Math?
-      <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2">
-      <audio id="audio2">
-        <source src="/Asset/audio/unit1/conversation1/farza.mp3" type="audio/mp3">
-      </audio>
-    </div>
-    <div class="conversation-1">
-      Andrew: Oh, I have Math at 12:00 PM. It's right after lunch
-      <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-3">
-      <audio id="audio3">
-        <source src="/Asset/audio/unit1/conversation1/brian1.mp3" type="audio/mp3">
-      </audio>
-    </div>
-    <div class="conversation-2">
-      Farza: Nice I love Math. But I'm not sure about History.
-      <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-4">
-      <audio id="audio4">
-        <source src="/Asset/audio/unit1/conversation1/farza1.mp3" type="audio/mp3">
-      </audio>
+      <div class="conversation-1">
+        Andrew: Hey, what time do we have English class tomorrow?
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-1" />
+        <audio id="audio1">
+          <source src="/Asset/audio/unit1/conversation1/brian.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+
+      <div class="conversation-2">
+        Farza: We have it at 10:00 AM. What about Math?
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2" />
+        <audio id="audio2">
+          <source src="/Asset/audio/unit1/conversation1/farza.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+
+      <div class="conversation-1">
+        Andrew: Oh, I have Math at 12:00 PM. It's right after lunch
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-3" />
+        <audio id="audio3">
+          <source src="/Asset/audio/unit1/conversation1/brian1.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+
+      <div class="conversation-2">
+        Farza: Nice I love Math. But I'm not sure about History.
+        <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-4" />
+        <audio id="audio4">
+          <source src="/Asset/audio/unit1/conversation1/farza1.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+
+      <div class="icon-container">
+        <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon" />
+        <img class="icon-jangka" src="/Asset/icon/Jangka.png" alt="Jangka Icon" />
+        <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Buku Icon" />
+      </div>
+
+      <div class="button-container text-center mt-3">
+        <a href="/script/halaman_navigasi/unit_1/jadwal.html" class="button" id="button-next">Next</a>
+      </div>
     </div>
 
-    <div class="icon-container">
-      <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon">
-      <img class="icon-jangka" src="/Asset/icon/Jangka.png" alt="Jangka Icon">
-      <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Buku Icon">
+    <div class="characters">
+      <div class="character_girl">
+        <img src="/Asset/icon/Perempuan.png" alt="Character Girl" />
+      </div>
+      <div class="character_boy">
+        <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy" />
+      </div>
     </div>
-    
-    <div class="button-container text-center mt-3">
-      <a href="/script/halaman_navigasi/unit_1/jadwal.html" class="button" id="button-next">Next</a>
   </div>
-    
-  </div>
-  
-  <div class="characters">
-    <div class="character_girl">
-      <img src="/Asset/icon/Perempuan.png" alt="Character Girl">
-    </div>
-    <div class="character_boy">
-      <img src="/Asset/icon/Laki_Laki.png" alt="Character Boy">
-    </div>
-  </div>
 
+  <!-- Dekorasi dan kontrol halaman -->
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1" />
+  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1" />
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2" />
+  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2" />
 
-  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+  <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton" />
+  <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;" />
 
-
-  <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-  <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-    style="display: none;">
-
-  <a href="/script/halaman_navigasi/halaman_navigasi.html">
-    <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+  <a href="/script/halaman_navigasi/unit_1/unit1.html">
+    <img src="/Asset/icon/home.png" alt="Home" class="image-home" />
   </a>
 
   <div class="audio-controls">
-    <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-    <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+    <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;" />
+    <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;" />
   </div>
 
-  <audio id="audio" preload="auto" loop>
-    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+  <!-- Musik latar -->
+  <audio id="audio">
+    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3" />
+    <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3" />
   </audio>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const audio = document.getElementById("audio");
+      const backgroundAudio = document.getElementById("audio");
       const audioSource = document.getElementById("audioSource");
       const muteButton = document.getElementById("muteButton");
       const soundButton = document.getElementById("soundButton");
       const settingButton = document.getElementById("settingButton");
       const settingOnButton = document.getElementById("settingOnButton");
 
-      function playAudio(audioId) {
-        const audioElement = document.getElementById(audioId);
-        if (audioElement) {
-          audioElement.muted = false;
-          audioElement.pause();
-          audioElement.currentTime = 0;
-          audioElement.play().catch(error => console.log("Autoplay diblokir:", error));
+      // Variabel global untuk menyimpan audio percakapan yang sedang berjalan
+      let currentConversationAudio = null;
+      // Flag untuk menandai bahwa musik latar dijeda karena audio percakapan dimainkan
+      let backgroundAudioPausedForConversation = false;
+
+      // Fungsi untuk memainkan audio percakapan dan mengatur agar musik latar dijeda sementara.
+      function handleConversationPlay(convAudioId) {
+        // Hentikan audio percakapan yang sedang berjalan (jika ada)
+        if (currentConversationAudio && !currentConversationAudio.paused) {
+          currentConversationAudio.pause();
+          currentConversationAudio.currentTime = 0;
+        }
+
+        const convAudio = document.getElementById(convAudioId);
+        currentConversationAudio = convAudio; // Set audio percakapan saat ini
+
+        if (convAudio) {
+          convAudio.currentTime = 0;
+          convAudio.play().catch(error => console.log("Autoplay diblokir:", error));
+          // Jika musik latar sedang berjalan, pause musik latar
+          if (!backgroundAudio.paused) {
+            backgroundAudio.pause();
+            backgroundAudioPausedForConversation = true;
+          }
+          // Setelah audio percakapan selesai, kembalikan musik latar (jika sebelumnya dijeda)
+          convAudio.addEventListener("ended", function resumeBackground() {
+            if (backgroundAudioPausedForConversation) {
+              backgroundAudio.play().catch(error => console.log("Error resuming background audio:", error));
+              backgroundAudioPausedForConversation = false;
+            }
+            convAudio.removeEventListener("ended", resumeBackground);
+          });
         }
       }
 
+      // Tambahkan event listener untuk setiap ikon audio percakapan
       document.getElementById("audio-1").addEventListener("click", function () {
-        playAudio("audio1");
-        audio.pause()
-        setTimeout(() => {
-          audio.play()
-        }, 3000);
+        handleConversationPlay("audio1");
       });
-
       document.getElementById("audio-2").addEventListener("click", function () {
-        playAudio("audio2");
-        audio.pause()
-        setTimeout(() => {
-          audio.play()
-        }, 3000);
+        handleConversationPlay("audio2");
       });
-
       document.getElementById("audio-3").addEventListener("click", function () {
-        playAudio("audio3");
-        audio.pause()
-        setTimeout(() => {
-          audio.play()
-        }, 4000);
+        handleConversationPlay("audio3");
       });
-
       document.getElementById("audio-4").addEventListener("click", function () {
-        playAudio("audio4");
-        audio.pause()
-        setTimeout(() => {
-          audio.play()
-        }, 3000);
+        handleConversationPlay("audio4");
       });
 
+      // Jika musik latar diklik, maka musik latar akan dijeda
+      backgroundAudio.addEventListener("click", function () {
+        if (!backgroundAudio.paused) {
+          backgroundAudio.pause();
+        }
+      });
+
+      // Playlist musik latar
       const songs = [
         "/Asset/audio/sound.mp3",
-        "/Asset/audio/audio2.mp3",
+        "/Asset/audio/sound1.mp3",
         "/Asset/audio/audio3.mp3"
       ];
       let currentSongIndex = 0;
+      backgroundAudio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        backgroundAudio.load();
+        backgroundAudio.play().catch(error => console.log("Error playing next background audio:", error));
+      });
 
-      audio.loop = true;
-
+      // Mengatur progress musik latar dengan sessionStorage/localStorage
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
         const savedIndex = localStorage.getItem("audioIndex");
-
         if (savedIndex !== null) {
           currentSongIndex = parseInt(savedIndex);
           audioSource.src = songs[currentSongIndex];
-          audio.load();
+          backgroundAudio.load();
         }
         if (savedTime !== null) {
-          audio.currentTime = parseFloat(savedTime);
+          backgroundAudio.currentTime = parseFloat(savedTime);
         }
       } else {
         localStorage.removeItem("audioTime");
         localStorage.removeItem("audioIndex");
         currentSongIndex = 0;
         audioSource.src = songs[currentSongIndex];
-        audio.load();
+        backgroundAudio.load();
       }
-
       sessionStorage.setItem("sessionActive", "true");
 
+      // Atur status mute musik latar
       const isMuted = localStorage.getItem("audioMuted") === "true";
-      audio.muted = isMuted;
+      backgroundAudio.muted = isMuted;
 
       function playMainAudio() {
-        audio.play().catch(() => {
+        backgroundAudio.play().catch(() => {
           console.log("Autoplay diblokir, menunggu interaksi pengguna.");
         });
       }
-
       playMainAudio();
 
-      audio.addEventListener("timeupdate", function () {
+      backgroundAudio.addEventListener("timeupdate", function () {
         if (sessionStorage.getItem("sessionActive")) {
-          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioTime", backgroundAudio.currentTime);
           localStorage.setItem("audioIndex", currentSongIndex);
         }
       });
 
+      // Fungsi untuk mengupdate tampilan tombol mute/sound
       function updateSoundButtons() {
-        muteButton.style.display = audio.muted ? "block" : "none";
-        soundButton.style.display = audio.muted ? "none" : "block";
+        muteButton.style.display = backgroundAudio.muted ? "block" : "none";
+        soundButton.style.display = backgroundAudio.muted ? "none" : "block";
       }
 
       muteButton.addEventListener("click", () => {
-        audio.muted = false;
+        backgroundAudio.muted = false;
         localStorage.setItem("audioMuted", "false");
         updateSoundButtons();
       });
-
       soundButton.addEventListener("click", () => {
-        audio.muted = true;
+        backgroundAudio.muted = true;
         localStorage.setItem("audioMuted", "true");
         updateSoundButtons();
       });
@@ -239,20 +255,17 @@
 
       muteButton.style.display = "none";
       soundButton.style.display = "none";
-    
-      document.getElementById("button-next").addEventListener("click", function(event) {
-    event.preventDefault(); 
-    const container = document.querySelector(".conversation-container"); 
 
-    container.classList.add("slide-out");
-
-    setTimeout(() => {
-        window.location.href = this.getAttribute("href");
-    }, 1000);
-});
+      // Animasi slide-out untuk tombol Next
+      document.getElementById("button-next").addEventListener("click", function (event) {
+        event.preventDefault();
+        const container = document.querySelector(".page-body");
+        container.classList.add("slide-out");
+        setTimeout(() => {
+          window.location.href = this.getAttribute("href");
+        }, 1000);
+      });
     });
   </script>
-
 </body>
-
 </html>

@@ -6,7 +6,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  background-image: url("/css/Background.png");
+  background-image: url("/css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -65,11 +65,11 @@ h2 {
   padding: 8px 45px;
   font-size: 16px;
   border-radius: 15px;
+  left: 500px;
   color: white;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  left: 500px;
   position: relative;
   text-decoration: none;
 }
@@ -82,6 +82,10 @@ h2 {
   font-weight: 600;
   z-index: 1;
   color: #434982;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
 }
 
 .highlight {
@@ -95,7 +99,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   z-index: -1;
 }
 
@@ -309,60 +313,6 @@ h2 {
   border-right: none;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(-3.5deg);
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(2.5deg);
-  }
-}
-
-@keyframes fadeOn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(180deg);
-  }
-}
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -392,19 +342,6 @@ h2 {
 .icon-container {
   animation: slideIn 1.8s ease-out forwards;
 }
-/* 
-.dekorasi-top-right-1,
-.dekorasi-top-left-2 {
-  animation: fade 1.5s ease-out forwards;
-}
-
-.dekorasi-bottom-left-1 {
-  animation: fadeInn 1.5s ease-out forwards;
-}
-
-.dekorasi-bottom-right-2 {
-  animation: fadeInn 1.7s ease-out forwards;
-} */
 
 @media (max-width: 1220px) {
   .button-container .button {
