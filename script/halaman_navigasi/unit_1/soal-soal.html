@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Balsamiq Sans", cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("/css/Background.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        #quiz {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Card */
+       .card {
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 400px;
+            background-color: #fcfcfc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 1rem;
+        }
+
+        .card-alert {
+            font-weight: 800;
+            color: #000;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .card-actions {
+            margin-top: 1rem;
+        }
+
+        .card-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            overflow: hidden;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .card-button--read {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .card-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.6s;
+        }
+
+        .card-button:hover::before {
+            left: 100%;
+        }
+
+        .card-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+
+        .card-button--mark:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+
+        .card-button--read:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+            box-shadow: 7px 7px 0 #800000;
+        }
+
+        .card-button:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+        #rules-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 385px;
+            text-align: left;
+            margin-left: -27px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #rules-card h2 {
+            text-align: center;
+        }
+
+        #rules-card ol {
+            padding-left: 20px;
+        }
+
+
+        /*  Yg ada di bawah blm tau fungsinya */
+        /* .question {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: left;
+        } */
+
+        /* .options {
+            display: block;
+            margin-top: 10px;
+        } */
+
+        /* .correct {
+            background-color: #a0f0a0 !important;
+            border: 2px solid #87e887;
+        }
+
+                .correct {
+            background-color: #a0f0a0 !important;
+        }
+
+        .wrong {
+            background-color: #f0a0a0 !important;
+        } */
+
+
+        /* Option */
+        .options div {
+            padding: 15px;
+            font-size: 17px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+
+        .options div:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+                
+        .options :hover {
+            background-color: #296fbb;
+            border-color:#296fbb;
+            color: #fff;
+            box-shadow: 3px 3px 0 #004280;
+        }
+
+        .option {
+            cursor: pointer;
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .option.correct {
+            background-color: #26882a !important;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .option.wrong {
+            background-color: #f44336 !important;
+            color: white;
+        }
+
+        .options-card-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            overflow: hidden;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .options-card-button--read {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .options-card-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.6s;
+        }
+
+        .options-card-button:hover::before {
+            left: 100%;
+        }
+
+        .optiona-card-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+
+        .options-card-button--mark:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+
+        .options-card-button--read:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+            box-shadow: 7px 7px 0 #800000;
+        }
+
+        .options-card-button:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+
+        /* Nyawa */
+        .lives {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .lives i {
+            margin-right: 5px;
+            color: red;
+            font-size: 1.2em;
+        }
+
+        .lives {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+
+        .lives i {
+            margin-right: 5px;
+            color: red;
+            font-size: 1.8em;
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+
+        .lives i:hover {
+            transform: scale(1.2);
+            color: #ff4d4d;
+        }
+
+        @keyframes heartPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .lives i {
+            animation: heartPulse 1.5s infinite;
+        }
+
+
+        /* Hasil score */
+        .result {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            animation-delay: 1s;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #score {
+            margin-left: 240px;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: -20px;
+            color: black;
+        }
+
+
+        /* Game kalah */
+        #game-over {
+            display: none;
+            position: fixed;
+            top: 160px;
+            left: 65px;
+            width: 100%;
+            height: 280px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            padding-top: 20%;
+        }
+
+        #game-over {
+            width: 320px;
+            border: 4px solid #000;
+            background-color: #fff;
+            padding: 1.5rem;
+            box-shadow: 10px 10px 0 #000;
+            font-family: "Arial", sans-serif;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        #game-over p {
+            font-weight: 900;
+            color: #000;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 1rem;
+        }
+
+        #game-over .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #game-over button {
+            width: 100%;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 #000;
+            cursor: pointer;
+        }
+
+        #game-over button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s;
+        }
+
+        #game-over button:hover::before {
+            left: 100%;
+        }
+
+        #game-over button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #000;
+        }
+
+
+/* Ngulang game */
+        #restart-button button {
+            background-color: #000;
+            color: #fff;
+        }
+
+        #restart-button button:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+            box-shadow: 7px 7px 0 #800000;
+        }
+
+        /* Lanjut game */
+        #next-button button:hover {
+            background-color: #296fbb;
+            border-color: #296fbb;
+            color: #fff;
+            box-shadow: 7px 7px 0 #004280;
+        }
+
+        #game-over button:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+
+
+        /* Pertanyan */
+        .question {
+            margin-bottom: 20px;
+        }
+
+        #question-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+   
+        #question-number {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+            text-align: left;
+        }
+
+        .image-setting:active,
+        .image-home:active,
+        .image-setting-on:active,
+        .audio-controls img:active {
+            transform: translateY(10px);
+        }
+
+        .image-home {
+            position: absolute;
+            cursor: pointer;
+            top: 10px;
+            right: 55px;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .image-setting {
+            position: absolute;
+            cursor: pointer;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .image-setting-on {
+            position: absolute;
+            cursor: pointer;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .image-home:hover,
+        .image-setting:hover,
+        .image-setting-on:hover,
+        .image-mute:hover,
+        .image-sound:hover {
+            transform: scale(1.3);
+            border-radius: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .audio-controls {
+            position: absolute;
+            top: 55px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .audio-controls img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .dekorasi_1 {
+            position: absolute;
+            width: 20%;
+        }
+
+        .dekorasi_2 {
+            position: absolute;
+            width: 10%;
+        }
+
+        .dekorasi-top-right-1 {
+            top: 0;
+            right: 0;
+        }
+
+        .dekorasi-bottom-left-1 {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        .dekorasi-top-left-2 {
+            top: 0;
+            left: 0;
+        }
+
+        .dekorasi-bottom-right-2 {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="lives" id="lives">
+            <i class="fas fa-heart heart" id="heart1"></i> <!-- Hati pertama -->
+            <i class="fas fa-heart heart" id="heart2"></i> <!-- Hati kedua -->
+            <i class="fas fa-heart heart" id="heart3"></i> <!-- Hati ketiga -->
+        </div>
+        <div id="score">Score: 0</div>
+        <div class="card-header">
+            <div class="card-alert">
+                <p id="question-text"></p>
+            </div>
+        </div>
+
+        <div id="question-number">1/5</div>
+        <div class="options" id="options-container"></div>
+
+
+        <div class="result" id="result"></div>
+
+        <div id="game-over" style="display: none;">
+            <p id="game-over-message">Game Over!</p>
+
+            <div class="button-container">
+                <!-- Restart Button -->
+                <a href="home.html" id="restart-button">
+                    <button onclick="restartGame()">read again</button>
+                </a>
+                <a href="home.html" id="restart-button">
+                    <button onclick="restartGame()">restart</button>
+                </a>
+
+                <!-- Next Button -->
+                <a href="menu.html" id="next-button">
+                    <button>Next</button>
+                </a>
+            </div>
+        </div>
+        <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
+        <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+        <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+        <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+
+        <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+        <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+            style="display: none;">
+
+        <a href="/script/halaman_navigasi/halaman_navigasi.html">
+            <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+        </a>
+
+        <div class="audio-controls">
+            <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+            <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+        </div>
+
+
+        <audio id="hover-sound">
+            <source src="mp3/click.mp3" type="audio/mpeg">
+        </audio>
+
+
+        <script>
+            function showGameOver() {
+                document.getElementById("game-over").style.display = "block";
+                document.getElementById("restart-button").style.display = "inline-block";
+                document.getElementById("next-button").style.display = "inline-block"; // Show Next Button
+            }
+
+            function restartGame() {
+                // Add any logic needed to reset the game state here
+                console.log("Game Restarted!");
+            }
+
+            function playHoverSound() {
+                let sound = document.getElementById("hover-sound");
+                sound.currentTime = 0; // Reset agar suara bisa diputar berulang
+                sound.play();
+            }
+            document.getElementById("options-container").addEventListener("mouseenter", event => {
+                if (event.target.tagName === "DIV") {
+                    playHoverSound();
+                }
+            }, true);
+
+            const questions = [
+                {
+                    text: "What days do Andrew, Evelyn, and Farza have math class?",
+                    options: ["Tuesday, Thursday, and Saturday", "Monday, Wednesday, and Friday", "Monday, Wednesday, and Saturday", "Tuesday, Thursday, and Friday"],
+                    answer: "Monday, Wednesday, and Friday"
+                },
+                {
+                    text: "How does Farza feel about math class on Monday?",
+                    options: ["Excited", "Confused", "She wishes it wasn’t the first thing on Monday", "Happy"],
+                    answer: "She wishes it wasn’t the first thing on Monday"
+                },
+                {
+                    text: "What is something Andrew is looking forward to in math class?",
+                    options: ["Math games", "Group activities", "Break time", "Lunch"],
+                    answer: "Math games"
+                },
+                {
+                    text: "What does Evelyn think about group activities?",
+                    options: ["She doesn't like them", "She thinks they should be fun", "She prefers individual work", "She is unsure"],
+                    answer: "She thinks they should be fun"
+                },
+                {
+                    text: "What does Farza suggest they do to make math class better?",
+                    options: ["Take notes", "Watch videos", "Skip class", "Help each other out"],
+                    answer: "Help each other out"
+                }
+            ];
+
+
+            let currentQuestion = 0;
+            let lives = 3;
+            let score = 0; // Inisialisasi skor
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const livesDisplay = document.getElementById('lives');
+            const resultDisplay = document.getElementById('result');
+            const scoreDisplay = document.getElementById('score'); // Elemen untuk menampilkan skor
+
+            const gameOverScreen = document.getElementById('game-over');
+            const gameOverMessage = document.getElementById('game-over-message');
+            livesDisplay.innerText = `Lives: ${lives}`; // Inisialisasi tampilan awal
+            const questionNumberDisplay = document.getElementById('question-number');
+            const totalQuestions = questions.length;
+
+
+            function loadQuestion() {
+                if (lives < 1) {
+                    gameOverMessage.innerText = "Game Over!";
+                    gameOverScreen.style.display = 'block';
+
+                    document.getElementById("restart-button").style.display = "inline-block"; // Tampilkan tombol Restart
+                    document.getElementById("next-button").style.display = "none"; // Sembunyikan tombol Next
+
+                    return;
+                }
+
+                if (currentQuestion >= questions.length) {
+                    gameOverMessage.innerText = `Congratulations! You finished the quiz. Your final score is: ${score}`;
+                    gameOverScreen.style.display = 'block';
+
+                    if (score === questions.length) {
+                        document.getElementById("restart-button").style.display = "inline-block"; // Tampilkan tombol Next jika skor sempurna
+                        document.getElementById("next-button").style.display = "none"; // Sembunyikan tombol Restart jika semua benar
+                    } else {
+                        document.getElementById("next-button").style.display = "inline-block"; // Tampilkan tombol Restart jika ada jawaban salah
+                        document.getElementById("restart-button").style.display = "none"; // Sembunyikan tombol Next
+                    }
+
+                    return;
+                }
+
+
+
+                questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`; // Update nomor soal
+                questionText.innerText = questions[currentQuestion].text;
+                optionsContainer.innerHTML = ''; // Clear previous options
+                questions[currentQuestion].options.forEach(option => {
+                    const optionElement = document.createElement('div');
+                    optionElement.classList.add('option');
+                    optionElement.innerText = option;
+                    optionElement.addEventListener('click', () => checkAnswer(option));
+                    optionsContainer.appendChild(optionElement);
+                });
+
+            }
+
+
+            function checkAnswer(selectedAnswer) {
+                resultDisplay.innerText = ''; // Clear previous text
+                const options = optionsContainer.children;
+                let correctAnswerElement;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].innerText === questions[currentQuestion].answer) {
+                        correctAnswerElement = options[i];
+                        break;
+                    }
+                }
+                if (selectedAnswer === questions[currentQuestion].answer) {
+                    resultDisplay.innerText = "Correct!"; // Set text here!
+                    resultDisplay.style.color = "green";
+                    correctAnswerElement.classList.add('correct');
+                    score += 20;
+                    scoreDisplay.innerText = `Score: ${score}`;
+                    resultDisplay.style.opacity = 1; // tampilkan result
+                    resultDisplay.style.animation = 'none';
+                    setTimeout(() => {
+                        resultDisplay.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+                        correctAnswerElement.classList.remove('correct');
+                        currentQuestion++;
+                        loadQuestion();
+                        setTimeout(() => {
+                            resultDisplay.style.opacity = 0; // sembunyikan result
+                        }, 1000);
+                    }, 500);
+                } else {
+                    lives--;
+                    livesDisplay.innerText = `Lives: ${lives}`;
+                    resultDisplay.innerText = "Wrong answer!"; // Set text here!
+                    resultDisplay.style.color = "red";
+                    let wrongAnswerElement;
+                    for (let i = 0; i < options.length; i++) {
+                        if (options[i].innerText === selectedAnswer) {
+                            wrongAnswerElement = options[i];
+                            break;
+                        }
+                    }
+                    wrongAnswerElement.classList.add('wrong');
+                    resultDisplay.style.opacity = 1; // tampilkan result
+                    resultDisplay.style.animation = 'none';
+                    wrongAnswerElement.classList.add('wrong');
+                    resultDisplay.style.opacity = 1; // tampilkan result
+                    resultDisplay.style.animation = 'none';
+                    if (score >= 20) {
+                        score -= 20; // Kurangi score jika jawaban salah
+                        scoreDisplay.innerText = `Score: ${score}`; // Update tampilan score
+                    } else {
+                        score = 0;
+                        scoreDisplay.innerText = `Score: ${score}`;
+                    }
+                    setTimeout(() => {
+                        resultDisplay.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+                        wrongAnswerElement.classList.remove('wrong');
+                        setTimeout(() => {
+                            resultDisplay.style.opacity = 0; // sembunyikan result
+                        }, 1000);
+                    }, 500)
+                    if (lives === 0) {
+                        gameOverMessage.innerText = "Game Over!";
+                        gameOverScreen.style.display = 'block';
+                    }
+                }
+                if (selectedAnswer === questions[currentQuestion].answer) {
+                    playCorrectSound(); // Putar suara benar
+                    // ... (kode untuk jawaban benar sebelumnya)
+                } else {
+                    playWrongSound(); // Putar suara salah
+                    // ... (kode untuk jawaban salah sebelumnya)
+                }
+            }
+            const backgroundMusic = document.getElementById('background-music');
+            const clickSound = document.getElementById('click-sound');
+            const correctSound = document.getElementById('correct-sound');
+            const wrongSound = document.getElementById('wrong-sound');
+            function playBackgroundMusic() {
+                backgroundMusic.play().catch(error => {
+                    console.error("Autoplay dicegah:", error);
+                    alert("Klik di halaman untuk mengaktifkan suara."); // Minta interaksi pengguna
+                    document.addEventListener('click', function playOnce() {
+                        backgroundMusic.play();
+                        document.removeEventListener('click', playOnce);
+                    });
+
+                });
+            }
+
+
+            function playClickSound() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }
+
+            function playCorrectSound() {
+                correctSound.currentTime = 0;
+                correctSound.play();
+            }
+
+            function playWrongSound() {
+                wrongSound.currentTime = 0;
+                wrongSound.play();
+            }
+
+
+            // Tambahkan event listener untuk memastikan musik diputar saat halaman dimuat
+            window.addEventListener('load', playBackgroundMusic);
+
+            // Modifikasi fungsi endGame untuk menghentikan musik
+            function endGame(message) {
+                stopBackgroundMusic(); // Hentikan musik saat game berakhir
+                alert(message);
+                location.reload();
+            }
+
+
+
+            loadQuestion();
+
+        </script>
+
+</body>
+
+</html>

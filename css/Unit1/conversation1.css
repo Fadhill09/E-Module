@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/css/Background.png");
+  background-image: url("/css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -41,6 +41,10 @@ body {
   width: 50%;
   margin-bottom: 250px;
   z-index: 10;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
 }
 
 
