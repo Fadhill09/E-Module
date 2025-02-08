@@ -197,6 +197,7 @@ body {
 }
 
 .grid-item span {
+  font-size: .8em;
   color: #0a63d8;
   font-weight: bold;
 }

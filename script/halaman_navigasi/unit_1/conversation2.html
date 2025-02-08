@@ -10,7 +10,22 @@
     rel="stylesheet">
   <title>Conversation UI</title>
 </head>
+<style>
+  .slide-out {
+    animation: slideOut 1s forwards;
+  }
 
+  @keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+</style>
 <body>
   <div class="page-body">
     <div class="conversation-container text-center">
@@ -59,7 +74,7 @@
       </div>
       
       <div class="button-container text-center mt-3">
-        <a href="#" class="button" id="button-next">Next</a>
+        <a href="/script/halaman_navigasi/unit_1/soal1.html" class="button" id="button-next">Next To Question</a>
       </div>
 
       <div class="icon-container">
@@ -94,7 +109,7 @@
   <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
     style="display: none;">
 
-  <a href="/script/halaman_navigasi/halaman_navigasi.html">
+  <a href="/script/halaman_navigasi/unit_1/unit1.html">
     <img src="/Asset/icon/home.png" alt="Home" class="image-home">
   </a>
 
@@ -262,7 +277,16 @@
 
       muteButton.style.display = "none";
       soundButton.style.display = "none";
-    });
+      document.getElementById("button-next").addEventListener("click", function (event) {
+        event.preventDefault();
+        const container = document.querySelector(".page-body");
+
+        container.classList.add("slide-out");
+
+        setTimeout(() => {
+          window.location.href = this.getAttribute("href");
+        }, 1000);
+      });});
   </script>
 </body>
 
