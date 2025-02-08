@@ -40,22 +40,37 @@
       <div class="conversation-2">
         Evelyn: Yeah, Math on Monday, Wednesday, and Friday.
         <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2">
+        <audio id="audio2">
+          <source src="/Asset/audio/unit1/conversation2/evelyn.mp3" type="audio/mp3">
+        </audio>
       </div>
       <div class="conversation-1">
         Farza: I wish it wasn't first thing on Monday.
         <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-3">
+        <audio id="audio3">
+          <source src="/Asset/audio/unit1/conversation2/farza.mp3" type="audio/mp3">
+        </audio>
       </div>
       <div class="conversation-2">
         Andrew: At least we have math games to look forward to!
         <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-4">
+        <audio id="audio4">
+          <source src="/Asset/audio/unit1/conversation2/andrew1.mp3" type="audio/mp3">
+        </audio>
       </div>
       <div class="conversation-1">
         Evelyn: True. And group activities should be fun.
         <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-5">
+        <audio id="audio5">
+          <source src="/Asset/audio/unit1/conversation2/evelyn1.mp3" type="audio/mp3">
+        </audio>
       </div>
       <div class="conversation-2">
         Farza: Let's help each other out and make the best of it.
         <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-6">
+        <audio id="audio6">
+          <source src="/Asset/audio/unit1/conversation2/farza1.mp3" type="audio/mp3">
+        </audio>
       </div>
       
       <div class="button-container text-center mt-3">
@@ -103,8 +118,9 @@
     <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
   </div>
 
-  <audio id="audio" preload="auto" loop>
+  <audio id="audio">
     <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+    <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
   </audio>
 
   <script>
@@ -128,28 +144,66 @@
 
       document.getElementById("audio-1").addEventListener("click", function () {
         playAudio("audio1");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       document.getElementById("audio-2").addEventListener("click", function () {
         playAudio("audio2");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       document.getElementById("audio-3").addEventListener("click", function () {
         playAudio("audio3");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       document.getElementById("audio-4").addEventListener("click", function () {
         playAudio("audio4");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
+      });
+
+      document.getElementById("audio-5").addEventListener("click", function () {
+        playAudio("audio5");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
+      });
+
+
+      document.getElementById("audio-6").addEventListener("click", function () {
+        playAudio("audio6");
+        audio.pause()
+        setTimeout(() => {
+          audio.play()
+        }, 3000);
       });
 
       const songs = [
         "/Asset/audio/sound.mp3",
-        "/Asset/audio/audio2.mp3",
+        "/Asset/audio/sound1.mp3",
         "/Asset/audio/audio3.mp3"
       ];
       let currentSongIndex = 0;
 
-      audio.loop = true;
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio(); // Putar lagu baru
+      });
 
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
