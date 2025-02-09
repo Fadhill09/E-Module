@@ -6,6 +6,23 @@
     <link rel="stylesheet" href="/css/cover.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Let's Chat and Chill</title>
+
+    <style>
+        .slide-out {
+            animation: slideOut 1s forwards;
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -25,48 +42,44 @@
             <img class="icon-jangka" src="/Asset/icon/Jangka.png" alt="Jangka Icon">
         </div>
     </div>
- 
+
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2 ">
-    
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi_2" class="dekorasi_2 dekorasi-bottom-right-2">
+
     <img src="/Asset/icon/exit.png" alt="Exit" class="exit exit-top-left" id="exit-icon">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+document.getElementById("exit-icon").addEventListener("click", function(){
+            Swal.fire({
+                title: "Are you sure?",
+                text: "Do you really want to exit the application?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, exit!",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.close();
+                }
+            });
+        });
+        document.getElementById("start-btn").addEventListener("click", function(event) {
+            event.preventDefault(); 
+            const container = document.querySelector(".container");
+
+            container.classList.add("slide-out");
+
+            setTimeout(() => {
+                window.location.href = event.target.getAttribute("href");
+            }, 1000);
+        });
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script>
-    document.getElementById("exit-icon").addEventListener("click", function(){
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Do you really want to exit the application?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
-        confirmButtonText: "Yes, exit!",
-        cancelButtonText: "Cancel"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.close();
-        }
-    });
-});
-
-document.getElementById("start-btn").addEventListener("click", function(event) {
-    event.preventDefault(); 
-    const container = document.querySelector(".container"); 
-
-    container.classList.add("slide-out");
-
-    setTimeout(() => {
-        window.location.href = this.getAttribute("href");
-    }, 800);
-});
-
-  </script>
-  
-
-
 </html>
