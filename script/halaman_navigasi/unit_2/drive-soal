@@ -1,0 +1,17 @@
+   const questions = [
+            { id: 3, question: "Which subject does Galih not like?", answers: ["Science", "Math", "History", "English"], correct: "History" },
+            { id: 4, question: "What is the first thing Laura asks Galih?", answers: ["Do you like reading?", "What is your favorite subject?", "Do you like history?", "Do you play soccer?"], correct: "What is your favorite subject?" },
+
+            { id: 5, question: "What sport does Galih play?", answers: ["Basketball", "Soccer", "Tennis", "Volleyball"], correct: "Soccer" },
+            { id: 7, question: "What does Laura think about Galih playing soccer?", answers: ["She finds it boring", "She thinks it's great", "She dislikes it", "She plays it too"], correct: "She thinks it's great" },
+ 
+
+            { id: 9, question: "What does Galih think about history?", answers: ["It's his favorite subject", "It's boring", "It's interesting but too detailed", "He loves it"], correct: "It's interesting but too detailed" },
+            { id: 12, question: "Why does Galih not like history much?", answers: ["Too many details", "Too many numbers", "Too many names", "Too difficult"], correct: "Too many details" },
+
+
+            { id: 15, question: "Why does Galih like astronomy?", answers: ["He wants to be a doctor", "He finds the universe exciting", "He likes chemistry", "He enjoys studying plants"], correct: "He finds the universe exciting" },
+            { id: 16, question: "What does Laura say about science?", answers: ["She finds it boring", "She agrees it explains everything", "She prefers math", "She doesn't like it"], correct: "She agrees it explains everything" },
+            { id: 19, question: "Why does Galih like algebra?", answers: ["It has many formulas", "It is easy to memorize", "It feels like solving puzzles", "It is full of numbers"], correct: "It feels like solving puzzles" },
+            { id: 20, question: "What does Laura ask Galih about math?", answers: ["Do you like math?", "What is your favorite equation?", "Can you solve this problem?", "Do you like history?"], correct: "Do you like math?" }
+        ];
