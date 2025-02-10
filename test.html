@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Conversation</title>
+</head>
+<body>
+    <h2>Custom Conversation</h2>
+    <form id="conversationForm">
+        <input type="text" id="speaker" placeholder="Speaker Name" required>
+        <input type="text" id="text" placeholder="Dialog" required>
+        <input type="text" id="audio" placeholder="Audio URL (optional)">
+        <button type="submit">Add Conversation</button>
+    </form>
+
+    <h3>Conversation Preview</h3>
+    <ul id="conversationList"></ul>
+
+    <script>
+        const form = document.getElementById("conversationForm");
+        const conversationList = document.getElementById("conversationList");
+
+        // Load existing conversations
+        const conversations = JSON.parse(localStorage.getItem("customConversations")) || [];
+
+        function renderConversations() {
+            conversationList.innerHTML = "";
+            conversations.forEach((conv, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${conv.speaker}:</strong> ${conv.text} 
+                    ${conv.audio ? `<audio controls src="${conv.audio}"></audio>` : ""}
+                    <button onclick="deleteConversation(${index})">Delete</button>`;
+                conversationList.appendChild(li);
+            });
+        }
+
+        function saveConversations() {
+            localStorage.setItem("customConversations", JSON.stringify(conversations));
+            renderConversations();
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const speaker = document.getElementById("speaker").value;
+            const text = document.getElementById("text").value;
+            const audio = document.getElementById("audio").value;
+
+            conversations.push({ speaker, text, audio });
+            saveConversations();
+
+            form.reset();
+        });
+
+        function deleteConversation(index) {
+            conversations.splice(index, 1);
+            saveConversations();
+        }
+
+        renderConversations();
+    </script>
+</body>
+</html>

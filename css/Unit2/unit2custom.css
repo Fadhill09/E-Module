@@ -270,6 +270,7 @@ body {
     height: 40px;
     cursor: pointer;
   }
+
   
   .typing-animation {
     font-family: "Balsamiq Sans", cursive;
@@ -389,4 +390,16 @@ body {
       height: 50px;
     }
   }
+
   
+
+
+
+
+/* 
+  .inputConversation{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+  } */
