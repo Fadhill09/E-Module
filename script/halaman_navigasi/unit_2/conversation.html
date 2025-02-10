@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/Unit2/conversation.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../node_modules/animate.css/animate.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Conversation UI</title>
@@ -40,7 +41,7 @@
         <div class="button-container text-center my-3">
             <a href="./soal.html" class="button" id="button-next">Next</a>
         </div>
-        <div class="conversation-container text-center">
+        <div class="conversation-container text-center animate__animated" id="conversationContainer">
             <div class="conversation-1">
                 <span id="text">
                     Laura: What's your favorite subject?
@@ -308,8 +309,6 @@
                 event.preventDefault();
                 const container = document.querySelector(".page-body");
 
-                container.classList.add("slide-out");
-
                 setTimeout(() => {
                     window.location.href = this.getAttribute("href");
                 }, 1000);
@@ -354,6 +353,11 @@
         function updateConversation(topic) {
             const conversationContainer = document.querySelector(".conversation-container");
             conversationContainer.innerHTML = "";
+            conversationContainer.classList.add("animate__pulse");
+            setTimeout(() => {
+                conversationContainer.classList.remove("animate__pulse");
+            }, 1000);
+
 
             conversations[topic].forEach((line, index) => {
                 const conversationDiv = document.createElement("div");
