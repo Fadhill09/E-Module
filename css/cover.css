@@ -13,10 +13,6 @@ background-attachment: fixed;
   height: 100vh;
 }
 
-.slide-out {
-  transform: translateY(-100%);
-  opacity: 0;
-}
 .container {
   text-align: center;
   padding: 30px;

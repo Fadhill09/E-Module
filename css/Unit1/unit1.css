@@ -76,6 +76,7 @@ h2 {
 .button-container .button:hover {
   background: linear-gradient(90deg, #104fdd, #5db1e6);
 }
+
 .content {
   margin-top: 5px;
   font-size: 1.8em;
