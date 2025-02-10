@@ -68,19 +68,19 @@ body {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    left: 500px;
     position: relative;
     text-decoration: none;
+    width: 300px;
   }
   .button-container .button:hover {
     background: linear-gradient(90deg, #104fdd, #5db1e6);
   }
   .content {
     margin-top: 5px;
-    font-size: 1.8em;
     font-weight: 600;
     z-index: 1;
     color: #434982;
+    width: 300px;
   }
   
   .highlight {
@@ -338,19 +338,12 @@ body {
     animation: slideIn 1.8s ease-out forwards;
   }
   
-  @media (max-width: 1220px) {
-    .button-container .button {
-      left: 360px;
-    }
-  }
+ 
   
   @media (max-width: 860px) {
     .typing-animation {
       font-size: 5vw;
       width: 80%; 
-    }
-    .button-container .button {
-      left: 270px;
     }
   
     .icon-airplane {
@@ -371,14 +364,6 @@ body {
       font-size: 4.5vw;
       width: 85%;
     }
-    .content {
-      font-size: 1.2em;
-    }
-  
-    .button-container .button {
-      left: 180px;
-    }
-  
     .icon-airplane {
       bottom: 150px;
       left: 60%;
@@ -390,14 +375,6 @@ body {
       margin-top: 10px;
       font-size: 5.5vw;
       width: 90%;
-    }
-    .content {
-      margin-top: 30px;
-      font-size: 1em;
-    }
-  
-    .button-container .button {
-      left: 90px;
     }
   
     .icon-airplane {
