@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/Unit2/customConv.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <title>Conversation UI</title>
+    <style>
+        .slide-out {
+            animation: slideOut 1s forwards;
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-body">
+        <div class="conversation-container text-center">
+            <h1 class="title text-center">Custom Conversation</h1>
+            <div id="conversation-list"></div> <!-- Semua dialog baru masuk ke sini -->
+        </div>
+
+        <div class="icon-container">
+            <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon" />
+            <img class="icon-jangka" src="/Asset/icon/Jangka.png" alt="Jangka Icon" />
+            <img class="icon-book" src="/Asset/icon/Buku 1.png" alt="Buku Icon" />
+        </div>
+        <button class="btn btn-danger" id="clear-conversation">Clear All</button>
+        <div class="button-container text-center mt-3">
+            <a href="/script/halaman_navigasi/halaman_navigasi.html" class="button" id="button-next">Finish</a>
+        </div>
+
+        <div class="inputConversation">
+            <div class="inputConv d-flex">
+                <h6>Dialog A</h6>
+                <input type="text" class="form-control">
+                <div class="btn btn-primary">Send</div>
+            </div>
+            <div class="inputConv d-flex mt-4">
+                <h6>Dialog b</h6>
+                <input type="text" class="form-control">
+                <div class="btn btn-primary">Send</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dekorasi dan kontrol halaman -->
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1" />
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1" />
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2" />
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2" />
+
+    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton" />
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+        style="display: none;" />
+
+    <a href="/script/halaman_navigasi/unit_1/unit1.html">
+        <img src="/Asset/icon/home.png" alt="Home" class="image-home" />
+    </a>
+
+    <div class="audio-controls">
+        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;" />
+        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;" />
+    </div>
+
+    <!-- Musik latar -->
+    <audio id="audio">
+        <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3" />
+        <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3" />
+    </audio>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dialogAInput = document.querySelector(".inputConv:nth-child(1) input");
+            const dialogBInput = document.querySelector(".inputConv:nth-child(2) input");
+            const sendBtnA = document.querySelector(".inputConv:nth-child(1) .btn");
+            const sendBtnB = document.querySelector(".inputConv:nth-child(2) .btn");
+            const conversationList = document.getElementById("conversation-list");
+            const clearBtn = document.getElementById("clear-conversation");
+
+            // Load saved conversations from Local Storage
+            function loadConversations() {
+                const savedConversations = JSON.parse(localStorage.getItem("conversations")) || [];
+                savedConversations.forEach(({ speaker, text }) => addConversation(speaker, text, false));
+            }
+
+            loadConversations();
+
+            function addConversation(speaker, text, save = true) {
+                const convDiv = document.createElement("div");
+                convDiv.classList.add("conversation-item");
+
+                convDiv.innerHTML = `
+        <div class="conversation-${speaker === "A" ? "1" : "2"}">
+            <strong>${speaker}:</strong> ${text}
+            <img class="audio-icon" src="/Asset/icon/Sound.png" alt="Audio" id="audio-2" onclick="speakText('${text}')"/>
+        </div>
+        `;
+
+                conversationList.appendChild(convDiv);
+
+                if (save) {
+                    const savedConversations = JSON.parse(localStorage.getItem("conversations")) || [];
+                    savedConversations.push({ speaker, text });
+                    localStorage.setItem("conversations", JSON.stringify(savedConversations));
+                }
+            }
+
+            // Handle dialog A input
+            sendBtnA.addEventListener("click", function () {
+                const textA = dialogAInput.value.trim();
+                if (textA) {
+                    addConversation("A", textA);
+                    dialogAInput.value = "";
+                }
+            });
+
+            // Handle dialog B input
+            sendBtnB.addEventListener("click", function () {
+                const textB = dialogBInput.value.trim();
+                if (textB) {
+                    addConversation("B", textB);
+                    dialogBInput.value = "";
+                }
+            });
+
+            // Handle Clear All button
+            clearBtn.addEventListener("click", function () {
+                conversationList.innerHTML = ""; // Mengosongkan tampilan
+                localStorage.removeItem("conversations"); // Menghapus dari Local Storage
+            });
+
+            window.speakText = function (text) {
+                const voices = window.availableVoices || speechSynthesis.getVoices();
+
+                // Cari suara yang mirip dengan suara anak-anak
+                let childVoice = voices.find(voice =>
+                    voice.name.includes("Child") ||
+                    voice.name.includes("Kids") ||
+                    voice.name.includes("Young")
+                );
+
+                // Jika tidak ditemukan suara anak-anak, gunakan suara default
+                if (!childVoice) {
+                    childVoice = voices.find(voice => voice.name.includes("Google UK English Female")) || voices[0];
+                }
+
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.voice = childVoice;
+                utterance.lang = "ID"; // Sesuaikan dengan bahasa yang diinginkan
+
+                speechSynthesis.speak(utterance);
+            };
+
+
+        });
+
+    </script>
+</body>
+
+</html>

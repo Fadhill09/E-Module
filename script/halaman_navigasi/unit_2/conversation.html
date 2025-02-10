@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/Unit2/conversation.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../node_modules/animate.css/animate.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Conversation UI</title>
@@ -26,17 +27,21 @@
             transform: translateY(100%);
             opacity: 0;
         }
+
+        
     }
 </style>
 
 <body>
+
+    <div class="page-body">
     <div class="container d-flex flex-column justify-content-center align-items-center">
 
         <h1 class="title text-center">Conversation 1</h1>
         <div class="button-container text-center my-3">
             <a href="./soal.html" class="button" id="button-next">Next</a>
         </div>
-        <div class="conversation-container text-center">
+        <div class="conversation-container text-center animate__animated" id="conversationContainer">
             <div class="conversation-1">
                 <span id="text">
                     Laura: What's your favorite subject?
@@ -73,8 +78,6 @@
                     <source src="/Asset/audio/unit1/conversation1/farza1.mp3" type="audio/mp3">
                 </audio>
             </div>
-
-
         </div>
         <div class="conversation-container icon-container">
             <img class="icon-topi" src="/Asset/icon/Topi.png" alt="Topi Icon">
@@ -143,6 +146,8 @@
         </div>
     </div>
 
+    </div>
+
 
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
@@ -154,7 +159,7 @@
     <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
         style="display: none;">
 
-    <a href="/script/halaman_navigasi/halaman_navigasi.html">
+    <a href="/script/halaman_navigasi/unit_2/unit2.html">
         <img src="/Asset/icon/home.png" alt="Home" class="image-home">
     </a>
 
@@ -302,9 +307,7 @@
 
             document.getElementById("button-next").addEventListener("click", function (event) {
                 event.preventDefault();
-                const container = document.querySelector(".conversation-container");
-
-                container.classList.add("slide-out");
+                const container = document.querySelector(".page-body");
 
                 setTimeout(() => {
                     window.location.href = this.getAttribute("href");
@@ -350,6 +353,11 @@
         function updateConversation(topic) {
             const conversationContainer = document.querySelector(".conversation-container");
             conversationContainer.innerHTML = "";
+            conversationContainer.classList.add("animate__pulse");
+            setTimeout(() => {
+                conversationContainer.classList.remove("animate__pulse");
+            }, 1000);
+
 
             conversations[topic].forEach((line, index) => {
                 const conversationDiv = document.createElement("div");
