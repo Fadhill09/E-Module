@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/Unit3/quiz.css">
+</head>
+<body>
+  <div class="card">
+    <!-- Lives & Score -->
+    <div class="lives" id="lives">
+      <i class="fas fa-heart" id="heart1"></i>
+      <i class="fas fa-heart" id="heart2"></i>
+      <i class="fas fa-heart" id="heart3"></i>
+    </div>
+    <div id="score">Score: 0</div>
+    <!-- Header & Question -->
+    <div class="card-header">
+      <div class="card-alert">
+        <p id="question-text"></p>
+      </div>
+    </div>
+    <div id="question-number">1/5</div>
+    <!-- Options -->
+    <div class="options" id="options-container"></div>
+    <!-- Result -->
+    <div class="result" id="result"></div>
+    <!-- Game Over Screen -->
+    <div id="game-over">
+      <p id="game-over-message">Game Over!</p>
+      <div class="button-container">
+        <a href="/script/halaman_navigasi/unit_3/unit3.html" id="restart-btn">
+          <button onclick="restartGame()">Read Again</button>
+        </a>
+        <a href="/script/halaman_navigasi/unit_3/quiz.html" id="restart-btn2">
+          <button onclick="restartGame()">Restart</button>
+        </a>
+        <a href="/script/halaman_navigasi/halaman_navigasi.html" id="next-btn">
+          <button>Next</button>
+        </a>
+        <a href="/script/halaman_navigasi/unit_3/meet-up.html">Click here to hear how to ask your friend to meet up!</a>
+      </div>
+    </div>
+    <!-- Dekorasi & Icons -->
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
+    <div class="audio-controls">
+      <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+      <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+    </div>
+
+    <!-- Background Music Audio Element -->
+    <audio id="audio" preload="auto" loop>
+      <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+      <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="correctSound">
+      <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
+  </audio>
+
+  <audio id="wrongSound">
+      <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
+  </audio>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      /* Quiz Functionality */
+      const questions = [
+        {
+          text: "Where will they meet after History class?",
+          options: [
+            "In the gym",
+            "In the library",
+            "At the cafeteria",
+            "In the classroom"
+          ],
+          answer: "In the library"
+        },
+        {
+          text: "What will andrew bring to the library?",
+          options: [
+            "Handphone",
+            "Laptop",
+            "Book",
+            "Novel"
+          ],
+          answer: "Book"
+        },
+        {
+          text: "When they made plans to hang out together at the library?",
+          options: [
+            "After school",
+            "In canteen",
+            "When it's break time",
+            "During class hours"
+          ],
+          answer: "When it's break time"
+        },
+        {
+          text: "when it's break time?",
+          options: [
+            "Andrew",
+            "Farza",
+            "Both",
+            "Agus"
+          ],
+          answer: "Andrew"
+        }
+      ];
+      let currentQuestion = 0;
+      let lives = 3;
+      let score = 0;
+      const questionText = document.getElementById('question-text');
+      const optionsContainer = document.getElementById('options-container');
+      const livesDisplay = document.getElementById('lives');
+      const resultDisplay = document.getElementById('result');
+      const scoreDisplay = document.getElementById('score');
+      const gameOverScreen = document.getElementById('game-over');
+      const gameOverMessage = document.getElementById('game-over-message');
+      const questionNumberDisplay = document.getElementById('question-number');
+      const totalQuestions = questions.length;
+      livesDisplay.innerText = `Lives: ${lives}`;
+      
+      function loadQuestion() {
+        if (lives < 1) {
+          gameOverMessage.innerText = "Game Over!";
+          // Saat kalah, tombol Next disembunyikan.
+          document.getElementById("next-btn").style.display = "none";
+          gameOverScreen.style.display = 'block';
+          return;
+        }
+        if (currentQuestion >= questions.length) {
+          gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
+          document.getElementById("next-btn").style.display = "inline-block";
+          document.getElementById("restart-btn").style.display = "inline-block";
+          document.getElementById("restart-btn2").style.display = "inline-block";
+          gameOverScreen.style.display = 'block';
+          return;
+        }
+        questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`;
+        questionText.innerText = questions[currentQuestion].text;
+        optionsContainer.innerHTML = '';
+        questions[currentQuestion].options.forEach(option => {
+          const optionElement = document.createElement('div');
+          optionElement.classList.add('option');
+          optionElement.innerText = option;
+          optionElement.addEventListener('click', () => checkAnswer(option));
+          optionsContainer.appendChild(optionElement);
+        });
+      }
+
+      const correctSound = document.getElementById("correctSound");
+      const wrongSound = document.getElementById("wrongSound");
+      
+      function checkAnswer(selectedAnswer) {
+        resultDisplay.innerText = '';
+        const options = optionsContainer.children;
+        let correctAnswerElement;
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].innerText === questions[currentQuestion].answer) {
+            correctAnswerElement = options[i];
+            break;
+          }
+        }
+        if (selectedAnswer === questions[currentQuestion].answer) {
+          resultDisplay.innerText = "Correct!";
+          resultDisplay.style.color = "green";
+          correctSound.play();
+          correctAnswerElement.classList.add('correct');
+          score += 25;
+          scoreDisplay.innerText = `Score: ${score}`;
+          resultDisplay.style.opacity = 1;
+          setTimeout(() => {
+            correctAnswerElement.classList.remove('correct');
+            currentQuestion++;
+            loadQuestion();
+            setTimeout(() => {
+              resultDisplay.style.opacity = 0;
+            }, 1000);
+          }, 500);
+        } else {
+          wrongSound.play();
+          lives--;
+          livesDisplay.innerText = `Lives: ${lives}`;
+          resultDisplay.innerText = "Wrong answer!";
+          resultDisplay.style.color = "red";
+          let wrongAnswerElement;
+          for (let i = 0; i < options.length; i++) {
+            if (options[i].innerText === selectedAnswer) {
+              wrongAnswerElement = options[i];
+              break;
+            }
+          }
+          wrongAnswerElement.classList.add('wrong');
+          resultDisplay.style.opacity = 1;
+          if (score >= 25) {
+            score -= 25;
+            scoreDisplay.innerText = `Score: ${score}`;
+          } else {
+            score = 0;
+            scoreDisplay.innerText = `Score: ${score}`;
+          }
+          setTimeout(() => {
+            wrongAnswerElement.classList.remove('wrong');
+            setTimeout(() => {
+              resultDisplay.style.opacity = 0;
+            }, 1000);
+          }, 500);
+          if (lives === 0) {
+            gameOverMessage.innerText = "Game Over!";
+            document.getElementById("next-btn").style.display = "none";
+            gameOverScreen.style.display = 'block';
+          }
+        }
+      }
+      
+      loadQuestion();
+      
+      document.getElementById("options-container").addEventListener("mouseenter", event => {
+        if (event.target.tagName === "DIV") {
+          playHoverSound();
+        }
+      }, true);
+      
+      function playHoverSound() {
+        const sound = document.getElementById("hover-sound");
+        sound.currentTime = 0;
+        sound.play();
+      }
+      
+      /* Background Music Functionality */
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+      
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3"
+      ];
+      let currentSongIndex = 0;
+      
+      if (sessionStorage.getItem("sessionActive")) {
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
+          audioSource.src = songs[currentSongIndex];
+          audio.load();
+        }
+        if (savedTime !== null) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+      } else {
+        localStorage.removeItem("audioTime");
+        localStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+      }
+      sessionStorage.setItem("sessionActive", "true");
+      
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      audio.muted = isMuted;
+      
+      function playBackgroundAudio() {
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+        });
+      }
+      playBackgroundAudio();
+      
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playBackgroundAudio();
+      });
+      
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+      
+      function updateSoundButtons() {
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      }
+      
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+      
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+      
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+        updateSoundButtons();
+      });
+      
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+      
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+      
+      /* Next Button Pop-up Confirmation */
+      document.getElementById("next-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+        let confirmed = confirm("Are you sure you want to continue?");
+        if (confirmed) {
+          window.location.href = this.getAttribute("href");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
