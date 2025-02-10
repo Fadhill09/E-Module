@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Unit3/unit3.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Unit 3</title>
+</head>
+
+<style>
+    .slide-out {
+      animation: slideOut 1s forwards;
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+  </style>
+
+<body>
+    <div class="page-body">
+        <div class="container pt-3 mt-n5">
+            <h1 class="title text-center">Unit 3</h1>
+            <h2 class="text-center typing-animation" id="typingText" style="color: #434982;">Making Plans With Friends During Break</h2>
+            <div class="content text-center">
+                In this section students will learn how to plan activities or meet friends during break time after class. <br>
+                <!-- listen to the following conversation, try to understand its meaning and, practice it with chairmate -->
+            </div>
+
+            <div class="icon-container overflow-visible">
+                <img class="icon-magnifier" src="/Asset/icon/Kaca_pembesar.png" alt="Magnifier Icon">
+                <img class="icon-airplane" src="/Asset/icon/pesawat.png" alt="Airplane Icon">
+            </div>
+        </div>
+
+        <div class="button-container text-center mt-3">
+            <a href="/script/halaman_navigasi/unit_3/conversation1.html" class="button" id="button-next">Next</a>
+        </div>
+
+    </div>
+
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+  
+
+    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+        style="display: none;">
+
+    <!-- <a href="/script/halaman_navigasi/halaman_navigasi.html">
+        <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+    </a> -->
+
+    <div class="audio-controls">
+        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+    </div>
+
+    <audio id="audio">
+        <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+        <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
+      </audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("audio");
+  const audioSource = document.getElementById("audioSource");
+  const muteButton = document.getElementById("muteButton");
+  const soundButton = document.getElementById("soundButton");
+  const settingButton = document.getElementById("settingButton");
+  const settingOnButton = document.getElementById("settingOnButton");
+
+  const songs = [
+    "/Asset/audio/sound.mp3",
+    "/Asset/audio/sound1.mp3",
+    "/Asset/audio/audio3.mp3"
+  ];
+  let currentSongIndex = 0;
+
+  audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio(); // Putar lagu baru
+      });
+
+  if (sessionStorage.getItem("sessionActive")) {
+    const savedTime = localStorage.getItem("audioTime");
+    const savedIndex = localStorage.getItem("audioIndex");
+
+    if (savedIndex !== null) {
+      currentSongIndex = parseInt(savedIndex);
+      audioSource.src = songs[currentSongIndex];
+      audio.load();
+    }
+    if (savedTime !== null) {
+      audio.currentTime = parseFloat(savedTime);
+    }
+  } else {
+
+    localStorage.removeItem("audioTime");
+    localStorage.removeItem("audioIndex");
+    currentSongIndex = 0;
+    audioSource.src = songs[currentSongIndex];
+    audio.load();
+  }
+
+  sessionStorage.setItem("sessionActive", "true");
+
+  const isMuted = localStorage.getItem("audioMuted") === "true";
+  audio.muted = isMuted;
+
+  function playAudio() {
+    audio.play().catch(() => {
+      console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+    });
+  }
+
+  playAudio();
+
+  audio.addEventListener("timeupdate", function () {
+    if (sessionStorage.getItem("sessionActive")) {
+      localStorage.setItem("audioTime", audio.currentTime);
+      localStorage.setItem("audioIndex", currentSongIndex);
+    }
+  });
+
+  function updateSoundButtons() {
+    if (audio.muted) {
+      muteButton.style.display = "block";
+      soundButton.style.display = "none";
+    } else {
+      muteButton.style.display = "none";
+      soundButton.style.display = "block";
+    }
+  }
+
+  muteButton.addEventListener("click", () => {
+    audio.muted = false;
+    localStorage.setItem("audioMuted", "false");
+    updateSoundButtons();
+  });
+
+  soundButton.addEventListener("click", () => {
+    audio.muted = true;
+    localStorage.setItem("audioMuted", "true");
+    updateSoundButtons();
+  });
+
+  settingButton.addEventListener("click", () => {
+    settingButton.style.display = "none";
+    settingOnButton.style.display = "block";
+
+    if (audio.muted) {
+      muteButton.style.display = "block";
+      soundButton.style.display = "none";
+    } else {
+      muteButton.style.display = "none";
+      soundButton.style.display = "block";
+    }
+  });
+
+  settingOnButton.addEventListener("click", () => {
+    settingOnButton.style.display = "none";
+    settingButton.style.display = "block";
+
+    muteButton.style.display = "none";
+    soundButton.style.display = "none";
+  });
+
+  muteButton.style.display = "none";
+  soundButton.style.display = "none";
+
+  document.getElementById("button-next").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    const container = document.querySelector(".page-body"); 
+
+    container.classList.add("slide-out");
+
+    setTimeout(() => {
+        window.location.href = this.getAttribute("href");
+    }, 1000);
+});
+});
+
+
+  </script>
+</body>
+
+</html>
