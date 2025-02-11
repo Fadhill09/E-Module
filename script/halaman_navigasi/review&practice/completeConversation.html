@@ -21,14 +21,13 @@ body {
     background-attachment: fixed;
     overflow: hidden;
     font-family: "Balsamiq Sans", cursive;
-    padding: 10px; /* Supaya tidak terlalu mepet di layar kecil */
 }
 
 .container {
     width: 90%;
     max-width: 500px;
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: auto;
@@ -58,7 +57,7 @@ h2 {
 }
 
 input {
-    width: 100px;
+    width: 90px;
     padding: 5px;
     text-align: center;
     border: dotted;
@@ -117,10 +116,10 @@ input {
 /* Responsif untuk layar kecil */
 @media (max-width: 480px) {
     .title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     h2 {
-        font-size: 1.2em;
+        font-size: .9em;
     }
     .btn {
         padding: 10px;
@@ -129,6 +128,9 @@ input {
     .header-box {
         flex-direction: column;
         text-align: center;
+    }
+    p{
+        font-size: .8em;
     }
 }
 
@@ -264,86 +266,121 @@ input {
 <body>
     <div class="page-body">
         <h1 class="title text-center">Complete the conversation</h1>
-        <h2 class="text-center ">Fill in the dots below correctly!!<br> (Isi titik-titik di bawah ini dengan benar)</h2>
-        <for>
+        <h2 class="text-center">Fill in the dots below correctly!!<br>(Isi titik-titik di bawah ini dengan benar)</h2>
+
         <div class="container">
             <div class="header-box">
-                <span>Point: <span id="score">0</span></span> <span>Wrong: <span id="wrong">0</span></span>
+                <span>Point: <span id="score">0</span></span> 
+                <span>Wrong: <span id="wrong">0</span></span>
             </div>
 
             <div class="box">
-               
-                <p>A: What <input type="text" id="q1"> favorite subject?</p>
-                <p>B: I really like math, how <input type="text" id="q2"> you?</p>
-                <p>A: I'm into English! I love reading.</p>
-        
+                <p>A: Did <input type="text" id="q1"> see our new math schedule?</p>
+                <p>B: Yeah, <input type="text" id="q2"> on Monday, Wednesday, and Friday.</p>
+                <p>A: I wish it wasn't first thing on Monday.</p>
+                <p>B: At least we have math <input type="text" id="q3"> to look forward to! </p>
+                <p>A: Let's help <input type="text" id="q4"> out and make the best of it.</p>
             </div>
 
             <div class="button">
-                <button class="btn" onclick="checkAnswers()">Next</button>
+                <button class="btn" onclick="checkAnswers()">Check</button>
+                <a href="#" class="btn" style="margin-left: 5px;">Next</a>
             </div>
             <div class="result">
                 <p id="result"></p>
             </div>
         </div>
-    </for>
     </div>
-
-    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-        style="display: none;">
-
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
-
-
-    <div class="audio-controls">
-        <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-        <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
-    </div>
-
-    <audio id="audio">
-        <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
-        <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
-    </audio>
 
     <script>
+        let score = 0;
+        let wrong = 0;
+
         function checkAnswers() {
             const input1 = document.getElementById('q1');
             const input2 = document.getElementById('q2');
-    
-            if (!input1.value.trim() || !input2.value.trim()) {
-                document.getElementById('result').innerText = 'Please fill in all the blanks! ⚠️';
-                return; // Hentikan fungsi jika ada input yang kosong
+            const input3 = document.getElementById('q3');
+            const input4 = document.getElementById('q4');
+
+            if (!input1.value.trim() || !input2.value.trim() || !input3.value.trim() || !input4.value.trim()) {
+                document.getElementById('result').innerText = 'Please fill in all the blanks! ';
+                return;
             }
-    
+
             let answer1 = input1.value.trim().toLowerCase();
             let answer2 = input2.value.trim().toLowerCase();
-            let correct1 = answer1 === 'is';
-            let correct2 = answer2 === 'about';
+            let answer3 = input3.value.trim().toLowerCase();
+            let answer4 = input4.value.trim().toLowerCase();
+
+            let correctAnswers = {
+                q1: 'you',
+                q2: 'math',
+                q3: 'games',
+                q4: 'each other'
+            };
+
             let wrongAnswers = [];
-    
-            if (!correct1) {
-                input1.value = '';
-                wrongAnswers.push('"' + answer1 + '"');
-            }
-    
-            if (!correct2) {
-                input2.value = '';
-                wrongAnswers.push('"' + answer2 + '"');
-            }
-    
-            if (wrongAnswers.length === 0) {
-                document.getElementById('result').innerText = 'Correct! ✅';
+
+            if (answer1 === correctAnswers.q1) {
+                input1.classList.add('correct');
+                if (!input1.dataset.correct) {
+                    score++; 
+                    input1.dataset.correct = true;
+                }
             } else {
-                document.getElementById('result').innerText = 'Wrong, ' + wrongAnswers.join(' and ') + ' is incorrect! ❌ Try again!';
+                input1.value = '';
+                wrongAnswers.push(`"${answer1}"`);
+                wrong++;
+            }
+
+            if (answer2 === correctAnswers.q2) {
+                input2.classList.add('correct');
+                if (!input2.dataset.correct) {
+                    score++; 
+                    input2.dataset.correct = true;
+                }
+            } else {
+                input2.value = '';
+                wrongAnswers.push(`"${answer2}"`);
+                wrong++;
+            }
+
+            if (answer3 === correctAnswers.q3) {
+                input3.classList.add('correct');
+                if (!input3.dataset.correct) {
+                    score++; 
+                    input3.dataset.correct = true;
+                }
+            } else {
+                input3.value = '';
+                wrongAnswers.push(`"${answer3}"`);
+                wrong++;
+            }
+
+            if (answer4 === correctAnswers.q4) {
+                input4.classList.add('correct');
+                if (!input4.dataset.correct) {
+                    score++; 
+                    input4.dataset.correct = true;
+                }
+            } else {
+                input4.value = '';
+                wrongAnswers.push(`"${answer4}"`);
+                wrong++;
+            }
+
+
+            document.getElementById('score').innerText = score;
+            document.getElementById('wrong').innerText = wrong;
+
+            if (wrongAnswers.length === 0) {
+                document.getElementById('result').innerText = 'Correct! ';
+            } else {
+                document.getElementById('result').innerText = `Wrong, ${wrongAnswers.join(' and ')} is incorrect! Try again!`;
             }
         }
     </script>
-    
-    
 </body>
+
 
 </html>
