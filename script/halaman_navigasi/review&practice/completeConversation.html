@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom right, #f0f0f0, #d0e8ff);
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: auto;
+        }
+        h1 {
+            font-size: 22px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        .box {
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .header-box {
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+        input.correct {
+            background-color: #d4edda;
+            pointer-events: none;
+        }
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .score-box {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete the conversation</h1>
+        <p>Fill in the dots below correctly!! (Isi titik-titik di bawah ini dengan benar)</p>
+        
+        <div class="header-box">
+            <span>Point: <span id="score">0</span></span> | <span>Wrong: <span id="wrong">0</span></span>
+        </div>
+        
+        <div class="box">
+            <p>A: What <input type="text" id="q1"> favorite subject?</p>
+            <p>B: I really like math, how <input type="text" id="q2"> you?</p>
+            <p>A: I'm into English! I love reading.</p>
+        </div>
+        
+        <button class="btn" onclick="checkAnswers()">Next</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let score = 0;
+        let wrong = 0;
+        let q1Correct = false;
+        let q2Correct = false;
+
+        function checkAnswers() {
+            const input1 = document.getElementById('q1');
+            const input2 = document.getElementById('q2');
+            let answer1 = input1.value.trim().toLowerCase();
+            let answer2 = input2.value.trim().toLowerCase();
+            let correct1 = answer1 === 'is';
+            let correct2 = answer2 === 'about';
+            let wrongAnswers = [];
+            
+            if (!correct1) {
+                input1.value = '';
+                if (!q1Correct) wrong++;
+                wrongAnswers.push('"' + answer1 + '"');
+            } else if (!q1Correct) {
+                score++;
+                q1Correct = true;
+                input1.classList.add('correct');
+            }
+            
+            if (!correct2) {
+                input2.value = '';
+                if (!q2Correct) wrong++;
+                wrongAnswers.push('"' + answer2 + '"');
+            } else if (!q2Correct) {
+                score++;
+                q2Correct = true;
+                input2.classList.add('correct');
+            }
+            
+            document.getElementById('score').innerText = score;
+            document.getElementById('wrong').innerText = wrong;
+            
+            if (wrongAnswers.length === 0) {
+                document.getElementById('result').innerText = 'Correct! ✅';
+            } else {
+                document.getElementById('result').innerText = 'Wrong, ' + wrongAnswers.join(' and ') + ' is incorrect! ❌ Try again!';
+            }
+        }
+    </script>
+</body>
+</html>
