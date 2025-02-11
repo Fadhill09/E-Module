@@ -338,13 +338,27 @@
       soundButton.style.display = "none";
       
       document.getElementById("next-btn").addEventListener("click", function(event) {
-        event.preventDefault();
-        let confirmed = confirm("Are you sure you want to continue?");
-        if (confirmed) {
-          window.location.href = this.getAttribute("href");
-        }
-      });
-    });
+            event.preventDefault();
+
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: "Anda akan diarahkan ke halaman navigasi!",
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonText: "Ya, lanjutkan!",
+                cancelButtonText: "Batal",
+                customClass: {
+                    confirmButton: "swal2-confirm",
+                    cancelButton: "swal2-cancel"
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/script/halaman_navigasi/halaman_navigasi.html";
+                }
+            });
+        });});
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
