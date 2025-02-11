@@ -21,7 +21,6 @@
         const form = document.getElementById("conversationForm");
         const conversationList = document.getElementById("conversationList");
 
-        // Load existing conversations
         const conversations = JSON.parse(localStorage.getItem("customConversations")) || [];
 
         function renderConversations() {

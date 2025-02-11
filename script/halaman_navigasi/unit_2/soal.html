@@ -1,415 +1,416 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/css/unit1/soal.css">
-    <title>English Quiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/unit1/soal.css">
 </head>
-
 <body>
-    <div class="card">
+  <div class="card">
 
-        <div class="lives" id="lives">
-            <i class="fas fa-heart" id="heart1"></i>
-            <i class="fas fa-heart" id="heart2"></i>
-            <i class="fas fa-heart" id="heart3"></i>
-        </div>
-        <div id="score">Score: 0</div>
-
-        <div class="card-header">
-            <div class="card-alert">
-                <p id="question-text"></p>
-            </div>
-        </div>
-        <div id="question-number">1/10</div>
-
-        <div class="options" id="options-container"></div>
-
-        <div class="result" id="result"></div>
-
-        <div id="game-over">
-            <p id="game-over-message">Game Over!</p>
-            <div class="button-container">
-                <a href="/script/halaman_navigasi/unit_2/unit2.html" id="restart-btn">
-                    <button onclick="restartGame()">Read Again</button>
-                </a>
-                <a href="/script/halaman_navigasi/unit_2/soal.html" id="restart-btn2">
-                    <button onclick="restartGame()">Restart</button>
-                </a>
-                <a href="/script/halaman_navigasi/halaman_navigasi.html" id="next-btn">
-                    <button>Next</button>
-                </a>
-            </div>
-        </div>
-
-        <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
-        <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-        <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-        <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
-
-        <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-        <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-            style="display: none;">
-        <div class="audio-controls">
-            <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-            <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
-        </div>
-
-        <audio id="audio" preload="auto" loop>
-            <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
-            <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
-
-            <audio id="hover-sound">
-                <source src="mp3/click.mp3" type="audio/mpeg">
-            </audio>
+    <div class="lives" id="lives">
+      <i class="fas fa-heart" id="heart1"></i>
+      <i class="fas fa-heart" id="heart2"></i>
+      <i class="fas fa-heart" id="heart3"></i>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
+    <div id="score">Score: 0</div>
 
-            const questions = [
+    <div class="card-header">
+      <div class="card-alert">
+        <p id="question-text"></p>
+      </div>
+    </div>
+    <div id="question-number">1/10</div>
 
-                //   1
-                {
-                    text: "What is Galih's favorite subject?",
-                    options: [
-                        "English",
-                        "Science",
-                        "History",
-                        "Math"
-                    ],
-                    answer: "Science"
-                },
-                {
-                    text: "What does Laura like about English?",
-                    options: [
-                        "Writing essays",
-                        "Reading stories",
-                        "Learning grammar",
-                        "Watching movies"
-                    ],
-                    answer: "Reading stories"
-                },
+    <div class="options" id="options-container"></div>
 
-                // 2
-                {
-                    text: "What question does Laura ask Galih about sports?",
-                    options: [
-                        "Do you play any sports?",
-                        "Do you like basketball?",
-                        "What is your favorite team?",
-                        "Can you run fast?"
-                    ],
-                    answer: "Do you play any sports?"
-                },
-                {
-                    text: "How often does Galih play soccer?",
-                    options: [
-                        "Every day",
-                        "Twice a week",
-                        "Every weekend",
-                        "Once a month"
-                    ],
-                    answer: "Every weekend"
-                },
+    <div class="result" id="result"></div>
 
-                // 3
-                {
-                    text: "Which historical period does Galih find fascinating?",
-                    options: [
-                        "World War II",
-                        "The Renaissance",
-                        "The Medieval Age",
-                        "The Industrial Revolution"
-                    ],
-                    answer: "The Renaissance"
-                },
-                {
-                    text: "What does Laura ask Galih about history?",
-                    options: [
-                        "Do you like history?",
-                        "Who is your favorite scientist?",
-                        "Do you read history books?",
-                        "Do you like science?"
-                    ],
-                    answer: "Do you like history?"
-                },
+    <div id="game-over">
+      <p id="game-over-message">Game Over!</p>
+      <div class="button-container">
+        <a href="/script/halaman_navigasi/unit_2/unit2.html" id="restart-btn">
+          <button onclick="restartGame()">Read Again</button>
+        </a>
+        <a href="/script/halaman_navigasi/unit_2/soal.html" id="restart-btn2">
+          <button onclick="restartGame()">Restart</button>
+        </a>
+        <a href="/script/halaman_navigasi/halaman_navigasi.html" id="next-btn">
+          <button>Next</button>
+        </a>
+      </div>
+    </div>
 
-                // 4
-                {
-                    text: "Which branch of science does Galih love?",
-                    options: [
-                        "Biology",
-                        "Chemistry",
-                        "Physics",
-                        "Astronomy"
-                    ],
-                    answer: "Astronomy"
-                },
-                {
-                    text: "What does Galih think about science?",
-                    options: [
-                        "It's boring",
-                        "It's confusing",
-                        "It's amazing",
-                        "It's unnecessary"
-                    ],
-                    answer: "It's amazing"
-                },
 
-                // 5
-                {
-                    text:  "Which part of math does Galih enjoy the most?",
-                    options: [
-                 "Geometry", 
-                 "Statistics", 
-                 "Algebra", 
-                 "Trigonometry"
-                    ],
-                    answer:  "Algebra"
-                },
-                {
-                    text: "What does Galih think about math?",
-                    options: [
-                       "It's challenging but fun", 
-                       "It's his favorite subject", 
-                       "It's very easy", 
-                       "He doesn't like it"
-                    ],
-                    answer: "It's challenging but fun"
-                },
-            ];
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
+    <div class="audio-controls">
+      <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+      <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+    </div>
 
-            shuffleArray(questions);
+    <audio id="audio" preload="auto" loop>
+      <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+      <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
+    </audio>
 
-            let currentQuestion = 0;
-            let lives = 5;
-            let score = 0;
-            const questionText = document.getElementById('question-text');
-            const optionsContainer = document.getElementById('options-container');
-            const livesDisplay = document.getElementById('lives');
-            const resultDisplay = document.getElementById('result');
-            const scoreDisplay = document.getElementById('score');
-            const gameOverScreen = document.getElementById('game-over');
-            const gameOverMessage = document.getElementById('game-over-message');
-            const questionNumberDisplay = document.getElementById('question-number');
-            const totalQuestions = questions.length;
-            livesDisplay.innerText = `Lives: ${lives}`;
+>
+    <audio id="correctSound">
+      <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
+    </audio>
+    <audio id="wrongSound">
+      <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
+    </audio>
 
-            function loadQuestion() {
-                if (lives < 1) {
-                    gameOverMessage.innerText = "Game Over!";
-                    document.getElementById("next-btn").style.display = "none";
-                    gameOverScreen.style.display = 'block';
-                    return;
-                }
-                if (currentQuestion >= questions.length) {
-                    gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
-                    document.getElementById("next-btn").style.display = "inline-block";
-                    document.getElementById("restart-btn").style.display = "inline-block";
-                    document.getElementById("restart-btn2").style.display = "inline-block";
-                    gameOverScreen.style.display = 'block';
-                    return;
-                }
-                questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`;
-                questionText.innerText = questions[currentQuestion].text;
-                optionsContainer.innerHTML = '';
-                questions[currentQuestion].options.forEach(option => {
-                    const optionElement = document.createElement('div');
-                    optionElement.classList.add('option');
-                    optionElement.innerText = option;
-                    optionElement.addEventListener('click', () => checkAnswer(option));
-                    optionsContainer.appendChild(optionElement);
-                });
-            }
-
-            function checkAnswer(selectedAnswer) {
-                resultDisplay.innerText = '';
-                const options = optionsContainer.children;
-                let correctAnswerElement;
-                for (let i = 0; i < options.length; i++) {
-                    if (options[i].innerText === questions[currentQuestion].answer) {
-                        correctAnswerElement = options[i];
-                        break;
-                    }
-                }
-                if (selectedAnswer === questions[currentQuestion].answer) {
-                    resultDisplay.innerText = "Correct!";
-                    resultDisplay.style.color = "green";
-                    correctAnswerElement.classList.add('correct');
-                    score += 10;
-                    scoreDisplay.innerText = `Score: ${score}`;
-                    resultDisplay.style.opacity = 1;
-                    setTimeout(() => {
-                        correctAnswerElement.classList.remove('correct');
-                        currentQuestion++;
-                        loadQuestion();
-                        setTimeout(() => {
-                            resultDisplay.style.opacity = 0;
-                        }, 1000);
-                    }, 500);
-                } else {
-                    lives--;
-                    livesDisplay.innerText = `Lives: ${lives}`;
-                    resultDisplay.innerText = "Wrong answer!";
-                    resultDisplay.style.color = "red";
-                    let wrongAnswerElement;
-                    for (let i = 0; i < options.length; i++) {
-                        if (options[i].innerText === selectedAnswer) {
-                            wrongAnswerElement = options[i];
-                            break;
-                        }
-                    }
-                    wrongAnswerElement.classList.add('wrong');
-                    resultDisplay.style.opacity = 1;
-                    if (score >= 20) {
-                        score -= 20;
-                        scoreDisplay.innerText = `Score: ${score}`;
-                    } else {
-                        score = 0;
-                        scoreDisplay.innerText = `Score: ${score}`;
-                    }
-                    setTimeout(() => {
-                        wrongAnswerElement.classList.remove('wrong');
-                        setTimeout(() => {
-                            resultDisplay.style.opacity = 0;
-                        }, 1000);
-                    }, 500);
-                    if (lives === 0) {
-                        gameOverMessage.innerText = "Game Over!";
-                        document.getElementById("next-btn").style.display = "none";
-                        gameOverScreen.style.display = 'block';
-                    }
-                }
-            }
-
-            loadQuestion();
-
-            document.getElementById("options-container").addEventListener("mouseenter", event => {
-                if (event.target.tagName === "DIV") {
-                    playHoverSound();
-                }
-            }, true);
-
-            function playHoverSound() {
-                const sound = document.getElementById("hover-sound");
-                sound.currentTime = 0;
-                sound.play();
-            }
-
-            const audio = document.getElementById("audio");
-            const audioSource = document.getElementById("audioSource");
-            const muteButton = document.getElementById("muteButton");
-            const soundButton = document.getElementById("soundButton");
-            const settingButton = document.getElementById("settingButton");
-            const settingOnButton = document.getElementById("settingOnButton");
-
-            const songs = [
-                "/Asset/audio/sound.mp3",
-                "/Asset/audio/sound1.mp3"
-            ];
-            let currentSongIndex = 0;
-
-            if (sessionStorage.getItem("sessionActive")) {
-                const savedTime = localStorage.getItem("audioTime");
-                const savedIndex = localStorage.getItem("audioIndex");
-                if (savedIndex !== null) {
-                    currentSongIndex = parseInt(savedIndex);
-                    audioSource.src = songs[currentSongIndex];
-                    audio.load();
-                }
-                if (savedTime !== null) {
-                    audio.currentTime = parseFloat(savedTime);
-                }
-            } else {
-                localStorage.removeItem("audioTime");
-                localStorage.removeItem("audioIndex");
-                currentSongIndex = 0;
-                audioSource.src = songs[currentSongIndex];
-                audio.load();
-            }
-            sessionStorage.setItem("sessionActive", "true");
-
-            const isMuted = localStorage.getItem("audioMuted") === "true";
-            audio.muted = isMuted;
-
-            function playBackgroundAudio() {
-                audio.play().catch(() => {
-                    console.log("Autoplay diblokir, menunggu interaksi pengguna.");
-                });
-            }
-            playBackgroundAudio();
-
-            audio.addEventListener("ended", function () {
-                currentSongIndex = (currentSongIndex + 1) % songs.length;
-                audioSource.src = songs[currentSongIndex];
-                audio.load();
-                playBackgroundAudio();
-            });
-
-            audio.addEventListener("timeupdate", function () {
-                if (sessionStorage.getItem("sessionActive")) {
-                    localStorage.setItem("audioTime", audio.currentTime);
-                    localStorage.setItem("audioIndex", currentSongIndex);
-                }
-            });
-
-            function updateSoundButtons() {
-                if (audio.muted) {
-                    muteButton.style.display = "block";
-                    soundButton.style.display = "none";
-                } else {
-                    muteButton.style.display = "none";
-                    soundButton.style.display = "block";
-                }
-            }
-
-            muteButton.addEventListener("click", () => {
-                audio.muted = false;
-                localStorage.setItem("audioMuted", "false");
-                updateSoundButtons();
-            });
-
-            soundButton.addEventListener("click", () => {
-                audio.muted = true;
-                localStorage.setItem("audioMuted", "true");
-                updateSoundButtons();
-            });
-
-            settingButton.addEventListener("click", () => {
-                settingButton.style.display = "none";
-                settingOnButton.style.display = "block";
-                updateSoundButtons();
-            });
-
-            settingOnButton.addEventListener("click", () => {
-                settingOnButton.style.display = "none";
-                settingButton.style.display = "block";
-                muteButton.style.display = "none";
-                soundButton.style.display = "none";
-            });
-
-            muteButton.style.display = "none";
-            soundButton.style.display = "none";
-
-            document.getElementById("next-btn").addEventListener("click", function (event) {
-                event.preventDefault();
-                let confirmed = confirm("Are you sure you want to continue?");
-                if (confirmed) {
-                    window.location.href = this.getAttribute("href");
-                }
-            });
+    <audio id="hover-sound">
+      <source src="mp3/click.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+      
+      const questions = [
+        {
+          text: "What is Galih's favorite subject?",
+          options: [
+            "English",
+            "Science",
+            "History",
+            "Math"
+          ],
+          answer: "Science"
+        },
+        {
+          text: "What does Laura like about English?",
+          options: [
+            "Writing essays",
+            "Reading stories",
+            "Learning grammar",
+            "Watching movies"
+          ],
+          answer: "Reading stories"
+        },
+        {
+          text: "What question does Laura ask Galih about sports?",
+          options: [
+            "Do you play any sports?",
+            "Do you like basketball?",
+            "What is your favorite team?",
+            "Can you run fast?"
+          ],
+          answer: "Do you play any sports?"
+        },
+        {
+          text: "How often does Galih play soccer?",
+          options: [
+            "Every day",
+            "Twice a week",
+            "Every weekend",
+            "Once a month"
+          ],
+          answer: "Every weekend"
+        },
+        {
+          text: "Which historical period does Galih find fascinating?",
+          options: [
+            "World War II",
+            "The Renaissance",
+            "The Medieval Age",
+            "The Industrial Revolution"
+          ],
+          answer: "The Renaissance"
+        },
+        {
+          text: "What does Laura ask Galih about history?",
+          options: [
+            "Do you like history?",
+            "Who is your favorite scientist?",
+            "Do you read history books?",
+            "Do you like science?"
+          ],
+          answer: "Do you like history?"
+        },
+        {
+          text: "Which branch of science does Galih love?",
+          options: [
+            "Biology",
+            "Chemistry",
+            "Physics",
+            "Astronomy"
+          ],
+          answer: "Astronomy"
+        },
+        {
+          text: "What does Galih think about science?",
+          options: [
+            "It's boring",
+            "It's confusing",
+            "It's amazing",
+            "It's unnecessary"
+          ],
+          answer: "It's amazing"
+        },
+        {
+          text: "Which part of math does Galih enjoy the most?",
+          options: [
+            "Geometry", 
+            "Statistics", 
+            "Algebra", 
+            "Trigonometry"
+          ],
+          answer: "Algebra"
+        },
+        {
+          text: "What does Galih think about math?",
+          options: [
+            "It's challenging but fun", 
+            "It's his favorite subject", 
+            "It's very easy", 
+            "He doesn't like it"
+          ],
+          answer: "It's challenging but fun"
+        }
+      ];
+      
+      shuffleArray(questions);
+      
+      let currentQuestion = 0;
+      let lives = 5;
+      let score = 0;
+      const questionText = document.getElementById('question-text');
+      const optionsContainer = document.getElementById('options-container');
+      const livesDisplay = document.getElementById('lives');
+      const resultDisplay = document.getElementById('result');
+      const scoreDisplay = document.getElementById('score');
+      const gameOverScreen = document.getElementById('game-over');
+      const gameOverMessage = document.getElementById('game-over-message');
+      const questionNumberDisplay = document.getElementById('question-number');
+      const totalQuestions = questions.length;
+      
+      livesDisplay.innerText = `Lives: ${lives}`;
+      
+      function loadQuestion() {
+        if (lives < 1) {
+          gameOverMessage.innerText = "Game Over!";
+          document.getElementById("next-btn").style.display = "none";
+          gameOverScreen.style.display = 'block';
+          return;
+        }
+        if (currentQuestion >= questions.length) {
+          gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
+          document.getElementById("next-btn").style.display = "inline-block";
+          document.getElementById("restart-btn").style.display = "inline-block";
+          document.getElementById("restart-btn2").style.display = "inline-block";
+          gameOverScreen.style.display = 'block';
+          return;
+        }
+        questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`;
+        questionText.innerText = questions[currentQuestion].text;
+        optionsContainer.innerHTML = '';
+        questions[currentQuestion].options.forEach(option => {
+          const optionElement = document.createElement('div');
+          optionElement.classList.add('option');
+          optionElement.innerText = option;
+          optionElement.addEventListener('click', () => checkAnswer(option));
+          optionsContainer.appendChild(optionElement);
         });
-    </script>
+      }
+      
+      const correctSound = document.getElementById("correctSound");
+      const wrongSound = document.getElementById("wrongSound");
+      
+      function checkAnswer(selectedAnswer) {
+        resultDisplay.innerText = '';
+        const options = optionsContainer.children;
+        let correctAnswerElement;
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].innerText === questions[currentQuestion].answer) {
+            correctAnswerElement = options[i];
+            break;
+          }
+        }
+        if (selectedAnswer === questions[currentQuestion].answer) {
+          resultDisplay.innerText = "Correct!";
+          resultDisplay.style.color = "green";
+          correctSound.play();
+          correctAnswerElement.classList.add('correct');
+          score += 10;
+          scoreDisplay.innerText = `Score: ${score}`;
+          resultDisplay.style.opacity = 1;
+          setTimeout(() => {
+            correctAnswerElement.classList.remove('correct');
+            currentQuestion++;
+            loadQuestion();
+            setTimeout(() => {
+              resultDisplay.style.opacity = 0;
+            }, 1000);
+          }, 500);
+        } else {
+          wrongSound.play();
+          lives--;
+          livesDisplay.innerText = `Lives: ${lives}`;
+          resultDisplay.innerText = "Wrong answer!";
+          resultDisplay.style.color = "red";
+          let wrongAnswerElement;
+          for (let i = 0; i < options.length; i++) {
+            if (options[i].innerText === selectedAnswer) {
+              wrongAnswerElement = options[i];
+              break;
+            }
+          }
+          wrongAnswerElement.classList.add('wrong');
+          resultDisplay.style.opacity = 1;
+          if (score >= 10) {
+            score -= 10;
+            scoreDisplay.innerText = `Score: ${score}`;
+          } else {
+            score = 0;
+            scoreDisplay.innerText = `Score: ${score}`;
+          }
+          setTimeout(() => {
+            wrongAnswerElement.classList.remove('wrong');
+            setTimeout(() => {
+              resultDisplay.style.opacity = 0;
+            }, 1000);
+          }, 500);
+          if (lives === 0) {
+            gameOverMessage.innerText = "Game Over!";
+            document.getElementById("next-btn").style.display = "none";
+            gameOverScreen.style.display = 'block';
+          }
+        }
+      }
+      
+      loadQuestion();
+      
+      document.getElementById("options-container").addEventListener("mouseenter", event => {
+        if (event.target.tagName === "DIV") {
+          playHoverSound();
+        }
+      }, true);
+      
+      function playHoverSound() {
+        const sound = document.getElementById("hover-sound");
+        sound.currentTime = 0;
+        sound.play();
+      }
+      
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+      
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3"
+      ];
+      let currentSongIndex = 0;
+      
+      if (sessionStorage.getItem("sessionActive")) {
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
+          audioSource.src = songs[currentSongIndex];
+          audio.load();
+        }
+        if (savedTime !== null) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+      } else {
+        localStorage.removeItem("audioTime");
+        localStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+      }
+      sessionStorage.setItem("sessionActive", "true");
+      
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      audio.muted = isMuted;
+      
+      function playBackgroundAudio() {
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+        });
+      }
+      playBackgroundAudio();
+      
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playBackgroundAudio();
+      });
+      
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+      
+      function updateSoundButtons() {
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      }
+      
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+      
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+      
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+        updateSoundButtons();
+      });
+      
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+      
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+      
+      document.getElementById("next-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+        let confirmed = confirm("Are you sure you want to continue?");
+        if (confirmed) {
+          window.location.href = this.getAttribute("href");
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
