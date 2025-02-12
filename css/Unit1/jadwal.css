@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/css/Background.png");
+  background-image: url("../../css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -37,6 +37,7 @@ body {
   position: absolute;
   width: 20%;
 }
+
 .dekorasi_2 {
   position: absolute;
   width: 10%;
@@ -134,6 +135,7 @@ body {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -240,7 +242,7 @@ body {
 }
 
 .title-box {
-  color: white; 
+  color: white;
 }
 
 .icon-container {
@@ -253,7 +255,7 @@ body {
 }
 
 .icon-calender,
-.icon-watch{
+.icon-watch {
   width: 75px;
   height: 75px;
   position: absolute;
@@ -391,31 +393,32 @@ body {
 
 @media (max-width: 860px) {
 
-  body{
+  body {
     overflow: hidden;
     min-height: 100vh;
   }
+
   .grid-container {
-    grid-template-columns: repeat( 2,30vw); 
+    grid-template-columns: repeat(2, 30vw);
     gap: 4vw;
     margin-top: 5vw;
   }
 
   .blue-box {
     background-color: #2599d5;
-    width: 100%; 
-    padding: 3.5vw; 
+    width: 100%;
+    padding: 3.5vw;
     border-radius: 5px;
     margin-top: 4vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: auto; 
+    margin-left: auto;
     height: auto;
-    text-align: center; 
+    text-align: center;
     display: block;
   }
 
   .grid-item {
-    width: 30vw; 
+    width: 30vw;
     height: 10vw;
   }
 
@@ -427,7 +430,7 @@ body {
   }
 
   .grid-math {
-    font-size:3.5vw;
+    font-size: 3.5vw;
   }
 
   .icon-watch {
@@ -437,7 +440,7 @@ body {
     left: 75%;
   }
 
-  .icon-calender{
+  .icon-calender {
     width: 50px;
     height: 50px;
     bottom: 520px;
@@ -445,28 +448,29 @@ body {
   }
 
   .icon-book {
-      width: 60px;
-      height: 30px;
+    width: 60px;
+    height: 30px;
     top: 30px;
   }
 
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }
 }
 
 @media (max-width: 500px) {
-  
-  body{
+
+  body {
     overflow: hidden;
     min-height: 100vh;
   }
 
   .grid-container {
-    grid-template-columns: repeat(2,45vw);
+    grid-template-columns: repeat(2, 45vw);
     gap: 5vw;
     margin-top: 5vw;
   }
@@ -474,20 +478,20 @@ body {
   .blue-box {
     background-color: #2599d5;
     width: 100%;
-    padding: 2.5vw; 
+    padding: 2.5vw;
     border-radius: 5px;
     margin-top: 4vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
-    text-align: center; 
+    text-align: center;
     display: block;
   }
 
   .grid-item {
     width: 40vw;
-    height: 10vw; 
+    height: 10vw;
   }
 
   .grid-math {
@@ -499,13 +503,15 @@ body {
   }
 
   .icon-watch {
-    width: 45px;;
+    width: 45px;
+    ;
     height: 45px;
     bottom: 410px;
   }
 
   .icon-calender {
-    width: 45px;;
+    width: 45px;
+    ;
     height: 45px;
     bottom: 380px;
   }

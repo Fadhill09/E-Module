@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/css/Background.png");
+  background-image: url("../../css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -42,7 +42,7 @@ body {
   margin-bottom: 250px;
   z-index: 10;
   border-radius: 10px;
-  padding:10px;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
 }
@@ -114,6 +114,7 @@ body {
 }
 
 @keyframes icon-topi {
+
   0%,
   100% {
     transform: translateY(0) rotate(-30deg);
@@ -150,6 +151,7 @@ body {
 }
 
 @keyframes icon-pencil {
+
   0%,
   100% {
     transform: rotate(-30deg);
@@ -412,16 +414,19 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(-3.5deg);
   }
 }
+
 @keyframes fade {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -433,6 +438,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(2.5deg);
@@ -444,6 +450,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -455,6 +462,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(180deg);
@@ -466,6 +474,7 @@ body {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -477,6 +486,7 @@ body {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -507,6 +517,7 @@ body {
     left: 360px;
   }
 }
+
 @media (max-width: 930px) {
   .conversation-container {
     width: 80%;
@@ -521,9 +532,10 @@ body {
     padding: 5px 15px;
   }
 
-.button-container .button {
-  left: 270px;
-}
+  .button-container .button {
+    left: 270px;
+  }
+
   .icon-topi {
     height: 55px;
     bottom: 220px;
@@ -536,16 +548,18 @@ body {
     left: 550px;
   }
 
-  .icon-book{
+  .icon-book {
     width: 60px;
   }
 
   .characters {
     gap: 100px;
   }
+
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }
@@ -590,15 +604,17 @@ body {
     bottom: 250px;
   }
 
-  .icon-pencil{
+  .icon-pencil {
     left: 370px;
     bottom: 240px;
   }
+
   .button-container .button {
     left: 150px;
   }
 
 }
+
 @media (max-width: 500px) {
   .conversation-container {
     margin-bottom: 110px;
@@ -615,7 +631,7 @@ body {
     bottom: 220px;
   }
 
-  .icon-book{
+  .icon-book {
     right: 10px;
     top: 80px;
   }
@@ -627,7 +643,7 @@ body {
   .conversation-2 {
     font-size: 0.8rem;
   }
-  
+
   .button-container .button {
     left: 78px;
   }
