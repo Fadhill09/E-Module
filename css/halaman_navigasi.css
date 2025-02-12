@@ -11,33 +11,6 @@ body {
   overflow: hidden;
 }
 
-/* body {
-  margin: 0;
-  background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6);
-  background-size: 400% 400%;
-  animation: gradientBackground 15s ease infinite;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-  z-index: -1;
-  overflow: hidden;
-}
-
-@keyframes gradientBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
 .nav-container {
   width: 100%;
   text-align: center;
@@ -389,16 +362,6 @@ span {
 
 
 @media (max-width: 1000px) {
-  /* body {
-    height: 100vh;
-    overflow: hidden;
-    min-height: 100vh;
-    background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6);
-    background-size: 200% 200%;
-    animation: gradientBackground 15s ease infinite;
-    z-index: -1;
-  } */
-
   .nav-container a {
     width: 280px;
   }
@@ -439,15 +402,6 @@ span {
 }
 
 @media (max-width: 500px) {
-  /* body {
-    height: 100vh;
-    overflow: hidden;
-    min-height: 100vh;
-    background: linear-gradient(45deg, #ff914d, #8c52ff, #5ce1e6);
-    background-size: 200% 200%;
-    animation: gradientBackground 15s ease infinite;
-    z-index: -1;
-  } */
 
   .icon-calender,
   .icon-airplane,

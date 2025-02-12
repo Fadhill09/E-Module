@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("/css/Background.png");
+    background-image: url("/Asset/icon/bg-unit-3/bg-quiz.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -527,16 +527,8 @@ body {
     right: 0;
     transform: rotate(180deg);
 }
-@media (max-width:860px) {
-    .dekorasi_1 {
-        width: 30%;
-      }
-      .dekorasi_2 {
-        width: 20%;
-      }
-    }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
 
     .card {
         width: 90%;

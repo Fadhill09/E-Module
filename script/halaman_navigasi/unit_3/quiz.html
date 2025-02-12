@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/unit1/soal.css">
+  <link rel="stylesheet" href="/css/Unit3/quiz.css">
 </head>
 <body>
   <div class="card">
@@ -22,19 +22,17 @@
         <p id="question-text"></p>
       </div>
     </div>
-    <div id="question-number">1/10</div>
-
+    <div id="question-number">1/5</div>
     <div class="options" id="options-container"></div>
 
     <div class="result" id="result"></div>
-
     <div id="game-over">
       <p id="game-over-message">Game Over!</p>
       <div class="button-container">
-        <a href="/script/halaman_navigasi/unit_2/unit2.html" id="restart-btn">
+        <a href="/script/halaman_navigasi/unit_3/unit3.html" id="restart-btn">
           <button onclick="restartGame()">Read Again</button>
         </a>
-        <a href="/script/halaman_navigasi/unit_2/soal.html" id="restart-btn2">
+        <a href="/script/halaman_navigasi/unit_3/quiz.html" id="restart-btn2">
           <button onclick="restartGame()">Restart</button>
         </a>
         <a href="/script/halaman_navigasi/halaman_navigasi.html" id="next-btn">
@@ -42,8 +40,6 @@
         </a>
       </div>
     </div>
-
-
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
@@ -54,24 +50,20 @@
       <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
       <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
     </div>
-
     <audio id="audio" preload="auto" loop>
       <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
       <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
     </audio>
-
+    <audio id="hover-sound">
+      <source src="mp3/click.mp3" type="audio/mpeg">
+    </audio>
     <audio id="correctSound">
       <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
     </audio>
     <audio id="wrongSound">
       <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
     </audio>
-
-    <audio id="hover-sound">
-      <source src="mp3/click.mp3" type="audio/mpeg">
-    </audio>
   </div>
-  
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       function shuffleArray(array) {
@@ -80,115 +72,57 @@
           [array[i], array[j]] = [array[j], array[i]];
         }
       }
-      
+
+
       const questions = [
         {
-          text: "What is Galih's favorite subject?",
+          text: "Where will they meet after History class?",
           options: [
-            "English",
-            "Science",
-            "History",
-            "Math"
+            "In the gym",
+            "In the library",
+            "At the cafeteria",
+            "In the classroom"
           ],
-          answer: "Science"
+          answer: "In the library"
         },
         {
-          text: "What does Laura like about English?",
+          text: "What will Andrew bring to the library?",
           options: [
-            "Writing essays",
-            "Reading stories",
-            "Learning grammar",
-            "Watching movies"
+            "Handphone",
+            "Laptop",
+            "Book",
+            "Novel"
           ],
-          answer: "Reading stories"
+          answer: "Book"
         },
         {
-          text: "What question does Laura ask Galih about sports?",
+          text: "When did they plan to hang out at the library?",
           options: [
-            "Do you play any sports?",
-            "Do you like basketball?",
-            "What is your favorite team?",
-            "Can you run fast?"
+            "After school",
+            "At break time",
+            "During class hours",
+            "Before lunch"
           ],
-          answer: "Do you play any sports?"
+          answer: "At break time"
         },
         {
-          text: "How often does Galih play soccer?",
+          text: "Who is mentioned as going to the library?",
           options: [
-            "Every day",
-            "Twice a week",
-            "Every weekend",
-            "Once a month"
+            "Andrew",
+            "Farza",
+            "Both",
+            "Agus"
           ],
-          answer: "Every weekend"
-        },
-        {
-          text: "Which historical period does Galih find fascinating?",
-          options: [
-            "World War II",
-            "The Renaissance",
-            "The Medieval Age",
-            "The Industrial Revolution"
-          ],
-          answer: "The Renaissance"
-        },
-        {
-          text: "What does Laura ask Galih about history?",
-          options: [
-            "Do you like history?",
-            "Who is your favorite scientist?",
-            "Do you read history books?",
-            "Do you like science?"
-          ],
-          answer: "Do you like history?"
-        },
-        {
-          text: "Which branch of science does Galih love?",
-          options: [
-            "Biology",
-            "Chemistry",
-            "Physics",
-            "Astronomy"
-          ],
-          answer: "Astronomy"
-        },
-        {
-          text: "What does Galih think about science?",
-          options: [
-            "It's boring",
-            "It's confusing",
-            "It's amazing",
-            "It's unnecessary"
-          ],
-          answer: "It's amazing"
-        },
-        {
-          text: "Which part of math does Galih enjoy the most?",
-          options: [
-            "Geometry", 
-            "Statistics", 
-            "Algebra", 
-            "Trigonometry"
-          ],
-          answer: "Algebra"
-        },
-        {
-          text: "What does Galih think about math?",
-          options: [
-            "It's challenging but fun", 
-            "It's his favorite subject", 
-            "It's very easy", 
-            "He doesn't like it"
-          ],
-          answer: "It's challenging but fun"
+          answer: "Andrew"
         }
       ];
-      
+
       shuffleArray(questions);
       
       let currentQuestion = 0;
-      let lives = 5;
+      let lives = 2;
       let score = 0;
+      
       const questionText = document.getElementById('question-text');
       const optionsContainer = document.getElementById('options-container');
       const livesDisplay = document.getElementById('lives');
@@ -209,6 +143,7 @@
           return;
         }
         if (currentQuestion >= questions.length) {
+
           gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
           document.getElementById("next-btn").style.display = "inline-block";
           document.getElementById("restart-btn").style.display = "inline-block";
@@ -246,7 +181,7 @@
           resultDisplay.style.color = "green";
           correctSound.play();
           correctAnswerElement.classList.add('correct');
-          score += 10;
+          score += 25;
           scoreDisplay.innerText = `Score: ${score}`;
           resultDisplay.style.opacity = 1;
           setTimeout(() => {
@@ -272,8 +207,8 @@
           }
           wrongAnswerElement.classList.add('wrong');
           resultDisplay.style.opacity = 1;
-          if (score >= 10) {
-            score -= 10;
+          if (score >= 25) {
+            score -= 25;
             scoreDisplay.innerText = `Score: ${score}`;
           } else {
             score = 0;
@@ -306,7 +241,7 @@
         sound.currentTime = 0;
         sound.play();
       }
-      
+
       const audio = document.getElementById("audio");
       const audioSource = document.getElementById("audioSource");
       const muteButton = document.getElementById("muteButton");
@@ -403,13 +338,27 @@
       soundButton.style.display = "none";
       
       document.getElementById("next-btn").addEventListener("click", function(event) {
-        event.preventDefault();
-        let confirmed = confirm("Are you sure you want to continue?");
-        if (confirmed) {
-          window.location.href = this.getAttribute("href");
-        }
-      });
-    });
+            event.preventDefault();
+
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: "Anda akan diarahkan ke halaman navigasi!",
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonText: "Ya, lanjutkan!",
+                cancelButtonText: "Batal",
+                customClass: {
+                    confirmButton: "swal2-confirm",
+                    cancelButton: "swal2-cancel"
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/script/halaman_navigasi/halaman_navigasi.html";
+                }
+            });
+        });});
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
