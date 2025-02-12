@@ -84,7 +84,7 @@ body {
     color: #434982;
     border-radius: 10px;
     padding:10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(15px);
   }
   
@@ -337,9 +337,14 @@ body {
   
   @media (max-width: 860px) {
     .typing-animation {
-      font-size: 5vw;
+      font-size: 3.5vw;
       width: 80%; 
     }
+
+    .content {
+      font-size: 1em;
+    }
+    
     .button-container .button {
       left: 270px;
     }
@@ -359,11 +364,11 @@ body {
   
   @media (max-width: 700px) {
     .typing-animation {
-      font-size: 4.5vw;
+      font-size: 3vw;
       width: 85%;
     }
     .content {
-      font-size: 1.2em;
+      font-size: 1em;
     }
   
     .button-container .button {
@@ -379,12 +384,12 @@ body {
   @media (max-width: 500px) {
     .typing-animation {
       margin-top: 10px;
-      font-size: 5.5vw;
+      font-size: 4vw;
       width: 90%;
     }
     .content {
       margin-top: 30px;
-      font-size: 1em;
+      font-size: .9em;
     }
   
     .button-container .button {
