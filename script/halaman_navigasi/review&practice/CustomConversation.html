@@ -146,22 +146,10 @@
 
             window.speakText = function (text) {
                 const voices = window.availableVoices || speechSynthesis.getVoices();
-
-                // Cari suara yang mirip dengan suara anak-anak
-                let childVoice = voices.find(voice =>
-                    voice.name.includes("Child") ||
-                    voice.name.includes("Kids") ||
-                    voice.name.includes("Young")
-                );
-
-                // Jika tidak ditemukan suara anak-anak, gunakan suara default
-                if (!childVoice) {
-                    childVoice = voices.find(voice => voice.name.includes("Google UK English Female")) || voices[0];
-                }
-
+                const childVoice = voices.find(voice => voice.name.includes("Google UK English Female")) || voices[0];
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.voice = childVoice;
-                utterance.lang = "ID"; // Sesuaikan dengan bahasa yang diinginkan
+                utterance.lang = "ID";
 
                 speechSynthesis.speak(utterance);
             };
