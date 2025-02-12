@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("/css/Background.png");
+    background-image: url("../../css/background.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -177,7 +177,7 @@ body {
 .option.correct {
     color: white;
     background-color: #26882a !important;
-    border-color:  #218425;
+    border-color: #218425;
     box-shadow: 2px 2px 5px rgba(8, 122, 0, 0.797);
     transform: scale(1.1);
 }
@@ -527,14 +527,16 @@ body {
     right: 0;
     transform: rotate(180deg);
 }
+
 @media (max-width:860px) {
     .dekorasi_1 {
         width: 30%;
-      }
-      .dekorasi_2 {
-        width: 20%;
-      }
     }
+
+    .dekorasi_2 {
+        width: 20%;
+    }
+}
 
 @media (max-width: 450px) {
 
@@ -543,10 +545,12 @@ body {
         margin: 10px auto;
         padding: 15px;
     }
+
     #rules-card {
         width: 90%;
         margin: 10px auto;
     }
+
     #question-text {
         font-size: 1em;
     }
@@ -591,10 +595,13 @@ body {
 }
 
 .swal2-confirm {
-    background-color: #28a745 !important; /* Warna hijau */
+    background-color: #28a745 !important;
+    /* Warna hijau */
     color: white !important;
 }
+
 .swal2-cancel {
-    background-color: #dc3545 !important; /* Warna merah */
+    background-color: #dc3545 !important;
+    /* Warna merah */
     color: white !important;
 }

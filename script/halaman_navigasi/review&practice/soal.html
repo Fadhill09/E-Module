@@ -7,7 +7,7 @@
   <title>English Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/css/Unit1/soal.css">
+  <link rel="stylesheet" href="./css/Unit1/soal.css">
 </head>
 
 <body>
@@ -34,42 +34,42 @@
     <div id="game-over">
       <p id="game-over-message">Game Over!</p>
       <div class="button-container">
-        <a href="/script/halaman_navigasi/unit_1/unit1.html" id="restart-btn">
+        <a href="./script/halaman_navigasi/unit_1/unit1.html" id="restart-btn">
           <button onclick="restartGame()">Read Again</button>
         </a>
-        <a href="/script/halaman_navigasi/unit_1/soal.html" id="restart-btn2">
+        <a href="./script/halaman_navigasi/unit_1/soal.html" id="restart-btn2">
           <button onclick="restartGame()">Restart</button>
         </a>
-        <a href="/script/halaman_navigasi/review&practice/navigasi.html" id="next-btn">
+        <a href="./script/halaman_navigasi/review&practice/navigasi.html" id="next-btn">
           <button>Next</button>
         </a>
       </div>
     </div>
     <!-- Dekorasi & Icons -->
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
-    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+    <img src="./Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
+    <img src="./Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+    <img src="./Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+    <img src="./Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+    <img src="./Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+    <img src="./Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
       style="display: none;">
     <div class="audio-controls">
-      <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-      <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+      <img src="./Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+      <img src="./Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
     </div>
 
     <!-- Background Music Audio Element -->
     <audio id="audio" preload="auto" loop>
-      <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
-      <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
+      <source id="audioSource" src="./Asset/audio/sound.mp3" type="audio/mp3">
+      <source src="./Asset/audio/sound1.mp3" type="audio/mp3">
     </audio>
 
     <audio id="correctSound">
-      <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
+      <source src="./Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
     </audio>
 
     <audio id="wrongSound">
-      <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
+      <source src="./Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
     </audio>
   </div>
   <script>
@@ -148,48 +148,52 @@
           answer: "In the library"
         },
         // 7
-        { text: "What does Galih think about history?",
-         options: [
-          "It's his favorite subject",
-          "It's boring",
-          "It's interesting but too detailed",
-           "He loves it"
-          ],
-           answer: "It's interesting but too detailed"
-           },
-          //  8
-          { text: "What sport does Galih play?", 
+        {
+          text: "What does Galih think about history?",
           options: [
-            "Basketball", 
-          "Soccer",
-           "Tennis",
+            "It's his favorite subject",
+            "It's boring",
+            "It's interesting but too detailed",
+            "He loves it"
+          ],
+          answer: "It's interesting but too detailed"
+        },
+        //  8
+        {
+          text: "What sport does Galih play?",
+          options: [
+            "Basketball",
+            "Soccer",
+            "Tennis",
             "Volleyball"
-          ], answer: "Soccer" 
+          ], answer: "Soccer"
         },
         // 9
-        { text: "What is the first thing Laura asks Galih?",
-         options: [
-          "Do you like reading?",
-           "What is your favorite subject?",
+        {
+          text: "What is the first thing Laura asks Galih?",
+          options: [
+            "Do you like reading?",
+            "What is your favorite subject?",
             "Do you like history?",
-             "Do you play soccer?"
+            "Do you play soccer?"
 
-        ], answer: "What is your favorite subject?"
-       },
-      //  10
-      { text:"What does Laura say about science?", 
-      options: ["She finds it boring", 
-      "She agrees it explains everything",
-       "She prefers math", "She doesn't like it"
-      ],
-       answer: "She agrees it explains everything"
-       },
+          ], answer: "What is your favorite subject?"
+        },
+        //  10
+        {
+          text: "What does Laura say about science?",
+          options: ["She finds it boring",
+            "She agrees it explains everything",
+            "She prefers math", "She doesn't like it"
+          ],
+          answer: "She agrees it explains everything"
+        },
       ];
 
       shuffleArray(questions);
 
       let currentQuestion = 0;
-      let lives = 3;
+      let lives = 5;
       let score = 0;
       const questionText = document.getElementById('question-text');
       const optionsContainer = document.getElementById('options-container');
@@ -247,7 +251,7 @@
           resultDisplay.style.color = "green";
           correctSound.play();
           correctAnswerElement.classList.add('correct');
-          score += 20;
+          score += 10;
           scoreDisplay.innerText = `Score: ${score}`;
           resultDisplay.style.opacity = 1;
           setTimeout(() => {
