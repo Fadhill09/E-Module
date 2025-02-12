@@ -258,6 +258,21 @@ body {
   top: 5px;
 }
 
+.practice{
+  text-align: center;
+  width: 7em;
+  left: 95px;
+  top: 0;
+  position: relative;
+}
+
+@media(min-width:500px){
+  .practice{
+    width: 13em;
+    top: -20px;
+  }
+}
+
 .subject {
   position: absolute;
   left: 5px;
