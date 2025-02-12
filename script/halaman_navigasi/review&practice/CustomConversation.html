@@ -68,7 +68,7 @@
     <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
         style="display: none;" />
 
-    <a href="/script/halaman_navigasi/unit_1/unit1.html">
+    <a href="navigasi.html">
         <img src="/Asset/icon/home.png" alt="Home" class="image-home" />
     </a>
 
@@ -84,6 +84,116 @@
 
 
     <script>
+           document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+
+      const songs = [
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3"
+      ];
+      let currentSongIndex = 0;
+
+
+      if (sessionStorage.getItem("sessionActive")) {
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
+
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
+          audioSource.src = songs[currentSongIndex];
+          audio.load();
+        }
+        if (savedTime !== null) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+      } else {
+        localStorage.removeItem("audioTime");
+        localStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+      }
+
+      sessionStorage.setItem("sessionActive", "true");
+
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      audio.muted = isMuted;
+
+      function playAudio() {
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+        });
+      }
+
+      playAudio();
+
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio(); // Putar lagu baru
+      });
+
+
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+
+      function updateSoundButtons() {
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      }
+
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      });
+
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+
+        muteButton.style.display = "none";
+        soundButton.style.display = "none";
+      });
+
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+    });
+
         document.addEventListener("DOMContentLoaded", function () {
             const dialogAInput = document.querySelector(".inputConv:nth-child(1) input");
             const dialogBInput = document.querySelector(".inputConv:nth-child(2) input");

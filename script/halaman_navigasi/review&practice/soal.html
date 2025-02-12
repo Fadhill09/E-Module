@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Quiz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/Unit1/soal.css">
 </head>
+
 <body>
   <div class="card">
     <!-- Lives & Score -->
@@ -22,7 +25,7 @@
         <p id="question-text"></p>
       </div>
     </div>
-    <div id="question-number">1/5</div>
+    <div id="question-number">1/10</div>
     <!-- Options -->
     <div class="options" id="options-container"></div>
     <!-- Result -->
@@ -48,7 +51,8 @@
     <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
     <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
     <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton" style="display: none;">
+    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+      style="display: none;">
     <div class="audio-controls">
       <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
       <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
@@ -62,11 +66,11 @@
 
     <audio id="correctSound">
       <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
-  </audio>
+    </audio>
 
-  <audio id="wrongSound">
+    <audio id="wrongSound">
       <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
-  </audio>
+    </audio>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -77,58 +81,111 @@
         }
       }
       const questions = [
-      //   {
-      //     text: "What days do Andrew, Evelyn, and Farza have math class?",
-      //     options: [
-      //       "Tuesday, Thursday, and Saturday",
-      //       "Monday, Wednesday, and Friday",
-      //       "Monday, Wednesday, and Saturday",
-      //       "Tuesday, Thursday, and Friday"
-      //     ],
-      //     answer: "Monday, Wednesday, and Friday"
-      //   },
-      //   {
-      //     text: "How does Farza feel about math class on Monday?",
-      //     options: [
-      //       "Excited",
-      //       "Confused",
-      //       "She wishes it wasn’t the first thing on Monday",
-      //       "Happy"
-      //     ],
-      //     answer: "She wishes it wasn’t the first thing on Monday"
-      //   },
-      //   {
-      //     text: "What is something Andrew is looking forward to in math class?",
-      //     options: [
-      //       "Math games",
-      //       "Group activities",
-      //       "Break time",
-      //       "Lunch"
-      //     ],
-      //     answer: "Math games"
-      //   },
-      //   {
-      //     text: "What does Evelyn think about group activities?",
-      //     options: [
-      //       "She doesn't like them",
-      //       "She thinks they should be fun",
-      //       "She prefers individual work",
-      //       "She is unsure"
-      //     ],
-      //     answer: "She thinks they should be fun"
-      //   },
-      //   {
-      //     text: "What does Farza suggest they do to make math class better?",
-      //     options: [
-      //       "Take notes",
-      //       "Watch videos",
-      //       "Skip class",
-      //       "Help each other out"
-      //     ],
-      //     answer: "Help each other out"
-      //   }
-       ];
-     
+        // 1
+        {
+          text: "How does Farza feel about math class on Monday?",
+          options: [
+            "Excited",
+            "Confused",
+            "She wishes it wasn’t the first thing on Monday",
+            "Happy"
+          ],
+          answer: "She wishes it wasn’t the first thing on Monday"
+        },
+        // 2
+        {
+          text: "What does Farza suggest they do to make math class better?",
+          options: [
+            "Take notes",
+            "Watch videos",
+            "Skip class",
+            "Help each other out"
+          ],
+          answer: "Help each other out"
+        },
+        // 3
+        {
+          text: "Which part of math does Galih enjoy the most?",
+          options: [
+            "Geometry",
+            "Statistics",
+            "Algebra",
+            "Trigonometry"
+          ],
+          answer: "Algebra"
+        },
+        // 4
+        {
+          text: "What does Galih think about science?",
+          options: [
+            "It's boring",
+            "It's confusing",
+            "It's amazing",
+            "It's unnecessary"
+          ],
+          answer: "It's amazing"
+        },
+        // 5
+        {
+          text: "When did they plan to hang out at the library?",
+          options: [
+            "After school",
+            "At break time",
+            "During class hours",
+            "Before lunch"
+          ],
+          answer: "At break time"
+        },
+        // 6
+        {
+          text: "Where will they meet after History class?",
+          options: [
+            "In the gym",
+            "In the library",
+            "At the cafeteria",
+            "In the classroom"
+          ],
+          answer: "In the library"
+        },
+        // 7
+        { text: "What does Galih think about history?",
+         options: [
+          "It's his favorite subject",
+          "It's boring",
+          "It's interesting but too detailed",
+           "He loves it"
+          ],
+           answer: "It's interesting but too detailed"
+           },
+          //  8
+          { text: "What sport does Galih play?", 
+          options: [
+            "Basketball", 
+          "Soccer",
+           "Tennis",
+            "Volleyball"
+          ], answer: "Soccer" 
+        },
+        // 9
+        { text: "What is the first thing Laura asks Galih?",
+         options: [
+          "Do you like reading?",
+           "What is your favorite subject?",
+            "Do you like history?",
+             "Do you play soccer?"
+
+        ], answer: "What is your favorite subject?"
+       },
+      //  10
+      { text:"What does Laura say about science?", 
+      options: ["She finds it boring", 
+      "She agrees it explains everything",
+       "She prefers math", "She doesn't like it"
+      ],
+       answer: "She agrees it explains everything"
+       },
+      ];
+
       shuffleArray(questions);
 
       let currentQuestion = 0;
@@ -144,7 +201,7 @@
       const questionNumberDisplay = document.getElementById('question-number');
       const totalQuestions = questions.length;
       livesDisplay.innerText = `Lives: ${lives}`;
-      
+
       function loadQuestion() {
         if (lives < 1) {
           gameOverMessage.innerText = "Game Over!";
@@ -174,7 +231,7 @@
 
       const correctSound = document.getElementById("correctSound");
       const wrongSound = document.getElementById("wrongSound");
-      
+
       function checkAnswer(selectedAnswer) {
         resultDisplay.innerText = '';
         const options = optionsContainer.children;
@@ -236,15 +293,15 @@
           }
         }
       }
-      
+
       loadQuestion();
-      
+
       document.getElementById("options-container").addEventListener("mouseenter", event => {
         if (event.target.tagName === "DIV") {
           playHoverSound();
         }
       }, true);
-      
+
       function playHoverSound() {
         const sound = document.getElementById("hover-sound");
         sound.currentTime = 0;
@@ -257,13 +314,13 @@
       const soundButton = document.getElementById("soundButton");
       const settingButton = document.getElementById("settingButton");
       const settingOnButton = document.getElementById("settingOnButton");
-      
+
       const songs = [
         "/Asset/audio/sound.mp3",
         "/Asset/audio/sound1.mp3"
       ];
       let currentSongIndex = 0;
-      
+
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
         const savedIndex = localStorage.getItem("audioIndex");
@@ -283,31 +340,31 @@
         audio.load();
       }
       sessionStorage.setItem("sessionActive", "true");
-      
+
       const isMuted = localStorage.getItem("audioMuted") === "true";
       audio.muted = isMuted;
-      
+
       function playBackgroundAudio() {
         audio.play().catch(() => {
           console.log("Autoplay diblokir, menunggu interaksi pengguna.");
         });
       }
       playBackgroundAudio();
-      
+
       audio.addEventListener("ended", function () {
         currentSongIndex = (currentSongIndex + 1) % songs.length;
         audioSource.src = songs[currentSongIndex];
         audio.load();
         playBackgroundAudio();
       });
-      
+
       audio.addEventListener("timeupdate", function () {
         if (sessionStorage.getItem("sessionActive")) {
           localStorage.setItem("audioTime", audio.currentTime);
           localStorage.setItem("audioIndex", currentSongIndex);
         }
       });
-      
+
       function updateSoundButtons() {
         if (audio.muted) {
           muteButton.style.display = "block";
@@ -317,57 +374,59 @@
           soundButton.style.display = "block";
         }
       }
-      
+
       muteButton.addEventListener("click", () => {
         audio.muted = false;
         localStorage.setItem("audioMuted", "false");
         updateSoundButtons();
       });
-      
+
       soundButton.addEventListener("click", () => {
         audio.muted = true;
         localStorage.setItem("audioMuted", "true");
         updateSoundButtons();
       });
-      
+
       settingButton.addEventListener("click", () => {
         settingButton.style.display = "none";
         settingOnButton.style.display = "block";
         updateSoundButtons();
       });
-      
+
       settingOnButton.addEventListener("click", () => {
         settingOnButton.style.display = "none";
         settingButton.style.display = "block";
         muteButton.style.display = "none";
         soundButton.style.display = "none";
       });
-      
+
       muteButton.style.display = "none";
       soundButton.style.display = "none";
-      
-      document.getElementById("next-btn").addEventListener("click", function(event) {
-            event.preventDefault();
 
-            Swal.fire({
+      document.getElementById("next-btn").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        Swal.fire({
           title: "Are you sure?",
           text: "You will be redirected to the navigation page!",
           icon: "success",
           showCancelButton: true,
           confirmButtonText: "Yes, Next!",
           cancelButtonText: "No",
-                customClass: {
-                    confirmButton: "swal2-confirm",
-                    cancelButton: "swal2-cancel"
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "./navigasi";
-                }
-            });
-        });});
+          customClass: {
+            confirmButton: "swal2-confirm",
+            cancelButton: "swal2-cancel"
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "./navigasi.html";
+          }
+        });
+      });
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
+
 </html>
