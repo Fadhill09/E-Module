@@ -22,7 +22,7 @@
         <p id="question-text"></p>
       </div>
     </div>
-    <div id="question-number">1/10</div>
+    <div id="question-number">1/5</div>
 
     <div class="options" id="options-container"></div>
 
@@ -81,17 +81,19 @@
         }
       }
       
+
+      // Yg di komen brarti blm pasti bakal di pake di unit ini / ngga
       const questions = [
-        {
-          text: "What is Galih's favorite subject?",
-          options: [
-            "English",
-            "Science",
-            "History",
-            "Math"
-          ],
-          answer: "Science"
-        },
+        // {
+        //   text: "What is Galih's favorite subject?",  y
+        //   options: [
+        //     "English",
+        //     "Science",
+        //     "History",
+        //     "Math"
+        //   ],
+        //   answer: "Science"
+        // },
         {
           text: "What does Laura like about English?",
           options: [
@@ -102,16 +104,16 @@
           ],
           answer: "Reading stories"
         },
-        {
-          text: "What question does Laura ask Galih about sports?",
-          options: [
-            "Do you play any sports?",
-            "Do you like basketball?",
-            "What is your favorite team?",
-            "Can you run fast?"
-          ],
-          answer: "Do you play any sports?"
-        },
+        // {
+        //   text: "What question does Laura ask Galih about sports?",
+        //   options: [
+        //     "Do you play any sports?",
+        //     "Do you like basketball?",
+        //     "What is your favorite team?",
+        //     "Can you run fast?"
+        //   ],
+        //   answer: "Do you play any sports?"
+        // },
         {
           text: "How often does Galih play soccer?",
           options: [
@@ -132,26 +134,26 @@
           ],
           answer: "The Renaissance"
         },
-        {
-          text: "What does Laura ask Galih about history?",
-          options: [
-            "Do you like history?",
-            "Who is your favorite scientist?",
-            "Do you read history books?",
-            "Do you like science?"
-          ],
-          answer: "Do you like history?"
-        },
-        {
-          text: "Which branch of science does Galih love?",
-          options: [
-            "Biology",
-            "Chemistry",
-            "Physics",
-            "Astronomy"
-          ],
-          answer: "Astronomy"
-        },
+        // {
+        //   text: "What does Laura ask Galih about history?",
+        //   options: [
+        //     "Do you like history?",
+        //     "Who is your favorite scientist?",
+        //     "Do you read history books?",
+        //     "Do you like science?"
+        //   ],
+        //   answer: "Do you like history?"
+        // },
+        // {
+        //   text: "Which branch of science does Galih love?",
+        //   options: [
+        //     "Biology",
+        //     "Chemistry",
+        //     "Physics",
+        //     "Astronomy"
+        //   ],
+        //   answer: "Astronomy"
+        // },
         {
           text: "What does Galih think about science?",
           options: [
@@ -163,16 +165,16 @@
           answer: "It's amazing"
         },
         {
-          text: "Which part of math does Galih enjoy the most?",
-          options: [
-            "Geometry", 
-            "Statistics", 
-            "Algebra", 
-            "Trigonometry"
-          ],
-          answer: "Algebra"
-        },
-        {
+          // {
+          //   text: "Which part of math does Galih enjoy the most?",
+          //   options: [
+          //     "Geometry", 
+          //     "Statistics", 
+          //     "Algebra", 
+          //     "Trigonometry"
+          //   ],
+          //   answer: "Algebra"
+          // },
           text: "What does Galih think about math?",
           options: [
             "It's challenging but fun", 
@@ -185,231 +187,244 @@
       ];
       
       shuffleArray(questions);
-      
-      let currentQuestion = 0;
-      let lives = 5;
-      let score = 0;
-      const questionText = document.getElementById('question-text');
-      const optionsContainer = document.getElementById('options-container');
-      const livesDisplay = document.getElementById('lives');
-      const resultDisplay = document.getElementById('result');
-      const scoreDisplay = document.getElementById('score');
-      const gameOverScreen = document.getElementById('game-over');
-      const gameOverMessage = document.getElementById('game-over-message');
-      const questionNumberDisplay = document.getElementById('question-number');
-      const totalQuestions = questions.length;
-      
-      livesDisplay.innerText = `Lives: ${lives}`;
-      
-      function loadQuestion() {
-        if (lives < 1) {
-          gameOverMessage.innerText = "Game Over!";
-          document.getElementById("next-btn").style.display = "none";
-          gameOverScreen.style.display = 'block';
-          return;
-        }
-        if (currentQuestion >= questions.length) {
-          gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
-          document.getElementById("next-btn").style.display = "inline-block";
-          document.getElementById("restart-btn").style.display = "inline-block";
-          document.getElementById("restart-btn2").style.display = "inline-block";
-          gameOverScreen.style.display = 'block';
-          return;
-        }
-        questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`;
-        questionText.innerText = questions[currentQuestion].text;
-        optionsContainer.innerHTML = '';
-        questions[currentQuestion].options.forEach(option => {
-          const optionElement = document.createElement('div');
-          optionElement.classList.add('option');
-          optionElement.innerText = option;
-          optionElement.addEventListener('click', () => checkAnswer(option));
-          optionsContainer.appendChild(optionElement);
-        });
-      }
-      
-      const correctSound = document.getElementById("correctSound");
-      const wrongSound = document.getElementById("wrongSound");
-      
-      function checkAnswer(selectedAnswer) {
-        resultDisplay.innerText = '';
-        const options = optionsContainer.children;
-        let correctAnswerElement;
-        for (let i = 0; i < options.length; i++) {
-          if (options[i].innerText === questions[currentQuestion].answer) {
-            correctAnswerElement = options[i];
-            break;
-          }
-        }
-        if (selectedAnswer === questions[currentQuestion].answer) {
-          resultDisplay.innerText = "Correct!";
-          resultDisplay.style.color = "green";
-          correctSound.play();
-          correctAnswerElement.classList.add('correct');
-          score += 10;
-          scoreDisplay.innerText = `Score: ${score}`;
-          resultDisplay.style.opacity = 1;
-          setTimeout(() => {
-            correctAnswerElement.classList.remove('correct');
-            currentQuestion++;
-            loadQuestion();
-            setTimeout(() => {
-              resultDisplay.style.opacity = 0;
-            }, 1000);
-          }, 500);
-        } else {
-          wrongSound.play();
-          lives--;
-          livesDisplay.innerText = `Lives: ${lives}`;
-          resultDisplay.innerText = "Wrong answer!";
-          resultDisplay.style.color = "red";
-          let wrongAnswerElement;
-          for (let i = 0; i < options.length; i++) {
-            if (options[i].innerText === selectedAnswer) {
-              wrongAnswerElement = options[i];
-              break;
-            }
-          }
-          wrongAnswerElement.classList.add('wrong');
-          resultDisplay.style.opacity = 1;
-          if (score >= 10) {
-            score -= 10;
-            scoreDisplay.innerText = `Score: ${score}`;
-          } else {
-            score = 0;
-            scoreDisplay.innerText = `Score: ${score}`;
-          }
-          setTimeout(() => {
-            wrongAnswerElement.classList.remove('wrong');
-            setTimeout(() => {
-              resultDisplay.style.opacity = 0;
-            }, 1000);
-          }, 500);
-          if (lives === 0) {
-            gameOverMessage.innerText = "Game Over!";
-            document.getElementById("next-btn").style.display = "none";
-            gameOverScreen.style.display = 'block';
-          }
-        }
-      }
-      
+
+let currentQuestion = 0;
+let lives = 3;
+let score = 0;
+const questionText = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options-container');
+const livesDisplay = document.getElementById('lives');
+const resultDisplay = document.getElementById('result');
+const scoreDisplay = document.getElementById('score');
+const gameOverScreen = document.getElementById('game-over');
+const gameOverMessage = document.getElementById('game-over-message');
+const questionNumberDisplay = document.getElementById('question-number');
+const totalQuestions = questions.length;
+livesDisplay.innerText = `Lives: ${lives}`;
+
+function loadQuestion() {
+  if (lives < 1) {
+    gameOverMessage.innerText = "Game Over!";
+    document.getElementById("next-btn").style.display = "none";
+    gameOverScreen.style.display = 'block';
+    return;
+  }
+  if (currentQuestion >= questions.length) {
+    gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
+    document.getElementById("next-btn").style.display = "inline-block";
+    document.getElementById("restart-btn").style.display = "inline-block";
+    document.getElementById("restart-btn2").style.display = "inline-block";
+    gameOverScreen.style.display = 'block';
+    return;
+  }
+  questionNumberDisplay.innerText = `${currentQuestion + 1}/${totalQuestions}`;
+  questionText.innerText = questions[currentQuestion].text;
+  optionsContainer.innerHTML = '';
+  questions[currentQuestion].options.forEach(option => {
+    const optionElement = document.createElement('div');
+    optionElement.classList.add('option');
+    optionElement.innerText = option;
+    optionElement.addEventListener('click', () => checkAnswer(option));
+    optionsContainer.appendChild(optionElement);
+  });
+}
+
+const correctSound = document.getElementById("correctSound");
+const wrongSound = document.getElementById("wrongSound");
+
+function checkAnswer(selectedAnswer) {
+  resultDisplay.innerText = '';
+  const options = optionsContainer.children;
+  let correctAnswerElement;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].innerText === questions[currentQuestion].answer) {
+      correctAnswerElement = options[i];
+      break;
+    }
+  }
+  if (selectedAnswer === questions[currentQuestion].answer) {
+    resultDisplay.innerText = "Correct!";
+    resultDisplay.style.color = "green";
+    correctSound.play();
+    correctAnswerElement.classList.add('correct');
+    score += 20;
+    scoreDisplay.innerText = `Score: ${score}`;
+    resultDisplay.style.opacity = 1;
+    setTimeout(() => {
+      correctAnswerElement.classList.remove('correct');
+      currentQuestion++;
       loadQuestion();
-      
-      document.getElementById("options-container").addEventListener("mouseenter", event => {
-        if (event.target.tagName === "DIV") {
-          playHoverSound();
-        }
-      }, true);
-      
-      function playHoverSound() {
-        const sound = document.getElementById("hover-sound");
-        sound.currentTime = 0;
-        sound.play();
+      setTimeout(() => {
+        resultDisplay.style.opacity = 0;
+      }, 1000);
+    }, 500);
+  } else {
+    wrongSound.play();
+    lives--;
+    livesDisplay.innerText = `Lives: ${lives}`;
+    resultDisplay.innerText = "Wrong answer!";
+    resultDisplay.style.color = "red";
+    let wrongAnswerElement;
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].innerText === selectedAnswer) {
+        wrongAnswerElement = options[i];
+        break;
       }
-      
-      const audio = document.getElementById("audio");
-      const audioSource = document.getElementById("audioSource");
-      const muteButton = document.getElementById("muteButton");
-      const soundButton = document.getElementById("soundButton");
-      const settingButton = document.getElementById("settingButton");
-      const settingOnButton = document.getElementById("settingOnButton");
-      
-      const songs = [
-        "/Asset/audio/sound.mp3",
-        "/Asset/audio/sound1.mp3"
-      ];
-      let currentSongIndex = 0;
-      
-      if (sessionStorage.getItem("sessionActive")) {
-        const savedTime = localStorage.getItem("audioTime");
-        const savedIndex = localStorage.getItem("audioIndex");
-        if (savedIndex !== null) {
-          currentSongIndex = parseInt(savedIndex);
-          audioSource.src = songs[currentSongIndex];
-          audio.load();
-        }
-        if (savedTime !== null) {
-          audio.currentTime = parseFloat(savedTime);
-        }
-      } else {
-        localStorage.removeItem("audioTime");
-        localStorage.removeItem("audioIndex");
-        currentSongIndex = 0;
-        audioSource.src = songs[currentSongIndex];
-        audio.load();
-      }
-      sessionStorage.setItem("sessionActive", "true");
-      
-      const isMuted = localStorage.getItem("audioMuted") === "true";
-      audio.muted = isMuted;
-      
-      function playBackgroundAudio() {
-        audio.play().catch(() => {
-          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
-        });
-      }
-      playBackgroundAudio();
-      
-      audio.addEventListener("ended", function () {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        audioSource.src = songs[currentSongIndex];
-        audio.load();
-        playBackgroundAudio();
+    }
+    wrongAnswerElement.classList.add('wrong');
+    resultDisplay.style.opacity = 1;
+    if (score >= 20) {
+      score -= 20;
+      scoreDisplay.innerText = `Score: ${score}`;
+    } else {
+      score = 0;
+      scoreDisplay.innerText = `Score: ${score}`;
+    }
+    setTimeout(() => {
+      wrongAnswerElement.classList.remove('wrong');
+      setTimeout(() => {
+        resultDisplay.style.opacity = 0;
+      }, 1000);
+    }, 500);
+    if (lives === 0) {
+      gameOverMessage.innerText = "Game Over!";
+      document.getElementById("next-btn").style.display = "none";
+      gameOverScreen.style.display = 'block';
+    }
+  }
+}
+
+loadQuestion();
+
+document.getElementById("options-container").addEventListener("mouseenter", event => {
+  if (event.target.tagName === "DIV") {
+    playHoverSound();
+  }
+}, true);
+
+function playHoverSound() {
+  const sound = document.getElementById("hover-sound");
+  sound.currentTime = 0;
+  sound.play();
+}
+
+const audio = document.getElementById("audio");
+const audioSource = document.getElementById("audioSource");
+const muteButton = document.getElementById("muteButton");
+const soundButton = document.getElementById("soundButton");
+const settingButton = document.getElementById("settingButton");
+const settingOnButton = document.getElementById("settingOnButton");
+
+const songs = [
+  "/Asset/audio/sound.mp3",
+  "/Asset/audio/sound1.mp3"
+];
+let currentSongIndex = 0;
+
+if (sessionStorage.getItem("sessionActive")) {
+  const savedTime = localStorage.getItem("audioTime");
+  const savedIndex = localStorage.getItem("audioIndex");
+  if (savedIndex !== null) {
+    currentSongIndex = parseInt(savedIndex);
+    audioSource.src = songs[currentSongIndex];
+    audio.load();
+  }
+  if (savedTime !== null) {
+    audio.currentTime = parseFloat(savedTime);
+  }
+} else {
+  localStorage.removeItem("audioTime");
+  localStorage.removeItem("audioIndex");
+  currentSongIndex = 0;
+  audioSource.src = songs[currentSongIndex];
+  audio.load();
+}
+sessionStorage.setItem("sessionActive", "true");
+
+const isMuted = localStorage.getItem("audioMuted") === "true";
+audio.muted = isMuted;
+
+function playBackgroundAudio() {
+  audio.play().catch(() => {
+    console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+  });
+}
+playBackgroundAudio();
+
+audio.addEventListener("ended", function () {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  audioSource.src = songs[currentSongIndex];
+  audio.load();
+  playBackgroundAudio();
+});
+
+audio.addEventListener("timeupdate", function () {
+  if (sessionStorage.getItem("sessionActive")) {
+    localStorage.setItem("audioTime", audio.currentTime);
+    localStorage.setItem("audioIndex", currentSongIndex);
+  }
+});
+
+function updateSoundButtons() {
+  if (audio.muted) {
+    muteButton.style.display = "block";
+    soundButton.style.display = "none";
+  } else {
+    muteButton.style.display = "none";
+    soundButton.style.display = "block";
+  }
+}
+
+muteButton.addEventListener("click", () => {
+  audio.muted = false;
+  localStorage.setItem("audioMuted", "false");
+  updateSoundButtons();
+});
+
+soundButton.addEventListener("click", () => {
+  audio.muted = true;
+  localStorage.setItem("audioMuted", "true");
+  updateSoundButtons();
+});
+
+settingButton.addEventListener("click", () => {
+  settingButton.style.display = "none";
+  settingOnButton.style.display = "block";
+  updateSoundButtons();
+});
+
+settingOnButton.addEventListener("click", () => {
+  settingOnButton.style.display = "none";
+  settingButton.style.display = "block";
+  muteButton.style.display = "none";
+  soundButton.style.display = "none";
+});
+
+muteButton.style.display = "none";
+soundButton.style.display = "none";
+
+document.getElementById("next-btn").addEventListener("click", function(event) {
+      event.preventDefault();
+
+      Swal.fire({
+          title: "Are you sure?",
+          text: "You will be redirected to the navigation page!",
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Next!",
+          cancelButtonText: "No",
+          customClass: {
+              confirmButton: "swal2-confirm",
+              cancelButton: "swal2-cancel"
+          }
+      }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = "/script/halaman_navigasi/halaman_navigasi.html";
+          }
       });
-      
-      audio.addEventListener("timeupdate", function () {
-        if (sessionStorage.getItem("sessionActive")) {
-          localStorage.setItem("audioTime", audio.currentTime);
-          localStorage.setItem("audioIndex", currentSongIndex);
-        }
-      });
-      
-      function updateSoundButtons() {
-        if (audio.muted) {
-          muteButton.style.display = "block";
-          soundButton.style.display = "none";
-        } else {
-          muteButton.style.display = "none";
-          soundButton.style.display = "block";
-        }
-      }
-      
-      muteButton.addEventListener("click", () => {
-        audio.muted = false;
-        localStorage.setItem("audioMuted", "false");
-        updateSoundButtons();
-      });
-      
-      soundButton.addEventListener("click", () => {
-        audio.muted = true;
-        localStorage.setItem("audioMuted", "true");
-        updateSoundButtons();
-      });
-      
-      settingButton.addEventListener("click", () => {
-        settingButton.style.display = "none";
-        settingOnButton.style.display = "block";
-        updateSoundButtons();
-      });
-      
-      settingOnButton.addEventListener("click", () => {
-        settingOnButton.style.display = "none";
-        settingButton.style.display = "block";
-        muteButton.style.display = "none";
-        soundButton.style.display = "none";
-      });
-      
-      muteButton.style.display = "none";
-      soundButton.style.display = "none";
-      
-      document.getElementById("next-btn").addEventListener("click", function(event) {
-        event.preventDefault();
-        let confirmed = confirm("Are you sure you want to continue?");
-        if (confirmed) {
-          window.location.href = this.getAttribute("href");
-        }
-      });
-    });
-  </script>
+  });});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

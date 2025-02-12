@@ -5,41 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/Unit3/quiz.css">
+
+  <link rel="stylesheet" href="/css/Unit1/soal.css">
 </head>
 <body>
   <div class="card">
-
+    <!-- Lives & Score -->
     <div class="lives" id="lives">
       <i class="fas fa-heart" id="heart1"></i>
       <i class="fas fa-heart" id="heart2"></i>
       <i class="fas fa-heart" id="heart3"></i>
     </div>
     <div id="score">Score: 0</div>
-
+    <!-- Header & Question -->
     <div class="card-header">
       <div class="card-alert">
         <p id="question-text"></p>
       </div>
     </div>
     <div id="question-number">1/5</div>
+    <!-- Options -->
     <div class="options" id="options-container"></div>
-
+    <!-- Result -->
     <div class="result" id="result"></div>
+    <!-- Game Over Screen -->
     <div id="game-over">
       <p id="game-over-message">Game Over!</p>
       <div class="button-container">
-        <a href="/script/halaman_navigasi/unit_3/unit3.html" id="restart-btn">
+        <a href="/script/halaman_navigasi/unit_1/unit1.html" id="restart-btn">
           <button onclick="restartGame()">Read Again</button>
         </a>
-        <a href="/script/halaman_navigasi/unit_3/quiz.html" id="restart-btn2">
+        <a href="/script/halaman_navigasi/unit_1/soal.html" id="restart-btn2">
           <button onclick="restartGame()">Restart</button>
         </a>
-        <a href="/script/halaman_navigasi/halaman_navigasi.html" id="next-btn">
+        <a href="./navigasi.html" id="next-btn">
           <button>Next</button>
         </a>
       </div>
     </div>
+    <!-- Dekorasi & Icons -->
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
@@ -50,19 +54,20 @@
       <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
       <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
     </div>
+
+    <!-- Background Music Audio Element -->
     <audio id="audio" preload="auto" loop>
       <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
       <source src="/Asset/audio/sound1.mp3" type="audio/mp3">
     </audio>
-    <audio id="hover-sound">
-      <source src="mp3/click.mp3" type="audio/mpeg">
-    </audio>
+
     <audio id="correctSound">
       <source src="/Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
-    </audio>
-    <audio id="wrongSound">
+  </audio>
+
+  <audio id="wrongSound">
       <source src="/Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
-    </audio>
+  </audio>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -72,57 +77,64 @@
           [array[i], array[j]] = [array[j], array[i]];
         }
       }
-
-
       const questions = [
-        {
-          text: "Where will they meet after History class?",
-          options: [
-            "In the gym",
-            "In the library",
-            "At the cafeteria",
-            "In the classroom"
-          ],
-          answer: "In the library"
-        },
-        {
-          text: "What will Andrew bring to the library?",
-          options: [
-            "Handphone",
-            "Laptop",
-            "Book",
-            "Novel"
-          ],
-          answer: "Book"
-        },
-        {
-          text: "When did they plan to hang out at the library?",
-          options: [
-            "After school",
-            "At break time",
-            "During class hours",
-            "Before lunch"
-          ],
-          answer: "At break time"
-        },
-        {
-          text: "Who is mentioned as going to the library?",
-          options: [
-            "Andrew",
-            "Farza",
-            "Both",
-            "Agus"
-          ],
-          answer: "Andrew"
-        }
-      ];
-
+      //   {
+      //     text: "What days do Andrew, Evelyn, and Farza have math class?",
+      //     options: [
+      //       "Tuesday, Thursday, and Saturday",
+      //       "Monday, Wednesday, and Friday",
+      //       "Monday, Wednesday, and Saturday",
+      //       "Tuesday, Thursday, and Friday"
+      //     ],
+      //     answer: "Monday, Wednesday, and Friday"
+      //   },
+      //   {
+      //     text: "How does Farza feel about math class on Monday?",
+      //     options: [
+      //       "Excited",
+      //       "Confused",
+      //       "She wishes it wasn’t the first thing on Monday",
+      //       "Happy"
+      //     ],
+      //     answer: "She wishes it wasn’t the first thing on Monday"
+      //   },
+      //   {
+      //     text: "What is something Andrew is looking forward to in math class?",
+      //     options: [
+      //       "Math games",
+      //       "Group activities",
+      //       "Break time",
+      //       "Lunch"
+      //     ],
+      //     answer: "Math games"
+      //   },
+      //   {
+      //     text: "What does Evelyn think about group activities?",
+      //     options: [
+      //       "She doesn't like them",
+      //       "She thinks they should be fun",
+      //       "She prefers individual work",
+      //       "She is unsure"
+      //     ],
+      //     answer: "She thinks they should be fun"
+      //   },
+      //   {
+      //     text: "What does Farza suggest they do to make math class better?",
+      //     options: [
+      //       "Take notes",
+      //       "Watch videos",
+      //       "Skip class",
+      //       "Help each other out"
+      //     ],
+      //     answer: "Help each other out"
+      //   }
+       ];
+     
       shuffleArray(questions);
-      
+
       let currentQuestion = 0;
-      let lives = 2;
+      let lives = 3;
       let score = 0;
-      
       const questionText = document.getElementById('question-text');
       const optionsContainer = document.getElementById('options-container');
       const livesDisplay = document.getElementById('lives');
@@ -132,7 +144,6 @@
       const gameOverMessage = document.getElementById('game-over-message');
       const questionNumberDisplay = document.getElementById('question-number');
       const totalQuestions = questions.length;
-      
       livesDisplay.innerText = `Lives: ${lives}`;
       
       function loadQuestion() {
@@ -143,7 +154,6 @@
           return;
         }
         if (currentQuestion >= questions.length) {
-
           gameOverMessage.innerHTML = `Congratulations! You finished the quiz.<br>Your final score is: ${score}`;
           document.getElementById("next-btn").style.display = "inline-block";
           document.getElementById("restart-btn").style.display = "inline-block";
@@ -162,7 +172,7 @@
           optionsContainer.appendChild(optionElement);
         });
       }
-      
+
       const correctSound = document.getElementById("correctSound");
       const wrongSound = document.getElementById("wrongSound");
       
@@ -181,7 +191,7 @@
           resultDisplay.style.color = "green";
           correctSound.play();
           correctAnswerElement.classList.add('correct');
-          score += 25;
+          score += 20;
           scoreDisplay.innerText = `Score: ${score}`;
           resultDisplay.style.opacity = 1;
           setTimeout(() => {
@@ -207,8 +217,8 @@
           }
           wrongAnswerElement.classList.add('wrong');
           resultDisplay.style.opacity = 1;
-          if (score >= 25) {
-            score -= 25;
+          if (score >= 20) {
+            score -= 20;
             scoreDisplay.innerText = `Score: ${score}`;
           } else {
             score = 0;
@@ -341,24 +351,24 @@
             event.preventDefault();
 
             Swal.fire({
-                title: "Apakah Anda yakin?",
-                text: "Anda akan diarahkan ke halaman navigasi!",
-                icon: "success",
-                showCancelButton: true,
-                confirmButtonText: "Ya, lanjutkan!",
-                cancelButtonText: "Batal",
+          title: "Are you sure?",
+          text: "You will be redirected to the navigation page!",
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Next!",
+          cancelButtonText: "No",
                 customClass: {
                     confirmButton: "swal2-confirm",
                     cancelButton: "swal2-cancel"
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "/script/halaman_navigasi/halaman_navigasi.html";
+                    window.location.href = "./navigasi";
                 }
             });
         });});
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
