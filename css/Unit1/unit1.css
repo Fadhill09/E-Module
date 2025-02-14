@@ -6,7 +6,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  background-image: url("/css/background.png");
+  background-image: url("../../css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -73,6 +73,7 @@ h2 {
   position: relative;
   text-decoration: none;
 }
+
 .button-container .button:hover {
   background: linear-gradient(90deg, #104fdd, #5db1e6);
 }
@@ -84,7 +85,7 @@ h2 {
   z-index: 1;
   color: #434982;
   border-radius: 10px;
-  padding:10px;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
 }
@@ -115,6 +116,7 @@ h2 {
 }
 
 @keyframes icon-magnifier {
+
   0%,
   100% {
     transform: rotate(0deg);
@@ -170,6 +172,7 @@ h2 {
   width: 20%;
   z-index: -1;
 }
+
 .dekorasi_2 {
   position: absolute;
   width: 10%;
@@ -197,6 +200,7 @@ h2 {
   right: 0;
   transform: rotate(180deg);
 }
+
 .image-home {
   position: absolute;
   top: 10px;
@@ -294,6 +298,7 @@ h2 {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
     border: none;
@@ -301,10 +306,12 @@ h2 {
 }
 
 @keyframes blink-caret {
+
   from,
   to {
     border-color: #4a4a8e;
   }
+
   50% {
     border-color: transparent;
   }
@@ -319,6 +326,7 @@ h2 {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -330,6 +338,7 @@ h2 {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -353,8 +362,9 @@ h2 {
 @media (max-width: 860px) {
   .typing-animation {
     font-size: 5vw;
-    width: 80%; 
+    width: 80%;
   }
+
   .button-container .button {
     left: 270px;
   }
@@ -367,6 +377,7 @@ h2 {
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }
@@ -377,6 +388,7 @@ h2 {
     font-size: 4.5vw;
     width: 85%;
   }
+
   .content {
     font-size: 1.2em;
   }
@@ -397,6 +409,7 @@ h2 {
     font-size: 5.5vw;
     width: 90%;
   }
+
   .content {
     margin-top: 30px;
     font-size: 1em;

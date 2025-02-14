@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/Asset/icon/bg-unit-3/bg-laptop-unit-3.png");
+  background-image: url("../../Asset/icon/bg-unit-3/bg-laptop-unit-3.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -90,6 +90,7 @@ body {
 }
 
 @keyframes icon-food2 {
+
   0%,
   100% {
     transform: translateY(0) rotate(-30deg);
@@ -126,6 +127,7 @@ body {
 }
 
 @keyframes icon-food1 {
+
   0%,
   100% {
     transform: rotate(-30deg);
@@ -383,6 +385,7 @@ body {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -394,6 +397,7 @@ body {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -404,6 +408,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -420,6 +425,7 @@ body {
 .characters {
   animation: fadeIn 1.7s ease-out forwards;
 }
+
 @media (max-width: 1200px) {
   .icon-food2 {
     bottom: 210px;
@@ -431,6 +437,7 @@ body {
     bottom: 200px;
   }
 }
+
 @media (max-width: 930px) {
   .conversation-container {
     width: 80%;
@@ -458,9 +465,11 @@ body {
   .characters {
     gap: 100px;
   }
+
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }
@@ -531,6 +540,7 @@ body {
     right: 300px;
     bottom: 230px;
   }
+
   .conversation-1 {
     font-size: 0.8rem;
   }

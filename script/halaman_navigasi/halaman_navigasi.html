@@ -1,229 +1,231 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/css/halaman_navigasi.css">
-      <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-          <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Responsive Layout</title>
-    <style>
-      .slide-out {
-        animation: slideOut 1s forwards;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/halaman_navigasi.css">
+  <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <title>Responsive Layout</title>
+  <style>
+    .slide-out {
+      animation: slideOut 1s forwards;
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
       }
 
-      @keyframes slideOut {
-        from {
-          transform: translateX(0);
-          opacity: 1;
-        }
-
-        to {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
+      to {
+        transform: translateX(-100%);
+        opacity: 0;
       }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
-  <body>
-    <div class="container text-center py-5">
-      <div class="nav-container">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <a href="introduction.html" class="introduction" id="introduction">Introduction</a>
-          </div>
-          <div class="col-12">
-            <a href="unit_1/unit1.html" class="unit_1" id="unit_1">Unit 1
-              <span>Talking about your class schedule</span>
-            </a>
-          </div>
-          <div class="col-12">
-            <a href="unit_2/unit2.html" class="unit_2" id="unit_2">Unit 2
-              <span>Talking about your favorite school subjects</span>
-            </a>
-          </div>
-          <div class="col-12">
-            <a href="unit_3/unit3.html" class="unit_3" id="unit_3">Unit 3
-              <span>Making plans with friends during break</span>
-            </a>
-          </div>
-          <div class="col-12">
-            <a href="review&practice/review.html" class="unit_4" id="unit_4">
-              Review & Practice
-            </a>
-          </div>
+<body>
+  <div class="container text-center py-5">
+    <div class="nav-container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <a href="./introduction.html" class="introduction" id="introduction">Introduction</a>
         </div>
-        <div class="icon-container">
-          <img class="icon-calender" src="/Asset/icon/Kalender.png" alt="Calendar Icon">
-          <img class="icon-pencil" src="/Asset/icon/Pencil.png" alt="Pencil Icon">
-          <img class="icon-airplane" src="/Asset/icon/pesawat.png" alt="Airplane Icon">
+        <div class="col-12">
+          <a href="./unit_1/unit1.html" class="unit_1" id="unit_1">Unit 1
+            <span>Talking about your class schedule</span>
+          </a>
+        </div>
+        <div class="col-12">
+          <a href="./unit_2/unit2.html" class="unit_2" id="unit_2">Unit 2
+            <span>Talking about your favorite school subjects</span>
+          </a>
+        </div>
+        <div class="col-12">
+          <a href="./unit_3/unit3.html" class="unit_3" id="unit_3">Unit 3
+            <span>Making plans with friends during break</span>
+          </a>
+        </div>
+        <div class="col-12">
+          <a href="./review&practice/review.html" class="unit_4" id="unit_4">
+            Review & Practice
+          </a>
         </div>
       </div>
+      <div class="icon-container">
+        <img class="icon-calender" src="../../Asset/icon/Kalender.png" alt="Calendar Icon">
+        <img class="icon-pencil" src="../../Asset/icon/Pencil.png" alt="Pencil Icon">
+        <img class="icon-airplane" src="../../Asset/icon/pesawat.png" alt="Airplane Icon">
+      </div>
     </div>
+  </div>
 
 
-    <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-    <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
-      style="display: none;">
+  <img src="../../Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="../../Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+    style="display: none;">
 
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-    <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-    <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+  <img src="../../Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+  <img src="../../Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+  <img src="../../Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+  <img src="../../Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
 
-    <a href="/script/cover.html">
-      <img src="/Asset/icon/home.png" alt="Home" class="image-home">
-    </a>
+  <a href="../../script/cover.html">
+    <img src="../../Asset/icon/home.png" alt="Home" class="image-home">
+  </a>
 
-    <div class="audio-controls">
-      <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-      <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
-    </div>
+  <div class="audio-controls">
+    <img src="../../Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+    <img src="../../Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
+  </div>
 
-    <audio id="audio">
-      <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
-      <source id="audioSource" src="/Asset/audio/sound1.mp3" type="audio/mp3">
-    </audio>
+  <audio id="audio" autoplay loop>
+    <source id="audioSource" src="../../Asset/audio/sound.mp3" type="audio/mp3">
+    <source id="audioSource" src="../../Asset/audio/sound1.mp3" type="audio/mp3">
+  </audio>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("audio");
-    const audioSource = document.getElementById("audioSource");
-    const muteButton = document.getElementById("muteButton");
-    const soundButton = document.getElementById("soundButton");
-    const settingButton = document.getElementById("settingButton");
-    const settingOnButton = document.getElementById("settingOnButton");
 
-    const songs = [
-      "/Asset/audio/sound.mp3",
-      "/Asset/audio/sound1.mp3",
-      "/Asset/audio/audio3.mp3"
-    ];
-    let currentSongIndex = 0;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const audioSource = document.getElementById("audioSource");
+      const muteButton = document.getElementById("muteButton");
+      const soundButton = document.getElementById("soundButton");
+      const settingButton = document.getElementById("settingButton");
+      const settingOnButton = document.getElementById("settingOnButton");
+      audio.play()
 
-    audio.addEventListener("ended", function () {
-        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+      const songs = [
+        "../../Asset/audio/sound.mp3",
+        "../../Asset/audio/sound1.mp3"
+      ];
+      let currentSongIndex = 0;
+
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
         audioSource.src = songs[currentSongIndex];
         audio.load();
-        playAudio(); // Putar lagu baru
+        playAudio();
       });
 
-    if (sessionStorage.getItem("sessionActive")) {
-      const savedTime = localStorage.getItem("audioTime");
-      const savedIndex = localStorage.getItem("audioIndex");
-
-      if (savedIndex !== null) {
-        currentSongIndex = parseInt(savedIndex);
-        audioSource.src = songs[currentSongIndex];
-        audio.load();
-      }
-      if (savedTime !== null) {
-        audio.currentTime = parseFloat(savedTime);
-      }
-    } else {
-
-      sessionStorage.removeItem("audioTime");
-      sessionStorage.removeItem("audioIndex");
-      currentSongIndex = 0;
-      audioSource.src = songs[currentSongIndex];
-      audio.load();
-    }
-
-    window.onbeforeunload = function () {
-    sessionStorage.removeItem("audioTime");
-    sessionStorage.removeItem("audioIndex");
-};
-
-
-
-    sessionStorage.setItem("sessionActive", "true");
-
-    const isMuted = localStorage.getItem("audioMuted") === "true";
-    audio.muted = isMuted;
-
-    function playAudio() {
-      audio.play().catch(() => {
-        console.log("Autoplay diblokir, menunggu interaksi pengguna.");
-      });
-    }
-
-    playAudio();
-
-    audio.addEventListener("timeupdate", function () {
       if (sessionStorage.getItem("sessionActive")) {
-        localStorage.setItem("audioTime", audio.currentTime);
-        localStorage.setItem("audioIndex", currentSongIndex);
-      }
-    });
+        const savedTime = localStorage.getItem("audioTime");
+        const savedIndex = localStorage.getItem("audioIndex");
 
-    function updateSoundButtons() {
-      if (audio.muted) {
-        muteButton.style.display = "block";
-        soundButton.style.display = "none";
+        if (savedIndex !== null) {
+          currentSongIndex = parseInt(savedIndex);
+          audioSource.src = songs[currentSongIndex];
+          audio.load();
+        }
+        if (savedTime !== null) {
+          audio.currentTime = parseFloat(savedTime);
+        }
       } else {
-        muteButton.style.display = "none";
-        soundButton.style.display = "block";
+
+        sessionStorage.removeItem("audioTime");
+        sessionStorage.removeItem("audioIndex");
+        currentSongIndex = 0;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
       }
-    }
 
-    muteButton.addEventListener("click", () => {
-      audio.muted = false;
-      localStorage.setItem("audioMuted", "false");
-      updateSoundButtons();
-    });
+      window.onbeforeunload = function () {
+        sessionStorage.removeItem("audioTime");
+        sessionStorage.removeItem("audioIndex");
+      };
 
-    soundButton.addEventListener("click", () => {
-      audio.muted = true;
-      localStorage.setItem("audioMuted", "true");
-      updateSoundButtons();
-    });
 
-    settingButton.addEventListener("click", () => {
-      settingButton.style.display = "none";
-      settingOnButton.style.display = "block";
 
-      if (audio.muted) {
-        muteButton.style.display = "block";
+      sessionStorage.setItem("sessionActive", "true");
+
+      const isMuted = localStorage.getItem("audioMuted") === "true";
+      audio.muted = isMuted;
+
+      function playAudio() {
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, menunggu interaksi pengguna.");
+        });
+      }
+
+      playAudio();
+
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+
+      function updateSoundButtons() {
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      }
+
+      muteButton.addEventListener("click", () => {
+        audio.muted = false;
+        localStorage.setItem("audioMuted", "false");
+        updateSoundButtons();
+      });
+
+      soundButton.addEventListener("click", () => {
+        audio.muted = true;
+        localStorage.setItem("audioMuted", "true");
+        updateSoundButtons();
+      });
+
+      settingButton.addEventListener("click", () => {
+        settingButton.style.display = "none";
+        settingOnButton.style.display = "block";
+
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
+      });
+
+      settingOnButton.addEventListener("click", () => {
+        settingOnButton.style.display = "none";
+        settingButton.style.display = "block";
+
+        muteButton.style.display = "none";
         soundButton.style.display = "none";
-      } else {
-        muteButton.style.display = "none";
-        soundButton.style.display = "block";
-      }
-    });
-
-    settingOnButton.addEventListener("click", () => {
-      settingOnButton.style.display = "none";
-      settingButton.style.display = "block";
+      });
 
       muteButton.style.display = "none";
       soundButton.style.display = "none";
     });
 
-    muteButton.style.display = "none";
-    soundButton.style.display = "none";
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+      const navContainer = document.querySelector(".nav-container");
+      const navButtons = document.querySelectorAll(".nav-container a");
 
-  document.addEventListener("DOMContentLoaded", function () {
-  const navContainer = document.querySelector(".nav-container");
-  const navButtons = document.querySelectorAll(".nav-container a");
+      navButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          const targetUrl = this.getAttribute("href");
 
-  navButtons.forEach(button => {
-    button.addEventListener("click", function (event) {
-      event.preventDefault(); 
-      const targetUrl = this.getAttribute("href");
+          navContainer.classList.add("slide-out");
 
-      navContainer.classList.add("slide-out");
-
-      setTimeout(() => {
-        window.location.href = targetUrl;
-      }, 1000); 
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 1000);
+        });
+      });
     });
-  });
-});
 
-    </script>
-  </body>
+  </script>
+</body>
 
-  </html>
+</html>

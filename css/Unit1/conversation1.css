@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/css/background.png");
+  background-image: url("../../css/background.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -31,7 +31,7 @@ body {
   }
 }
 
-.page-body{
+.page-body {
   width: 100%;
   justify-items: center;
 }
@@ -42,7 +42,7 @@ body {
   margin-bottom: 250px;
   z-index: 10;
   border-radius: 10px;
-  padding:10px;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
 }
@@ -91,6 +91,7 @@ body {
 }
 
 @keyframes icon-topi {
+
   0%,
   100% {
     transform: translateY(0) rotate(-30deg);
@@ -127,6 +128,7 @@ body {
 }
 
 @keyframes icon-jangka {
+
   0%,
   100% {
     transform: rotate(-30deg);
@@ -384,6 +386,7 @@ body {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -395,6 +398,7 @@ body {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -405,6 +409,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -418,9 +423,10 @@ body {
   animation: slideIn 1.8s ease-out forwards;
 }
 
-.characters{
+.characters {
   animation: fadeIn 1.7s ease-out forwards;
 }
+
 @media (max-width: 1200px) {
   .icon-topi {
     bottom: 210px;
@@ -432,12 +438,13 @@ body {
     bottom: 200px;
   }
 }
+
 @media (max-width: 930px) {
   .conversation-container {
     width: 80%;
     margin-bottom: 200px;
   }
-  
+
   .icon-topi {
     height: 55px;
     bottom: 220px;
@@ -459,9 +466,11 @@ body {
   .characters {
     gap: 100px;
   }
+
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }

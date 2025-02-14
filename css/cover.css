@@ -5,10 +5,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/css/background.png");
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
+  background-image: url("../css/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   overflow: hidden;
   height: 100vh;
 }
@@ -29,20 +29,20 @@ h1 {
   color: #ffffff;
   margin: 0 0 20px 10px;
   animation: fadeIn 1s ease-out forwards;
-  animation:  h1 4s ease-in .3s infinite alternate both;
+  animation: h1 4s ease-in .3s infinite alternate both;
 }
 
-@keyframes  h1 {
+@keyframes h1 {
   0% {
-	transform: scale(1) rotate(-3.5deg);
+    transform: scale(1) rotate(-3.5deg);
   }
 
   50% {
-	transform: scale(1.1) rotate(-3.5deg);
+    transform: scale(1.1) rotate(-3.5deg);
   }
 
   100% {
-	transform: scale(1) rotate(-3.5deg);
+    transform: scale(1) rotate(-3.5deg);
   }
 }
 
@@ -54,19 +54,20 @@ h2 {
   margin: 0 0 20px;
   transform: rotate(2.5deg);
   animation: fadeUp 1.2s ease-out forwards;
-  animation:  h2 5s ease-in .3s infinite alternate both;
+  animation: h2 5s ease-in .3s infinite alternate both;
 }
-@keyframes  h2 {
+
+@keyframes h2 {
   0% {
-	transform: scale(1) rotate(2.5deg);
+    transform: scale(1) rotate(2.5deg);
   }
 
   50% {
-	transform: scale(1.1) rotate(2.5deg);
+    transform: scale(1.1) rotate(2.5deg);
   }
 
   100% {
-	transform: scale(1) rotate(2.5deg);
+    transform: scale(1) rotate(2.5deg);
   }
 }
 
@@ -141,7 +142,7 @@ p {
 
 .start-btn:active {
   transform: scale(0.95);
-  box-shadow: 0 4px 10px  rgba(7, 133, 183, 0.457);
+  box-shadow: 0 4px 10px rgba(7, 133, 183, 0.457);
   background: linear-gradient(90deg, #5de0e6, #004aad);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -175,6 +176,7 @@ p {
 }
 
 @keyframes icon-jangka {
+
   0%,
   100% {
     transform: rotate(0deg);
@@ -265,6 +267,7 @@ p {
 }
 
 @keyframes icon-magnifier {
+
   0%,
   100% {
     transform: rotate(0deg);
@@ -319,6 +322,7 @@ p {
 }
 
 @keyframes icon-clock {
+
   0%,
   100% {
     transform: rotate(0deg);
@@ -389,16 +393,19 @@ p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(-3.5deg);
   }
 }
+
 @keyframes fade {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -410,6 +417,7 @@ p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(2.5deg);
@@ -421,6 +429,7 @@ p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -432,6 +441,7 @@ p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(180deg);
@@ -443,6 +453,7 @@ p {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -454,6 +465,7 @@ p {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -483,7 +495,7 @@ p {
 
 @media (max-width: 860px) {
 
-  body{
+  body {
     overflow: hidden;
     min-height: 100vh;
   }
@@ -525,6 +537,7 @@ p {
   .dekorasi_1 {
     width: 30%;
   }
+
   .dekorasi_2 {
     width: 20%;
   }
@@ -547,9 +560,9 @@ p {
 
 }
 
-@media (max-width:430px){
+@media (max-width:430px) {
 
-  body{
+  body {
     overflow: hidden;
     min-height: 100vh;
   }
@@ -573,10 +586,12 @@ p {
     bottom: 65px;
     left: 15%;
   }
+
   .icon-jangka {
     bottom: -10;
     left: 1%;
   }
+
   .icon-magnifier {
     top: -90px;
     right: -5%;
