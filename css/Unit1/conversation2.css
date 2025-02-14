@@ -71,6 +71,18 @@ body {
   font-size: 1rem;
   margin-bottom: 5px;
 }
+.conversation-3 {
+  background-color:rgb(0, 22, 44);
+  text-align: end;
+  font-weight: bold;
+  color: white;
+  width: fit-content;
+  margin-left: 100px;
+  padding: 10px 15px;
+  border-radius: 20px 20px 4px 20px;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
 
 .button-container {
   align-self: center;
@@ -531,6 +543,9 @@ body {
   .conversation-2 {
     padding: 5px 15px;
   }
+  .conversation-3 {
+    padding: 5px 15px;
+  }
 
   .button-container .button {
     left: 270px;
@@ -642,6 +657,11 @@ body {
 
   .conversation-2 {
     font-size: 0.8rem;
+  }
+  .conversation-3 {
+    font-size: 0.8rem;
+    margin-right: 40px;
+    margin-left: 40px;
   }
 
   .button-container .button {
