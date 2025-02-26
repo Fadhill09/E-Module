@@ -241,12 +241,11 @@ body {
 .character_girl img {
   width: 105px;
 }
-
-.character_boy img {
-  width: 122px;
+.character_girl2 img {
+  width: 105px;
 }
 
-.character_boy2 img {
+.character_boy img {
   width: 122px;
 }
 
@@ -368,8 +367,25 @@ body {
   width: 105px;
   animation: character_girl 5s ease-in 0.3s infinite alternate both;
 }
+.character_girl2 img {
+  width: 105px;
+  animation: character_girl2 5s ease-in 0.3s infinite alternate both;
+}
 
 @keyframes character_girl {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes character_girl2 {
   0% {
     transform: scale(1);
   }
