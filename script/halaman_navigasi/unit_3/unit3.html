@@ -34,7 +34,7 @@
     <div class="container pt-3 mt-n5">
       <h1 class="title text-center">Unit 3</h1>
       <h2 class="text-center typing-animation" id="typingText" style="color: #434982;">Making Plans With Friends During
-        Break</h2>
+        Break </h2>
       <div class="content text-center">
         In this section students will learn how to plan activities or meet friends during break time after class. <br>
         listen to the following conversation, try to understand its meaning and, practice it with chairmate
@@ -89,10 +89,10 @@
       let currentSongIndex = 0;
 
       audio.addEventListener("ended", function () {
-        currentSongIndex = (currentSongIndex + 1) % songs.length; // Pindah ke lagu berikutnya, kembali ke awal jika di akhir array
+        currentSongIndex = (currentSongIndex + 1) % songs.length; 
         audioSource.src = songs[currentSongIndex];
         audio.load();
-        playAudio(); // Putar lagu baru
+        playAudio(); 
       });
 
       if (sessionStorage.getItem("sessionActive")) {

@@ -52,46 +52,36 @@ h2 {
   font-weight: bold;
   color: #f2a65a;
   margin: 0 0 20px;
-  transform: rotate(2.5deg);
+  transform: rotate(-5deg);
   animation: fadeUp 1.2s ease-out forwards;
   animation: h2 5s ease-in .3s infinite alternate both;
 }
 
 @keyframes h2 {
   0% {
-    transform: scale(1) rotate(2.5deg);
+    transform: scale(1) rotate(-5deg);
   }
 
   50% {
-    transform: scale(1.1) rotate(2.5deg);
+    transform: scale(1.1) rotate(-5deg);
   }
 
   100% {
-    transform: scale(1) rotate(2.5deg);
+    transform: scale(1) rotate(-5deg);
   }
 }
 
-p {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #4a4a8e;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  animation: fadeOn 1.4s ease-out forwards;
-}
 
 .design {
-  color: #ffffff;
+  color: #c70000;
   position: absolute;
+  font-weight: bold;
   left: 42%;
-  bottom: -25%;
+  bottom: -10%;
 }
 
 .design a {
-  color: #ffffff;
+  color: #c70000;
   text-decoration: none;
 }
 
@@ -113,7 +103,7 @@ p {
   border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 150px;
   overflow: hidden;
   z-index: 10;
   transition: all 0.3s ease !important;
@@ -493,6 +483,13 @@ p {
   animation: fadeInn 1.7s ease-out forwards;
 }
 
+@media (max-width: 1070px) {
+  h1 {
+    font-size: 0rem;
+
+  }
+}
+
 @media (max-width: 860px) {
 
   body {
@@ -543,8 +540,7 @@ p {
   }
 
   h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 0rem;
   }
 
   h2 {

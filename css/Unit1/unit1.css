@@ -389,10 +389,6 @@ h2 {
     width: 85%;
   }
 
-  .content {
-    font-size: 1.2em;
-  }
-
   .button-container .button {
     left: 180px;
   }
@@ -408,11 +404,6 @@ h2 {
     margin-top: 10px;
     font-size: 5.5vw;
     width: 90%;
-  }
-
-  .content {
-    margin-top: 30px;
-    font-size: 1em;
   }
 
   .button-container .button {

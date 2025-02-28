@@ -242,7 +242,7 @@ body {
   width: 105px;
 }
 .character_girl2 img {
-  width: 105px;
+  width: 100px;
 }
 
 .character_boy img {
@@ -364,11 +364,11 @@ body {
 }
 
 .character_girl img {
-  width: 105px;
+  width: 80px;
   animation: character_girl 5s ease-in 0.3s infinite alternate both;
 }
 .character_girl2 img {
-  width: 105px;
+  width: 80px;
   animation: character_girl2 5s ease-in 0.3s infinite alternate both;
 }
 
@@ -400,26 +400,7 @@ body {
 }
 
 .character_boy img {
-  width: 122px;
-  animation: character_boy 5s ease-in 0.3s infinite alternate both;
-}
-
-@keyframes character_boy {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.character_boy2 img {
-  width: 122px;
+  width: 90px;
   animation: character_boy2 5s ease-in 0.3s infinite alternate both;
 }
 
@@ -619,11 +600,11 @@ body {
     width: 90px;
   }
 
-  .character_boy img {
-    width: 105px;
+  .character_girl2 img {
+    width: 90px;
   }
 
-  .character_boy2 img {
+  .character_boy img {
     width: 105px;
   }
 }
@@ -692,6 +673,10 @@ body {
     width: 70px;
   }
 
+  .character_girl2 img {
+    width: 70px;
+  }
+
   .character_boy img {
     width: 82px;
   }
@@ -700,13 +685,6 @@ body {
     width: 82px;
   }
 
-  /* .character_girl img {
-      width: 17vw;
-    }
-  
-    .character_boy img {
-      width: 19.5vw;
-    } */
 }
 
 @media (max-width: 390px) {

@@ -46,14 +46,18 @@ body {
 
 .nav-container a span {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: normal;
   color: #f0f0f0;
   margin-top: 1px;
   line-height: 1.2;
 }
-
+.nav-container .introduction-1{
+  font-size: 1rem;
+  font-weight: bold;
+}
 .nav-container .introduction {
+  font-size: 0;
   background: linear-gradient(90deg, #5de0e6, #004aad);
 }
 .nav-container .unit_1 {
@@ -71,7 +75,13 @@ body {
   background: linear-gradient(90deg, #5de0e6, #004aad);
 }
 
+
+.nav-container .unit_4_1{
+  font-size: 1rem;
+  font-weight: bold;
+}
 .nav-container .unit_4 {
+  font-size: 0;
   background: linear-gradient(90deg, #8c52ff, #ff914d);
 }
 

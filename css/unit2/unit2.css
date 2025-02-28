@@ -349,10 +349,6 @@ h2 {
     width: 80%;
   }
 
-  .content {
-    font-size: 1em;
-  }
-
   .button-container .button {
     left: 270px;
   }
@@ -377,10 +373,6 @@ h2 {
     width: 85%;
   }
 
-  .content {
-    font-size: 1em;
-  }
-
   .button-container .button {
     left: 180px;
   }
@@ -398,11 +390,6 @@ h2 {
     width: 90%;
   }
 
-  .content {
-    margin-top: 30px;
-    font-size: .9em;
-  }
-
   .button-container .button {
     left: 90px;
   }
@@ -417,5 +404,12 @@ h2 {
   .icon-magnifier {
     width: 50px;
     height: 50px;
+  }
+}
+
+
+@media (max-width: 340px){
+  .content{
+    font-size: 28px;
   }
 }
