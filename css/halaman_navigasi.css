@@ -59,6 +59,7 @@ body {
 .nav-container .introduction {
   font-size: 0;
   background: linear-gradient(90deg, #5de0e6, #004aad);
+  line-height: 30px;
 }
 .nav-container .unit_1 {
   background: linear-gradient(90deg, #8c52ff, #5ce1e6);
@@ -83,6 +84,7 @@ body {
 .nav-container .unit_4 {
   font-size: 0;
   background: linear-gradient(90deg, #8c52ff, #ff914d);
+  line-height: 30px;
 }
 
 

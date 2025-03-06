@@ -239,7 +239,7 @@ body {
 }
 
 .character_girl img {
-  width: 105px;
+  width: 155px;
 }
 .character_girl2 img {
   width: 100px;
@@ -364,7 +364,7 @@ body {
 }
 
 .character_girl img {
-  width: 80px;
+  width: 100px;
   animation: character_girl 5s ease-in 0.3s infinite alternate both;
 }
 .character_girl2 img {
@@ -597,7 +597,7 @@ body {
   }
 
   .character_girl img {
-    width: 90px;
+    width: 120px;
   }
 
   .character_girl2 img {
@@ -670,7 +670,7 @@ body {
   }
 
   .character_girl img {
-    width: 70px;
+    width: 90px;
   }
 
   .character_girl2 img {
