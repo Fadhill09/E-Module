@@ -230,7 +230,7 @@ body {
 }
 
 .character_girl img {
-  width: 105px;
+  width: 135px;
   animation: character_girl 5s ease-in 0.3s infinite alternate both;
 }
 
@@ -497,7 +497,7 @@ body {
   }
 
   .character_girl img {
-    width: 90px;
+    width: 110px;
   }
 
   .character_boy img {
@@ -555,7 +555,7 @@ body {
   }
 
   .character_girl img {
-    width: 70px;
+    width: 90px;
   }
 
   .character_boy img {
