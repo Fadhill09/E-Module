@@ -80,7 +80,7 @@ h2 {
 
 .content {
   margin-top: 5px;
-  font-size: 1.8em;
+  font-size: 1.3em;
   font-weight: 600;
   z-index: 1;
   color: #434982;
@@ -361,7 +361,7 @@ h2 {
 
 @media (max-width: 860px) {
   .typing-animation {
-    font-size: 3.5vw;
+    font-size: 4vw;
     width: 80%;
   }
 
@@ -385,7 +385,7 @@ h2 {
 
 @media (max-width: 700px) {
   .typing-animation {
-    font-size: 3vw;
+    font-size: 4.5vw;
     width: 85%;
   }
 
@@ -402,7 +402,7 @@ h2 {
 @media (max-width: 500px) {
   .typing-animation {
     margin-top: 10px;
-    font-size: 4vw;
+    font-size: 5.5vw;
     width: 90%;
   }
 
