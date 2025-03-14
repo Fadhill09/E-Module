@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/glosarium.css">
+  <link rel="stylesheet" href="../../css/glosarium.css">
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Glosarium</title>
@@ -69,26 +69,26 @@
 
 
 
-  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
-  <img src="/Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
-  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
-  <img src="/Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
+  <img src="../../Asset/icon/dekorasi_1.png" alt="Dekorasi_1" class="dekorasi_1 dekorasi-top-right-1 ">
+  <img src="../../Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
+  <img src="../../Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
+  <img src="../../Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-bottom-right-2">
 
-  <a href="/script/halaman_navigasi/halaman_navigasi.html">
-    <img src="/Asset/icon/home.png" alt="Home" class="image-home">
+  <a href="../../script/halaman_navigasi/halaman_navigasi.html">
+    <img src="../../Asset/icon/home.png" alt="Home" class="image-home">
   </a>
 
-  <img src="/Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
-  <img src="/Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
+  <img src="../../Asset/icon/Setting.png" alt="Setting" class="image-setting" id="settingButton">
+  <img src="../../Asset/icon/Setting On.png" alt="Setting On" class="image-setting-on" id="settingOnButton"
     style="display: none;">
 
   <div class="audio-controls">
-    <img src="/Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
-    <img src="/Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
+    <img src="../../Asset/icon/Mute.png" alt="Mute" class="image-mute" id="muteButton" style="display: none;">
+    <img src="../../Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display:none;">
   </div>
 
   <audio id="audio" preload="auto" loop>
-    <source id="audioSource" src="/Asset/audio/sound.mp3" type="audio/mp3">
+    <source id="audioSource" src="../../Asset/audio/sound.mp3" type="audio/mp3">
   </audio>
 
   <script>
@@ -170,22 +170,27 @@ nextBtn.addEventListener("click", () => {
 showPage(currentPage);
 
 
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
       const audio = document.getElementById("audio");
       const audioSource = document.getElementById("audioSource");
       const muteButton = document.getElementById("muteButton");
       const soundButton = document.getElementById("soundButton");
       const settingButton = document.getElementById("settingButton");
       const settingOnButton = document.getElementById("settingOnButton");
+      audio.play()
 
       const songs = [
-        "/Asset/audio/sound.mp3",
-        "/Asset/audio/audio2.mp3",
-        "/Asset/audio/audio3.mp3"
+        "../../Asset/audio/sound.mp3",
+        "../../Asset/audio/sound1.mp3"
       ];
       let currentSongIndex = 0;
 
-      audio.loop = true;
+      audio.addEventListener("ended", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioSource.src = songs[currentSongIndex];
+        audio.load();
+        playAudio();
+      });
 
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
@@ -200,12 +205,20 @@ showPage(currentPage);
           audio.currentTime = parseFloat(savedTime);
         }
       } else {
-        localStorage.removeItem("audioTime");
-        localStorage.removeItem("audioIndex");
+
+        sessionStorage.removeItem("audioTime");
+        sessionStorage.removeItem("audioIndex");
         currentSongIndex = 0;
         audioSource.src = songs[currentSongIndex];
         audio.load();
       }
+
+      window.onbeforeunload = function () {
+        sessionStorage.removeItem("audioTime");
+        sessionStorage.removeItem("audioIndex");
+      };
+
+
 
       sessionStorage.setItem("sessionActive", "true");
 
@@ -220,9 +233,21 @@ showPage(currentPage);
 
       playAudio();
 
+      audio.addEventListener("timeupdate", function () {
+        if (sessionStorage.getItem("sessionActive")) {
+          localStorage.setItem("audioTime", audio.currentTime);
+          localStorage.setItem("audioIndex", currentSongIndex);
+        }
+      });
+
       function updateSoundButtons() {
-        muteButton.style.display = audio.muted ? "block" : "none";
-        soundButton.style.display = audio.muted ? "none" : "block";
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
       }
 
       muteButton.addEventListener("click", () => {
@@ -240,22 +265,32 @@ showPage(currentPage);
       settingButton.addEventListener("click", () => {
         settingButton.style.display = "none";
         settingOnButton.style.display = "block";
-        updateSoundButtons();
+
+        if (audio.muted) {
+          muteButton.style.display = "block";
+          soundButton.style.display = "none";
+        } else {
+          muteButton.style.display = "none";
+          soundButton.style.display = "block";
+        }
       });
 
       settingOnButton.addEventListener("click", () => {
         settingOnButton.style.display = "none";
         settingButton.style.display = "block";
+
         muteButton.style.display = "none";
         soundButton.style.display = "none";
       });
 
+      muteButton.style.display = "none";
+      soundButton.style.display = "none";
+    });
       document.getElementById("button-next")?.addEventListener("click", function (event) {
         event.preventDefault();
         document.querySelector(".page-body")?.classList.add("slide-out");
         setTimeout(() => window.location.href = this.getAttribute("href"), 1000);
       });
-    });
   </script>
 </body>
 
