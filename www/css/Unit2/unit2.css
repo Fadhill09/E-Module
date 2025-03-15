@@ -55,6 +55,7 @@ h2 {
 .button-container {
   margin-top: 20px;
   align-self: center;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -64,11 +65,11 @@ h2 {
   padding: 8px 45px;
   font-size: 16px;
   border-radius: 15px;
+  left: 500px;
   color: white;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  left: 500px;
   position: relative;
   text-decoration: none;
 }
@@ -100,7 +101,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   z-index: -1;
 }
 
@@ -200,6 +201,15 @@ h2 {
   transform: rotate(180deg);
 }
 
+.image-home {
+  position: absolute;
+  top: 10px;
+  right: 55px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
 .image-setting {
   position: absolute;
   top: 10px;
@@ -224,6 +234,12 @@ h2 {
 
 .image-sound {
   transition: all 0.3s ease;
+}
+
+.image-home:hover {
+  transform: scale(1.3);
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .image-setting:hover {
@@ -406,4 +422,3 @@ h2 {
     height: 50px;
   }
 }
-

@@ -87,7 +87,7 @@
 
         <div class="characters">
             <div class="character_girl">
-                <img src="../../../Asset/icon/Perempuan.png" alt="Character Girl">
+                <img src="../../../Asset/icon/cewek.png" alt="Character Girl">
             </div>
             <div class="board-container">
                 <img class="board" src="../../../Asset/icon/papan_tulis.png" alt="Character Girl">
@@ -321,38 +321,37 @@
         // conversation
 
         const conversations = {
-    default: [
-        { speaker: "Galih", text: "I really like science. How about you?", audio: "./Asset/audio/unit1/conversation1/farza.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "I'm into English! I love reading stories.", audio: "./Asset/audio/unit1/conversation1/brian1.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "Nice! I like science, but I find history a bit boring.", audio: "./Asset/audio/unit1/conversation1/farza1.mp3", image: "./Asset/icon/Sound.png" }
-    ],
-    sports: [
-        { speaker: "Laura", text: "What's your favorite subject?", audio: "", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "Do you play any sports?", audio: "", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "Yes! I love playing soccer!", audio: "", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "That's great! Are you part of a team?", audio: "", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "Yes, I play for my school team. We have matches every weekend!", audio: "", image: "./Asset/icon/Sound.png" }
-    ],
-    history: [
-        { speaker: "Laura", text: "Do you like history?", audio: "./Asset/audio/unit1/conversation1/brian.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "It's interesting, but sometimes too detailed.", audio: "./Asset/audio/unit1/conversation1/farza.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "I get that! But do you have a favorite historical event?", audio: "./Asset/audio/unit1/conversation1/brian1.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "Yes! I find the Renaissance period really fascinating.", audio: "./Asset/audio/unit1/conversation1/farza1.mp3", image: "./Asset/icon/Sound.png" }
-    ],
-    science: [
-        { speaker: "Laura", text: "Do you like science?", audio: "./Asset/audio/unit1/conversation1/brian.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "Yes! Science explains how everything works!", audio: "./Asset/audio/unit1/conversation1/farza.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "That's true! Do you like physics or biology more?", audio: "./Asset/audio/unit1/conversation1/brian1.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "I love physics! Learning about space and gravity is so exciting.", audio: "./Asset/audio/unit1/conversation1/farza1.mp3", image: "./Asset/icon/Sound.png" }
-    ],
-    math: [
-        { speaker: "Laura", text: "Do you like math?", audio: "./Asset/audio/unit1/conversation1/brian.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "It's challenging, but I enjoy solving problems.", audio: "./Asset/audio/unit1/conversation1/farza.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Laura", text: "Nice! Do you prefer algebra or geometry?", audio: "./Asset/audio/unit1/conversation1/brian1.mp3", image: "./Asset/icon/Sound.png" },
-        { speaker: "Galih", text: "I really like algebra! Equations are like puzzles to me.", audio: "./Asset/audio/unit1/conversation1/farza1.mp3", image: "./Asset/icon/Sound.png" }
-    ]
-};
-
+            default: [
+                { speaker: "Laura", text: "What's your favorite subject?", audio: "" },
+                { speaker: "Galih", text: "I really like science. How about you?", audio: "" },
+                { speaker: "Laura", text: "I'm into English! I love reading stories.", audio: "" },
+                { speaker: "Galih", text: "Nice! I like science, but I find history a bit boring.", audio: "" }
+            ],
+            sports: [
+                { speaker: "Laura", text: "Do you play any sports?", audio: "" },
+                { speaker: "Galih", text: "Yes! I love playing soccer!", audio: "" },
+                { speaker: "Laura", text: "That's great! Are you part of a team?", audio: "" },
+                { speaker: "Galih", text: "Yes, I play for my school team. We have matches every weekend!", audio: "" }
+            ],
+            history: [
+                { speaker: "Laura", text: "Do you like history?", audio: "" },
+                { speaker: "Galih", text: "It's interesting, but sometimes too detailed.", audio: "" },
+                { speaker: "Laura", text: "I get that! But do you have a favorite historical event?", audio: "" },
+                { speaker: "Galih", text: "Yes! I find the Renaissance period really fascinating.", audio: "" }
+            ],
+            science: [
+                { speaker: "Laura", text: "Do you like science?", audio: "" },
+                { speaker: "Galih", text: "Yes! Science explains how everything works!", audio: "" },
+                { speaker: "Laura", text: "That's true! Do you like physics or biology more?", audio: "" },
+                { speaker: "Galih", text: "I love physics! Learning about space and gravity is so exciting.", audio: "" }
+            ],
+            math: [
+                { speaker: "Laura", text: "Do you like math?", audio: "" },
+                { speaker: "Galih", text: "It's challenging, but I enjoy solving problems.", audio: "" },
+                { speaker: "Laura", text: "Nice! Do you prefer algebra or geometry?", audio: "" },
+                { speaker: "Galih", text: "I really like algebra! Equations are like puzzles to me.", audio: "" }
+            ]
+        };
 
         function updateConversation(topic) {
             const conversationContainer = document.querySelector(".conversation-container");
@@ -371,7 +370,7 @@
                 textSpan.textContent = `${line.speaker}: ${line.text}`;
 
                 const audioIcon = document.createElement("img");
-                audioIcon.src = "/Asset/icon/Sound.png";
+                audioIcon.src = "../../../Asset/icon/Sound.png";
                 audioIcon.alt = "Audio";
                 audioIcon.className = "audio-icon";
                 audioIcon.addEventListener("click", () => playAudio(line.audio));

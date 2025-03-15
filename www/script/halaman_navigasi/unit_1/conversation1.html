@@ -78,7 +78,7 @@
 
     <div class="characters">
       <div class="character_girl">
-        <img src="../../../Asset/icon/Perempuan.png" alt="Character Girl" />
+        <img src="../../../Asset/icon/cewek.png" alt="Character Girl" />
       </div>
       <div class="character_boy">
         <img src="../../../Asset/icon/Laki_Laki.png" alt="Character Boy" />
@@ -120,31 +120,30 @@
       const settingButton = document.getElementById("settingButton");
       const settingOnButton = document.getElementById("settingOnButton");
 
-      // Variabel global untuk menyimpan audio percakapan yang sedang berjalan
+    
       let currentConversationAudio = null;
-      // Flag untuk menandai bahwa musik latar dijeda karena audio percakapan dimainkan
+    
       let backgroundAudioPausedForConversation = false;
 
-      // Fungsi untuk memainkan audio percakapan dan mengatur agar musik latar dijeda sementara.
+     
       function handleConversationPlay(convAudioId) {
-        // Hentikan audio percakapan yang sedang berjalan (jika ada)
+      
         if (currentConversationAudio && !currentConversationAudio.paused) {
           currentConversationAudio.pause();
           currentConversationAudio.currentTime = 0;
         }
 
         const convAudio = document.getElementById(convAudioId);
-        currentConversationAudio = convAudio; // Set audio percakapan saat ini
-
+        currentConversationAudio = convAudio; 
         if (convAudio) {
           convAudio.currentTime = 0;
           convAudio.play().catch(error => console.log("Autoplay diblokir:", error));
-          // Jika musik latar sedang berjalan, pause musik latar
+
           if (!backgroundAudio.paused) {
             backgroundAudio.pause();
             backgroundAudioPausedForConversation = true;
           }
-          // Setelah audio percakapan selesai, kembalikan musik latar (jika sebelumnya dijeda)
+        
           convAudio.addEventListener("ended", function resumeBackground() {
             if (backgroundAudioPausedForConversation) {
               backgroundAudio.play().catch(error => console.log("Error resuming background audio:", error));
@@ -155,7 +154,7 @@
         }
       }
 
-      // Tambahkan event listener untuk setiap ikon audio percakapan
+   
       document.getElementById("audio-1").addEventListener("click", function () {
         handleConversationPlay("audio1");
       });
@@ -169,14 +168,14 @@
         handleConversationPlay("audio4");
       });
 
-      // Jika musik latar diklik, maka musik latar akan dijeda
+     
       backgroundAudio.addEventListener("click", function () {
         if (!backgroundAudio.paused) {
           backgroundAudio.pause();
         }
       });
 
-      // Playlist musik latar
+
       const songs = [
         "../../../Asset/audio/sound.mp3",
         "../../../Asset/audio/sound1.mp3",
@@ -190,7 +189,7 @@
         backgroundAudio.play().catch(error => console.log("Error playing next background audio:", error));
       });
 
-      // Mengatur progress musik latar dengan sessionStorage/localStorage
+     
       if (sessionStorage.getItem("sessionActive")) {
         const savedTime = localStorage.getItem("audioTime");
         const savedIndex = localStorage.getItem("audioIndex");
@@ -211,7 +210,6 @@
       }
       sessionStorage.setItem("sessionActive", "true");
 
-      // Atur status mute musik latar
       const isMuted = localStorage.getItem("audioMuted") === "true";
       backgroundAudio.muted = isMuted;
 
@@ -229,7 +227,7 @@
         }
       });
 
-      // Fungsi untuk mengupdate tampilan tombol mute/sound
+     
       function updateSoundButtons() {
         muteButton.style.display = backgroundAudio.muted ? "block" : "none";
         soundButton.style.display = backgroundAudio.muted ? "none" : "block";
@@ -262,7 +260,7 @@
       muteButton.style.display = "none";
       soundButton.style.display = "none";
 
-      // Animasi slide-out untuk tombol Next
+     
       document.getElementById("button-next").addEventListener("click", function (event) {
         event.preventDefault();
         const container = document.querySelector(".page-body");
