@@ -7,46 +7,46 @@
   <title>English Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../../../css/Unit2/soal.css">
+
+  <link rel="stylesheet" href="../../../css/Unit1/soal.css">
 </head>
 
 <body>
   <div class="card">
-
+    <!-- Lives & Score -->
     <div class="lives" id="lives">
       <i class="fas fa-heart" id="heart1"></i>
       <i class="fas fa-heart" id="heart2"></i>
       <i class="fas fa-heart" id="heart3"></i>
     </div>
     <div id="score">Score: 0</div>
-
+    <!-- Header & Question -->
     <div class="card-header">
       <div class="card-alert">
         <p id="question-text"></p>
       </div>
     </div>
     <div id="question-number">1/5</div>
-
+    <!-- Options -->
     <div class="options" id="options-container"></div>
-
+    <!-- Result -->
     <div class="result" id="result"></div>
-
+    <!-- Game Over Screen -->
     <div id="game-over">
       <p id="game-over-message">Game Over!</p>
       <div class="button-container">
-        <a href="./unit2.html" id="restart-btn">
+        <a href="./unit1.html" id="restart-btn">
           <button onclick="restartGame()">Read Again</button>
         </a>
         <a href="./soal.html" id="restart-btn2">
           <button onclick="restartGame()">Restart</button>
         </a>
-        <a href="../halaman_navigasi.html/halaman_navigasi.html" id="next-btn">
+        <a href="../halaman_navigasi.html" id="next-btn">
           <button>Next</button>
         </a>
       </div>
     </div>
-
-
+    <!-- Dekorasi & Icons -->
     <img src="../../../Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-top-right-1">
     <img src="../../../Asset/icon/dekorasi_1.png" alt="Dekorasi 1" class="dekorasi_1 dekorasi-bottom-left-1">
     <img src="../../../Asset/icon/dekorasi_2.png" alt="Dekorasi 2" class="dekorasi_2 dekorasi-top-left-2">
@@ -59,6 +59,7 @@
       <img src="../../../Asset/icon/Sound.png" alt="Sound" class="image-sound" id="soundButton" style="display: none;">
     </div>
 
+    <!-- Background Music Audio Element -->
     <audio id="audio" preload="auto" loop>
       <source id="audioSource" src="../../../Asset/audio/sound.mp3" type="audio/mp3">
       <source src="../../../Asset/audio/sound1.mp3" type="audio/mp3">
@@ -67,15 +68,11 @@
     <audio id="correctSound">
       <source src="../../../Asset/audio/unit1/soal/correct.wav" type="audio/mp3">
     </audio>
+
     <audio id="wrongSound">
       <source src="../../../Asset/audio/unit1/soal/incorrect.mp3" type="audio/mp3">
     </audio>
-
-    <audio id="hover-sound">
-      <source src="../../../Asset/audio/click.mp3" type="audio/mpeg">
-    </audio>
   </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       function shuffleArray(array) {
@@ -84,112 +81,108 @@
           [array[i], array[j]] = [array[j], array[i]];
         }
       }
-
-
-      // Yg di komen brarti blm pasti bakal di pake di unit ini / ngga
       const questions = [
-        // {
-        //   text: "What is Galih's favorite subject?",  y
-        //   options: [
-        //     "English",
-        //     "Science",
-        //     "History",
-        //     "Math"
-        //   ],
-        //   answer: "Science"
-        // },
-        {
-          text: "What does Laura like about English?",
-          options: [
-            "Writing essays",
-            "Reading stories",
-            "Learning grammar",
-            "Watching movies"
-          ],
-          answer: "Reading stories"
-        },
-        // {
-        //   text: "What question does Laura ask Galih about sports?",
-        //   options: [
-        //     "Do you play any sports?",
-        //     "Do you like basketball?",
-        //     "What is your favorite team?",
-        //     "Can you run fast?"
-        //   ],
-        //   answer: "Do you play any sports?"
-        // },
-        {
-          text: "How often does Galih play soccer?",
-          options: [
-            "Every day",
-            "Twice a week",
-            "Every weekend",
-            "Once a month"
-          ],
-          answer: "Every weekend"
-        },
-        {
-          text: "Which historical period does Galih find fascinating?",
-          options: [
-            "World War II",
-            "The Renaissance",
-            "The Medieval Age",
-            "The Industrial Revolution"
-          ],
-          answer: "The Renaissance"
-        },
-        // {
-        //   text: "What does Laura ask Galih about history?",
-        //   options: [
-        //     "Do you like history?",
-        //     "Who is your favorite scientist?",
-        //     "Do you read history books?",
-        //     "Do you like science?"
-        //   ],
-        //   answer: "Do you like history?"
-        // },
-        // {
-        //   text: "Which branch of science does Galih love?",
-        //   options: [
-        //     "Biology",
-        //     "Chemistry",
-        //     "Physics",
-        //     "Astronomy"
-        //   ],
-        //   answer: "Astronomy"
-        // },
-        {
-          text: "What does Galih think about science?",
-          options: [
-            "It's boring",
-            "It's confusing",
-            "It's amazing",
-            "It's unnecessary"
-          ],
-          answer: "It's amazing"
-        },
-        {
-          // {
-          //   text: "Which part of math does Galih enjoy the most?",
-          //   options: [
-          //     "Geometry", 
-          //     "Statistics", 
-          //     "Algebra", 
-          //     "Trigonometry"
-          //   ],
-          //   answer: "Algebra"
-          // },
-          text: "What does Galih think about math?",
-          options: [
-            "It's challenging but fun",
-            "It's his favorite subject",
-            "It's very easy",
-            "He doesn't like it"
-          ],
-          answer: "It's challenging but fun"
-        }
-      ];
-
+// {
+//   text: "What is Galih's favorite subject?",  y
+//   options: [
+//     "English",
+//     "Science",
+//     "History",
+//     "Math"
+//   ],
+//   answer: "Science"
+// },
+{
+  text: "What does Laura like about English?",
+  options: [
+    "Writing essays",
+    "Reading stories",
+    "Learning grammar",
+    "Watching movies"
+  ],
+  answer: "Reading stories"
+},
+// {
+//   text: "What question does Laura ask Galih about sports?",
+//   options: [
+//     "Do you play any sports?",
+//     "Do you like basketball?",
+//     "What is your favorite team?",
+//     "Can you run fast?"
+//   ],
+//   answer: "Do you play any sports?"
+// },
+{
+  text: "How often does Galih play soccer?",
+  options: [
+    "Every day",
+    "Twice a week",
+    "Every weekend",
+    "Once a month"
+  ],
+  answer: "Every weekend"
+},
+{
+  text: "Which historical period does Galih find fascinating?",
+  options: [
+    "World War II",
+    "The Renaissance",
+    "The Medieval Age",
+    "The Industrial Revolution"
+  ],
+  answer: "The Renaissance"
+},
+// {
+//   text: "What does Laura ask Galih about history?",
+//   options: [
+//     "Do you like history?",
+//     "Who is your favorite scientist?",
+//     "Do you read history books?",
+//     "Do you like science?"
+//   ],
+//   answer: "Do you like history?"
+// },
+// {
+//   text: "Which branch of science does Galih love?",
+//   options: [
+//     "Biology",
+//     "Chemistry",
+//     "Physics",
+//     "Astronomy"
+//   ],
+//   answer: "Astronomy"
+// },
+{
+  text: "What does Galih think about science?",
+  options: [
+    "It's boring",
+    "It's confusing",
+    "It's amazing",
+    "It's unnecessary"
+  ],
+  answer: "It's amazing"
+},
+{
+  // {
+  //   text: "Which part of math does Galih enjoy the most?",
+  //   options: [
+  //     "Geometry", 
+  //     "Statistics", 
+  //     "Algebra", 
+  //     "Trigonometry"
+  //   ],
+  //   answer: "Algebra"
+  // },
+  text: "What does Galih think about math?",
+  options: [
+    "It's challenging but fun",
+    "It's his favorite subject",
+    "It's very easy",
+    "He doesn't like it"
+  ],
+  answer: "It's challenging but fun"
+}
+];
       shuffleArray(questions);
 
       let currentQuestion = 0;
@@ -320,8 +313,8 @@
       const settingOnButton = document.getElementById("settingOnButton");
 
       const songs = [
-        "../../../Asset/audio/sound.mp3",
-        "../../../Asset/audio/sound1.mp3"
+        "/Asset/audio/sound.mp3",
+        "/Asset/audio/sound1.mp3"
       ];
       let currentSongIndex = 0;
 
@@ -423,7 +416,7 @@
           }
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = "../../halaman_navigasi/halaman_navigasi.html";
+            window.location.href = "/www/script/halaman_navigasi/halaman_navigasi.html";
           }
         });
       });
@@ -434,3 +427,4 @@
 </body>
 
 </html>
+
